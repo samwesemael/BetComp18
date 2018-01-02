@@ -22,7 +22,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Betcompetition WK2018</title>
     <!-- Favicon-->
-    <link rel="icon" href="favicon.ico" type="images/brackemannen_logo">
+    <link rel="icon" href="favicon.ico" type="images/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -323,8 +323,20 @@
                     </li>
 					<li>
                         <a href="pages/klassement.html">
-                            <i class="material-icons">assessment</i>
+                            <i class="material-icons">format_list_numbered</i>
                             <span>Klassement</span>
+                        </a>
+                    </li>
+					<li>
+                        <a href="pages/bonussen.html">
+                            <i class="material-icons">redeem</i>
+                            <span>Bonussen</span>
+                        </a>
+                    </li>
+					<li>
+                        <a href="pages/matches.html">
+                            <i class="material-icons">timer</i>
+                            <span>Matches</span>
                         </a>
                     </li>
 					  <li>
@@ -598,74 +610,7 @@
                                 <a href="pages/maps/jvectormap.html">jVectorMap</a>
                             </li>
                         </ul>
-                    </li>
-					<!--
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">trending_down</i>
-                            <span>Multi Level Menu</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <span>Menu Item</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <span>Menu Item - 2</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Level - 2</span>
-                                </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <span>Menu Item</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);" class="menu-toggle">
-                                            <span>Level - 3</span>
-                                        </a>
-                                        <ul class="ml-menu">
-                                            <li>
-                                                <a href="javascript:void(0);">
-                                                    <span>Level - 4</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-					-->
-					
-                  
-					<!--
-                    <li class="header">LABELS</li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-red">donut_large</i>
-                            <span>Important</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-amber">donut_large</i>
-                            <span>Warning</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-light-blue">donut_large</i>
-                            <span>Information</span>
-                        </a>
-                    </li>
-					-->
+                    </li>				
                 </ul>
             </div>
             <!-- #Menu -->
