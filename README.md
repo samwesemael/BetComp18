@@ -3,11 +3,11 @@
 
 ## TODO:
 
-### Veiligheid:
+##### Veiligheid:
 
 - Accountgegevens in cookies?
 
-### Users:
+##### Users:
 
 - Verification
 
