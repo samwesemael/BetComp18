@@ -17,11 +17,8 @@
                                 MATCHEN</b>
 						     </h2>
 							 <br>
-
-                     
-                 
+            
                         </div>
-						
 						
 					
                         <div class="body">

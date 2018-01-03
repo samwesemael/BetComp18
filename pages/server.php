@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 // variable declaration
 $username = "";
 $email    = "";

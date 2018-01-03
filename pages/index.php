@@ -2,7 +2,6 @@
 <html>
 
 <?php include 'navigator.php';?>
-
 <script type="text/javascript">
     document.getElementById("nav-home").classList.toggle('active');
 </script>

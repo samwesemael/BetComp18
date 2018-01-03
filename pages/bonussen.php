@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html>
-
 <?php include 'navigator.php';?>
 <script type="text/javascript">
     document.getElementById("nav-bonussen").classList.toggle('active');

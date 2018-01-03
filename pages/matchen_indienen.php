@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <!-- navigator inladen en juist actief zetten -->
 <?php include 'navigator.php';?>
 <script type="text/javascript">
