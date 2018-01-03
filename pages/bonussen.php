@@ -761,11 +761,10 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h1>
-                                Topschutters
-							</h1>
-                                <small>blabla</small>
-                            
+                            <h3>
+                                TOPSCHUTTERS
+							</h3>
+                                                          
                             
                         </div>
                         <div class="body table-responsive">
@@ -814,11 +813,10 @@
 				                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h1>
-                                Vuilste ploeg
-							</h1>
-                                <small>blabla</small>
-                            
+                            <h3>
+                                VUILSTE PLOEG
+							</h3>
+                              
                             
                         </div>
                         <div class="body table-responsive">
@@ -876,15 +874,85 @@
                 </div>
             </div>
             <!-- #END# Basic Table -->
+			
+				            <!-- Basic Table -->
+            <div class="row clearfix">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h3>
+                                FINALE
+							</h3>
+							    <div class="media">
+                                 <div class="media-left media-middle">
+								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <a href="#">
+                                        <img class="media-object" src="../images/flags/flag_unk.png" width="64" height="64">
+                                    </a>
+                                </div>
+                                <div class="media-body media-middle centered-content">
+                                     <h5>T.B.D. - T.B.D. </h5> <br>
+									  <h4></h4>
+                                </div>
+                                <div class="media-right media-middle">
+                                    <a href="#">
+                                        <img class="media-object" src="../images/flags/flag_unk.png" width="64" height="64">
+                                    </a>
+                                
+                            </div>	
+						</div>							
+                            </div>
+							</div>
+							</div>
+							</div>
+							
+				
+				                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h3>
+                                POSITIE BELGIE
+							</h3>
+                             				
+							<div class="body">
+                            <div class="progress">
+							
+							    <div class="progress-bar progress-bar-success" role="progressbar" style="width:20%">
+								GROEP
+								</div>
+								 <div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
+								1/8
+								</div>							
+                                <div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%;">
+								1/4
+                                </div>
+								<div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
+								1/2
+								</div>
+								<div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
+								Finale
+								</div>
+                            </div>
+                        </div>
+                                
+                            </div>	
+						</div>	
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Basic Table -->
 	
 	    <!-- Basic Table -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h1>
-                                Overzicht
-							</h1>
+                            <h3>
+                                OVERZICHT
+							</h3>
                                 <small>Deze punten worden pas na de finale bij het totale klassement bijgeteld.</small>
                             
                             

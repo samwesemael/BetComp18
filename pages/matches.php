@@ -762,8 +762,16 @@
                         <div class="header">
                             <h2>
                                 Matches
+						     </h2>
+							 <br>
                                <!-- <small>Add quick, dynamic tab functionality to transition through panes of local content</small> -->
-                            </h2>
+							   <small>Speeldag 1-15: groepsfase</small> <br>
+							   <small>Speeldag 16-19: 8ste finales</small> <br>
+							   <small>Speeldag 20-21: kwartfinales</small> <br>
+							   <small>Speeldag 22-23: halve finales</small> <br>
+							   <small>Speeldag 24: 3de plaats</small> <br>
+							   <small>Speeldag 25: finale</small> <br>
+                     
                  
                         </div>
                         <div class="body">
@@ -811,8 +819,8 @@
                                 </div>
 								
                                 <div class="media-body media-middle centered-content">
-                                     <h5>RUSLAND - SAUDI-ARABIA</h5> <br>
-									  <h4>2-2</h4>
+                                     <h6>RUSLAND - SAUDI-ARABIA</h6> <br>
+									  <h5>2-2</h5>
                                 </div>
                                 <div class="media-right media-middle">
                                     <a href="#">
