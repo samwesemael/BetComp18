@@ -6,9 +6,10 @@
 ### Veiligheid:
 
 - Accountgegevens in cookies?
--
-- 
-- 
+
+### Users:
+
+- Verification
 
 
 ## EXTRA:
