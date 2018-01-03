@@ -1074,7 +1074,7 @@
                                             </div>
                                             <div id="collapseFive_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive_1">
                                                 <div class="panel-body">
-                                                  <	ul class="nav nav-tabs tab-nav-right" role="tablist">
+                                                  <ul class="nav nav-tabs tab-nav-right" role="tablist">
                                                     <li role="presentation"><a href="#24" data-toggle="tab">24</a></li>
                                 <li role="presentation"><a href="#25" data-toggle="tab">25</a></li>
                         </ul>
