@@ -303,6 +303,22 @@
                             <span>Home</span>
                         </a>
                     </li>
+										<li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">archive</i>
+                            <span>Gokken</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="matchen_indienen.php">Matchen</a>
+                              
+                            </li>
+                            <li>
+                               <a href="bonussen_indienen.php">Bonussen</a>
+                               
+                            </li>
+                        </ul>
+                    </li>
                     <li>
                         <a href="klassement.php">
                             <i class="material-icons">format_list_numbered</i>
@@ -317,7 +333,7 @@
                     </li>
                     <li>
                         <a href="matches.php">
-                            <i class="material-icons">timer</i>
+                            <i class="material-icons">today</i>
                             <span>Matches</span>
                         </a>
                     </li>
