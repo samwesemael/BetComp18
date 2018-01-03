@@ -331,7 +331,7 @@
                     <li
                     id = 'nav-matches'>
                         <a href="/betcomp18/pages/matches.php">
-                            <i class="material-icons">timer</i>
+                            <i class="material-icons">today</i>
                             <span>Matches</span>
                         </a>
                     </li>
