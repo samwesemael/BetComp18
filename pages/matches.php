@@ -764,18 +764,7 @@
                                 Matches
                                <!-- <small>Add quick, dynamic tab functionality to transition through panes of local content</small> -->
                             </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                 
                         </div>
                         <div class="body">
                             <!-- Nav tabs -->
@@ -845,6 +834,7 @@
                                     <tr>                                
                                         <th>Naam</th>
 										<th>Score</th>
+										<th>Punten</th>
 
                                     </tr>
                                 </thead>
@@ -853,27 +843,32 @@
                                    
                                         <td>Mark</td>
 										<td>2-2</td>
+										<td>3</td>
 
                                     </tr>
                                     <tr>
                               
                                         <td>Jacob</td>
 										<td>2-2</td>
+										<td>3</td>
                                     </tr>
                                     <tr>
                          
                                         <td>Larry</td>
 										<td>2-2</td>
+										<td>3</td>
                                     </tr>
                                     <tr>
                               
                                         <td>Larry</td>
 											<td>2-2</td>
+											<td>3</td>
                                     </tr>
                                     <tr>
                           
                                         <td>Larry</td>
 										<td>2-2</td>
+										<td>3</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -916,6 +911,7 @@
                                     <tr>                                
                                         <th>Naam</th>
 										<th>Score</th>
+										<th>Punten</th>
 
                                     </tr>
                                 </thead>
@@ -924,27 +920,32 @@
                                    
                                         <td>Mark</td>
 										<td>2-2</td>
+										<td>3</td>
 
                                     </tr>
                                     <tr>
                               
                                         <td>Jacob</td>
 										<td>2-2</td>
+										<td>3</td>
                                     </tr>
                                     <tr>
                          
                                         <td>Larry</td>
 										<td>2-2</td>
+										<td>3</td>
                                     </tr>
                                     <tr>
                               
                                         <td>Larry</td>
 											<td>2-2</td>
+											<td>3</td>
                                     </tr>
                                     <tr>
                           
                                         <td>Larry</td>
 										<td>2-2</td>
+										<td>3</td>
                                     </tr>
                                 </tbody>
                             </table>
