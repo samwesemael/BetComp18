@@ -764,19 +764,28 @@
                                 Matches
 						     </h2>
 							 <br>
-                               <!-- <small>Add quick, dynamic tab functionality to transition through panes of local content</small> -->
-							   <small>Speeldag 1-15: groepsfase</small> <br>
-							   <small>Speeldag 16-19: 8ste finales</small> <br>
-							   <small>Speeldag 20-21: kwartfinales</small> <br>
-							   <small>Speeldag 22-23: halve finales</small> <br>
-							   <small>Speeldag 24: 3de plaats</small> <br>
-							   <small>Speeldag 25: finale</small> <br>
+
                      
                  
                         </div>
+						
+						
+					
                         <div class="body">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs tab-nav-right" role="tablist">
+						
+						<div class="panel-group" id="accordion_1" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading" role="tab" id="headingOne_1">
+                                                <h4 class="panel-title">
+                                                    <a role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseOne_1" aria-expanded="true" aria-controls="collapseOne_1">
+                                                        Groepsfase
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseOne_1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne_1">
+                                                <div class="panel-body">
+												
+												 <ul class="nav nav-tabs tab-nav-right" role="tablist">
 							<!-- TODO: active de speeldag van die dag laten zijn -->
                                 <li role="presentation" class="active"><a href="#1" data-toggle="tab">1</a></li>
                                 <li role="presentation"><a href="#2" data-toggle="tab">2</a></li>
@@ -793,20 +802,11 @@
                                 <li role="presentation"><a href="#13" data-toggle="tab">13</a></li>
                                 <li role="presentation"><a href="#14" data-toggle="tab">14</a></li>
                                 <li role="presentation"><a href="#15" data-toggle="tab">15</a></li>
-                                <li role="presentation"><a href="#16" data-toggle="tab">16</a></li>
-                                <li role="presentation"><a href="#17" data-toggle="tab">17</a></li>
-                                <li role="presentation"><a href="#18" data-toggle="tab">18</a></li>
-                                <li role="presentation"><a href="#19" data-toggle="tab">19</a></li>
-                                <li role="presentation"><a href="#20" data-toggle="tab">20</a></li>
-                                <li role="presentation"><a href="#21" data-toggle="tab">21</a></li>
-                                <li role="presentation"><a href="#22" data-toggle="tab">22</a></li>
-                                <li role="presentation"><a href="#23" data-toggle="tab">23</a></li>
-                                <li role="presentation"><a href="#24" data-toggle="tab">24</a></li>
-                                <li role="presentation"><a href="#25" data-toggle="tab">25</a></li>
-                            </ul>
-
-                            <!-- Tab panes -->
-                            <div class="tab-content">
+												</ul>
+                                                   
+                                                </div>
+												
+								<div class="tab-content">
 							
 							
                                 <div role="tabpanel" class="tab-pane fade in active" id="1">
@@ -993,7 +993,103 @@
                                     </p>
                                 </div>
                             </div>
-                        </div>
+												
+												
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading" role="tab" id="headingTwo_1">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseTwo_1" aria-expanded="false"
+                                                       aria-controls="collapseTwo_1">
+                                                        8ste finales
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseTwo_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo_1">
+                                                <div class="panel-body">
+												 <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                                                    <li role="presentation"><a href="#16" data-toggle="tab">16</a></li>
+                                <li role="presentation"><a href="#17" data-toggle="tab">17</a></li>
+                                <li role="presentation"><a href="#18" data-toggle="tab">18</a></li>
+                                <li role="presentation"><a href="#19" data-toggle="tab">19</a></li> </ul>
+								
+								
+								
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading" role="tab" id="headingThree_1">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseThree_1" aria-expanded="false"
+                                                       aria-controls="collapseThree_1">
+                                                        Kwartfinales
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseThree_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree_1">
+                                                <div class="panel-body">
+                                                   
+												   <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                                                    <li role="presentation"><a href="#20" data-toggle="tab">20</a></li>
+                                <li role="presentation"><a href="#21" data-toggle="tab">21</a></li>
+                        </ul>
+												   
+												   
+                                                </div>
+                                            </div>
+                                        </div>
+										
+										<div class="panel panel-primary">
+                                            <div class="panel-heading" role="tab" id="headingFour_1">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseFour_1" aria-expanded="false"
+                                                       aria-controls="collapseFour_1">
+                                                        Halve finales
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFour_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour_1">
+                                                <div class="panel-body">
+                                                   
+												   <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                                                    <li role="presentation"><a href="#21" data-toggle="tab">22</a></li>
+                                <li role="presentation"><a href="#22" data-toggle="tab">23</a></li>
+                        </ul>
+												   
+												   
+                                                </div>
+                                            </div>
+                                        </div>
+										
+																			<div class="panel panel-primary">
+                                            <div class="panel-heading" role="tab" id="headingFive_1">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseFive_1" aria-expanded="false"
+                                                       aria-controls="collapseFive_1">
+                                                        Troosting & Finale
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFive_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive_1">
+                                                <div class="panel-body">
+                                                  <	ul class="nav nav-tabs tab-nav-right" role="tablist">
+                                                    <li role="presentation"><a href="#24" data-toggle="tab">24</a></li>
+                                <li role="presentation"><a href="#25" data-toggle="tab">25</a></li>
+                        </ul>
+												   
+												   
+                                                </div>
+                                            </div>
+                                        </div>	
+										
+										
+                                        </div>	
+                                    </div>				
+						
+						
+                      </div>
                     </div>
                 </div>
             </div>
