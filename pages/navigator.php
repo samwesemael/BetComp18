@@ -19,7 +19,7 @@
     <title>Betcompetition WK2018</title>
 
     <!-- Favicon-->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -321,7 +321,7 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li id = 'nav-home'>
-                        <a href="index.php">
+                        <a href="../index.php">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
@@ -640,10 +640,10 @@
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; 2016 - 2017 <a href="javascript:void(0);">Betcompetition WK2018</a>.
+                    &copy; 2018 <a href="javascript:void(0);">Betcompetition WK2018</a>.
                 </div>
                 <div class="version">
-                    <b>Version: </b> 1.0.5
+                    <b>Version: </b> 0.0.69
                 </div>
             </div>
             <!-- #Footer -->

@@ -1,11 +1,14 @@
 ﻿<!DOCTYPE html>
 <html>
 
-<?php include 'navigator.php';?>
+<?php include 'navigator.php';
+console.log("test")?>
 <script type="text/javascript">
     document.getElementById("nav-home").classList.toggle('active');
+	
 </script>
 
+	
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
@@ -59,7 +62,9 @@
                     </div>
                 </div>
             </div>
-            <!-- #END# Widgets -->
+            <!-- #END# Widgets -->		
+		
+
             <!-- CPU Usage -->
             <div class="row clearfix">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -96,6 +101,8 @@
                 </div>
             </div>
             <!-- #END# CPU Usage -->
+			
+
             <!-- Top4 Klasseme -->
             <div class="row clearfix">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -106,11 +113,12 @@
                                     <h2>Klassement Top 4</h2>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 align-right">
-                                    <!-- <div class="switch panel-switch-btn">
+                                    <div class="switch panel-switch-btn">
                                         <span class="m-r-10 font-12">REAL TIME</span>
                                         <label>OFF<input type="checkbox" id="realtime" checked><span class="lever switch-col-cyan"></span>ON</label>
-                                    </div> -->
-                                    <?php
+                                    </div> 
+									
+                                    <?php  
                                             include('server.php');
                                             $sqlklassement = "SELECT klassement.email, klassement.totaal, users.pic_path FROM klassement inner join users on klassement.email = users.email ORDER BY totaal DESC LIMIT 4";
                                             $results = mysqli_query($db, $sqlklassement);
@@ -119,6 +127,7 @@
                                                 exit();
                                               }
                                             $loop = 1;
+											
                                             while($data = mysqli_fetch_array($results)){
                                             echo '
                                                         <div class="col-md-3 col-sm-6">
@@ -138,7 +147,7 @@
                                                           </div>
                                                         </div>';
                                                 $loop++;
-                                              }
+                                              } 
                                             ?>
 
                                 </div>
@@ -159,9 +168,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- #END# Top 4 Klassemen -->
-
+				<script>
+console.log("test")
+</script>
             <div class="row clearfix">
                 <!-- Visitors -->
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
@@ -383,6 +394,8 @@
             </div>
         </div>
     </section>
+	
+
 
     <!-- Jquery Core Js -->
     <script src="../plugins/jquery/jquery.min.js"></script>

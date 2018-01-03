@@ -5,9 +5,7 @@
 <script type="text/javascript">
     document.getElementById("nav-gokken").classList.toggle('active');
     document.getElementById("nav-bonussen-indienen").classList.toggle('active');
-    
 </script>
-
     <section class="content">
 	
            <div class="row clearfix">
