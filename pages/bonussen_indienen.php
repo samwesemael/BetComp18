@@ -177,11 +177,12 @@
 						</div>
 									
               
-         
-									 <button type="button" class="btn bg-blue waves-effect">
+								<div class="row clearfix js-sweetalert">
+									 <button type="button" class="btn bg-blue waves-effect" data-type="success">
                                     <i class="material-icons">save</i>
                                     <span>SAVE</span>
                                 </button>
+								</div>
 								
                             </form>
                         </div>
@@ -202,12 +203,19 @@
 
     <!-- Slimscroll Plugin Js -->
     <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+	
+	  <!-- Bootstrap Notify Plugin Js -->
+    <script src="../../plugins/bootstrap-notify/bootstrap-notify.js"></script>
 
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>
+	
+	 <!-- SweetAlert Plugin Js -->
+    <script src="../../plugins/sweetalert/sweetalert.min.js"></script>
 
     <!-- Custom Js -->
     <script src="../js/admin.js"></script>
+	<script src="../../js/pages/ui/dialogs.js"></script>
 
     <!-- Demo Js -->
     <script src="../js/demo.js"></script>

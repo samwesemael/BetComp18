@@ -18,6 +18,9 @@
 
     <!-- Animation Css -->
     <link href="/betcomp18/plugins/animate-css/animate.css" rel="stylesheet" />
+	
+	    <!-- Sweetalert Css -->
+    <link href="../../plugins/sweetalert/sweetalert.css" rel="stylesheet" />
 
     <!-- Custom Css -->
     <link href="/betcomp18/css/style.css" rel="stylesheet">
