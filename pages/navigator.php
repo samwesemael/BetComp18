@@ -1,3 +1,17 @@
+<?php 
+  session_start(); 
+
+  if (!isset($_SESSION['email'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: sign-in.php');
+  }
+  if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['email']);
+    header("location: sign-in.php");
+  }
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -11,19 +25,19 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
-    <link href="/betcomp18/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="/betcomp18/plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
 
     <!-- Animation Css -->
-    <link href="/betcomp18/plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
 
     <!-- Custom Css -->
-    <link href="/betcomp18/css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="/betcomp18/css/themes/all-themes.css" rel="stylesheet" />
+    <link href="../css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
 <body class="theme-red">
@@ -307,55 +321,55 @@
                         </a>
                         <ul class="ml-menu">
                             <li id="nav-matchen-indienen">
-                                <a href="/betcomp18/pages/matchen_indienen.php">Matchen</a>
+                                <a href="matchen_indienen.php">Matchen</a>
                               
                             </li>
                             <li id="nav-bonussen-indienen">
-                               <a href="/betcomp18/pages/bonussen_indienen.php">Bonussen</a>
+                               <a href="bonussen_indienen.php">Bonussen</a>
                                
                             </li>
                         </ul>
                     </li>
 					<li id = 'nav-klassement'>
-                        <a href="/betcomp18/pages/klassement.php">
+                        <a href="klassement.php">
                             <i class="material-icons">format_list_numbered</i>
                             <span>Klassement</span>
                         </a>
                     </li>
                     <li id = 'nav-bonussen'>
-                        <a href="/betcomp18/pages/bonussen.php">
+                        <a href="bonussen.php">
                             <i class="material-icons">redeem</i>
                             <span>Bonussen</span>
                         </a>
                     </li>
                     <li
                     id = 'nav-matches'>
-                        <a href="/betcomp18/pages/matches.php">
+                        <a href="matches.php">
                             <i class="material-icons">today</i>
                             <span>Matchen</span>
                         </a>
                     </li>
                     <li id = 'nav-twitter'>
-                        <a href="/betcomp18/pages/twitterfeed.php">
+                        <a href="twitterfeed.php">
                             <i class="material-icons">whatshot</i>
                             <span>Twitterfeed</span>
                         </a>
                     </li>
                     
                     <li id = 'nav-rules'>
-                        <a href="/betcomp18/pages/rules.php">
+                        <a href="rules.php">
                             <i class="material-icons">book</i>
                             <span>Spelregels</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/betcomp18/pages/typography.html">
+                        <a href="typography.html">
                             <i class="material-icons">text_fields</i>
                             <span>Typography</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/betcomp18/pages/helper-classes.html">
+                        <a href="helper-classes.html">
                             <i class="material-icons">layers</i>
                             <span>Helper Classes</span>
                         </a>
@@ -372,13 +386,13 @@
                                 </a>
                                 <ul class="ml-menu">
                                     <li>
-                                        <a href="/betcomp18/pages/widgets/cards/basic.html">Basic</a>
+                                        <a href="widgets/cards/basic.html">Basic</a>
                                     </li>
                                     <li>
-                                        <a href="/betcomp18/pages/widgets/cards/colored.html">Colored</a>
+                                        <a href="widgets/cards/colored.html">Colored</a>
                                     </li>
                                     <li>
-                                        <a href="/betcomp18/pages/widgets/cards/no-header.html">No Header</a>
+                                        <a href="widgets/cards/no-header.html">No Header</a>
                                     </li>
                                 </ul>
                             </li>
@@ -388,19 +402,19 @@
                                 </a>
                                 <ul class="ml-menu">
                                     <li>
-                                        <a href="/betcomp18/pages/widgets/infobox/infobox-1.html">Infobox-1</a>
+                                        <a href="widgets/infobox/infobox-1.html">Infobox-1</a>
                                     </li>
                                     <li>
-                                        <a href="/betcomp18/pages/widgets/infobox/infobox-2.html">Infobox-2</a>
+                                        <a href="widgets/infobox/infobox-2.html">Infobox-2</a>
                                     </li>
                                     <li>
-                                        <a href="/betcomp18/pages/widgets/infobox/infobox-3.html">Infobox-3</a>
+                                        <a href="widgets/infobox/infobox-3.html">Infobox-3</a>
                                     </li>
                                     <li>
-                                        <a href="/betcomp18/pages/widgets/infobox/infobox-4.html">Infobox-4</a>
+                                        <a href="widgets/infobox/infobox-4.html">Infobox-4</a>
                                     </li>
                                     <li>
-                                        <a href="/betcomp18/pages/widgets/infobox/infobox-5.html">Infobox-5</a>
+                                        <a href="widgets/infobox/infobox-5.html">Infobox-5</a>
                                     </li>
                                 </ul>
                             </li>
@@ -413,74 +427,74 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="/betcomp18/pages/ui/alerts.html">Alerts</a>
+                                <a href="ui/alerts.html">Alerts</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/animations.html">Animations</a>
+                                <a href="ui/animations.html">Animations</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/badges.html">Badges</a>
+                                <a href="ui/badges.html">Badges</a>
                             </li>
 
                             <li>
-                                <a href="/betcomp18/pages/ui/breadcrumbs.html">Breadcrumbs</a>
+                                <a href="ui/breadcrumbs.html">Breadcrumbs</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/buttons.html">Buttons</a>
+                                <a href="ui/buttons.html">Buttons</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/collapse.html">Collapse</a>
+                                <a href="ui/collapse.html">Collapse</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/colors.html">Colors</a>
+                                <a href="ui/colors.html">Colors</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/dialogs.html">Dialogs</a>
+                                <a href="ui/dialogs.html">Dialogs</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/icons.html">Icons</a>
+                                <a href="ui/icons.html">Icons</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/labels.html">Labels</a>
+                                <a href="ui/labels.html">Labels</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/list-group.html">List Group</a>
+                                <a href="ui/list-group.html">List Group</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/media-object.html">Media Object</a>
+                                <a href="ui/media-object.html">Media Object</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/modals.html">Modals</a>
+                                <a href="ui/modals.html">Modals</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/notifications.html">Notifications</a>
+                                <a href="ui/notifications.html">Notifications</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/pagination.html">Pagination</a>
+                                <a href="ui/pagination.html">Pagination</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/preloaders.html">Preloaders</a>
+                                <a href="ui/preloaders.html">Preloaders</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/progressbars.html">Progress Bars</a>
+                                <a href="ui/progressbars.html">Progress Bars</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/range-sliders.html">Range Sliders</a>
+                                <a href="ui/range-sliders.html">Range Sliders</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/sortable-nestable.html">Sortable & Nestable</a>
+                                <a href="ui/sortable-nestable.html">Sortable & Nestable</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/tabs.html">Tabs</a>
+                                <a href="ui/tabs.html">Tabs</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/thumbnails.html">Thumbnails</a>
+                                <a href="ui/thumbnails.html">Thumbnails</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/tooltips-popovers.html">Tooltips & Popovers</a>
+                                <a href="ui/tooltips-popovers.html">Tooltips & Popovers</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/ui/waves.html">Waves</a>
+                                <a href="ui/waves.html">Waves</a>
                             </li>
                         </ul>
                     </li>
@@ -491,22 +505,22 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="/betcomp18/pages/forms/basic-form-elements.html">Basic Form Elements</a>
+                                <a href="forms/basic-form-elements.html">Basic Form Elements</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/forms/advanced-form-elements.html">Advanced Form Elements</a>
+                                <a href="forms/advanced-form-elements.html">Advanced Form Elements</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/forms/form-examples.html">Form Examples</a>
+                                <a href="forms/form-examples.html">Form Examples</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/forms/form-validation.html">Form Validation</a>
+                                <a href="forms/form-validation.html">Form Validation</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/forms/form-wizard.html">Form Wizard</a>
+                                <a href="forms/form-wizard.html">Form Wizard</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/forms/editors.html">Editors</a>
+                                <a href="forms/editors.html">Editors</a>
                             </li>
                         </ul>
                     </li>
@@ -517,13 +531,13 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="/betcomp18/pages/tables/normal-tables.html">Normal Tables</a>
+                                <a href="tables/normal-tables.html">Normal Tables</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/tables/jquery-datatable.html">Jquery Datatables</a>
+                                <a href="tables/jquery-datatable.html">Jquery Datatables</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/tables/editable-table.html">Editable Tables</a>
+                                <a href="tables/editable-table.html">Editable Tables</a>
                             </li>
                         </ul>
                     </li>
@@ -534,10 +548,10 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="/betcomp18/pages/medias/image-gallery.html">Image Gallery</a>
+                                <a href="medias/image-gallery.html">Image Gallery</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/medias/carousel.html">Carousel</a>
+                                <a href="pages/medias/carousel.html">Carousel</a>
                             </li>
                         </ul>
                     </li>
@@ -548,19 +562,19 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="/betcomp18/pages/charts/morris.html">Morris</a>
+                                <a href="charts/morris.html">Morris</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/charts/flot.html">Flot</a>
+                                <a href="charts/flot.html">Flot</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/charts/chartjs.html">ChartJS</a>
+                                <a href="charts/chartjs.html">ChartJS</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/charts/sparkline.html">Sparkline</a>
+                                <a href="charts/sparkline.html">Sparkline</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/charts/jquery-knob.html">Jquery Knob</a>
+                                <a href="charts/jquery-knob.html">Jquery Knob</a>
                             </li>
                         </ul>
                     </li>
@@ -571,22 +585,22 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="/betcomp18/pages/examples/sign-in.html">Sign In</a>
+                                <a href="examples/sign-in.html">Sign In</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/examples/sign-up.html">Sign Up</a>
+                                <a href="examples/sign-up.html">Sign Up</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/examples/forgot-password.html">Forgot Password</a>
+                                <a href="examples/forgot-password.html">Forgot Password</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/examples/blank.html">Blank Page</a>
+                                <a href="examples/blank.html">Blank Page</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/examples/404.html">404 - Not Found</a>
+                                <a href="examples/404.html">404 - Not Found</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/examples/500.html">500 - Server Error</a>
+                                <a href="examples/500.html">500 - Server Error</a>
                             </li>
                         </ul>
                     </li>
@@ -597,13 +611,13 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="/betcomp18/pages/maps/google.html">Google Map</a>
+                                <a href="maps/google.html">Google Map</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/maps/yandex.html">YandexMap</a>
+                                <a href="maps/yandex.html">YandexMap</a>
                             </li>
                             <li>
-                                <a href="/betcomp18/pages/maps/jvectormap.html">jVectorMap</a>
+                                <a href="maps/jvectormap.html">jVectorMap</a>
                             </li>
                         </ul>
                     </li>

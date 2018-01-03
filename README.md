@@ -2,6 +2,8 @@
 
 
 ## TODO:
+- servercalls centraliseren
+- fb login
 
 ##### Veiligheid:
 
@@ -15,4 +17,4 @@
 ## EXTRA:
 
 - chat?  
-- 
+- map met stadiums + info

@@ -1,22 +1,8 @@
-﻿<?php 
-  session_start(); 
-
-  if (!isset($_SESSION['email'])) {
-    $_SESSION['msg'] = "You must log in first";
-    header('location: sign-in.php');
-  }
-  if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION['email']);
-    header("location: sign-in.php");
-  }
-?>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <!-- navigator inladen en juist actief zetten -->
-<?php include '../navigator.php';?>
+<?php include 'navigator.php';?>
 <script type="text/javascript">
     document.getElementById("nav-twitter").classList.toggle('active');
 </script>
