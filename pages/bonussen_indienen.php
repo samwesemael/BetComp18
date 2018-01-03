@@ -178,7 +178,10 @@
 									
               
          
-                                <button class="btn btn-primary waves-effect" type="submit">INDIENEN</button>
+									 <button type="button" class="btn bg-blue waves-effect">
+                                    <i class="material-icons">save</i>
+                                    <span>SAVE</span>
+                                </button>
 								
                             </form>
                         </div>
