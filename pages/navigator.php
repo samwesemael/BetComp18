@@ -33,6 +33,17 @@
     <!-- Animation Css -->
     <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
 
+    <!-- Sweetalert Css -->
+    <link href="/betcomp18/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    
+     <!-- Dropzone Css -->
+    <link href="/betcomp18/plugins/dropzone/dropzone.css" rel="stylesheet">
+    
+    <!-- Bootstrap Select Css -->
+    <link href="/betcomp18/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+
+
     <!-- Custom Css -->
     <link href="../css/style.css" rel="stylesheet">
 
