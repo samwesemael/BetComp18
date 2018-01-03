@@ -300,6 +300,22 @@
                             <span>Home</span>
                         </a>
                     </li>
+                    <li id="nav-gokken">
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">archive</i>
+                            <span>Gokken</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li id="nav-matchen-indienen">
+                                <a href="/betcomp18/pages/matchen_indienen.php">Matchen</a>
+                              
+                            </li>
+                            <li id="nav-bonussen-indienen">
+                               <a href="/betcomp18/pages/bonussen_indienen.php">Bonussen</a>
+                               
+                            </li>
+                        </ul>
+                    </li>
 					<li id = 'nav-klassement'>
                         <a href="/betcomp18/pages/klassement.php">
                             <i class="material-icons">format_list_numbered</i>
