@@ -317,13 +317,13 @@
                             <span>Home</span>
                         </a>
                     </li>
-					<li>
+					<li class="active">
                         <a href="klassement.php">
                             <i class="material-icons">format_list_numbered</i>
                             <span>Klassement</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="bonussen.php">
                             <i class="material-icons">redeem</i>
                             <span>Bonussen</span>

@@ -309,7 +309,7 @@
                             <span>Klassement</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="bonussen.php">
                             <i class="material-icons">redeem</i>
                             <span>Bonussen</span>
@@ -321,7 +321,7 @@
                             <span>Matches</span>
                         </a>
                     </li>
-                            <li>
+                            <li class="active">
                         <a href="twitterfeed.php">
                             <i class="material-icons">whatshot</i>
                             <span>Twitterfeed</span>

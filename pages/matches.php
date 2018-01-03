@@ -309,13 +309,13 @@
                             <span>Klassement</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="bonussen.php">
                             <i class="material-icons">redeem</i>
                             <span>Bonussen</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="matches.php">
                             <i class="material-icons">timer</i>
                             <span>Matches</span>
