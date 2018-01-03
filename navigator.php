@@ -332,7 +332,7 @@
                     id = 'nav-matches'>
                         <a href="/betcomp18/pages/matches.php">
                             <i class="material-icons">today</i>
-                            <span>Matches</span>
+                            <span>Matchen</span>
                         </a>
                     </li>
                     <li id = 'nav-twitter'>
