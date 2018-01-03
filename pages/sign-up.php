@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<?php include('server.php') ?>
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -33,14 +35,14 @@
         </div>
         <div class="card">
             <div class="body">
-                <form id="sign_up" method="POST">
+                <form id="sign_up" method="POST" action="sign-up.php">
                     <div class="msg">Register a new membership</div>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="namesurname" placeholder="Full Name" required autofocus>
+                            <input type="text" class="form-control" name="fullname" placeholder="Full Name" required autofocus>
                         </div>
                     </div>
                     <div class="input-group">
@@ -72,7 +74,7 @@
                         <label for="terms">I read and agree to the <a href="javascript:void(0);">terms of usage</a>.</label>
                     </div>
 
-                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">SIGN UP</button>
+                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit" name="reg_user">SIGN UP</button>
 
                     <div class="m-t-25 m-b--5 align-center">
                         <a href="sign-in.php">You already have a membership?</a>

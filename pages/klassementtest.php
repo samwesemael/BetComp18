@@ -1,40 +1,35 @@
-﻿<?php 
+<?php 
   session_start(); 
 
   if (!isset($_SESSION['email'])) {
     $_SESSION['msg'] = "You must log in first";
-    header('location: sign-in.php');
+    header('location: ./pages/sign-in.php');
   }
   if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['email']);
-    header("location: sign-in.php");
+    header("location: pages/sign-in.php");
   }
 ?>
 
 <!DOCTYPE html>
 <html>
-
 <!-- navigator inladen -->
-<?php include '../navigator.php' ?>
-
-<script type="text/javascript">
-    document.getElementById("nav-klassement").classList.toggle('active');
-</script>
+<?php include 'navigator.php';?>
 
     <section class="content">
-	
-	
-	            <!-- Basic Table -->
+  
+  
+              <!-- Basic Table -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h1>
                                 Klassement
-							</h1>
+                            </h1>
                                 <small>WJ = winnaar juist</small> <br>
-								<small>SJ = score juist</small>
+                                 <small>SJ = score juist</small>
                             
                             
                         </div>
@@ -46,7 +41,7 @@
                                         <th>Naam</th>
                                         <th>WJ</th>
                                         <th>SJ</th>
-										<th>Punten</th>
+                                        <th>Punten</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,35 +50,35 @@
                                         <td>Mark</td>
                                         <td>1</td>
                                         <td>1</td>
-										<td>9000</td>
+                                        <td>9000</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>
                                         <td>Jacob</td>
                                         <td>1</td>
                                         <td>1</td>
-										<td>9000</td>
+                                        <td>9000</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">3</th>
                                         <td>Larry</td>
                                         <td>1</td>
                                         <td>1</td>
-										<td>9000</td>
+                                        <td>9000</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">4</th>
                                         <td>Larry</td>
                                         <td>1</td>
                                         <td>1</td>
-										<td>9000</td>
+                                        <td>9000</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">5</th>
                                         <td>Larry</td>
                                         <td>1</td>
                                         <td>1</td>
-										<td>9000</td>
+                                        <td>9000</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -92,10 +87,10 @@
                 </div>
             </div>
             <!-- #END# Basic Table -->
-	
+  
     </section>
 
-    <!-- Jquery Core Js -->
+        <!-- Jquery Core Js -->
     <script src="../plugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core Js -->

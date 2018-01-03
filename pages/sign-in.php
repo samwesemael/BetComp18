@@ -30,7 +30,7 @@
 <body class="login-page">
     <div class="login-box">
         <div class="logo">
-            <a href="sign_in.php;">Bracke<b>Mannen</b></a>
+            <a href="sign-in.php">Bracke<b>Mannen</b></a>
             <small>Betcompetition WK2018</small>
         </div>
         <div class="card">
@@ -42,7 +42,7 @@
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="email" placeholder="Email" required autofocus>
+                            <input type="text" class="form-control" name="email" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?>" placeholder="Email" required autofocus>
                         </div>
                     </div>
                     <div class="input-group">
@@ -50,12 +50,12 @@
                             <i class="material-icons">lock</i>
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="password" placeholder="Password" required>
+                            <input type="password" class="form-control" name="password" value="<?php if(isset($_COOKIE["password"])) { echo $_COOKIE["password"]; } ?>" placeholder="Password" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-8 p-t-5">
-                            <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
+                            <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink" <?php if(isset($_COOKIE["email"])) { ?> checked <?php } ?> />
                             <label for="rememberme">Remember Me</label>
                         </div>
                         <div class="col-xs-4">
