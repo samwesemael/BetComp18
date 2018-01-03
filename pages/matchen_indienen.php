@@ -28,20 +28,73 @@
                         <div class="header">
                             <h2>Matchen indienen</h2>
                         </div>
-                        <div class="body">
-                            <form id="form_validation" method="POST">
+                        <div class="body">						
+                            <form id="form_validation" method="POST">								
+								<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"> 
+									<p> <b>Naam</b></p>
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="name" required>
+												<label class="form-label">Name</label>
+											</div>
+										</div>
+								</div>		
+																													
+                                <div class="col-md-3"> 
+									<p><b>Speeldag</b></p>								
+                                    <select class="form-control show-tick">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+										<option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+										<option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+										<option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+										<option>13</option>
+                                        <option>14</option>
+                                        <option>15</option>
+										<option>16</option>
+                                        <option>17</option>
+                                        <option>18</option>
+										<option>19</option>
+                                        <option>20</option>
+                                        <option>21</option>
+										<option>22</option>
+                                        <option>23</option>                                        
+										<option>24</option>
+										<option>25</option>
+                                    </select>					
+                                </div>  
+					
+					<div class="row clearfix">
+                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">	
+															 <p><b>Score</b> </p>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="name" required>
-                                        <label class="form-label">Name</label>
+                                        <label class="form-label">score</label>
                                     </div>
-                                </div>
-                                              
-                                <div class="form-group">
-                                    <input type="checkbox" id="checkbox" name="checkbox">
-                                    <label for="checkbox">I have read and accept the terms</label>
-                                </div>
-                                <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
+                                </div>   
+						</div>	
+						
+						<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">	
+															<p><b>Minuut eerste goal</b>  <small>(Enkel van toepassing bij finale)</small> </p>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="name" required>
+                                        <label class="form-label">minuut eerste goal</label>
+										
+                                    </div>
+                                </div>   
+						</div>	
+					</div>						
+                                
+                                <button class="btn btn-primary waves-effect" type="submit">INDIENEN</button>
                             </form>
                         </div>
                     </div>
