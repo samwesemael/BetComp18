@@ -810,13 +810,17 @@
 
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane fade in active" id="home">
+							
+							
+                                <div role="tabpanel" class="tab-pane fade in active" id="1">
 								<div class="media">
                                 <div class="media-left media-middle">
+								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <a href="#">
                                         <img class="media-object" src="../images/flags/flag_rus.png" width="64" height="64">
                                     </a>
                                 </div>
+								
                                 <div class="media-body media-middle centered-content">
                                      <h5>RUSLAND - SAUDI-ARABIA</h5> <br>
 									  <h4>2-2</h4>
@@ -828,7 +832,7 @@
                                 
                             </div>
                                   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    
+                    </div>
                         <div class="header">
                             <h3>
                                 Scores
@@ -838,8 +842,7 @@
                         <div class="body table-responsive">
                             <table class="table">
                                 <thead>
-                                    <tr>
-                                
+                                    <tr>                                
                                         <th>Naam</th>
 										<th>Score</th>
 
@@ -878,19 +881,91 @@
 				
                   </div>
             
+				</div>
+				</div>				
+				</div>				
+                                <div role="tabpanel" class="tab-pane fade" id="2">
+                                   
+								<div class="media">
+                                <div class="media-left media-middle">
+								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <a href="#">
+                                        <img class="media-object" src="../images/flags/flag_por.png" width="64" height="64">
+                                    </a>
+                                </div>
+                                <div class="media-body media-middle centered-content">
+                                     <h5>PORTUGAL - SPAIN</h5> <br>
+									  <h4>2-2</h4>
+                                </div>
+                                <div class="media-right media-middle">
+                                    <a href="#">
+                                        <img class="media-object" src="../images/flags/flag_spa.png" width="64" height="64">
+                                    </a>
+                                
+                            </div>
+                                 
+                        <div class="header">
+                            <h3>
+                                Scores
+							</h3>                                                   
+                            
+                       
+                        <div class="body table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>                                
+                                        <th>Naam</th>
+										<th>Score</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                   
+                                        <td>Mark</td>
+										<td>2-2</td>
+
+                                    </tr>
+                                    <tr>
+                              
+                                        <td>Jacob</td>
+										<td>2-2</td>
+                                    </tr>
+                                    <tr>
+                         
+                                        <td>Larry</td>
+										<td>2-2</td>
+                                    </tr>
+                                    <tr>
+                              
+                                        <td>Larry</td>
+											<td>2-2</td>
+                                    </tr>
+                                    <tr>
+                          
+                                        <td>Larry</td>
+										<td>2-2</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+				
+                  </div>
+            
+				</div>
+				</div>	
+								   
+								   
+								   
+								   
+								   
+								   
                                 </div>
 								
 								
-                                <div role="tabpanel" class="tab-pane fade" id="profile">
-                                    <b>Profile Content</b>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
-                                        Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid
-                                        pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
-                                        sadipscing mel.
-                                    </p>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade" id="messages">
+								
+								
+                                <div role="tabpanel" class="tab-pane fade" id="3">
                                     <b>Message Content</b>
                                     <p>
                                         Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
@@ -899,7 +974,7 @@
                                         sadipscing mel.
                                     </p>
                                 </div>
-                                <div role="tabpanel" class="tab-pane fade" id="settings">
+                                <div role="tabpanel" class="tab-pane fade" id="4">
                                     <b>Settings Content</b>
                                     <p>
                                         Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
