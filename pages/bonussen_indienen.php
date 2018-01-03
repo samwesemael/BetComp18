@@ -177,13 +177,14 @@
 						</div>
 									
               
-								<div class="row clearfix js-sweetalert">
-									 <button type="button" class="btn bg-blue waves-effect" data-type="success">
+								
+									 <button type="button" class="btn bg-blue waves-effect">
                                     <i class="material-icons">save</i>
                                     <span>SAVE</span>
                                 </button>
 								</div>
 								
+							
                             </form>
                         </div>
                     </div>
@@ -205,7 +206,7 @@
     <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 	
 	  <!-- Bootstrap Notify Plugin Js -->
-    <script src="../../plugins/bootstrap-notify/bootstrap-notify.js"></script>
+    <script src="../plugins/bootstrap-notify/bootstrap-notify.js"></script>
 
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>
@@ -215,8 +216,15 @@
 
     <!-- Custom Js -->
     <script src="../js/admin.js"></script>
-	<script src="../../js/pages/ui/dialogs.js"></script>
+	<script src="../js/pages/ui/dialogs.js"></script>
+	<script src="../js/pages/forms/advanced-form-elements.js"></script>
+	
+	    <!-- Dropzone Plugin Js -->
+    <script src="../plugins/dropzone/dropzone.js"></script>
 
+    <!-- Input Mask Plugin Js -->
+    <script src="../plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
+	
     <!-- Demo Js -->
     <script src="../js/demo.js"></script>
 </body>
