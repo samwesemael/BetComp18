@@ -277,7 +277,7 @@
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                    <div class="email">john.doe@example.com</div>
+                    <div class="email"><?php echo $_SESSION['email']?></div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
@@ -298,38 +298,38 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li>
-                        <a href="../index.html">
+                        <a href="../index.php">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
                     </li>
 					<li>
-                        <a href="klassement.html">
+                        <a href="klassement.php">
                             <i class="material-icons">format_list_numbered</i>
                             <span>Klassement</span>
                         </a>
                     </li>
-										<li class="active">
-                        <a href="bonussen.html">
+                    <li class="active">
+                        <a href="bonussen.php">
                             <i class="material-icons">redeem</i>
                             <span>Bonussen</span>
                         </a>
                     </li>
-					<li>
-                        <a href="matches.html">
+                    <li>
+                        <a href="matches.php">
                             <i class="material-icons">timer</i>
                             <span>Matches</span>
                         </a>
                     </li>
-							<li>
-                        <a href="twitterfeed.html">
+                            <li>
+                        <a href="twitterfeed.php">
                             <i class="material-icons">whatshot</i>
                             <span>Twitterfeed</span>
                         </a>
                     </li>
-					
-                  	<li>
-                        <a href="rules.html">
+                    
+                    <li>
+                        <a href="rules.php">
                             <i class="material-icons">book</i>
                             <span>Spelregels</span>
                         </a>
@@ -755,171 +755,164 @@
     </section>
 
     <section class="content">
-	         
-	            <!-- Basic Table -->
-            <div class="row clearfix">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h1>
-                                Topschutters
-							</h1>
-                                <small>blabla</small>
-                            
-                            
-                        </div>
-                        <div class="body table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Naam</th>
-										<th>Goals</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-										<td>22</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-										<td>22</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-										<td>22</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Larry</td>
-											<td>22</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>Larry</td>
-										<td>22</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-				
-				                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h1>
-                                Vuilste ploeg
-							</h1>
-                                <small>blabla</small>
-                            
-                            
-                        </div>
-                        <div class="body table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Land</th>
-										<th>Rood<th>
-										<th>Geel<th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td><div class="media-left media-middle">
-											<a href="javascript:void(0);">
-											<img class="media-object" src="../images/flags/flag_bel.png" width="23" height="15">
-											</a> </div>
-											<div class="media-body">
-                                          België   </div>	</td>      
-										<td>10<td>
-										<td>69<td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>België</td>
-										<td>10<td>
-										<td>69<td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>       België   </td>            							
-										<td>10<td>
-										<td>69<td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>België</td>
-										<td>10<td>
-										<td>69<td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>België</td>
-										<td>10<td>
-										<td>69<td>									
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #END# Basic Table -->
 	
-	    <!-- Basic Table -->
-            <div class="row clearfix">
+	            <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h1>
-                                Overzicht
-							</h1>
-                                <small>Deze punten worden pas na de finale bij het totale klassement bijgeteld.</small>
-                            
-                            
+                            <h2>
+                                Matches
+                               <!-- <small>Add quick, dynamic tab functionality to transition through panes of local content</small> -->
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
+                        <div class="body">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs tab-nav-right" role="tablist">
+							<!-- TODO: active de speeldag van die dag laten zijn -->
+                                <li role="presentation" class="active"><a href="#1" data-toggle="tab">1</a></li>
+                                <li role="presentation"><a href="#2" data-toggle="tab">2</a></li>
+                                <li role="presentation"><a href="#3" data-toggle="tab">3</a></li>
+                                <li role="presentation"><a href="#4" data-toggle="tab">4</a></li>
+                                <li role="presentation"><a href="#5" data-toggle="tab">5</a></li>
+                                <li role="presentation"><a href="#6" data-toggle="tab">6</a></li>
+                                <li role="presentation"><a href="#7" data-toggle="tab">7</a></li>
+                                <li role="presentation"><a href="#8" data-toggle="tab">8</a></li>
+                                <li role="presentation"><a href="#9" data-toggle="tab">9</a></li>
+                                <li role="presentation"><a href="#10" data-toggle="tab">10</a></li>
+                                <li role="presentation"><a href="#11" data-toggle="tab">11</a></li>
+                                <li role="presentation"><a href="#12" data-toggle="tab">12</a></li>
+                                <li role="presentation"><a href="#13" data-toggle="tab">13</a></li>
+                                <li role="presentation"><a href="#14" data-toggle="tab">14</a></li>
+                                <li role="presentation"><a href="#15" data-toggle="tab">15</a></li>
+                                <li role="presentation"><a href="#16" data-toggle="tab">16</a></li>
+                                <li role="presentation"><a href="#17" data-toggle="tab">17</a></li>
+                                <li role="presentation"><a href="#18" data-toggle="tab">18</a></li>
+                                <li role="presentation"><a href="#19" data-toggle="tab">19</a></li>
+                                <li role="presentation"><a href="#20" data-toggle="tab">20</a></li>
+                                <li role="presentation"><a href="#21" data-toggle="tab">21</a></li>
+                                <li role="presentation"><a href="#22" data-toggle="tab">22</a></li>
+                                <li role="presentation"><a href="#23" data-toggle="tab">23</a></li>
+                                <li role="presentation"><a href="#24" data-toggle="tab">24</a></li>
+                                <li role="presentation"><a href="#25" data-toggle="tab">25</a></li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade in active" id="home">
+								<div class="media">
+                                <div class="media-left media-middle">
+                                    <a href="#">
+                                        <img class="media-object" src="../images/flags/flag_rus.png" width="64" height="64">
+                                    </a>
+                                </div>
+                                <div class="media-body media-middle centered-content">
+                                     <h5>RUSLAND - SAUDI-ARABIA</h5> <br>
+									  <h4>2-2</h4>
+                                </div>
+                                <div class="media-right media-middle">
+                                    <a href="#">
+                                        <img class="media-object" src="../images/flags/flag_sau.png" width="64" height="64">
+                                    </a>
+                                
+                            </div>
+                                  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    
+                        <div class="header">
+                            <h3>
+                                Scores
+							</h3>                                                   
+                            
+                       
                         <div class="body table-responsive">
-                            <table class="table table-bordered">
+                            <table class="table">
                                 <thead>
                                     <tr>
+                                
                                         <th>Naam</th>
-                                        <th>Wereldkampioen</th>
-                                        <th>Verliezend finalist</th>
-										<th>Topschutter</th>
-										<th>Vuilste ploeg</th>
-										<th>Positie België</th>
+										<th>Score</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>                                       
-                                        <td>Sam</td>
-										<td>Costa Rica</td>   
-										 <td>Panama</td>
-										 <td>Courtois</td>
-										 <td>België</td>
-									     <td>groepsfase</td>                                 
+                                    <tr>
+                                   
+                                        <td>Mark</td>
+										<td>2-2</td>
+
+                                    </tr>
+                                    <tr>
+                              
+                                        <td>Jacob</td>
+										<td>2-2</td>
+                                    </tr>
+                                    <tr>
+                         
+                                        <td>Larry</td>
+										<td>2-2</td>
+                                    </tr>
+                                    <tr>
+                              
+                                        <td>Larry</td>
+											<td>2-2</td>
+                                    </tr>
+                                    <tr>
+                          
+                                        <td>Larry</td>
+										<td>2-2</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+				
+                  </div>
+            
+                                </div>
+								
+								
+                                <div role="tabpanel" class="tab-pane fade" id="profile">
+                                    <b>Profile Content</b>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
+                                        Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid
+                                        pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
+                                        sadipscing mel.
+                                    </p>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="messages">
+                                    <b>Message Content</b>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
+                                        Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid
+                                        pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
+                                        sadipscing mel.
+                                    </p>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="settings">
+                                    <b>Settings Content</b>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
+                                        Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid
+                                        pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
+                                        sadipscing mel.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- #END# Basic Table -->
-	
-	
-	
     </section>
 
     <!-- Jquery Core Js -->

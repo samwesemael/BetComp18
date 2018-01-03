@@ -277,7 +277,7 @@
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                    <div class="email">john.doe@example.com</div>
+                    <div class="email"><?php echo $_SESSION['email']?></div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
@@ -298,38 +298,38 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li>
-                        <a href="../index.html">
+                        <a href="../index.php">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
                     </li>
-					<li class="active">
-                        <a href="klassement.html">
+                    <li>
+                        <a href="klassement.php">
                             <i class="material-icons">format_list_numbered</i>
                             <span>Klassement</span>
                         </a>
                     </li>
-					<li>
-                        <a href="bonussen.html">
+                    <li class="active">
+                        <a href="bonussen.php">
                             <i class="material-icons">redeem</i>
                             <span>Bonussen</span>
                         </a>
                     </li>
-					<li>
-                        <a href="matches.html">
+                    <li>
+                        <a href="matches.php">
                             <i class="material-icons">timer</i>
                             <span>Matches</span>
                         </a>
                     </li>
-							<li>
-                        <a href="twitterfeed.html">
+                            <li>
+                        <a href="twitterfeed.php">
                             <i class="material-icons">whatshot</i>
                             <span>Twitterfeed</span>
                         </a>
                     </li>
-					
-                  	<li>
-                        <a href="rules.html">
+                    
+                    <li>
+                        <a href="rules.php">
                             <i class="material-icons">book</i>
                             <span>Spelregels</span>
                         </a>
@@ -593,14 +593,78 @@
                             </li>
                         </ul>
                     </li>
-						
+					<!--
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">trending_down</i>
+                            <span>Multi Level Menu</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <span>Menu Item</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <span>Menu Item - 2</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <span>Level - 2</span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <span>Menu Item</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="menu-toggle">
+                                            <span>Level - 3</span>
+                                        </a>
+                                        <ul class="ml-menu">
+                                            <li>
+                                                <a href="javascript:void(0);">
+                                                    <span>Level - 4</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+					-->
+			
+				<!--
+                    <li class="header">LABELS</li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="material-icons col-red">donut_large</i>
+                            <span>Important</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="material-icons col-amber">donut_large</i>
+                            <span>Warning</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="material-icons col-light-blue">donut_large</i>
+                            <span>Information</span>
+                        </a>
+                    </li> -->
                 </ul>
             </div>
             <!-- #Menu -->
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; 2016 - 2017 <a href="javascript:void(0);">Betcompetition WK2018</a>.
+                    &copy; 2016 - 2017 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
                 </div>
                 <div class="version">
                     <b>Version: </b> 1.0.5
@@ -755,76 +819,85 @@
     </section>
 
     <section class="content">
-	
-	
-	            <!-- Basic Table -->
+      
+	  
+	   <div class="container-fluid">
+            <div class="block-header">
+                <h1>
+                    Twitterfeed
+                </h1>
+            </div>
             <div class="row clearfix">
+                <!-- Basic Example -->
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header">
-                            <h1>
-                                Klassement
-							</h1>
-                                <small>WJ = winnaar juist</small> <br>
-								<small>SJ = score juist</small>
-                            
-                            
-                        </div>
-                        <div class="body table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Naam</th>
-                                        <th>WJ</th>
-                                        <th>SJ</th>
-										<th>Punten</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>1</td>
-                                        <td>1</td>
-										<td>9000</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>1</td>
-                                        <td>1</td>
-										<td>9000</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>1</td>
-                                        <td>1</td>
-										<td>9000</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Larry</td>
-                                        <td>1</td>
-                                        <td>1</td>
-										<td>9000</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>Larry</td>
-                                        <td>1</td>
-                                        <td>1</td>
-										<td>9000</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="body">
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                </ol>
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item active">
+                                        <blockquote>
+											<!-- cards = hidden zou normaal foto moeten negeren maar werkt niet -->
+											<a class="twitter-timeline"
+											href="https://twitter.com/GaryLineker"
+											data-tweet-limit="1"
+											data-cards="hidden" 
+											hide_media=true
+											data-src="false">
+										    </a>
+											<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+											
+										</blockquote>
+                                    </div>
+                                    <div class="item">
+                                      <blockquote>
+										<a class="twitter-timeline"  href="https://twitter.com/hashtag/WorldCup2018" data-widget-id="947215590632185858">Tweets over #WorldCup2018</a>
+										<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+									
+										</blockquote>
+                                    </div>
+                                    <div class="item">
+                                       <blockquote>
+											<a class="twitter-timeline"
+											href="https://twitter.com/BelRedDevils"
+											data-tweet-limit="1"
+											data-cards="hidden" 
+											hide_media=true
+											data-src="false">
+											</a>
+                <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+               
+              </blockquote>
+                                    </div>
+                                </div>
+			
+                                <!-- 
+                                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+								Controls -->
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- #END# Basic Table -->
-	
+				
+				 </div>
+        </div>
+	  
+	  
+	  
     </section>
 
     <!-- Jquery Core Js -->

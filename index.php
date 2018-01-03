@@ -316,38 +316,38 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="active">
-                        <a href="index.html">
+                        <a href="index.php">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
                     </li>
 					<li>
-                        <a href="pages/klassement.html">
+                        <a href="pages/klassement.php">
                             <i class="material-icons">format_list_numbered</i>
                             <span>Klassement</span>
                         </a>
                     </li>
 					<li>
-                        <a href="pages/bonussen.html">
+                        <a href="pages/bonussen.php">
                             <i class="material-icons">redeem</i>
                             <span>Bonussen</span>
                         </a>
                     </li>
 					<li>
-                        <a href="pages/matches.html">
+                        <a href="pages/matches.php">
                             <i class="material-icons">timer</i>
                             <span>Matches</span>
                         </a>
                     </li>
 					  <li>
-                        <a href="pages/twitterfeed.html">
+                        <a href="pages/twitterfeed.php">
                             <i class="material-icons">whatshot</i>
                             <span>Twitterfeed</span>
                         </a>
                     </li>					
 				
 					<li>
-                        <a href="pages/rules.html">
+                        <a href="pages/rules.php">
                             <i class="material-icons">book</i>
                             <span>Spelregels</span>
                         </a>
