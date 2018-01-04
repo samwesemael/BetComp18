@@ -34,41 +34,35 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>1</td>
-                                        <td>1</td>
-										<td>9000</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>1</td>
-                                        <td>1</td>
-										<td>9000</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>1</td>
-                                        <td>1</td>
-										<td>9000</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Larry</td>
-                                        <td>1</td>
-                                        <td>1</td>
-										<td>9000</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>Larry</td>
-                                        <td>1</td>
-                                        <td>1</td>
-										<td>9000</td>
-                                    </tr>
+
+                                    <?php
+                                        include('server.php');
+                                        $sqlklassement = "SELECT users.user_name, klassement.totaal, klassement.matchenCorrect, klassement.winnaarCorrect, users.pic_path FROM klassement inner join users on klassement.email = users.email ORDER BY totaal DESC";
+                                        $results = mysqli_query($db, $sqlklassement);
+                                        if (!$results) {
+                                            printf("Error: %s\n", mysqli_error($conn));
+                                            exit();
+                                          }
+                                        $ranking = 1;
+                                        while($data = mysqli_fetch_array($results)){
+                                             if($data['pic_path']===''){
+                                                        $afbeelding = '../images/users/noImage.jpg';
+                                                    }
+                                                    else{
+                                                        $afbeelding = $data['pic_path'];
+                                                    }
+                                        echo'
+                                            <tr>
+                                                <th scope="row">'.$ranking.'</th>
+                                                <td><img style="max-height:40px;" src="'.$afbeelding.'" alt="" max-height=50px class="img-circle"> '.$data['user_name'].'</td>
+                                                <td>'.$data['matchenCorrect'].'</td>
+                                                <td>'.$data['winnaarCorrect'].'</td>
+                                                <td><b>'.$data['totaal'].'</b></td>
+                                            </tr>
+                                        ';
+                                        $ranking++;
+                                        }
+                                        ?>
                                 </tbody>
                             </table>
                         </div>

@@ -296,7 +296,7 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="<?php echo $_SESSION['profilepicpath'] ?>" width="48" height="48" alt="User" />
+                    <img src="<?php echo $_SESSION['profilepicpath'] ?>" width="48" height="48" alt="User" class="img-responsive"/>
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['username']?></div>

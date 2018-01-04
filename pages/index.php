@@ -79,7 +79,7 @@
                                         <i class="material-icons">more_vert</i>
                                     </a>
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Volledig Klassement</a></li>
+                                        <li><a href="klassement.php">Volledig Klassement</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -105,14 +105,14 @@
                                                         $afbeelding = $data['pic_path'];
                                                     }
                                                     echo '
-                                                            <div class="col-lg-3 col-md-3 col-sm-6">
-                                                              <div class="person">
-                                                                <img src=" '.$afbeelding.'" alt="" class="img-responsive">
-                                                                <div class="person-content">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                              <div>
+                                                                <img src=" '.$afbeelding.'" alt="" class="img-circle img-responsive">
+                                                                <div>
                                                                 <br>
-                                                                  <h4>'.$data['user_name'].'</h4>
-                                                                  <h5 class="role">'.$loop.'e plaats</h5>
-                                                                  <p>'.$data['totaal'].' punten</p>
+                                                                  <h4><center>'.$data['user_name'].'</center></h4>
+                                                                  <h5 class="role"><center>'.$loop.'e plaats</center></h5>
+                                                                  <p><center>'.$data['totaal'].' punten</center></p>
                                                                 </div>
                                                               </div>
                                                             </div>';
