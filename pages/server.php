@@ -1,5 +1,8 @@
 <?php
-session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
 
 // variable declaration
 $username = "";
@@ -49,9 +52,9 @@ if (isset($_POST['reg_user'])) {
   	$query = "INSERT INTO users (user_name, email, password, verification, payed, oauth_provider, created, modified) 
   			  VALUES('$username', '$email', '$password', '0', false, 'manual', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."'    )";
   	mysqli_query($db, $query);
-    $queryKlassement = "INSERT INTO klassement (username, matchenCorrect, winnaarCorrect, totaal) VALUES('$username', '0', '0', '0')";
-      mysqli_query($db, $queryKlassement);
-    	$_SESSION['email'] = $email;
+    $queryKlassement = "INSERT INTO klassement (email, matchenCorrect, winnaarCorrect, totaal) VALUES('$email', '0', '0', '0')";
+    mysqli_query($db, $queryKlassement);
+    $_SESSION['email'] = $email;
   	$_SESSION['success'] = "You are now logged in";
   	header('location: index.php');
   }
@@ -65,6 +68,7 @@ if (isset($_POST['login_user'])) {
   $password = mysqli_real_escape_string($db, $_POST['password']);
 
 
+
   if (empty($email)) {
     array_push($errors, "Email is required");
   }
@@ -75,12 +79,22 @@ if (isset($_POST['login_user'])) {
   if (count($errors) == 0) {
     $passCookie = $password;
     $password = md5($password); 
-    $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
-    echo $query;
+    $query = "SELECT user_name, pic_path FROM users WHERE email='$email' AND password='$password'";
+
     $results = mysqli_query($db, $query);
     if (mysqli_num_rows($results) == 1) {
-      //$_SESSION['username'] = $username;
+      if($data = mysqli_fetch_array($results)){
+        $_SESSION['username'] = $data['user_name'];
+        if($data['pic_path']===''){
+          $_SESSION['profilepicpath']='../images/users/noImage.jpg';
+        }
+        else{
+          $_SESSION['profilepicpath'] = $data['pic_path'];          
+        }
+
+      }
       $_SESSION['email'] = $email;
+
       $_SESSION['success'] = "You are now logged in";
       header('location: index.php');
       if(!empty($_POST["rememberme"])){

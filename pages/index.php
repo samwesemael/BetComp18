@@ -1,8 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 
-<?php include 'navigator.php';
-console.log("test")?>
+<?php include 'navigator.php';?>
 <script type="text/javascript">
     document.getElementById("nav-home").classList.toggle('active');
 	
@@ -63,7 +62,71 @@ console.log("test")?>
                 </div>
             </div>
             <!-- #END# Widgets -->		
-		
+
+            <!-- Top4 Klassement -->
+            <div class="row clearfix">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <div class="row clearfix">
+                                <div class="col-xs-12 col-sm-12">
+                                    <h2>Klassement Top 4</h2>
+                                </div>
+                            </div>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Volledig Klassement</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-xs-12 col-sm-12">                                        
+                                        <?php  
+                                                include('server.php');
+                                                $sqlklassement = "SELECT users.user_name, klassement.totaal, users.pic_path FROM klassement inner join users on klassement.email = users.email ORDER BY totaal DESC LIMIT 4";
+                                                $results = mysqli_query($db, $sqlklassement);
+                                                if (!$results) {
+                                                    printf("Error: %s\n", mysqli_error($conn));
+                                                    exit();
+                                                  }
+                                                $loop = 1;
+                                                
+                                                while($data = mysqli_fetch_array($results)){
+                                                    if($data['pic_path']===''){
+                                                        $afbeelding = '../images/users/noImage.jpg';
+                                                    }
+                                                    else{
+                                                        $afbeelding = $data['pic_path'];
+                                                    }
+                                                    echo '
+                                                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                                              <div class="person">
+                                                                <img src=" '.$afbeelding.'" alt="" class="img-responsive">
+                                                                <div class="person-content">
+                                                                <br>
+                                                                  <h4>'.$data['user_name'].'</h4>
+                                                                  <h5 class="role">'.$loop.'e plaats</h5>
+                                                                  <p>'.$data['totaal'].' punten</p>
+                                                                </div>
+                                                              </div>
+                                                            </div>';
+                                                    $loop++;
+                                                  }
+                                                ?>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- #END# Top 4 Klassement -->
 
             <!-- CPU Usage -->
             <div class="row clearfix">
@@ -101,78 +164,7 @@ console.log("test")?>
                 </div>
             </div>
             <!-- #END# CPU Usage -->
-			
 
-            <!-- Top4 Klasseme -->
-            <div class="row clearfix">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="card">
-                        <div class="header">
-                            <div class="row clearfix">
-                                <div class="col-xs-12 col-sm-6">
-                                    <h2>Klassement Top 4</h2>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 align-right">
-                                    <div class="switch panel-switch-btn">
-                                        <span class="m-r-10 font-12">REAL TIME</span>
-                                        <label>OFF<input type="checkbox" id="realtime" checked><span class="lever switch-col-cyan"></span>ON</label>
-                                    </div> 
-									
-                                    <?php  
-                                            include('server.php');
-                                            $sqlklassement = "SELECT klassement.email, klassement.totaal, users.pic_path FROM klassement inner join users on klassement.email = users.email ORDER BY totaal DESC LIMIT 4";
-                                            $results = mysqli_query($db, $sqlklassement);
-                                            if (!$results) {
-                                                printf("Error: %s\n", mysqli_error($conn));
-                                                exit();
-                                              }
-                                            $loop = 1;
-											
-                                            while($data = mysqli_fetch_array($results)){
-                                            echo '
-                                                        <div class="col-md-3 col-sm-6">
-                                                          <div class="person"><img src="images/'.$data['pic_path'].'" alt="" class="img-responsive">
-                                                            <div class="person-content">
-                                                              <h4>'.$data['email'].'</h4>
-                                                              <h5 class="role">'.$loop.'e plaats</h5>
-                                                              <p>'.$data['totaal'].' punten</p>
-                                                            </div>
-                                                            <ul class="social-icons clearfix">
-                                                              <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-                                                              <li><a href="#"><span class="fa fa-twitter"></span></a></li>
-                                                              <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
-                                                              <li><a href="#"><span class="fa fa-google-plus"></span></a></li>
-                                                              <li><a href="#"><span class="fa fa-dribbble"></span></a></li>
-                                                            </ul>
-                                                          </div>
-                                                        </div>';
-                                                $loop++;
-                                              } 
-                                            ?>
-
-                                </div>
-                            </div>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Volledig Klassement</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div id="real_time_chart"></div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- #END# Top 4 Klassemen -->
-				<script>
-console.log("test")
-</script>
             <div class="row clearfix">
                 <!-- Visitors -->
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
