@@ -2,8 +2,11 @@
 
 
 ## TODO:
-- servercalls centraliseren
+- servercalls centraliseren (DONE)
 - fb login
+- wrong username/password message loginpage
+- poll om de matchen te kiezen waarop gegokt zal worden
+- 
 
 ##### Veiligheid:
 

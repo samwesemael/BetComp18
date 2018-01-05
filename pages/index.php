@@ -30,163 +30,162 @@
 			</div>
 
         	<!-- CountDown Timer -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>Countdown</h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div class="row clearfix">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                    <input id="daysclock" data-min="0" data-max="200" type="text" class="knob days" data-readOnly=true data-width="80%" data-thickness="0.25" data-fgColor="#F44336" data-rotation=anticlockwise>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row clearfix">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2>Countdown</h2>
+                                <ul class="header-dropdown m-r--5">
+                                    <li class="dropdown">
+                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <i class="material-icons">more_vert</i>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li><a href="javascript:void(0);">Action</a></li>
+                                            <li><a href="javascript:void(0);">Another action</a></li>
+                                            <li><a href="javascript:void(0);">Something else here</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="body">
+                                <div class="row clearfix">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <input id="daysclock" data-min="0" data-max="200" type="text" class="knob days" data-readOnly=true data-width="80%" data-thickness="0.25" data-fgColor="#F44336" data-rotation=anticlockwise>
 
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <input id="hoursclock" data-min="0" data-max="24" type="text" class="knob hour" data-readOnly=true data-width="80%" data-thickness="0.25" data-fgColor="#E91E63" data-rotation=anticlockwise>
+                                        
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <input id="minutesclock" data-min="0" data-max="60" type="text" class="knob minute" data-readOnly=true data-width="80%" data-thickness="0.25" data-fgColor="#00BCD4" data-rotation=anticlockwise>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <input id="secondsclock" data-min="0" data-max="60" type="text" class="knob second" data-readOnly=true data-width="80%" data-thickness="0.25" data-fgColor="#009688" data-rotation=anticlockwise>
+                                    </div>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                    <input id="hoursclock" data-min="0" data-max="24" type="text" class="knob hour" data-readOnly=true data-width="80%" data-thickness="0.25" data-fgColor="#E91E63" data-rotation=anticlockwise>
-                                    
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        function getTimeRemaining(endtime) {
+                            var t = Date.parse(endtime) - Date.parse(new Date());
+                            var seconds = Math.floor((t / 1000) % 60);
+                            var minutes = Math.floor((t / 1000 / 60) % 60);
+                            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+                            var days = Math.floor(t / (1000 * 60 * 60 * 24));
+                            return {
+                            'total': t,
+                            'days': days,
+                            'hours': hours,
+                            'minutes': minutes,
+                            'seconds': seconds
+                            };
+                        }
+
+                        function initializeClock(endtime) {
+                            var daysSpan = document.getElementById('daysclock');
+                            var hoursSpan = document.getElementById('hoursclock');
+                            var minutesSpan = document.getElementById('minutesclock');
+                            var secondsSpan = document.getElementById('secondsclock');
+
+                            function updateClock() {
+                                var t = getTimeRemaining(endtime);
+                                console.log('start');
+                                function setClock(t){
+                                    console.log('setCalled');
+                                    daysSpan.setAttribute('value', t.days);
+                                    hoursSpan.setAttribute('value', t.hours);
+                                    minutesSpan.setAttribute('value', t.minutes);
+                                    secondsSpan.setAttribute('value', t.seconds);
+                                    console.log('stop');
+                                }
+                                
+
+                                if (t.total <= 0) {
+                                    clearInterval(timeinterval);
+                                }
+                                setClock(t);
+                            }
+
+                            updateClock();
+                            //var timeinterval = setInterval(updateClock, 3000);
+                            }
+
+                            var deadline = new Date(Date.parse(new Date("June 14, 2018 16:00:00")));
+                            initializeClock(deadline);
+                    </script>
+                    <!-- #END# Basic Example -->
+                    <!-- END CountDown Timer -->
+
+                    <!-- Top4 Klassement -->
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="card">
+                            <div class="header">
+                                <div class="row clearfix">
+                                    <div class="col-xs-12 col-sm-12">
+                                        <h2>Klassement Top 4</h2>
+                                    </div>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                    <input id="minutesclock" data-min="0" data-max="60" type="text" class="knob minute" data-readOnly=true data-width="80%" data-thickness="0.25" data-fgColor="#00BCD4" data-rotation=anticlockwise>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                    <input id="secondsclock" data-min="0" data-max="60" type="text" class="knob second" data-readOnly=true data-width="80%" data-thickness="0.25" data-fgColor="#009688" data-rotation=anticlockwise>
+                                <ul class="header-dropdown m-r--5">
+                                    <li class="dropdown">
+                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <i class="material-icons">more_vert</i>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li><a href="klassement.php">Volledig Klassement</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="body">
+                                <div class="row clearfix">
+                                    <div class="col-xs-12 col-sm-12">                                        
+                                            <?php  
+                                                include('server.php');
+                                                $sqlklassement = "SELECT users.user_name, klassement.totaal, users.pic_path FROM klassement inner join users on klassement.email = users.email ORDER BY totaal DESC LIMIT 4";
+                                                $results = mysqli_query($db, $sqlklassement);
+                                                if (!$results) {
+                                                    printf("Error: %s\n", mysqli_error($conn));
+                                                    exit();
+                                                  }
+                                                $loop = 1;
+                                                
+                                                while($data = mysqli_fetch_array($results)){
+                                                    if($data['pic_path']===''){
+                                                        $afbeelding = '../images/users/noImage.jpg';
+                                                    }
+                                                    else{
+                                                        $afbeelding = $data['pic_path'];
+                                                    }
+                                                    echo '
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                              <div>
+                                                                <img src=" '.$afbeelding.'" alt="" class="img-circle img-responsive">
+                                                                <div>
+                                                                <br>
+                                                                  <h4><center>'.$data['user_name'].'</center></h4>
+                                                                  <h5 class="role"><center>'.$loop.'e plaats</center></h5>
+                                                                  <p><center>'.$data['totaal'].' punten</center></p>
+                                                                </div>
+                                                              </div>
+                                                            </div>';
+                                                    $loop++;
+                                                }
+                                            ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <script>
-                function getTimeRemaining(endtime) {
-                    var t = Date.parse(endtime) - Date.parse(new Date());
-                    var seconds = Math.floor((t / 1000) % 60);
-                    var minutes = Math.floor((t / 1000 / 60) % 60);
-                    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-                    var days = Math.floor(t / (1000 * 60 * 60 * 24));
-                    return {
-                    'total': t,
-                    'days': days,
-                    'hours': hours,
-                    'minutes': minutes,
-                    'seconds': seconds
-                    };
-                }
-
-                function initializeClock(endtime) {
-                    var daysSpan = document.getElementById('daysclock');
-                    var hoursSpan = document.getElementById('hoursclock');
-                    var minutesSpan = document.getElementById('minutesclock');
-                    var secondsSpan = document.getElementById('secondsclock');
-
-                    function updateClock() {
-                        var t = getTimeRemaining(endtime);
-                        console.log('start');
-                        function setClock(t){
-                            console.log('setCalled');
-                            daysSpan.setAttribute('value', t.days);
-                            hoursSpan.setAttribute('value', t.hours);
-                            minutesSpan.setAttribute('value', t.minutes);
-                            secondsSpan.setAttribute('value', t.seconds);
-                            console.log('stop');
-                        }
-                        
-
-                        if (t.total <= 0) {
-                            clearInterval(timeinterval);
-                        }
-                        setClock(t);
-                    }
-
-                    updateClock();
-                    //var timeinterval = setInterval(updateClock, 3000);
-                    }
-
-                    var deadline = new Date(Date.parse(new Date("June 14, 2018 16:00:00")));
-                    initializeClock(deadline);
-            </script>
-            <!-- #END# Basic Example -->
-            <!-- END CountDown Timer -->
-
-            <!-- Top4 Klassement -->
-            <div class="row clearfix">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="card">
-                        <div class="header">
-                            <div class="row clearfix">
-                                <div class="col-xs-12 col-sm-12">
-                                    <h2>Klassement Top 4</h2>
-                                </div>
-                            </div>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="klassement.php">Volledig Klassement</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div class="row clearfix">
-                                <div class="col-xs-12 col-sm-12">                                        
-                                        <?php  
-                                            include('server.php');
-                                            $sqlklassement = "SELECT users.user_name, klassement.totaal, users.pic_path FROM klassement inner join users on klassement.email = users.email ORDER BY totaal DESC LIMIT 4";
-                                            $results = mysqli_query($db, $sqlklassement);
-                                            if (!$results) {
-                                                printf("Error: %s\n", mysqli_error($conn));
-                                                exit();
-                                              }
-                                            $loop = 1;
-                                            
-                                            while($data = mysqli_fetch_array($results)){
-                                                if($data['pic_path']===''){
-                                                    $afbeelding = '../images/users/noImage.jpg';
-                                                }
-                                                else{
-                                                    $afbeelding = $data['pic_path'];
-                                                }
-                                                echo '
-                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                          <div>
-                                                            <img src=" '.$afbeelding.'" alt="" class="img-circle img-responsive">
-                                                            <div>
-                                                            <br>
-                                                              <h4><center>'.$data['user_name'].'</center></h4>
-                                                              <h5 class="role"><center>'.$loop.'e plaats</center></h5>
-                                                              <p><center>'.$data['totaal'].' punten</center></p>
-                                                            </div>
-                                                          </div>
-                                                        </div>';
-                                                $loop++;
-                                            }
-                                        ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
             <!-- #END# Top 4 Klassement -->
 
 
-            <div class="row clearfix">
+            <div>
                 <!-- Visitors -->
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="card">
