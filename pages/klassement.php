@@ -32,7 +32,7 @@
                                         <th>WJ</th>
                                         <th>SJ</th>
 										<th>B</th>
-										<th>Punten</th>
+										<th>TOT</th>
                                     </tr>
                                 </thead>
                                 <tbody>
