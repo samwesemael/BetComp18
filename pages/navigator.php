@@ -375,6 +375,12 @@
                             <span>Spelregels</span>
                         </a>
                     </li>
+						<li id = 'nav-datatest'>
+                        <a href="data_test.php">
+                            <i class="material-icons">book</i>
+                            <span>Data_test</span>
+                        </a>
+                    </li>
                     <li>
                         <a href="typography.html">
                             <i class="material-icons">text_fields</i>
