@@ -278,7 +278,7 @@
 								</li>
 									
                             </ul>	
-<div class="media-middle">
+<div class="media-middle col-blue">
 						                      <center>      <big><b>2-2</b></big> </center> <center> <small>MIJN GOK</small> </center>
 									</div>							
                         </div>
@@ -288,28 +288,28 @@
                 <!-- Answered Tickets -->
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="card">
-                        <div class="body bg-green">
+                        <div class="body bg">
                             <div class="font-bold m-b--35">MIJN BONUSSEN</div>
                             <ul class="dashboard-stat-list">
                                 <li>
                                     WERELDKAMPIOEN
-                                    <span class="pull-right"><b>COSTA RICA</b> <small></small></span>
+                                    <span class="pull-right col-blue"><b>COSTA RICA</b> <small></small></span>
                                 </li>
                                 <li>
                                     VERLIEZEND FINALIST
-                                    <span class="pull-right"><b>PANAMA</b> <small></small></span>
+                                    <span class="pull-right col-blue"><b>PANAMA</b> <small></small></span>
                                 </li>
                                 <li>
                                     TOPSCHUTTER
-                                    <span class="pull-right"><b>COURTOIS</b> <small></small></span>
+                                    <span class="pull-right col-blue"><b>COURTOIS</b> <small></small></span>
                                 </li>
                                 <li>
                                     VUILSTE PLOEG
-                                    <span class="pull-right"><b>BELGIE</b> <small></small></span>
+                                    <span class="pull-right col-blue"><b>BELGIE</b> <small></small></span>
                                 </li>
                                 <li>
                                     POSITIE BELGIE
-                                    <span class="pull-right"><b>GROEPSFASE</b> <small></small></span>
+                                    <span class="pull-right col-blue"><b>GROEPSFASE</b> <small></small></span>
                                 </li>
                             </ul>
                         </div>
