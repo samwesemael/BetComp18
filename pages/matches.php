@@ -12,12 +12,8 @@
 	            <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header">
-                            <h2><b>
-                                MATCHEN</b>
-						     </h2>
-							 <br>
-            
+                        <div class="header">                          
+                                <h4>MATCHEN</h4>            
                         </div>
 						
 					
