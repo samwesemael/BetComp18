@@ -12,9 +12,9 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h3>
+                            <h4>
                                 TOPSCHUTTERS
-							</h3>
+							</h4>
                                                           
                             
                         </div>
@@ -31,29 +31,19 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>Mark</td>
-										<td>22</td>
+                                        <td>Paulo Dybala</td>
+										<td>9</td>
 
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>
-                                        <td>Jacob</td>
-										<td>22</td>
+                                        <td>Paul Pogba</td>
+										<td>6</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">3</th>
-                                        <td>Larry</td>
-										<td>22</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Larry</td>
-											<td>22</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>Larry</td>
-										<td>22</td>
+                                        <td>Olivier Giroud</td>
+										<td>5</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -64,9 +54,9 @@
 				                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h3>
+                            <h4>
                                 VUILSTE PLOEG
-							</h3>
+							</h4>
                               
                             
                         </div>
@@ -86,37 +76,35 @@
                                         <th scope="row">1</th>
                                         <td><div class="media-left media-middle">
 											<a href="javascript:void(0);">
-											<img class="media-object" src="../images/flags/flag_bel.png" width="23" height="15">
+											<img class="media-object" src="../images/flags/flag_pan.png" width="23" height="15">
 											</a> </div>
 											<div class="media-body">
-                                          België   </div>	</td>      
-										<td>10<td>
-										<td>69<td>
+                                          Panama   </div>	</td>      
+										<td>4<td>
+										<td>6<td>
 
                                     </tr>
                                     <tr>
-                                        <th scope="row">2</th>
-                                        <td>België</td>
-										<td>10<td>
-										<td>69<td>
+                                       <th scope="row">2</th>
+                                        <td><div class="media-left media-middle">
+											<a href="javascript:void(0);">
+											<img class="media-object" src="../images/flags/flag_rus.png" width="23" height="15">
+											</a> </div>
+											<div class="media-body">
+                                          Rusland   </div>	</td>      
+										<td>3<td>
+										<td>8<td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">3</th>
-                                        <td>       België   </td>            							
-										<td>10<td>
-										<td>69<td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>België</td>
-										<td>10<td>
-										<td>69<td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>België</td>
-										<td>10<td>
-										<td>69<td>									
+                                       <th scope="row">3</th>
+                                        <td><div class="media-left media-middle">
+											<a href="javascript:void(0);">
+											<img class="media-object" src="../images/flags/flag_cos.png" width="23" height="15">
+											</a> </div>
+											<div class="media-body">
+                                          Costa-Rica   </div>	</td>      
+										<td>2<td>
+										<td>6<td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -131,28 +119,27 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h3>
+                            <h4>
                                 FINALE
-							</h3>
-							    <div class="media">
-                                 <div class="media-left media-middle">
-								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <a href="#">
-                                        <img class="media-object" src="../images/flags/flag_unk.png" width="64" height="64">
-                                    </a>
-                                </div>
-                                <div class="media-body media-middle centered-content">
-                                     <h5>T.B.D. - T.B.D. </h5> <br>
-									  <h4></h4>
-                                </div>
-                                <div class="media-right media-middle">
-                                    <a href="#">
-                                        <img class="media-object" src="../images/flags/flag_unk.png" width="64" height="64">
-                                    </a>
-                                
-                            </div>	
-						</div>							
-                            </div>
+							</h4>
+							<div class="media">
+										<center>
+										<div class="media-left media-middle">								
+											<a href="#">
+												<img class="media-object" src="../images/flags/flag_por.png" width="23" height="15">
+											</a>
+										</div>										
+										<div class="media-body">
+											<h5>? - ?</h5> 
+												 15/6/2018 - 20:00 
+										</div>
+										<div class="media-right media-middle">
+										<a href="#">
+											<img class="media-object" src="../images/flags/flag_spa.png" width="23" height="15">
+										</a>
+										</div>   
+										</center>
+									</div>							
 							</div>
 							</div>
 							</div>
@@ -161,9 +148,9 @@
 				                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h3>
+                            <h4>
                                 POSITIE BELGIE
-							</h3>
+							</h4>
                              				
 							<div class="body">
                             <div class="progress">
@@ -201,40 +188,164 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h3>
+                            <h4>
                                 OVERZICHT
-							</h3>
-                                <small>Deze punten worden pas na de finale bij het totale klassement bijgeteld.</small>
-                            
-                            
+							</h4>
+                                <small>Deze punten worden pas na de finale bij het totale klassement bijgeteld.</small>                                                
                         </div>
-                        <div class="body table-responsive">
-                            <table class="table table-bordered">
+						<div class="body">
+						<center>
+						 <ul class="nav nav-tabs tab-nav-right" role="tablist">
+							<!-- TODO: text vervangen door icoontjes, is te groot voor op 1 lijn op mobiel nu -->
+                                <li role="presentation" class="active"><a href="#1" data-toggle="tab">Wereldkampioen</a></li>
+                                <li role="presentation"><a href="#2" data-toggle="tab">Verliezend finalist</a></li>
+                                <li role="presentation"><a href="#3" data-toggle="tab">Topschutter</a></li>
+                                <li role="presentation"><a href="#4" data-toggle="tab">Vuilste ploeg</a></li>
+                                <li role="presentation"><a href="#5" data-toggle="tab">Positie België</a></li>
+						</ul>
+                         </center>      
+
+						<div class="tab-content">							
+							
+                                <div role="tabpanel" class="tab-pane fade in active" id="1">
+								
+							<div class="body table-responsive">
+                            <table class="table">
                                 <thead>
-                                    <tr>
+                                    <tr>                                
                                         <th>Naam</th>
-                                        <th>Wereldkampioen</th>
-                                        <th>Verliezend finalist</th>
-										<th>Topschutter</th>
-										<th>Vuilste ploeg</th>
-										<th>Positie België</th>
+										<th>Wereldkampioen</th>								
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>                                       
+                                    <tr>                                   
                                         <td>Sam</td>
-										<td>Costa Rica</td>   
-										 <td>Panama</td>
-										 <td>Courtois</td>
-										 <td>België</td>
-									     <td>groepsfase</td>                                 
+										<td>Panama</td>					
+                                    </tr>
+                                    <tr>
+                              
+                                        <td>Jordy</td>
+										<td>Saoedi-Arabië</td>									
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                </div>
-            </div>
+				
+						</div>	
+						
+						
+						<div role="tabpanel" class="tab-pane fade in active" id="2">
+								
+							<div class="body table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>                                
+                                        <th>Naam</th>
+										<th>Verliezend finalist</th>								
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>                                   
+                                        <td>Sam</td>
+										<td>Panama</td>					
+                                    </tr>
+                                    <tr>
+                              
+                                        <td>Jordy</td>
+										<td>Saoedi-Arabië</td>									
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+				
+						</div>		
+						
+						
+					<div role="tabpanel" class="tab-pane fade in active" id="3">
+								
+							<div class="body table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>                                
+                                        <th>Naam</th>
+										<th>Topschutter</th>								
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>                                   
+                                        <td>Sam</td>
+										<td>Dybala</td>					
+                                    </tr>
+                                    <tr>
+                              
+                                        <td>Jordy</td>
+										<td>Courtois</td>									
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+				
+						</div>	
+
+						
+				<div role="tabpanel" class="tab-pane fade in active" id="4">
+								
+							<div class="body table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>                                
+                                        <th>Naam</th>
+										<th>Vuilste ploeg</th>								
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>                                   
+                                        <td>Sam</td>
+										<td>Panama</td>					
+                                    </tr>
+                                    <tr>
+                              
+                                        <td>Jordy</td>
+										<td>Saoedi-Arabië</td>									
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+				
+						</div>		
+						
+						
+					<div role="tabpanel" class="tab-pane fade in active" id="5">
+								
+							<div class="body table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>                                
+                                        <th>Naam</th>
+										<th>Positie België</th>								
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>                                   
+                                        <td>Sam</td>
+										<td>finale</td>					
+                                    </tr>
+                                    <tr>
+                              
+                                        <td>Jordy</td>
+										<td>finale</td>									
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+				
+						</div>								
+                   </div>         
+				</div>	
+			</div>
+        </div>
+    </div>		
+						
             <!-- #END# Basic Table -->
 	
 	

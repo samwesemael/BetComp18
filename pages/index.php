@@ -252,30 +252,35 @@
                 <!-- Latest Social Trends -->
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="card">
-                        <div class="body bg-blue">
-                            <div class="m-b--35 font-bold">VOLGENDE WEDSTRIJD</div>
+					<div
+                        <div class="body bg">
+                            <div class="m-b--35 font-bold"> <center>VOLGENDE WEDSTRIJD</center></div>
                             <ul class="dashboard-stat-list">
-                                <li>
-									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">                                  
+                                <li>									       
+										<div class="media">
+										<center>
 										<div class="media-left media-middle">								
 											<a href="#">
 												<img class="media-object" src="../images/flags/flag_por.png" width="23" height="15">
 											</a>
 										</div>										
-										<div class="centered-content col-white">
-											<h5>PORTUGAL - SPAIN</h5> <br>									 
+										<div class="media-body">
+											<h5>PORTUGAL - SPAIN</h5> 
+												<h7> 15/6/2018 - 20:00 </h7>
 										</div>
 										<div class="media-right media-middle">
 										<a href="#">
 											<img class="media-object" src="../images/flags/flag_spa.png" width="23" height="15">
 										</a>
 										</div>   
-									</div>
+										</center>
+									</div>							
 								</li>
-                            </ul>
-							<div class="media-center media-middle centered-content">
+									
+                            </ul>	
+<div class="media-middle">
 						                      <center>      <big><b>2-2</b></big> </center> <center> <small>MIJN GOK</small> </center>
-									</div>
+									</div>							
                         </div>
                     </div>
                 </div>

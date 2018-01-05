@@ -22,7 +22,7 @@
 										<div class="form-group form-float">
 											<div class="form-line">
 												<input type="text" class="form-control" name="name" required>
-												<label class="form-label">Name</label>
+												<label class="form-label">DIT MOET AUTO WORDEN INGEVULD</label>
 											</div>
 										</div>
 								</div>		
@@ -108,7 +108,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="name" required>
-                                        <label class="form-label">topschutter</label>
+                                        <label class="form-label">Radja Nainggolan</label>
                                     </div>
                                 </div>   
 						</div>	
@@ -159,8 +159,7 @@
                                         <option>finale</option>                                      
                                     </select>					
                                 </div>  	
-						</div>
-									
+						</div>								
               
 								
 									 <button type="button" class="btn bg-blue waves-effect">
@@ -175,6 +174,40 @@
                     </div>
                 </div>
             </div>
+			
+	 <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>Mijn bonussen</h2> <big>NIET ZEKER OF DIT HIER NOG NODIG IS, STAAT OOK OP HOME, EN BIJ TABBLAD BONUSSEN KUNT GE VAN IEDEREEN ZIEN</big>
+                        </div>                        
+						<div class="body table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Naam</th>
+                                        <th>Wereldkampioen</th>
+                                        <th>Verliezend finalist</th>
+										<th>Topschutter</th>
+										<th>Vuilste ploeg</th>
+										<th>Positie België</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>                                       
+                                        <td>Sam</td>
+										<td>Costa Rica</td>   
+										 <td>Panama</td>
+										 <td>Courtois</td>
+										 <td>België</td>
+									     <td>groepsfase</td>                                 
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+					</div>
+				</div>
+			</div>
 	   
     </section>
 

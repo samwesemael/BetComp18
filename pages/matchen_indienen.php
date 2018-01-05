@@ -21,7 +21,7 @@
 										<div class="form-group form-float">
 											<div class="form-line">
 												<input type="text" class="form-control" name="name" required>
-												<label class="form-label">Name</label>
+												<label class="form-label">MOET AUTO WORDEN INGEVULD</label>
 											</div>
 										</div>
 								</div>		
@@ -63,7 +63,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="name" required>
-                                        <label class="form-label">score</label>
+                                        <label class="form-label">0-0</label>
                                     </div>
                                 </div>   
 						</div>	
@@ -73,7 +73,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="name" required>
-                                        <label class="form-label">minuut eerste goal</label>
+                                        <label class="form-label">69</label>
 										
                                     </div>
                                 </div>   
