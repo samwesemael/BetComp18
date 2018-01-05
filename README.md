@@ -20,6 +20,12 @@
 
 - Verification
 
+##### Data ophalen:
+
+- http://api.football-data.org/documentation
+- momenteel voorbeeld van https://github.com/dfrt82/phplib-football-data in tabblad data_test geblaft.
+  gebruikt in map pages: submap models, config.ini (te mergen met bestaande config? is met mijn API-key) en FootballData.php
+
 
 ## EXTRA:
 
