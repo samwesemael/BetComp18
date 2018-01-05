@@ -377,7 +377,7 @@
                     </li>
 						<li id = 'nav-datatest'>
                         <a href="data_test.php">
-                            <i class="material-icons">book</i>
+                            <i class="material-icons">archive</i>
                             <span>Data_test</span>
                         </a>
                     </li>

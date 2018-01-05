@@ -22,15 +22,17 @@ include 'FootballData.php';?>
 	 <div class="body">
      
 		        <div class="container">
-                <div class="page-header">
-                    <h1>Showcasing some library functions...</h1>
-                </div>
+               
                 <?php
                 // Create instance of API class
                 $api = new FootballData();
                 // fetch and dump summary data for premier league' season 2015/16
-                $soccerseason = $api->getSoccerseasonById(398);
+                $soccerseason = $api->getSoccerseasonById(467);
+				
                 echo "<p><hr><p>"; ?>
+				
+				<!--
+				
                 <h3>Fixtures for the 1st matchday of <?php echo $soccerseason->payload->caption; ?></h3>
                 <table class="table table-striped">
                     <tr>
@@ -49,15 +51,18 @@ include 'FootballData.php';?>
                         <td><?php echo $fixture->result->goalsAwayTeam; ?></td>
                     </tr>
                     <?php } ?>
-                </table>
+                </table> 
+				-->
+		
+			<!--	
             <?php
                 echo "<p><hr><p>";
-                // fetch all available upcoming fixtures for the next week and display
+                // fetch all available upcoming fixtures for the next 2 days and display
                 $now = new DateTime();
-                $end = new DateTime(); $end->add(new DateInterval('P7D'));
+                $end = new DateTime(); $end->add(new DateInterval('P2D'));
                 $response = $api->getFixturesForDateRange($now->format('Y-m-d'), $end->format('Y-m-d'));
             ?>
-            <h3>Upcoming fixtures next 7 days</h3>
+            <h3>Upcoming fixtures next 2 days</h3>
                 <table class="table table-striped">
                     <tr>
                         <th>HomeTeam</th>
@@ -75,8 +80,52 @@ include 'FootballData.php';?>
                         <td><?php echo $fixture->result->goalsAwayTeam; ?></td>
                     </tr>
                     <?php } ?>
+                </table> -->
+				
+			<?php
+				$WC_teams = 'http://api.football-data.org/v1/competitions/467/teams';
+				$WC_fixtures = 'http://api.football-data.org/v1/competitions/467/fixtures';
+				$reqPrefs['http']['method'] = 'GET';
+				$reqPrefs['http']['header'] = 'X-Auth-Token: 46e58e3c48a747e09ccf6c9ac073c4d6';
+				$stream_context = stream_context_create($reqPrefs);
+				$response_wc_teams = file_get_contents($WC_teams, false, $stream_context);
+				$response_wc_teams = json_decode($response_wc_teams);
+				$response_wc_fixtures = file_get_contents($WC_fixtures, false, $stream_context);
+				$response_wc_fixtures = json_decode($response_wc_fixtures);
+			?>
+			
+			<h3>Worldcupteams</h3>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Team</th>          
+                    </tr>
+                    <?php foreach ($response_wc_teams->teams as $team) { ?>
+                    <tr>
+                        <td><?php echo $team->name; ?></td>                        
+                    </tr>
+                    <?php } ?>
                 </table>
-
+				
+			 <h3>Worldcupfixtures</h3>
+                <table class="table table-striped">
+                    <tr>
+                        <th>HomeTeam</th>
+                        <th></th>
+                        <th>AwayTeam</th>
+                        <th colspan="3">Result</th>
+                    </tr>
+                    <?php foreach ($response_wc_fixtures->fixtures as $fixture) { ?>
+                    <tr>
+                        <td><?php echo $fixture->homeTeamName; ?></td>
+                        <td>-</td>
+                        <td><?php echo $fixture->awayTeamName; ?></td>
+                        <td><?php echo $fixture->result->goalsHomeTeam; ?></td>
+                        <td>:</td>
+                        <td><?php echo $fixture->result->goalsAwayTeam; ?></td>
+                    </tr>
+                    <?php } ?>
+                </table> -->	
+<!--
             <?php
                 echo "<p><hr><p>";
                 // search for desired team
@@ -129,6 +178,7 @@ include 'FootballData.php';?>
                 </tr>
                 <?php } ?>
             </table>
+			-->
         </div>
 
 	 </div>
