@@ -21,8 +21,8 @@
 									<p> <b>Naam</b></p>
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="name" required>
-												<label class="form-label">DIT MOET AUTO WORDEN INGEVULD</label>
+												<input type="text" class="form-control" name="name" disabled>
+												<label  class="form-label">DIT MOET AUTO WORDEN INGEVULD</label>
 											</div>
 										</div>
 								</div>		

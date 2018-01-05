@@ -319,6 +319,7 @@
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
+				
                     <li class="header">MAIN NAVIGATION</li>
                     <li id = 'nav-home'>
                         <a href="../index.php">

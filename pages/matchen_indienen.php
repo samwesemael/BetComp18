@@ -62,7 +62,7 @@
 															 <p><b>Score</b> </p>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="name" required>
+                                        <input type="text" class="form-control" name="name" disabled>
                                         <label class="form-label">0-0</label>
                                     </div>
                                 </div>   
