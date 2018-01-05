@@ -145,7 +145,7 @@
                                     <div class="col-xs-12 col-sm-12">                                        
                                             <?php  
                                                 include('server.php');
-                                                $sqlklassement = "SELECT users.user_name, klassement.totaal, users.pic_path FROM klassement inner join users on klassement.email = users.email ORDER BY totaal DESC LIMIT 4";
+                                                $sqlklassement = "SELECT users.user_name, users.first_name, klassement.totaal, users.pic_path FROM klassement inner join users on klassement.email = users.email ORDER BY totaal DESC LIMIT 4";
                                                 $results = mysqli_query($db, $sqlklassement);
                                                 if (!$results) {
                                                     printf("Error: %s\n", mysqli_error($conn));
@@ -166,8 +166,9 @@
                                                                 <img src=" '.$afbeelding.'" alt="" class="img-circle img-responsive">
                                                                 <div>
                                                                 <br>
-                                                                  <h4><center>'.$data['user_name'].'</center></h4>
-                                                                  <h5 class="role"><center>'.$loop.'e plaats</center></h5>
+                                                                  <h4><center>'.$data['first_name'].'</center></h4>
+                                                                  <h6><center>('.$data['user_name'].')</center></h5>
+                                                                  <h6><center>'.$loop.'e plaats</center></h6>
                                                                   <p><center>'.$data['totaal'].' punten</center></p>
                                                                 </div>
                                                               </div>

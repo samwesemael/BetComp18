@@ -35,6 +35,8 @@ if (isset($_POST['reg_user'])) {
   $email = mysqli_real_escape_string($db, $_POST['email']);
   $password_1 = mysqli_real_escape_string($db, $_POST['password']);
   $password_2 = mysqli_real_escape_string($db, $_POST['confirm']);
+  $firstname = mysqli_real_escape_string($db, $_POST['FirstName']);
+  $lastname = mysqli_real_escape_string($db, $_POST['LastName']);
 
   // form validation: ensure that the form is correctly filled
   if (empty($username)) { array_push($errors, "Full Name is required"); }
@@ -44,7 +46,13 @@ if (isset($_POST['reg_user'])) {
 	array_push($errors, "The two passwords do not match");
   }
 
+  // TODO: checken of username al in gebruik is
+
+  // $query = "SELECT user_name, first_name, last_name, email, pic_path FROM users WHERE (email='$email' AND password='$password') OR (user_name='$email' AND password='$password')";
+  //   $results = mysqli_query($db, $query);
+  //   if (mysqli_num_rows($results) == 1) {
   // register user if there are no errors in the form
+  
   if (count($errors) == 0) {
   	$password = md5($password_1);//encrypt the password before saving in the database
     $created = date("Y-m-d H:i:s");
@@ -79,12 +87,14 @@ if (isset($_POST['login_user'])) {
   if (count($errors) == 0) {
     $passCookie = $password;
     $password = md5($password); 
-    $query = "SELECT user_name, pic_path FROM users WHERE email='$email' AND password='$password'";
-
+    $query = "SELECT user_name, first_name, last_name, email, pic_path FROM users WHERE (email='$email' AND password='$password') OR (user_name='$email' AND password='$password')";
     $results = mysqli_query($db, $query);
     if (mysqli_num_rows($results) == 1) {
       if($data = mysqli_fetch_array($results)){
         $_SESSION['username'] = $data['user_name'];
+        $_SESSION['firstname'] = $data['first_name'];
+        $_SESSION['lastname'] = $data['last_name'];
+        $_SESSION['email'] = $data['email'];
         if($data['pic_path']===''){
           $_SESSION['profilepicpath']='../images/users/noImage.jpg';
         }
@@ -93,19 +103,15 @@ if (isset($_POST['login_user'])) {
         }
 
       }
-      $_SESSION['email'] = $email;
 
-      $_SESSION['success'] = "You are now logged in";
+      $_SESSION['success'] = "success";
       header('location: index.php');
       if(!empty($_POST["rememberme"])){
           setcookie ("email",$email,time()+ (10 * 365 * 24 * 60 * 60));  
           setcookie ("password",$passCookie,time()+ (10 * 365 * 24 * 60 * 60));
       }
-      else{
-
-      }
     }else {
-      
+      $_SESSION['success'] = "success";
       array_push($errors, "Wrong username/password combination");
     }
   }

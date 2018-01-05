@@ -4,13 +4,14 @@
 ## TODO:
 - servercalls centraliseren (DONE)
 - fb login
-- wrong username/password message loginpage
+- wrong username/password message loginpage (DONE)
 - poll om de matchen te kiezen waarop gegokt zal worden
 - Vlaggen ook in hogere res
 - Alle vlaggen resizen tot zelfde formaat
 - username/naam onwijzigbaar bij formulieren (DONE)
 - username/naam standaard ingevuld bij formulieren 
 - profilepage waar profielfoto kan worden geupload (bij FORMS --> ADVANCED FORM ELEMENTS staat voorbeeld voor file upload)
+- term of usage maken of check sign up verwijderen
 
 ##### Veiligheid:
 

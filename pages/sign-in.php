@@ -35,7 +35,7 @@
         <div class="card">
             <div class="body">
                 <form id="sign_in" method="POST" action="sign-in.php">
-                    <div class="msg">Sign in to start your session</div>
+                    <div class="msg"><?php if($_SESSION['success'] === 'error'){echo'Wrong username/password';}else{echo'Sign in to start your session';} ?></div>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
