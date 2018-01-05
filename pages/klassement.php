@@ -18,7 +18,8 @@
                                 Klassement
 							</h1>
                                 <small>WJ = winnaar juist</small> <br>
-								<small>SJ = score juist</small>
+								<small>SJ = score juist</small> </br>
+								<small>B = bonuspunten</small>
                             
                             
                         </div>
@@ -30,6 +31,7 @@
                                         <th>Naam</th>
                                         <th>WJ</th>
                                         <th>SJ</th>
+										<th>B</th>
 										<th>Punten</th>
                                     </tr>
                                 </thead>
@@ -57,6 +59,7 @@
                                                 <td><img style="max-height:40px;" src="'.$afbeelding.'" alt="" max-height=50px class="img-circle"> '.$data['user_name'].'</td>
                                                 <td>'.$data['matchenCorrect'].'</td>
                                                 <td>'.$data['winnaarCorrect'].'</td>
+												<td></td>
                                                 <td><b>'.$data['totaal'].'</b></td>
                                             </tr>
                                         ';
