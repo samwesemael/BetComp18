@@ -21,8 +21,8 @@
 									<p> <b>Naam</b></p>
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="name" disabled>
-												<label  class="form-label">DIT MOET AUTO WORDEN INGEVULD</label>
+												<input type="text" class="form-control" name="name" value="<?php echo $_SESSION['firstname'];?>" disabled>
+												<!-- <label  class="form-label"><?php echo $_SESSION['firstname'];?></label> -->
 											</div>
 										</div>
 								</div>		

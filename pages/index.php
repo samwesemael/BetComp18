@@ -244,7 +244,7 @@
 								</li>
 									
                             </ul>	
-<div class="media-middle col-blue">
+                                    <div class="media-middle col-blue">
 						                      <center>      <big><b>2-2</b></big> </center> <center> <small>MIJN GOK</small> </center>
 									</div>							
                         </div>

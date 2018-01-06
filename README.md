@@ -9,9 +9,10 @@
 - Vlaggen ook in hogere res
 - Alle vlaggen resizen tot zelfde formaat
 - username/naam onwijzigbaar bij formulieren (DONE)
-- username/naam standaard ingevuld bij formulieren 
+- username/naam standaard ingevuld bij formulieren (DONE maar hoeft eigenlijk niet, kan ook gwn ingevuld worden in de call) 
 - profilepage waar profielfoto kan worden geupload (bij FORMS --> ADVANCED FORM ELEMENTS staat voorbeeld voor file upload)
 - term of usage maken of check sign up verwijderen
+- kijken naar padding want teveel ruimte (vooral op mobile) niet gebruikt
 
 ##### Veiligheid:
 
