@@ -41,7 +41,7 @@ if (isset($_POST['reg_user'])) {
   // form validation: ensure that the form is correctly filled
   if (empty($username)) { array_push($errors, "Full Name is required"); }
   if (empty($email)) { array_push($errors, "Email is required"); }
-  if (empty($password_1)) { array_push($errors, "Password is required66"); }
+  if (empty($password_1)) { array_push($errors, "Password is required"); }
   if ($password_1 != $password_2) {
    array_push($errors, "The two passwords do not match");
  }
