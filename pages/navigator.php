@@ -322,7 +322,7 @@
 				
                     <li class="header">MAIN NAVIGATION</li>
                     <li id = 'nav-home'>
-                        <a href="../index.php">
+                        <a href="index.php">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>

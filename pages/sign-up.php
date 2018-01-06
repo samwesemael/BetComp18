@@ -40,9 +40,20 @@
                         <span class="input-group-addon">
                             <i class="material-icons">account_circle</i>
                         </span>
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
-                        </div>
+                        <?php
+                        if(isset($_GET['username_exists'])) {
+                            echo'<div class="form-group has-error has-feedback">
+                                <input type="text" class="form-control" id="inputError" name="username" placeholder="Username" aria-describedby="inputError2Status" required autofocus>
+                                <label class="control-label" for="inputError">Username already exist. Try another one.</label>
+                                </div>';
+                        }
+                        else{
+                            echo'
+                                <div class="form-line">
+                                <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+                                </div>';
+                        }
+                        ?>
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">
@@ -64,9 +75,20 @@
                         <span class="input-group-addon">
                             <i class="material-icons">email</i>
                         </span>
-                        <div class="form-line">
-                            <input type="email" class="form-control" name="email" placeholder="Email Address" required>
-                        </div>
+                        <?php
+                        if(isset($_GET['email_exists'])) {
+                            echo'<div class="form-group has-error has-feedback">
+                                <input type="text" class="form-control" id="inputErrormail" name="email" placeholder="Email Address" aria-describedby="inputError2Status" required autofocus>
+                                <label class="control-label" for="inputErrormail">Email Address already used. Use another one.</label>
+                                </div>';
+                        }
+                        else{
+                            echo'
+                                <div class="form-line">
+                                <input type="text" class="form-control" name="email" placeholder="Email Address" required autofocus>
+                                </div>';
+                        }
+                        ?>
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">
