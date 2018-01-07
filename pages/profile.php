@@ -101,7 +101,7 @@
                             <div class="card">
                                 <div class="card-image waves-effect waves-block waves-light">
                                     <div id="dropzone">
-                                        <form action="file_upload2.php" id='dropzonefrom' class="dropzone">
+                                        <form action="file_upload.php" id='dropzonefrom' class="dropzone">
                                             <div class="fallback">
                                                 <input name="file" type="file" multiple />
                                                 <button name='submit' type='submit'>send</button>
