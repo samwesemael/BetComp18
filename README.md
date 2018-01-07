@@ -38,7 +38,7 @@
 ##### Database:
 
 - Structuur:
- -- brackemannen_be
+ ..* brackemannen_be
  --- bc18_users
  --- bc18_klassement
  --- bc18_...
