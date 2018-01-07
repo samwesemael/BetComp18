@@ -76,7 +76,7 @@
                                         <th scope="row">1</th>
                                         <td><div class="media-left media-middle">
 											<a href="javascript:void(0);">
-											<img class="media-object" src="../images/flags/flag_pan.png" width="23" height="15">
+											<img class="media-object" src="../images/flags/low_res/flag_pan.png" width="23" height="15">
 											</a> </div>
 											<div class="media-body">
                                           Panama   </div>	</td>      
@@ -88,7 +88,7 @@
                                        <th scope="row">2</th>
                                         <td><div class="media-left media-middle">
 											<a href="javascript:void(0);">
-											<img class="media-object" src="../images/flags/flag_rus.png" width="23" height="15">
+											<img class="media-object" src="../images/flags/low_res/flag_rus.png" width="23" height="15">
 											</a> </div>
 											<div class="media-body">
                                           Rusland   </div>	</td>      
@@ -99,7 +99,7 @@
                                        <th scope="row">3</th>
                                         <td><div class="media-left media-middle">
 											<a href="javascript:void(0);">
-											<img class="media-object" src="../images/flags/flag_cos.png" width="23" height="15">
+											<img class="media-object" src="../images/flags/low_res/flag_cos.png" width="23" height="15">
 											</a> </div>
 											<div class="media-body">
                                           Costa-Rica   </div>	</td>      
@@ -126,7 +126,7 @@
 										<center>
 										<div class="media-left media-middle">								
 											<a href="#">
-												<img class="media-object" src="../images/flags/flag_por.png" width="23" height="15">
+												<img class="media-object" src="../images/flags/low_res/flag_unk.png" width="23" height="15">
 											</a>
 										</div>										
 										<div class="media-body">
@@ -135,7 +135,7 @@
 										</div>
 										<div class="media-right media-middle">
 										<a href="#">
-											<img class="media-object" src="../images/flags/flag_spa.png" width="23" height="15">
+											<img class="media-object" src="../images/flags/low_res/flag_unk.png" width="23" height="15">
 										</a>
 										</div>   
 										</center>

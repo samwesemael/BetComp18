@@ -41,6 +41,11 @@
     --> bc18_klassement
 	
     --> bc18_...
+	
+- Vlaggen:
+   
+   --> low-res: 23x15 pixels
+   --> hi_res: 800x533 pixels
 
 ## EXTRA:
 

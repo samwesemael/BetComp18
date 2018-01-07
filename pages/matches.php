@@ -60,7 +60,7 @@
                                 <div class="media-left media-middle">
 								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <a href="#">
-                                        <img class="media-object" src="../images/flags/flag_rus.png" width="64" height="64">
+                                        <img class="media-object" src="../images/flags/hi_res/flag_rus.png" width="64" height="64">
                                     </a>
                                 </div>
 								
@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="media-right media-middle">
                                     <a href="#">
-                                        <img class="media-object" src="../images/flags/flag_sau.png" width="64" height="64">
+                                        <img class="media-object" src="../images/flags/hi_res/flag_sau.png" width="64" height="64">
                                     </a>
                                 
                             </div>
@@ -139,7 +139,7 @@
                                 <div class="media-left media-middle">
 								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <a href="#">
-                                        <img class="media-object" src="../images/flags/flag_por.png" width="64" height="64">
+                                        <img class="media-object" src="../images/flags/hi_res/flag_por.png" width="800" height="533">
                                     </a>
                                 </div>
                                 <div class="media-body media-middle centered-content">
@@ -148,7 +148,7 @@
                                 </div>
                                 <div class="media-right media-middle">
                                     <a href="#">
-                                        <img class="media-object" src="../images/flags/flag_spa.png" width="64" height="64">
+                                        <img class="media-object" src="../images/flags/hi_res/flag_spa.png" width="800" height="533">
                                     </a>
                                 
                             </div>
