@@ -39,13 +39,13 @@
 
 - Structuur:
 
- * brackemannen_be
+ brackemannen_be
  
-    bc18_users
+    --> bc18_users
 	
-    bc18_klassement
+    --> bc18_klassement
 	
-    bc18_...
+    --> bc18_...
 
 ## EXTRA:
 
