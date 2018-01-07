@@ -13,6 +13,7 @@
 - profilepage waar profielfoto kan worden geupload (bij FORMS --> ADVANCED FORM ELEMENTS staat voorbeeld voor file upload)
 - term of usage maken of check sign up verwijderen
 - kijken naar padding want teveel ruimte (vooral op mobile) niet gebruikt
+- change username form aanpassen (enkel nieuwe username mag)
 
 ##### Veiligheid:
 

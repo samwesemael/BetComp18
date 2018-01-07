@@ -93,14 +93,14 @@
 
                             function updateClock() {
                                 var t = getTimeRemaining(endtime);
-                                console.log('start');
+                                // console.log('start');
                                 function setClock(t){
-                                    console.log('setCalled');
+                                    // console.log('setCalled');
                                     daysSpan.setAttribute('value', t.days);
                                     hoursSpan.setAttribute('value', t.hours);
                                     minutesSpan.setAttribute('value', t.minutes);
                                     secondsSpan.setAttribute('value', t.seconds);
-                                    console.log('stop');
+                                    // console.log('stop');
                                 }
                                 
 
@@ -167,9 +167,9 @@
                                                                 <div>
                                                                 <br>
                                                                   <h4><center>'.$data['first_name'].'</center></h4>
-                                                                  <h6><center>('.$data['user_name'].')</center></h5>
+                                                                  <h6 class="hidden-sm hidden-xs"><center>('.$data['user_name'].')</center></h5>
                                                                   <h6><center>'.$loop.'e plaats</center></h6>
-                                                                  <p><center>'.$data['totaal'].' punten</center></p>
+                                                                  <p><center>'.$data['totaal'].' ptn</center></p>
                                                                 </div>
                                                               </div>
                                                             </div>';

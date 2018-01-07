@@ -5,123 +5,259 @@
     document.getElementById("nav-profile").classList.toggle('active');
 </script>
 
-<link href="../css/materializeprofile.css" type="text/css" rel="stylesheet" media="screen,projection">
-<link href="../css/styleprofile.css" type="text/css" rel="stylesheet" media="screen,projection">
+<link rel="stylesheet" type="text/css" href="../plugins/dropzone/dropzone.css">
 
 <section class="content">
+
+    <?php
+
+    include 'server.php';
+
+    if(isset($_POST['reset_username'])){
+        $username = mysqli_real_escape_string($db,$_POST['username']);
+        $modified = date("Y-m-d H:i:s");
+        $mail = $_SESSION['email'];
+        $query = "UPDATE users SET user_name = '$username', modified = '$modified' WHERE email = '$mail'";
+        mysqli_query($db, $query);
+        // echo 'new username = '.$_POST['username'];
+
+    }
+    if(isset($_POST['reset_pass'])){
+        $password = mysqli_real_escape_string($db, $_POST['password']);
+        $password = md5($password);
+        $modified = date("Y-m-d H:i:s");
+        $mail = $_SESSION['email'];
+        $query = "UPDATE users SET password = '$password', modified = '$modified' WHERE email = '$mail'";
+        mysqli_query($db, $query);
+        // echo 'new password ='.$password;
+
+    }
+                            
+    
+    ?>
 
 	<!-- header -->
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div id="profile-page-header" class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="../images/user-profile-bg.jpg" alt="user background">                    
+            <div class="profilecard hovercard">
+                <div class="profilecard-background">
+                    <img class="card-bkimg" alt="" src="<?php echo $_SESSION["profilepicpath"]; ?>">
+                    <!-- http://lorempixel.com/850/280/people/9/ -->
                 </div>
-                <div class="card-content">
-                  <div class="row clearfix">  
-                        <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-                             <figure class="figure" position= 'absolute';>
-                                <img src="<?php echo $_SESSION['profilepicpath'];?>" alt="profile image" class="img-circle img-responsive">
-                            </figure>
-                        </div>            
-                        <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">            
-                            <h4 class="card-title grey-text text-darken-4"><center><?php echo $_SESSION['firstname']; echo $_SESSION['lastname']; ?></center></h4>
-                            <p class="medium-small grey-text"><center><?php echo $_SESSION['username'];?></center></p>                        
-                        </div>
-                        <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-                            <h4 class="card-title grey-text text-darken-4"><center>info</center></h4>
-                            <p class="medium-small grey-text"><center>info</center></p>                        
-                        </div>
-                        <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-                            <h4 class="card-title grey-text text-darken-4"><center>nog iets</center></h4>
-                            <p class="medium-small grey-text"><center>blabla</center></p>                        
-                        </div>                    
-                        <!-- <div class="col s2 center-align">
-                            <h4 class="card-title grey-text text-darken-4">nog iets</h4>
-                            <p class="medium-small grey-text">bla</p>                        
-                        </div>   -->                  
-                    
-                    </div>
+                <div class="useravatar">
+                    <img alt="" src="<?php echo $_SESSION["profilepicpath"]; ?>">
                 </div>
-            </div>     
-        </div>
-    </div>
+                <div class="card-info"> <span class="card-title"><?php echo $_SESSION["firstname"].' '.$_SESSION["lastname"]; ?></span>
 
-    <div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <form action="file_upload.php" method="post" enctype="multipart/form-data">
-                    Select image to upload:
-                    <input type="file" name="fileToUpload" id="fileToUpload">
-                    <input type="submit" value="Upload Image" name="submit">
-                    </form>
-                    <?php if(isset($_GET['upload'])){
-                        if($_GET['upload']==='success'){
-                            echo'
-                            <div class="alert alert-success">
-                                <strong>Gelukt!</strong> De foto van u lelijk hoofd is je nieuwe profielfoto.
-                            </div>';
-                        }
-                        else{
-                            if($_GET['upload']==='error4'){
-                                $errormessage = 'Sorry, alleen vierkante afbeeldingen toegestaan';
-                            }
-                            else{
-
-                            if($_GET['upload']==='error3'){
-                                $errormessage = 'Aah ik ziet het al. Bestand is te groot';
-                            }
-                            else{
-
-                                if($_GET['upload']==='error2'){
-                                    $errormessage = 'Aah!! Je kan enkel jpeg, jpg of png uploaden';
-                                }
-                                else{
-                               $errormessage = 'Gewoon een te lelijk hoofd waarschijnlijk';
-                                }
-
-                        }
-                    }
-                            echo'
-                                <div class="alert alert-warning">
-                                    <strong>Oeps! </strong> Dat was niet de bedoeling. Eens kijken... <br>'.$errormessage.'!
-                                </div>
-                            ';
-                }
-
-
-                    } ?>
                 </div>
             </div>
+            <div class="profilebtn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+                <script>
+
+                    function myFunction(elmnt) {
+                        document.getElementById("stars").classList.remove('profilebtn-primary');
+                        document.getElementById("following").classList.remove('profilebtn-primary');
+                        document.getElementById("favorites").classList.remove('profilebtn-primary');
+                        elmnt.classList.toggle('profilebtn-primary');
+                    }
+                </script>
+                <div class="btn-group" role="group">
+                    <center><button onclick="myFunction(this)" type="button" id="stars" class="profilebtn profilebtn-default profilebtn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <div class="hidden-xs">Stars</div>
+                    </button>
+                </center>
+            </div>
+            <div class="btn-group" role="group">
+                <center>
+                    <button onclick="myFunction(this)" type="button" id="favorites" class="profilebtn profilebtn-default col-lg-12 col-md-12 col-sm-12 col-xs-12" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                        <div class="hidden-xs">Favorites</div>
+                    </button>
+                </center>
+            </div>
+            <div class="btn-group" role="group">
+                <center>
+                    <button onclick="myFunction(this)" type="button" id="following" class="profilebtn profilebtn-default col-lg-12 col-md-12 col-sm-12 col-xs-12" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        <div class="hidden-xs">Settings</div>
+                    </button>
+                </center>
+            </div>
         </div>
-    </div>
+
+        <div class="well">
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="tab1">
+                    <h3>This is tab 1</h3>
+                </div>
+                <div class="tab-pane fade in" id="tab2">
+                    <h3>This is tab 2</h3>
+                </div>
+                <div class="tab-pane fade in" id="tab3">
+                    <h3>Instellingen pagina</h3>
+                    
+                    <!-- profielfoto -->
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h4>Change Profile picture</h4>
+                            <div class="card">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <div id="dropzone">
+                                        <form action="file_upload2.php" id='dropzonefrom' class="dropzone">
+                                            <div class="fallback">
+                                                <input name="file" type="file" multiple />
+                                                <button name='submit' type='submit'>send</button>
+                                            </div>
+                                            <!-- <div class="dz-message needsclick">
+                                                Drop files here or click to upload.<br>
+                                                <span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
+                                            </div> -->
+                                        </form>
+                                    </div>
+                                    <?php if(isset($_GET['upload'])){
+                                        if($_GET['upload']==='success'){
+                                            echo'
+                                            <div class="alert alert-success">
+                                            <strong>Gelukt!</strong> De foto van u lelijk hoofd is je nieuwe profielfoto.
+                                            </div>';
+                                        }
+                                        else{
+                                            if($_GET['upload']==='error4'){
+                                                $errormessage = 'Sorry, alleen vierkante afbeeldingen toegestaan';
+                                            }
+                                            else{
+
+                                                if($_GET['upload']==='error3'){
+                                                    $errormessage = 'Aah ik ziet het al. Bestand is te groot';
+                                                }
+                                                else{
+
+                                                    if($_GET['upload']==='error2'){
+                                                        $errormessage = 'Aah!! Je kan enkel jpeg, jpg of png uploaden';
+                                                    }
+                                                    else{
+                                                     $errormessage = 'Gewoon een te lelijk hoofd waarschijnlijk';
+                                                 }
+                                             }
+                                         }   
+                                         echo'
+                                         <div class="alert alert-warning">
+                                         <strong>Oeps! </strong> Dat was niet de bedoeling. Eens kijken... <br>'.$errormessage.'!
+                                         </div>
+                                         ';
+                                     }
+                                 } ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END profielfoto -->
+
+                    <!-- username -->
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h4>Change Username</h4>
+                            <div class="card">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <!-- id van form moet sign_up zijn. Hierdor wordt juist JS code opgeroepen om checks te doen -->
+                                    <form id="userNameCheck" method="POST" action="profile.php">
+                                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">person</i>
+                                                </span>
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control" name="username" placeholder="New Username" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" >
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">person</i>
+                                                </span>
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control" name="confirm" placeholder="Confirm New Username" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=" col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                            <button type="submit" class="btn bg-blue waves-effect" name="reset_username">
+                                                <i class="material-icons">save</i>
+                                                <span>SAVE</span>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END username -->
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h4>Change Password</h4>
+                            <div class="card">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <!-- id van form moet sign_up zijn. Hierdor wordt juist JS code opgeroepen om checks te doen -->
+                                    <form id="sign_up" method="POST" action="profile.php">
+                                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">lock</i>
+                                                </span>
+                                                <div class="form-line">
+                                                    <input type="password" class="form-control" name="password" minlength="6" placeholder="Password" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" >
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">lock</i>
+                                                </span>
+                                                <div class="form-line">
+                                                    <input type="password" class="form-control" name="confirm" minlength="6" placeholder="Confirm Password" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=" col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                            <button type="submit" class="btn bg-blue waves-effect" name="reset_pass">
+                                                <i class="material-icons">save</i>
+                                                <span>SAVE</span>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+	
+        </section>
 
 
 
-  <!-- END header -->		
-</section>
+        <!-- Jquery Core Js -->
+        <script src="../plugins/jquery/jquery.min.js"></script>
 
-<!-- Jquery Core Js -->
-<script src="../plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap Core Js -->
+        <script src="../plugins/bootstrap/js/bootstrap.js"></script>
 
-<!-- Bootstrap Core Js -->
-<script src="../plugins/bootstrap/js/bootstrap.js"></script>
+        <!-- Waves Effect Plugin Js -->
+        <script src="../plugins/node-waves/waves.js"></script>
 
-<!-- Select Plugin Js -->
-<script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+        <!-- Validation Plugin Js -->
+        <script src="../plugins/jquery-validation/jquery.validate.js"></script>
 
-<!-- Slimscroll Plugin Js -->
-<script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+        <!-- Custom Js -->
+        <script src="../js/admin.js"></script>
 
-<!-- Waves Effect Plugin Js -->
-<script src="../plugins/node-waves/waves.js"></script>
+        <!-- deze is nodig om te checken of de ingevulde passwoorden matchen en of ze lang genoeg zijn en dergelijk -->
+        <script src="../js/pages/examples/sign-up.js"></script>
 
-<!-- Custom Js -->
-<script src="../js/admin.js"></script>
+        <!-- Demo Js -->
+   <!--      <script src="../js/demo.js"></script> -->
 
-<!-- Demo Js -->
-<script src="../js/demo.js"></script>
-</body>
+        <!-- Dropzone JS -->
+        <script src="../plugins/dropzone/min/dropzone.min.js"></script>
+    </body>
 
-</html>
+    </html>
