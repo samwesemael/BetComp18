@@ -227,7 +227,7 @@
 										<center>
 										<div class="media-left media-middle">								
 											<a href="#">
-												<img class="media-object" src="../images/flags/flag_por.png" width="23" height="15">
+												<img class="media-object" src="../images/flags/low_res/flag_por.png" width="23" height="15">
 											</a>
 										</div>										
 										<div class="media-body">
@@ -236,7 +236,7 @@
 										</div>
 										<div class="media-right media-middle">
 										<a href="#">
-											<img class="media-object" src="../images/flags/flag_spa.png" width="23" height="15">
+											<img class="media-object" src="../images/flags/low_res/flag_spa.png" width="23" height="15">
 										</a>
 										</div>   
 										</center>
