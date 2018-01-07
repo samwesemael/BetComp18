@@ -38,10 +38,14 @@
 ##### Database:
 
 - Structuur:
- ..* brackemannen_be
- --- bc18_users
- --- bc18_klassement
- --- bc18_...
+
+ * brackemannen_be
+ 
+    bc18_users
+	
+    bc18_klassement
+	
+    bc18_...
 
 ## EXTRA:
 
