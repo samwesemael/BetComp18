@@ -34,6 +34,7 @@
                 <div class="row clearfix">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="card">
+						<!--
                             <div class="header">
                                 <h2>Countdown</h2>
                                 <ul class="header-dropdown m-r--5">
@@ -48,24 +49,27 @@
                                         </ul>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
                             <div class="body">
                                 <div class="row clearfix">
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                        <input id="daysclock" data-min="0" data-max="200" type="text" class="knob days" data-readOnly=true data-width="80%" data-thickness="0.25" data-fgColor="#F44336" data-rotation=anticlockwise>
-
+                                        <input id="daysclock" data-min="0" data-max="356" type="text" class="knob days" data-readOnly=true data-width="80%" data-thickness="0.25" data-fgColor="#F44336" data-rotation=anticlockwise>
+										<div><p><center>DAYS</center></p></div>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                         <input id="hoursclock" data-min="0" data-max="24" type="text" class="knob hour" data-readOnly=true data-width="80%" data-thickness="0.25" data-fgColor="#E91E63" data-rotation=anticlockwise>
-                                        
+                                        <div><p><center>HOURS</center></p></div>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                         <input id="minutesclock" data-min="0" data-max="60" type="text" class="knob minute" data-readOnly=true data-width="80%" data-thickness="0.25" data-fgColor="#00BCD4" data-rotation=anticlockwise>
-                                    </div>
+										<div><p><center>MINUTES</center></p></div>
+								   </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                         <input id="secondsclock" data-min="0" data-max="60" type="text" class="knob second" data-readOnly=true data-width="80%" data-thickness="0.25" data-fgColor="#009688" data-rotation=anticlockwise>
-                                    </div>
+										<div><p><center>SECONDS</center></p></div>
+								   </div>
                                 </div>
+								<p><center><b> TILL WORLD CUP 2018</b></center> </p>
                             </div>
                         </div>
                     </div>
@@ -126,7 +130,8 @@
                             <div class="header">
                                 <div class="row clearfix">
                                     <div class="col-xs-12 col-sm-12">
-                                        <h2>Klassement Top 4</h2>
+                                        <div class="font-bold m-b--35">KLASSEMENT TOP 4</div>
+										<br>
                                     </div>
                                 </div>
                                 <ul class="header-dropdown m-r--5">
@@ -169,7 +174,7 @@
                                                                 <br>
                                                                   <h4><center>'.$data['first_name'].'</center></h4>
                                                                   <h6 class="hidden-sm hidden-xs"><center>('.$data['user_name'].')</center></h5>                                                                  
-                                                                  <div class="col-blue"><p><center>'.$data['totaal'].' ptn</center></p></div>
+                                                                  <div class="col-blue"><p><b><center>'.$data['totaal'].' ptn</center></b></p></div>
                                                                 </div>
                                                               </div>
                                                             </div>';
@@ -181,41 +186,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
             <!-- #END# Top 4 Klassement -->
 
 
-            <div>
-                <!-- Visitors -->
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                    <div class="card">
-                        <div class="body bg-pink">
-                            <div class="sparkline" data-type="line" data-spot-Radius="4" data-highlight-Spot-Color="rgb(233, 30, 99)" data-highlight-Line-Color="#fff"
-                                 data-min-Spot-Color="rgb(255,255,255)" data-max-Spot-Color="rgb(255,255,255)" data-spot-Color="rgb(255,255,255)"
-                                 data-offset="90" data-width="100%" data-height="92px" data-line-Width="2" data-line-Color="rgba(255,255,255,0.7)"
-                                 data-fill-Color="rgba(0, 188, 212, 0)">
-                                12,10,9,6,5,6,10,5,7,5,12,13,7,12,11
-                            </div>
-                            <ul class="dashboard-stat-list">
-                                <li>
-                                    TODAY
-                                    <span class="pull-right"><b>1 200</b> <small>USERS</small></span>
-                                </li>
-                                <li>
-                                    YESTERDAY
-                                    <span class="pull-right"><b>3 872</b> <small>USERS</small></span>
-                                </li>
-                                <li>
-                                    LAST WEEK
-                                    <span class="pull-right"><b>26 582</b> <small>USERS</small></span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- #END# Visitors -->
-                <!-- Latest Social Trends -->
+               <!-- NEXT GAME -->
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="card">
 					<div
@@ -282,7 +256,39 @@
                     </div>
                 </div>
                 <!-- #END# Answered Tickets -->
-            </div>
+         
+			
+				<div>
+                <!-- Visitors -->
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="card">
+                        <div class="body bg-pink">
+                            <div class="sparkline" data-type="line" data-spot-Radius="4" data-highlight-Spot-Color="rgb(233, 30, 99)" data-highlight-Line-Color="#fff"
+                                 data-min-Spot-Color="rgb(255,255,255)" data-max-Spot-Color="rgb(255,255,255)" data-spot-Color="rgb(255,255,255)"
+                                 data-offset="90" data-width="100%" data-height="92px" data-line-Width="2" data-line-Color="rgba(255,255,255,0.7)"
+                                 data-fill-Color="rgba(0, 188, 212, 0)">
+                                12,10,9,6,5,6,10,5,7,5,12,13,7,12,11
+                            </div>
+                            <ul class="dashboard-stat-list">
+                                <li>
+                                    TODAY
+                                    <span class="pull-right"><b>1 200</b> <small>USERS</small></span>
+                                </li>
+                                <li>
+                                    YESTERDAY
+                                    <span class="pull-right"><b>3 872</b> <small>USERS</small></span>
+                                </li>
+                                <li>
+                                    LAST WEEK
+                                    <span class="pull-right"><b>26 582</b> <small>USERS</small></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Visitors -->
+			
+			
             <!-- CPU Usage -->
             <div class="row clearfix">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

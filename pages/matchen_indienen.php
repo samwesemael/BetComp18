@@ -69,7 +69,7 @@
 						</div>	
 						
 						<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">	
-															<p><b>Minuut eerste goal</b>  <small>(bij finale)</small> </p>
+															<p><b>Extra</b>  <small>(vanaf knockout)</small> </p>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="name" required>
