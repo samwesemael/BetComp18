@@ -163,13 +163,13 @@
                                                     echo '
                                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                                               <div>
+															    <h6><center>'.$loop.'e plaats</center></h6>
                                                                 <img src=" '.$afbeelding.'" alt="" class="img-circle img-responsive">
                                                                 <div>
                                                                 <br>
                                                                   <h4><center>'.$data['first_name'].'</center></h4>
-                                                                  <h6 class="hidden-sm hidden-xs"><center>('.$data['user_name'].')</center></h5>
-                                                                  <h6><center>'.$loop.'e plaats</center></h6>
-                                                                  <p><center>'.$data['totaal'].' ptn</center></p>
+                                                                  <h6 class="hidden-sm hidden-xs"><center>('.$data['user_name'].')</center></h5>                                                                  
+                                                                  <div class="col-blue"><p><center>'.$data['totaal'].' ptn</center></p></div>
                                                                 </div>
                                                               </div>
                                                             </div>';
