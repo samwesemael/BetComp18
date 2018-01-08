@@ -5,7 +5,8 @@
     document.getElementById("nav-profile").classList.toggle('active');
 </script>
 
-<link rel="stylesheet" type="text/css" href="../plugins/dropzone/dropzone.css">
+<link href='../css/dropzone.css' type='text/css' rel='stylesheet'>
+<script src='../js/dropzone.js' type='text/javascript'></script>
 
 <section class="content">
 
@@ -101,51 +102,11 @@
                             <h4>Change Profile picture</h4>
                             <div class="card">
                                 <div class="card-image waves-effect waves-block waves-light">
-                                    <div id="dropzone">
-                                        <form action="file_upload.php" id='dropzonefrom' class="dropzone">
-                                            <div class="fallback">
-                                                <input name="file" type="file" multiple />
-                                                <button name='submit' type='submit'>send</button>
-                                            </div>
-                                            <!-- <div class="dz-message needsclick">
-                                                Drop files here or click to upload.<br>
-                                                <span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
-                                            </div> -->
-                                        </form>
+                                    <div>
+                                        <form action="file_upload.php" class="dropzone" id="dropzonewidget">
+ 
+                                        </form> 
                                     </div>
-                                    <?php if(isset($_GET['upload'])){
-                                        if($_GET['upload']==='success'){
-                                            echo'
-                                            <div class="alert alert-success">
-                                            <strong>Gelukt!</strong> De foto van u lelijk hoofd is je nieuwe profielfoto.
-                                            </div>';
-                                        }
-                                        else{
-                                            if($_GET['upload']==='error4'){
-                                                $errormessage = 'Sorry, alleen vierkante afbeeldingen toegestaan';
-                                            }
-                                            else{
-
-                                                if($_GET['upload']==='error3'){
-                                                    $errormessage = 'Aah ik ziet het al. Bestand is te groot';
-                                                }
-                                                else{
-
-                                                    if($_GET['upload']==='error2'){
-                                                        $errormessage = 'Aah!! Je kan enkel jpeg, jpg of png uploaden';
-                                                    }
-                                                    else{
-                                                     $errormessage = 'Gewoon een te lelijk hoofd waarschijnlijk';
-                                                 }
-                                             }
-                                         }   
-                                         echo'
-                                         <div class="alert alert-warning">
-                                         <strong>Oeps! </strong> Dat was niet de bedoeling. Eens kijken... <br>'.$errormessage.'!
-                                         </div>
-                                         ';
-                                     }
-                                 } ?>
                                 </div>
                             </div>
                         </div>
@@ -258,7 +219,7 @@
    <!--      <script src="../js/demo.js"></script> -->
 
         <!-- Dropzone JS -->
-        <script src="../plugins/dropzone/min/dropzone.min.js"></script>
+ <!--        <script src="../plugins/dropzone/min/dropzone.min.js"></script> -->
     </body>
 
     </html>

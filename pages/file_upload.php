@@ -1,154 +1,70 @@
-<!DOCTYPE html>
-<html>
-
 <?php
-if(!isset($_SESSION)) 
-{ 
-  session_start(); 
-}
 
-$ds = DIRECTORY_SEPARATOR; 
-$storeFolder = 'images/users';
- 
-if (!empty($_FILES)) {
-    // Store file to temp variable
-    $fileType = $_FILES["image"]["type"];
-	$tempFile = $_FILES['file']['tmp_name'];  
-	$target_file = $target_dir . basename($_FILES["file"]["name"]);
-	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-	$imageFileTypePunt = '.'.$imageFileType;
-	$newName = $_SESSION["username"].$imageFileTypePunt;                 
-    // absolute path of destination folder
-    $targetPath = '..'. $ds. $storeFolder . $ds; 
-    //targetPath + filenaam 
-    $targetFile =  $targetPath.'/'. $newName;
+include ('server.php');
+$target_dir = "../images/users/";
+chmod ($_FILES["file"]["tmp_name"], 0666);
+$fileExtension = explode(".", basename($_FILES["file"]["name"]));
+$fullFileExtension = strtolower('.'.$fileExtension[1]);
 
-  
-     
+$target_file = $target_dir . $_SESSION['username'].$fullFileExtension;
 
 
+if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+	chmod ($target_file , 0666);
+	$MIME = mime_content_type($target_file);
+	switch ($MIME) {
+		case "image/gif":
+		  $image = imagecreatefromgif($target_file); 
+		  break;
+		case "image/pjpeg":
+		case "image/jpeg":
+		case "image/jpg":
+		  $image = imagecreatefromjpeg($target_file); 
+		  break;
+		case "image/png":
+		case "image/x-png":
+		  $image = imagecreatefrompng($target_file); 
+		  break;
+      }
 
-// // Check if image file is a actual image or fake image
-// 	// list($width, $height, $type, $attr) = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-	$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-	$img_width = $check[0];
-	$img_height = $check[1];
-//     if($check !== false) {
-//         echo "File is an image - " . $check["mime"] . ".";
-//         $uploadOk = 1;
-//     } else {
-//         echo "File is not an image.";
-//         $uploadOk = 0;
-//     }
+	$filename = $target_file;
 
-// // Check if file already exists
-// // if (file_exists($target_file)) {
-// //     echo "Sorry, file already exists.";
-// //     $uploadOk = 0;
-// // }
-// // echo $width;
-// if($width != $height){
-// 	header('location: profile.php?upload=error4');
-// }
-// // Check file size
-// else {
-// 	if ($_FILES["fileToUpload"]["size"] > 500000) {
-//     // echo "Sorry, your file is too large.";
-//     header('location: profile.php?upload=error3');
-//     $uploadOk = 0;
-// }
+	$thumb_width = 270;
+	$thumb_height = 270;
 
-// // Allow certain file formats
-// else {
-// 	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-//     // echo "Sorry, only JPG, JPEG, PNG files are allowed.";
-//     header('location: profile.php?upload=error2');
-//     $uploadOk = 0;
-// }
-// // Check if $uploadOk is set to 0 by an error
-// else {
-// 	if ($uploadOk == 0) {
-//     // echo "Sorry, your file was not uploaded.";
-//     header('location: profile.php?upload=error1');
-// // if everything is ok, try to upload file
-// } else {
-    if (move_uploaded_file($tempFile,$targetFile)) {
+	$width = imagesx($image);
+	$height = imagesy($image);
 
-    	// $targ_w = $targ_h = 270;
-     //    $jpeg_quality = 90;
-     //    $src = '../images/users/test.jpg';
-     //    $img_r = imagecreatefromjpeg($src);
-     //    $dst_r = ImageCreateTrueColor( $targ_w, $targ_h );
+	$original_aspect = $width / $height;
+	$thumb_aspect = $thumb_width / $thumb_height;
 
-     //    imagecopyresampled($dst_r,$img_r,0,0,0,0, $targ_w,$targ_h,1920,924);
-     //    imagejpeg($dst_r,$src,$jpeg_quality);
+	if ( $original_aspect >= $thumb_aspect )
+	{
+	   // If image is wider than thumbnail (in aspect ratio sense)
+	   $new_height = $thumb_height;
+	   $new_width = $width / ($height / $thumb_height);
+	}
+	else
+	{
+	   // If the thumbnail is wider than the image
+	   $new_width = $thumb_width;
+	   $new_height = $height / ($width / $thumb_width);
+	}
 
-    	// switch($fileType) {
-        switch ("image/jpg") {
-            case "image/gif":
-                $source = imagecreatefromgif('../images/users/test.jpg'); 
-                break;
-            case "image/pjpeg":
-            case "image/jpeg":
-            case "image/jpg":
-                $source = imagecreatefromjpeg('../images/users/test.jpg'); 
-                break;
-            case "image/png":
-            case "image/x-png":
-                $source = imagecreatefrompng('../images/users/test.jpg'); 
-                break;
-        }
-        $size = min($img_width, $img_height);
-        $im2 = imagecrop($source, ['x' => 0, 'y' => 0, 'width' => $size, 'height' => $size]);
-        if ($im2 !== FALSE) {
-    		imagepng($im2, 'example-cropped.png');
-		}
-        $dst_r = imagecreatetruecolor( $targ_w, $targ_h );
-        imagecopyresampled($dst_r, $source, 0, 0, 0, 0, $targ_w, $targ_h, $img_width, $img_height);
-    	switch("image/jpg") {
-            case "image/gif":
-                imagegif($dst_r,"../images/test.gif"); 
-                break;
-            case "image/pjpeg":
-            case "image/jpeg":
-            case "image/jpg":
-                imagejpeg($dst_r,"../images/test.jpg",90); 
-                break;
-            case "image/png":
-            case "image/x-png":
-                imagepng($dst_r,"../images/test.png");  
-                break;
-        }
-        imagedestroy($dst_r);
-        imagedestroy($source);
-        //@ unlink($targetFile);
+	$thumb = imagecreatetruecolor( $thumb_width, $thumb_height );
 
-
-
-    	include('server.php');
-    	$mail = $_SESSION['email'];
-    	$query = "UPDATE users SET pic_path = '$targetFile' WHERE email = '$mail'";
-
-        mysqli_query($db, $query);
-        $_SESSION['profilepicpath'] = $targetFile;
-
-        // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-        header("Refresh:0; url=profile.php");
-        header('location: profile.php?upload=success');
-    } else {
-        // echo "Sorry, there was an error uploading your file.";
-        header('location: profile.php?upload=error1');
-    }
-}
-else{
-	echo 'kapot';	
-}
-
-// }
-// }
-// }
-// }
+	// Resize and crop
+	imagecopyresampled($thumb,
+	                   $image,
+	                   0 - ($new_width - $thumb_width) / 2, // Center the image horizontally
+	                   0 - ($new_height - $thumb_height) / 2, // Center the image vertically
+	                   0, 0,
+	                   $new_width, $new_height,
+	                   $width, $height);
+	imagejpeg($thumb, $filename, 80);
+	$status = 1;
+	$query = "UPDATE users SET pic_path = '$target_file' WHERE email = 'user1@test.be'";
+	$_SESSION['profilepicpath'] = $target_file;
+	mysqli_query($db, $query);
+	}
 ?>
-
-</html>
-

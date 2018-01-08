@@ -18,6 +18,8 @@
 ##### Veiligheid:
 
 - Accountgegevens in cookies?
+- geen rare tekens in register
+- check session --> email ingevuld en in db? 
 
 ##### Users:
 

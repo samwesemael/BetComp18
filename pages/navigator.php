@@ -327,6 +327,12 @@
                             <span>Home</span>
                         </a>
                     </li>
+                    <li id = 'nav-adminpage'>
+                        <a href="adminpage.php">
+                            <i class="material-icons">format_list_numbered</i>
+                            <span>Admin</span>
+                        </a>
+                    </li>
                     <li id = 'nav-profile' hidden>
                         <a href="profile.php">
                             <i class="material-icons">today</i>
