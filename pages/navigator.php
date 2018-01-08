@@ -327,7 +327,11 @@
                             <span>Home</span>
                         </a>
                     </li>
-                    <li id = 'nav-adminpage'>
+                    <li <?php if($_SESSION['role']!='bc_18_admin')
+                            {
+                                echo 'style="display:none;"';
+                            } ?> 
+                            id = 'nav-adminpage'>
                         <a href="adminpage.php">
                             <i class="material-icons">format_list_numbered</i>
                             <span>Admin</span>

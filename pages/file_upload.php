@@ -6,7 +6,7 @@ chmod ($_FILES["file"]["tmp_name"], 0666);
 $fileExtension = explode(".", basename($_FILES["file"]["name"]));
 $fullFileExtension = strtolower('.'.$fileExtension[1]);
 
-$target_file = $target_dir . $_SESSION['username'].$fullFileExtension;
+$target_file = $target_dir . $_SESSION['username'].'_temp'.$fullFileExtension;
 
 
 if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
@@ -27,7 +27,7 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
 		  break;
       }
 
-	$filename = $target_file;
+	$filename = $target_dir.$_SESSION['username'].'.jpg'; // alles omgezet naar jpg
 
 	$thumb_width = 270;
 	$thumb_height = 270;
@@ -62,9 +62,16 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
 	                   $new_width, $new_height,
 	                   $width, $height);
 	imagejpeg($thumb, $filename, 80);
+	chmod($filename,0666);
+	//free up memory
+	imagedestroy($image);
+	imagedestroy($thumb);
+	imagedestroy($target_file);
+	@ unlink($target_file); // delete the original upload		
+	
 	$status = 1;
-	$query = "UPDATE users SET pic_path = '$target_file' WHERE email = 'user1@test.be'";
-	$_SESSION['profilepicpath'] = $target_file;
+	$query = "UPDATE users SET pic_path = '$filename' WHERE email = 'user1@test.be'";
+	$_SESSION['profilepicpath'] = $filename;
 	mysqli_query($db, $query);
 	}
 ?>

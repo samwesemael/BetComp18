@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
-<!-- navigator inladen en juist actief zetten -->
-<?php include 'navigator.php';?>
+<?php 
+  session_start(); 
+  ?>
+<?php if($_SESSION['role'] == 'speler'){
+           header('Location: index.php'); 
+    }
+    else{
+        include('navigator.php');
+    }
+?>
+
+
 <script type="text/javascript">
     document.getElementById("nav-adminpage").classList.toggle('active');
 </script>
@@ -19,6 +29,7 @@
                             </h1>                      
                         </div>
                         <div class="body table-responsive">
+                            <?php echo $_SESSION['role']; ?>
                             Bla Bla Bla
                         </div>
                     </div>
