@@ -69,7 +69,7 @@
 										<div><p><center>SECONDS</center></p></div>
 								   </div>
                                 </div>
-								<p><center><b> TILL WORLD CUP 2018</b></center> </p>
+								<center><b> TILL WORLD CUP 2018</b></center> 
                             </div>
                         </div>
                     </div>
