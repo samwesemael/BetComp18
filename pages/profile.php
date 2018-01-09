@@ -18,7 +18,7 @@
         $username = mysqli_real_escape_string($db,$_POST['username']);
         $modified = date("Y-m-d H:i:s");
         $mail = $_SESSION['email'];
-        $query = "UPDATE users SET user_name = '$username', modified = '$modified' WHERE email = '$mail'";
+        $query = "UPDATE bc18_users SET user_name = '$username', modified = '$modified' WHERE email = '$mail'";
         $_SESSION['username'] = $username;
         mysqli_query($db, $query);
         // echo 'new username = '.$_POST['username'];
@@ -29,7 +29,7 @@
         $password = md5($password);
         $modified = date("Y-m-d H:i:s");
         $mail = $_SESSION['email'];
-        $query = "UPDATE users SET password = '$password', modified = '$modified' WHERE email = '$mail'";
+        $query = "UPDATE bc18_users SET password = '$password', modified = '$modified' WHERE email = '$mail'";
         mysqli_query($db, $query);
         // echo 'new password ='.$password;
 
