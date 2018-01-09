@@ -5,6 +5,7 @@
 include 'FootballData.php';?>
 <script type="text/javascript">
     document.getElementById("nav-datatest").classList.toggle('active');
+	document.getElementById("nav-extra").classList.toggle('active');
 </script>
 
     <section class="content">

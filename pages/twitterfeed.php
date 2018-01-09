@@ -4,6 +4,7 @@
 <?php include 'navigator.php';?>
 <script type="text/javascript">
     document.getElementById("nav-twitter").classList.toggle('active');
+	document.getElementById("nav-extra").classList.toggle('active');
 </script>
 
     <section class="content">
@@ -11,9 +12,9 @@
 	  
 	   <div class="container-fluid">
             <div class="block-header">
-                <h1>
-                    Twitterfeed
-                </h1>
+                <h4>
+                    SOCIAL MEDIA
+                </h4>
             </div>
             <div class="row clearfix">
                 <!-- Basic Example -->
@@ -66,21 +67,21 @@
                                     </div>
                                 </div>
 			
-                                <!-- 
-                                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-								Controls -->
+                              
                             </div>
                         </div>
                     </div>
                 </div>
 				
+				 </div>
+				 
+				 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                            <div class="body">
+				 
+				 <script src="https://www.reddit.com/r/worldcup/.embed?limit=5" type="text/javascript"></script>
+				 </div>
+				 </div>
 				 </div>
         </div>
 	  

@@ -345,7 +345,7 @@
                     </li>
                     <li id="nav-gokken">
                         <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">archive</i>
+                            <i class="material-icons">input</i>
                             <span>Gokken</span>
                         </a>
                         <ul class="ml-menu">
@@ -378,284 +378,51 @@
                             <span>Matchen</span>
                         </a>
                     </li>
-                    <li id = 'nav-twitter'>
-                        <a href="twitterfeed.php">
-                            <i class="material-icons">whatshot</i>
-                            <span>Twitterfeed</span>
-                        </a>
-                    </li>
-                    
+                                       
                     <li id = 'nav-rules'>
                         <a href="rules.php">
                             <i class="material-icons">book</i>
                             <span>Spelregels</span>
                         </a>
                     </li>
-						<li id = 'nav-datatest'>
-                        <a href="data_test.php">
+					
+					<li id="nav-extra">
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">pages</i>
+                            <span>Extra</span>
+                        </a>
+                        <ul class="ml-menu">
+                             <li id = 'nav-twitter'>
+								<a href="twitterfeed.php">
+								<i class="material-icons">whatshot</i>
+								<span>Social media</span>
+								</a>
+							</li>
+							
+							<li id = 'nav-maps'>
+								<a href="maps.php">
+								<i class="material-icons">map</i>
+								<span>Map</span>
+								</a>
+							</li>
+							
+							<li id = 'nav-chat'>
+								<a href="chat.php">
+								<i class="material-icons">chat</i>
+								<span>Chat</span>
+								</a>
+							</li>							
+                         
+							<li id = 'nav-datatest'>
+								<a href="data_test.php">
                             <i class="material-icons">archive</i>
                             <span>Data_test</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="typography.html">
-                            <i class="material-icons">text_fields</i>
-                            <span>Typography</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="helper-classes.html">
-                            <i class="material-icons">layers</i>
-                            <span>Helper Classes</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">widgets</i>
-                            <span>Widgets</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Cards</span>
-                                </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a href="widgets/cards/basic.html">Basic</a>
-                                    </li>
-                                    <li>
-                                        <a href="widgets/cards/colored.html">Colored</a>
-                                    </li>
-                                    <li>
-                                        <a href="widgets/cards/no-header.html">No Header</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Infobox</span>
-                                </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a href="widgets/infobox/infobox-1.html">Infobox-1</a>
-                                    </li>
-                                    <li>
-                                        <a href="widgets/infobox/infobox-2.html">Infobox-2</a>
-                                    </li>
-                                    <li>
-                                        <a href="widgets/infobox/infobox-3.html">Infobox-3</a>
-                                    </li>
-                                    <li>
-                                        <a href="widgets/infobox/infobox-4.html">Infobox-4</a>
-                                    </li>
-                                    <li>
-                                        <a href="widgets/infobox/infobox-5.html">Infobox-5</a>
-                                    </li>
-                                </ul>
-                            </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">swap_calls</i>
-                            <span>User Interface (UI)</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="ui/alerts.html">Alerts</a>
-                            </li>
-                            <li>
-                                <a href="ui/animations.html">Animations</a>
-                            </li>
-                            <li>
-                                <a href="ui/badges.html">Badges</a>
-                            </li>
-
-                            <li>
-                                <a href="ui/breadcrumbs.html">Breadcrumbs</a>
-                            </li>
-                            <li>
-                                <a href="ui/buttons.html">Buttons</a>
-                            </li>
-                            <li>
-                                <a href="ui/collapse.html">Collapse</a>
-                            </li>
-                            <li>
-                                <a href="ui/colors.html">Colors</a>
-                            </li>
-                            <li>
-                                <a href="ui/dialogs.html">Dialogs</a>
-                            </li>
-                            <li>
-                                <a href="ui/icons.html">Icons</a>
-                            </li>
-                            <li>
-                                <a href="ui/labels.html">Labels</a>
-                            </li>
-                            <li>
-                                <a href="ui/list-group.html">List Group</a>
-                            </li>
-                            <li>
-                                <a href="ui/media-object.html">Media Object</a>
-                            </li>
-                            <li>
-                                <a href="ui/modals.html">Modals</a>
-                            </li>
-                            <li>
-                                <a href="ui/notifications.html">Notifications</a>
-                            </li>
-                            <li>
-                                <a href="ui/pagination.html">Pagination</a>
-                            </li>
-                            <li>
-                                <a href="ui/preloaders.html">Preloaders</a>
-                            </li>
-                            <li>
-                                <a href="ui/progressbars.html">Progress Bars</a>
-                            </li>
-                            <li>
-                                <a href="ui/range-sliders.html">Range Sliders</a>
-                            </li>
-                            <li>
-                                <a href="ui/sortable-nestable.html">Sortable & Nestable</a>
-                            </li>
-                            <li>
-                                <a href="ui/tabs.html">Tabs</a>
-                            </li>
-                            <li>
-                                <a href="ui/thumbnails.html">Thumbnails</a>
-                            </li>
-                            <li>
-                                <a href="ui/tooltips-popovers.html">Tooltips & Popovers</a>
-                            </li>
-                            <li>
-                                <a href="ui/waves.html">Waves</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">assignment</i>
-                            <span>Forms</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="forms/basic-form-elements.html">Basic Form Elements</a>
-                            </li>
-                            <li>
-                                <a href="forms/advanced-form-elements.html">Advanced Form Elements</a>
-                            </li>
-                            <li>
-                                <a href="forms/form-examples.html">Form Examples</a>
-                            </li>
-                            <li>
-                                <a href="forms/form-validation.html">Form Validation</a>
-                            </li>
-                            <li>
-                                <a href="forms/form-wizard.html">Form Wizard</a>
-                            </li>
-                            <li>
-                                <a href="forms/editors.html">Editors</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">view_list</i>
-                            <span>Tables</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="tables/normal-tables.html">Normal Tables</a>
-                            </li>
-                            <li>
-                                <a href="tables/jquery-datatable.html">Jquery Datatables</a>
-                            </li>
-                            <li>
-                                <a href="tables/editable-table.html">Editable Tables</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">perm_media</i>
-                            <span>Medias</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="medias/image-gallery.html">Image Gallery</a>
-                            </li>
-                            <li>
-                                <a href="pages/medias/carousel.html">Carousel</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">pie_chart</i>
-                            <span>Charts</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="charts/morris.html">Morris</a>
-                            </li>
-                            <li>
-                                <a href="charts/flot.html">Flot</a>
-                            </li>
-                            <li>
-                                <a href="charts/chartjs.html">ChartJS</a>
-                            </li>
-                            <li>
-                                <a href="charts/sparkline.html">Sparkline</a>
-                            </li>
-                            <li>
-                                <a href="charts/jquery-knob.html">Jquery Knob</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">content_copy</i>
-                            <span>Example Pages</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="examples/sign-in.html">Sign In</a>
-                            </li>
-                            <li>
-                                <a href="examples/sign-up.html">Sign Up</a>
-                            </li>
-                            <li>
-                                <a href="examples/forgot-password.html">Forgot Password</a>
-                            </li>
-                            <li>
-                                <a href="examples/blank.html">Blank Page</a>
-                            </li>
-                            <li>
-                                <a href="examples/404.html">404 - Not Found</a>
-                            </li>
-                            <li>
-                                <a href="examples/500.html">500 - Server Error</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">map</i>
-                            <span>Maps</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="maps/google.html">Google Map</a>
-                            </li>
-                            <li>
-                                <a href="maps/yandex.html">YandexMap</a>
-                            </li>
-                            <li>
-                                <a href="maps/jvectormap.html">jVectorMap</a>
-                            </li>
-                        </ul>
-                    </li>
+						
+                    
 						
                 </ul>
             </div>
