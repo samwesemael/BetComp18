@@ -14,9 +14,9 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h1>
-                                Klassement
-							</h1>
+                            <h4>
+                                KLASSEMENT
+							</h4>
                                 <small>WJ = winnaar juist</small> <br>
 								<small>SJ = score juist</small> </br>
 								<small>B = bonuspunten</small>
