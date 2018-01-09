@@ -94,7 +94,7 @@
                     <h3>This is tab 2</h3>
                 </div>
                 <div class="tab-pane fade in" id="tab3">
-                    <h3>Instellingen pagina</h3>
+                    <h4>INSTELLINGEN</h4>
                     
                     <!-- profielfoto -->
                     <div class="row clearfix">
@@ -102,9 +102,11 @@
                             <h4>Change Profile picture</h4>
                             <div class="card">
                                 <div class="card-image waves-effect waves-block waves-light">
-                                    <div>
+                                    <div>										
                                         <form action="file_upload.php" class="dropzone" id="dropzonewidget">
- 
+												<div class="drag-icon-cph">
+													<center><i class="material-icons">touch_app</i></center>
+												</div>
                                         </form> 
                                     </div>
                                 </div>
