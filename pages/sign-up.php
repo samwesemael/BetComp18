@@ -76,7 +76,7 @@ else{
         $_SESSION['firstname'] = $firstname;
         $_SESSION['lastname'] = $lastname;
         $_SESSION['email'] = $email;
-        $_SESSION['role']
+        $_SESSION['role'] = 'player';
         $_SESSION['profilepicpath']='../images/users/noImage.jpg';
         $_SESSION['success'] = "success";
         header('location: index.php');
