@@ -111,12 +111,14 @@
                                     <i class="material-icons">save</i>
                                     <span>UPDATE TEAMS</span>
 							</button>
+							Get new teamdata from API 
 							<br>
 							<br>
 							<button type="submit" class="btn bg-cyan waves-effect" name="update_fixtures">
                                     <i class="material-icons">save</i>
                                     <span>UPDATE FIXTURES</span>
-							</button>
+							</button> 
+							Get new matchdata from API (results)
 							</form>
                         </div>
                     </div>

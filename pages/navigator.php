@@ -333,7 +333,7 @@
                             } ?> 
                             id = 'nav-adminpage'>
                         <a href="adminpage.php">
-                            <i class="material-icons">format_list_numbered</i>
+                            <i class="material-icons">account_circle</i>
                             <span>Admin</span>
                         </a>
                     </li>
