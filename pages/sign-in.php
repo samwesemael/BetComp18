@@ -44,7 +44,7 @@
     if (count($errors) == 0) {
       $passCookie = $password;
       $password = md5($password); 
-      $query = "SELECT user_name, first_name, last_name, email, role, pic_path FROM users WHERE (email='$email' AND password='$password') OR (user_name='$email' AND password='$password')";
+      $query = "SELECT user_name, first_name, last_name, email, role, pic_path FROM bc18_users WHERE (email='$email' AND password='$password') OR (user_name='$email' AND password='$password')";
       $results = mysqli_query($db, $query);
       if (mysqli_num_rows($results) == 1) {
         if($data = mysqli_fetch_array($results)){

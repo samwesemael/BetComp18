@@ -136,7 +136,7 @@
                                     <div class="col-xs-12 col-sm-12">                                        
                                             <?php  
                                                 include('server.php');
-                                                $sqlklassement = "SELECT users.user_name, users.first_name, klassement.totaal, users.pic_path FROM klassement inner join users on klassement.email = users.email ORDER BY totaal DESC LIMIT 4";
+                                                $sqlklassement = "SELECT bc18_users.user_name, bc18_users.first_name, bc18_klassement.totaal, bc18_users.pic_path FROM bc18_klassement inner join bc18_users on bc18_klassement.email = bc18_users.email ORDER BY totaal DESC LIMIT 4";
                                                 $results = mysqli_query($db, $sqlklassement);
                                                 if (!$results) {
                                                     printf("Error: %s\n", mysqli_error($conn));

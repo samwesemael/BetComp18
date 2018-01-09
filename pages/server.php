@@ -21,7 +21,7 @@ $dbname= 'brackemannen_be';
 // $db = mysqli_connect($dbhostname, $dbuser, $dbpassword, $dbname);
 
 // for local use
-$db = mysqli_connect('localhost', 'root', '', 'users');
+$db = mysqli_connect('localhost', 'root', '', 'brackemannen_be');
 
 if ($db->connect_error) {
   die("Connection failed: " . $db->connect_error);

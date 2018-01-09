@@ -45,7 +45,7 @@ if (isset($_POST['reg_user'])) {
    array_push($errors, "The two passwords do not match");
  }
 
- $query = "SELECT user_name FROM users WHERE user_name='$username'";
+ $query = "SELECT user_name FROM bc18_users WHERE user_name='$username'";
  $results = mysqli_query($db, $query);
  if (mysqli_num_rows($results) != 0) {
     //username already exist
@@ -53,7 +53,7 @@ if (isset($_POST['reg_user'])) {
   header('location: sign-up.php?username_exists=$wrong');
 }
 else{
-  $query = "SELECT email FROM users WHERE email='$email'";
+  $query = "SELECT email FROM bc18_users WHERE email='$email'";
   $results = mysqli_query($db, $query);
   if (mysqli_num_rows($results) != 0) {
     //Email already exist
@@ -67,7 +67,7 @@ else{
         $password = md5($password_1); //encrypt the password before saving in the database
         $created = date("Y-m-d H:i:s");
         $modified = $created;
-        $query = "INSERT INTO users (user_name, first_name, last_name, email, password, role, verification, payed, oauth_provider, created, modified) 
+        $query = "INSERT INTO bc18_users (user_name, first_name, last_name, email, password, role, verification, payed, oauth_provider, created, modified) 
         VALUES('$username', '$firstname', '$lastname', '$email', '$password', 'speler', '0', false, 'manual', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."'    )";
         mysqli_query($db, $query);
         $queryKlassement = "INSERT INTO klassement (email, matchenCorrect, winnaarCorrect, totaal) VALUES('$email', '0', '0', '0')";
