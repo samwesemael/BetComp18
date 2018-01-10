@@ -125,7 +125,7 @@ include 'FootballData.php';?>
                         <td><?php echo $fixture->result->goalsAwayTeam; ?></td>
                     </tr>
                     <?php } ?>
-                </table> -->	
+                </table> 
 <!--
             <?php
                 echo "<p><hr><p>";
@@ -179,10 +179,78 @@ include 'FootballData.php';?>
                 </tr>
                 <?php } ?>
             </table>
-			-->
+		-->
         </div>
 
 	 </div>
+	 
+	 <?php	 
+	 
+	 $cl_teams = 'http://api.football-data.org/v1/competitions/464/teams';
+	 $cl_fixtures = 'http://api.football-data.org/v1/competitions/464/fixtures';
+	 $reqPrefs['http']['method'] = 'GET';
+	 $reqPrefs['http']['header'] = 'X-Auth-Token: 46e58e3c48a747e09ccf6c9ac073c4d6';
+	 $stream_context = stream_context_create($reqPrefs);
+	 $response_cl_teams = file_get_contents($cl_teams, false, $stream_context);
+	 $response_cl_teams = json_decode($response_cl_teams);
+	 $response_cl_fixtures = file_get_contents($cl_fixtures, false, $stream_context);
+	 $response_cl_fixtures = json_decode($response_cl_fixtures);
+	 ?>
+	 
+	 <h3>CLteams</h3>
+			<table class="table table-striped">
+                    <tr>
+                        <th>Team</th>          
+                    </tr>
+                    <?php foreach ($response_cl_teams->teams as $team) { ?>
+                    <tr>
+                        <td><?php echo $team->name; ?></td>                        
+                    </tr>
+                    <?php } ?>
+			</table>
+	 
+	  <h3>CLfixtures</h3>
+                <table class="table table-striped">
+                    <tr>
+					    <th>Date</th>
+                        <th>HomeTeam</th>
+                        <th></th>
+                        <th>AwayTeam</th>
+                        <th colspan="3">Result</th>
+                    </tr>
+                    <?php foreach ($response_cl_fixtures->fixtures as $fixture) { ?>
+                    <tr>
+					    <td><?php echo $fixture->date; ?><td>
+                        <td><?php echo $fixture->homeTeamName; ?></td>
+                        <td>-</td>
+                        <td><?php echo $fixture->awayTeamName; ?></td>
+                        <td><?php echo $fixture->result->goalsHomeTeam; ?></td>
+                        <td>:</td>
+                        <td><?php echo $fixture->result->goalsAwayTeam; ?></td>
+                    </tr>
+                    <?php } ?>
+                </table> 
+	
+	    <h3>CLplayers</h3>
+			<table class="table table-striped">
+                    <tr>
+                        <th>Player</th>          
+                    </tr>
+                    <?php foreach ($response_cl_teams->teams as $team) {
+							foreach($team->_links->players as $team_playerlink){                            			
+							$reqPrefs['http']['method'] = 'GET';
+							$reqPrefs['http']['header'] = 'X-Auth-Token: 46e58e3c48a747e09ccf6c9ac073c4d6';
+							$stream_context = stream_context_create($reqPrefs);
+							$response_cl_players = file_get_contents($team_playerlink, false, $stream_context);
+							$response_cl_players = json_decode($response_cl_players);			
+							foreach($response_cl_players->players as $player){
+							?>
+                    <tr>
+                        <td><?php echo $player->name; ?></td>                        
+                    </tr>
+					<?php }} }
+							?>
+			</table>
 	   
     </section>
 
