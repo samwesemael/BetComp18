@@ -122,7 +122,16 @@
 						<tr>	
 
 						<tr>							
-						<td>
+						<td><div class="row clearfix"> <select class="form-control show-tick" multiple>
+                                        <option>Mustard</option>
+                                        <option>Ketchup</option>
+                                        <option>Relish</option>
+                                    </select> <form method="post" action="adminpage.php">
+							<button type="submit" class="btn bg-green waves-effect" name="set_verification">
+                                    <i class="material-icons">save</i>
+                                    <span>SET VERIFICATION</span>
+							</button>
+							</form>  </div></td>
 							 </td>
 							<td> 							Set verification of user </td>
 							<td> / </td>
