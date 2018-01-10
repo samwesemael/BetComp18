@@ -96,7 +96,7 @@
 		 ?>
     
     
-                <!-- Basic Table -->
+            
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
@@ -106,21 +106,55 @@
                             </h4>                      
                         </div>
                         <div class="body table-responsive">
-                            My Role: <b><?php echo $_SESSION['role']; ?></b> <br> <br>
+						<center>
+                            My Role: <b><?php echo $_SESSION['role']; ?></b> </center> <br> <br>
+							
+						<table class="table">
+						<thead>
+						<tr>
+
+						<th> ACTION </th>
+						<th> DETAILS </th>
+						<th> LAST EXECUTION </th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>	
+
+						<tr>							
+						<td>
+							 </td>
+							<td> 							Set verification of user </td>
+							<td> / </td>
+							</tr>	
+						
+						<td>							
 							<form method="post" action="adminpage.php">
 							<button type="submit" class="btn bg-orange waves-effect" name="update_teams">
                                     <i class="material-icons">save</i>
                                     <span>UPDATE TEAMS</span>
 							</button>
-							Get new teamdata from API 
-							<br>
-							<br>
+							</form> </td>
+							<td> Get new teamdata from API  </td> 
+							<td> / </td> </tr>
+							
+							<tr>							
+						<td>
+							<form method="post" action="adminpage.php">
 							<button type="submit" class="btn bg-cyan waves-effect" name="update_fixtures">
                                     <i class="material-icons">save</i>
                                     <span>UPDATE FIXTURES</span>
 							</button> 
-							Get new matchdata from API (results)
-							</form>
+							</form> </td>
+							<td> 							Get new matchdata from API (results) </td>
+							<td> / </td>
+							</tr>
+											
+							
+							
+							
+							</tbody
+							
                         </div>
                     </div>
                 </div>

@@ -17,8 +17,18 @@
                 </h4>
             </div>
             <div class="row clearfix">
-                <!-- Basic Example -->
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- Basic Example -->               				
+				 
+				 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="card">
+                            <div class="body">
+				 
+				 <script src="https://www.reddit.com/r/worldcup/.embed?limit=5" type="text/javascript"></script>
+				 </div>
+				 </div>
+				 </div>
+				 
+				  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="card">
                             <div class="body">
                             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -72,20 +82,21 @@
                         </div>
                     </div>
                 </div>
-				
-				 </div>
 				 
-				 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				 
+				 
+				 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="card">
                             <div class="body">
 				 
-				 <script src="https://www.reddit.com/r/worldcup/.embed?limit=5" type="text/javascript"></script>
+				 <script src="https://www.reddit.com/r/soccer/.embed?limit=5" type="text/javascript"></script>
 				 </div>
 				 </div>
 				 </div>
         </div>
 	  
 	  
+				 </div>
 	  
     </section>
 
