@@ -45,25 +45,18 @@
 			}
 		}
 		
-	if(isset($_POST['update_teams'])){
-		$api = new FootballData();
-		$soccerseason = $api->getSoccerseasonById(467);
-		$WC_teams = 'http://api.football-data.org/v1/competitions/467/teams';
-		$reqPrefs['http']['method'] = 'GET';
-		$reqPrefs['http']['header'] = 'X-Auth-Token: 46e58e3c48a747e09ccf6c9ac073c4d6';
-		$stream_context = stream_context_create($reqPrefs);
-		$response_wc_teams = file_get_contents($WC_teams, false, $stream_context);
-		$response_wc_teams = json_decode($response_wc_teams);
-		
-		foreach ($response_wc_teams->teams as $team){
-			 $teamname = $team->name;		
-			 $redcards = 1;
-			 $yellowcards = 2;	
-			 //echo $teamname;
-			 $query = "UPDATE bc18_teams SET yellow_cards = '$yellowcards', red_cards = '$redcards' WHERE team_name = '$teamname'";
-			 mysqli_query($db, $query);
+		if(isset($_POST['set_verification'])){
+			$selectedusers = mysqli_real_escape_string($db, $_POST['users']);
+			$sqlusers = "SELECT bc18_users FROM bc18_users";
+			$results = mysqli_query($db, $sqlusers);
+			if (!$results) {
+				printf("Error: %s\n", mysqli_error($conn));
+				exit();
 			}
-		}
+
+		}*/
+		
+	
 		
 		if(isset($_POST['update_fixtures'])){
 		$api = new FootballData();
@@ -122,10 +115,19 @@
 						<tr>	
 
 						<tr>							
-						<td><div class="row clearfix"> <select class="form-control show-tick" multiple>
-                                        <option>Mustard</option>
-                                        <option>Ketchup</option>
-                                        <option>Relish</option>
+						<td><div class="row clearfix"> 
+							<select class="form-control show-tick" id="users" multiple>
+							<?php
+								$verquery = "SELECT email FROM bc18_users WHERE verification = '0'"; 
+								$results = mysqli_query($db, $verquery);
+								if (!$results) {
+									printf("Error: %s\n", mysqli_error($conn));
+									exit();
+								}                                                
+								while($data = mysqli_fetch_array($results)){
+									echo '<option>'.$data['email'].'</option>';
+								}										
+							?>
                                     </select> <form method="post" action="adminpage.php">
 							<button type="submit" class="btn bg-green waves-effect" name="set_verification">
                                     <i class="material-icons">save</i>
