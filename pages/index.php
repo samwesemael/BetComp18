@@ -23,7 +23,7 @@
                         </div>
                         <div class="content">
                             <div class="text"><b>MEDEDELINGEN</b></div>
-                            <div class="text">Jullie zijn allemaal lelijk.</div>
+                            <div class="text" id="mededelingen">Jullie zijn allemaal lelijk.</div>
                         </div>
                     </div>
                 </div>

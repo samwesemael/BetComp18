@@ -9,6 +9,7 @@
     else{
         include('navigator.php');
 		include 'FootballData.php';
+		//include 'index.php';	
 		
     }
 ?>
@@ -53,6 +54,14 @@
 				printf("Error: %s\n", mysqli_error($conn));
 				exit();
 			}
+		}	
+		
+		if(isset($_POST['set_announcement'])){
+					
+			echo "<script type=\"text/javascript\">	
+				document.getElementById('mededelingen').innerHTML = ".$_POST['mede'].";
+			</script>";	
+					
 		}	
 	
 		
@@ -99,6 +108,24 @@
                         <div class="body table-responsive">
 						<center>
                             My Role: <b><?php echo $_SESSION['role']; ?></b> </center> <br> <br>
+							
+						<h4 class="card-inside-title"><small>CHANGE ANNOUNCEMENTS</small></h4>
+                            <div class="row clearfix">
+                                <div class="col-sm-12">
+								<form id = "mede" method="post" action="adminpage.php">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <textarea  rows="1" class="form-control no-resize" placeholder="Please type what you want..."></textarea>
+                                        </div>
+                                    </div>                                                                                                         				    
+							<button type="submit" class="btn bg-grey waves-effect" name="set_announcement">
+                                    <i class="material-icons">save</i>
+                                    <span>UPDATE</span>
+							</button>
+							</form>	
+						</div>	
+						</div>						
+							
 							
 						<table class="table">
 						<thead>
