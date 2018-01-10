@@ -53,9 +53,7 @@
 				printf("Error: %s\n", mysqli_error($conn));
 				exit();
 			}
-
-		}*/
-		
+		}	
 	
 		
 		if(isset($_POST['update_fixtures'])){
