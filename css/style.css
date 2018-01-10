@@ -3370,7 +3370,7 @@ section.content {
   width: 100%; }
 
 /* Alerts ====================================== */
-.alert {
+/*.alert {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -3402,7 +3402,7 @@ section.content {
   color: #fff;
   opacity: 1;
   border: none;
-  text-shadow: none; }
+  text-shadow: none; }*/
 
 /* Dialogs (SweetAlert) ======================== */
 .sweet-alert {

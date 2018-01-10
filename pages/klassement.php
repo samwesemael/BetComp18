@@ -39,7 +39,7 @@
 
                                     <?php
                                         include('server.php');
-                                        $sqlklassement = "SELECT users.user_name, klassement.totaal, klassement.matchenCorrect, klassement.winnaarCorrect, users.pic_path FROM klassement inner join users on klassement.email = users.email ORDER BY totaal DESC";
+                                        $sqlklassement = "SELECT bc18_users.user_name, bc18_klassement.totaal, bc18_klassement.uitslag_correct, bc18_klassement.winnaar_correct, bc18_users.pic_path FROM bc18_klassement inner join bc18_users on bc18_klassement.email = bc18_users.email ORDER BY totaal DESC";
                                         $results = mysqli_query($db, $sqlklassement);
                                         if (!$results) {
                                             printf("Error: %s\n", mysqli_error($conn));
@@ -57,8 +57,8 @@
                                             <tr>
                                                 <th scope="row">'.$ranking.'</th>
                                                 <td><img style="max-height:40px;" src="'.$afbeelding.'" alt="" max-height=50px class="img-circle"> '.$data['user_name'].'</td>
-                                                <td>'.$data['matchenCorrect'].'</td>
-                                                <td>'.$data['winnaarCorrect'].'</td>
+                                                <td>'.$data['uitslag_correct'].'</td>
+                                                <td>'.$data['winnaar_correct'].'</td>
 												<td></td>
                                                 <td><b>'.$data['totaal'].'</b></td>
                                             </tr>

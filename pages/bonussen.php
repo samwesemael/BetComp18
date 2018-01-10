@@ -207,7 +207,7 @@
 
 						<div class="tab-content">							
 							
-                                <div role="tabpanel" class="tab-pane fade in active" id="1">
+                        <div role="tabpanel" class="tab-pane fade in active" id="1">
 								
 							<div class="body table-responsive">
                             <table class="table">
@@ -234,7 +234,7 @@
 						</div>	
 						
 						
-						<div role="tabpanel" class="tab-pane fade in active" id="2">
+						<div role="tabpanel" class="tab-pane fade in" id="2">
 								
 							<div class="body table-responsive">
                             <table class="table">
@@ -261,7 +261,7 @@
 						</div>		
 						
 						
-					<div role="tabpanel" class="tab-pane fade in active" id="3">
+					<div role="tabpanel" class="tab-pane fade in" id="3">
 								
 							<div class="body table-responsive">
                             <table class="table">
@@ -288,7 +288,7 @@
 						</div>	
 
 						
-				<div role="tabpanel" class="tab-pane fade in active" id="4">
+				<div role="tabpanel" class="tab-pane fade in" id="4">
 								
 							<div class="body table-responsive">
                             <table class="table">
@@ -315,7 +315,7 @@
 						</div>		
 						
 						
-					<div role="tabpanel" class="tab-pane fade in active" id="5">
+					<div role="tabpanel" class="tab-pane fade in" id="5">
 								
 							<div class="body table-responsive">
                             <table class="table">

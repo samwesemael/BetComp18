@@ -78,20 +78,21 @@
 		foreach ($response_wc_fixtures->fixtures as $fixture) {
 			 $datum = $fixture->date;
 			 //echo $datum;
-			 // TODO DATUM BEVAT ZOWEL D/M/Y als Uur, maar uur wordt niet naar DB geschreven 
+			 // TODO DATUM BEVAT tijd in UTC --> eerst omzetten naar onze tijdzone
 			 $hometeam = $fixture->homeTeamName;
 			 $awayteam = $fixture->awayTeamName;
 			 $goalshome = $fixture->result->goalsHomeTeam;
 			 $goalsaway = $fixture->result->goalsAwayTeam;
 			 
 			 //echo $teamname;
+			 // query met datum
+			 // $query = "UPDATE bc18_games SET goals_home = '$goalshome', goals_away = '$goalsaway',  datum = '$datum' WHERE team_home = '$hometeam' AND team_away = '$awayteam'";
+
+			 // query zonder datum
 			 $query = "UPDATE bc18_games SET goals_home = '$goalshome', goals_away = '$goalsaway' WHERE team_home = '$hometeam' AND team_away = '$awayteam'";
 			 mysqli_query($db, $query);
 			}
 		}
-		
-		
-		
 		 ?>
     
     

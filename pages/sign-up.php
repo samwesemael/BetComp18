@@ -70,13 +70,13 @@ else{
         $query = "INSERT INTO bc18_users (user_name, first_name, last_name, email, password, role, verification, payed, oauth_provider, created, modified) 
         VALUES('$username', '$firstname', '$lastname', '$email', '$password', 'speler', '0', false, 'manual', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."'    )";
         mysqli_query($db, $query);
-        $queryKlassement = "INSERT INTO klassement (email, matchenCorrect, winnaarCorrect, totaal) VALUES('$email', '0', '0', '0')";
+        $queryKlassement = "INSERT INTO bc18_klassement (email, matchenCorrect, winnaarCorrect, totaal) VALUES('$email', '0', '0', '0')";
         mysqli_query($db, $queryKlassement);
         $_SESSION['username'] = $username;
         $_SESSION['firstname'] = $firstname;
         $_SESSION['lastname'] = $lastname;
         $_SESSION['email'] = $email;
-        $_SESSION['role'] = 'player';
+        $_SESSION['role'] = 'speler';
         $_SESSION['profilepicpath']='../images/users/noImage.jpg';
         $_SESSION['success'] = "success";
         header('location: index.php');
