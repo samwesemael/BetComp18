@@ -29,49 +29,74 @@
 <?php
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
-  // receive all input values from the form
-  $username = mysqli_real_escape_string($db, $_POST['username']);
-  $email = mysqli_real_escape_string($db, $_POST['email']);
-  $password_1 = mysqli_real_escape_string($db, $_POST['password']);
-  $password_2 = mysqli_real_escape_string($db, $_POST['confirm']);
-  $firstname = mysqli_real_escape_string($db, $_POST['FirstName']);
-  $lastname = mysqli_real_escape_string($db, $_POST['LastName']);
+    // receive all input values from the form
+    $username = mysqli_real_escape_string($db, $_POST['username']);
+    $email = mysqli_real_escape_string($db, $_POST['email']);
+    $password_1 = mysqli_real_escape_string($db, $_POST['password']);
+    $password_2 = mysqli_real_escape_string($db, $_POST['confirm']);
+    $firstname = mysqli_real_escape_string($db, $_POST['FirstName']);
+    $lastname = mysqli_real_escape_string($db, $_POST['LastName']);
 
-  // form validation: ensure that the form is correctly filled
-  if (empty($username)) { array_push($errors, "Full Name is required"); }
-  if (empty($email)) { array_push($errors, "Email is required"); }
-  if (empty($password_1)) { array_push($errors, "Password is required"); }
-  if ($password_1 != $password_2) {
-   array_push($errors, "The two passwords do not match");
- }
+    // form validation: ensure that the form is correctly filled
+    if (empty($username)) { array_push($errors, "Full Name is required"); }
+    if (empty($email)) { array_push($errors, "Email is required"); }
+    if (empty($password_1)) { array_push($errors, "Password is required"); }
+    if ($password_1 != $password_2) { array_push($errors, "The two passwords do not match");}
 
- $query = "SELECT user_name FROM bc18_users WHERE user_name='$username'";
- $results = mysqli_query($db, $query);
- if (mysqli_num_rows($results) != 0) {
-    //username already exist
-  $error = '1';
-  header('location: sign-up.php?username_exists=$wrong');
+    $stmt = $db->prepare("SELECT user_name, email FROM bc18_users WHERE user_name=? OR email=?");
+    $stmt->bind_param('ss', $username, $email);
+    $stmt->execute();
+    $stmt->bind_result($userName, $mail);
+    // OLD query
+    // $query = "SELECT user_name FROM bc18_users WHERE user_name='$username'";
+    // $results = mysqli_query($db, $query);
+    if ($stmt->fetch()) {
+        //username or email already exist
+        if(strtolower($username) == strtolower($userName)){
+            $error = '1';
+            header('location: sign-up.php?username_exists=$wrong');
+        }
+        else{
+            $error = '1';
+            header('location: sign-up.php?email_exists=$wrong');
+        }
+        $stmt->close();
 }
-else{
-  $query = "SELECT email FROM bc18_users WHERE email='$email'";
-  $results = mysqli_query($db, $query);
-  if (mysqli_num_rows($results) != 0) {
-    //Email already exist
-    $error = '1';
-    header('location: sign-up.php?email_exists=$wrong');
-  }
 
-      //register user if there are no errors in the form
-    else{
-      if((count($errors) == 0) ){
+else{
+    if((count($errors) == 0) ){
         $password = md5($password_1); //encrypt the password before saving in the database
         $created = date("Y-m-d H:i:s");
         $modified = $created;
-        $query = "INSERT INTO bc18_users (user_name, first_name, last_name, email, password, role, verification, payed, oauth_provider, created, modified) 
-        VALUES('$username', '$firstname', '$lastname', '$email', '$password', 'speler', '0', false, 'manual', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."'    )";
-        mysqli_query($db, $query);
+
+
+        // OLD QUERIES
+        // $query = "INSERT INTO bc18_users (user_name, first_name, last_name, email, password, role, verification, payed, oauth_provider, created, modified) 
+        // VALUES('$username', '$firstname', '$lastname', '$email', '$password', 'speler', '0', false, 'manual', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."'    )";
+        // mysqli_query($db, $query);
+
+        $stmt = $db->prepare("INSERT INTO bc18_users (user_name, first_name, last_name, email, password, role, verification, payed, oauth_provider, created, modified) 
+        VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $ver = 0;
+        $speler = 'speler';
+        $manual = 'manual';
+        $false = 'false';
+        $stmt->bind_param('ssssssissss', $username, $firstname, $lastname, $email, $password, $speler, $ver, $false, $manual, $created, $modified);
+        $stmt->execute();
+        $stmt->close();
+
+
+        // WERKT NIET MEER!! NAKIJKEN!!
+        // $stmt2 = $db->prepare("INSERT INTO bc18_klassement (email, uitslag_correct, winnaar_correct, bonus, totaal) VALUES(?, ?, ?, ?, ?)");
+        // // $ver gebruikt omdat variabele moet zijn met waarde 0, gewoon 0 werkt niet 
+        // $stmt2->bind_param('siii', $email, $ver, $ver, $ver, $ver);
+        // $stmt2->execute();
+        // $stmt2->close();
+
         $queryKlassement = "INSERT INTO bc18_klassement (email, matchenCorrect, winnaarCorrect, totaal) VALUES('$email', '0', '0', '0')";
         mysqli_query($db, $queryKlassement);
+
+        
         $_SESSION['username'] = $username;
         $_SESSION['firstname'] = $firstname;
         $_SESSION['lastname'] = $lastname;
@@ -82,7 +107,6 @@ else{
         header('location: index.php');
       }
     }
-  }
 }
 
 ?>

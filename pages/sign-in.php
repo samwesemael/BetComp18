@@ -44,23 +44,27 @@
     if (count($errors) == 0) {
       $passCookie = $password;
       $password = md5($password); 
-      $query = "SELECT user_name, first_name, last_name, email, role, pic_path FROM bc18_users WHERE (email='$email' AND password='$password') OR (user_name='$email' AND password='$password')";
-      $results = mysqli_query($db, $query);
-      if (mysqli_num_rows($results) == 1) {
-        if($data = mysqli_fetch_array($results)){
-            $_SESSION['role'] = $data['role'];
-            $_SESSION['username'] = $data['user_name'];
-            $_SESSION['firstname'] = $data['first_name'];
-            $_SESSION['lastname'] = $data['last_name'];
-            $_SESSION['email'] = $data['email'];
-            if($data['pic_path']===''){
+      // oude query
+      // $query = "SELECT user_name, first_name, last_name, email, role, pic_path FROM bc18_users WHERE (email='$email' AND password='$password') OR (user_name='$email' AND password='$password')";
+      // $results = mysqli_query($db, $query);
+      $stmt = $db->prepare("SELECT user_name, first_name, last_name, email, role, pic_path FROM bc18_users WHERE (email=? AND password=?) OR (user_name=? AND password=?)");
+      $stmt->bind_param('ssss', $email, $password, $email, $password);
+      $stmt->execute();
+      $stmt->bind_result($userName, $firstName, $lastName, $mail, $role, $picture);
+      if ($stmt->fetch()) {
+            $_SESSION['role'] = $role;
+            $_SESSION['username'] = $userName;
+            $_SESSION['firstname'] = $firstName;
+            $_SESSION['lastname'] = $lastName;
+            $_SESSION['email'] = $mail;
+            if($picture===''){
                 $_SESSION['profilepicpath']='../images/users/noImage.jpg';
             }
             else{
-                $_SESSION['profilepicpath'] = $data['pic_path'];          
+                $_SESSION['profilepicpath'] = $picture;
             }
 
-        }
+        $stmt->close();
 
         $_SESSION['success'] = "success";
         header('location: index.php');
