@@ -70,7 +70,8 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
 	@ unlink($target_file); // delete the original upload		
 	
 	$status = 1;
-	$query = "UPDATE users SET pic_path = '$filename' WHERE email = 'user1@test.be'";
+	$email = $_SESSION['email'];
+	$query = "UPDATE bc18_users SET pic_path = '$filename' WHERE email = '$email'";
 	$_SESSION['profilepicpath'] = $filename;
 	mysqli_query($db, $query);
 	}

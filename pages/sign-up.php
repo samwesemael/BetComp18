@@ -86,16 +86,20 @@ else{
         $stmt->close();
 
 
-        // WERKT NIET MEER!! NAKIJKEN!!
-        // $stmt2 = $db->prepare("INSERT INTO bc18_klassement (email, uitslag_correct, winnaar_correct, bonus, totaal) VALUES(?, ?, ?, ?, ?)");
-        // // $ver gebruikt omdat variabele moet zijn met waarde 0, gewoon 0 werkt niet 
-        // $stmt2->bind_param('siii', $email, $ver, $ver, $ver, $ver);
-        // $stmt2->execute();
-        // $stmt2->close();
+        //OLD QUERY
+        // echo 'before query';
+        // $queryKlassement = "INSERT INTO bc18_klassement (email, uitslag_correct, winnaar_correct, bonus, totaal) VALUES('$email', '0', '0', '0', '0')";
+        // echo $queryKlassement;
+        // $results = mysqli_query($db, $queryKlassement);
+        // if (!$results) {
+        //                                     printf("Error: %s\n", mysqli_error($conn));
+        //                                     exit();
+        //                                   }
 
-        $queryKlassement = "INSERT INTO bc18_klassement (email, matchenCorrect, winnaarCorrect, totaal) VALUES('$email', '0', '0', '0')";
-        mysqli_query($db, $queryKlassement);
-
+        $stmt2 = $db->prepare("INSERT INTO bc18_klassement (email, uitslag_correct, winnaar_correct, bonus, totaal) VALUES(?, ?, ?, ?, ?)");
+        $stmt2->bind_param('siiii', $email, $ver, $ver, $ver, $ver);
+        $stmt2->execute();
+        $stmt2->close();
         
         $_SESSION['username'] = $username;
         $_SESSION['firstname'] = $firstname;
@@ -104,7 +108,7 @@ else{
         $_SESSION['role'] = 'speler';
         $_SESSION['profilepicpath']='../images/users/noImage.jpg';
         $_SESSION['success'] = "success";
-        header('location: index.php');
+        //header('location: index.php');
       }
     }
 }
