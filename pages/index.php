@@ -16,22 +16,22 @@
             
             <!-- MEDEDELINGEN -->
             <div class="row clearfix">
-                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="info-box-4 hover-zoom-effect">
-                        <div class="icon">
-                            <i class="material-icons col-green">announcement</i>
-                        </div>
-                        <div class="content">
-                            <div class="text"><b>MEDEDELINGEN</b></div>
-                            <div class="text" id="mededelingen">Jullie zijn allemaal lelijk.</div>
-                        </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="info-box-4 hover-zoom-effect">
+                            <div class="icon">
+                                <i class="material-icons col-green">announcement</i>
+                            </div>
+                            <div class="content">
+                                <div class="text"><b>MEDEDELINGEN</b></div>
+                                <div class="text" id="mededelingen">Jullie zijn allemaal lelijk.</div>
+                            </div>
                     </div>
                 </div>
             </div>
 
         	<!-- CountDown Timer -->
             <!-- CountDown Timer -->
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> -->
                 <div class="row clearfix">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="card">
@@ -173,104 +173,109 @@
                         </div>
                     </div>
                 </div>
-            </div>
+<!--             </div> -->
             <!-- #END# Top 4 Klassement -->
 
 
                <!-- NEXT GAME -->
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div class="card">
-                    <div class="body bg">
-                        <div class="m-b--35 font-bold"> <center>VOLGENDE WEDSTRIJD</center></div>
-                        <ul class="dashboard-stat-list">
-                            <li>                                           
-                                    <div class="media">
-                                    <center>
-                                        <div class="media-left media-middle">                               
-                                            <a href="#">
-                                                <img class="media-object" src="../images/flags/low_res/flag_por.png" width="23" height="15">
-                                            </a>
-                                        </div>                                      
-                                        <div class="media-body">
-                                            <h5>PORTUGAL - SPAIN</h5> 
-                                                <h7> 15/6/2018 - 20:00 </h7>
-                                        </div>
-                                        <div class="media-right media-middle">
-                                        <a href="#">
-                                            <img class="media-object" src="../images/flags/low_res/flag_spa.png" width="23" height="15">
-                                        </a>
-                                        </div>   
-                                    </center>
-                                    </div>                         
-                            </li>
-                                
-                        </ul>   
-                        <div class="media-middle col-blue">
-                                  <center>      <big><b>2-2</b></big> </center> <center> <small>MIJN GOK</small> </center>
-                        </div>                          
+                <div class="row clearfix">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                        <div class="card">
+                            <div class="body bg">
+                                <div class="m-b--35 font-bold"> <center>VOLGENDE WEDSTRIJD</center></div>
+                                <ul class="dashboard-stat-list">
+                                    <li>                                           
+                                            <div class="media">
+                                            <center>
+                                                <div class="media-left media-middle">                               
+                                                    <a href="#">
+                                                        <img class="media-object" src="../images/flags/low_res/flag_por.png" width="23" height="15">
+                                                    </a>
+                                                </div>                                      
+                                                <div class="media-body">
+                                                    <h5>PORTUGAL - SPAIN</h5> 
+                                                        <h7> 15/6/2018 - 20:00 </h7>
+                                                </div>
+                                                <div class="media-right media-middle">
+                                                <a href="#">
+                                                    <img class="media-object" src="../images/flags/low_res/flag_spa.png" width="23" height="15">
+                                                </a>
+                                                </div>   
+                                            </center>
+                                            </div>                         
+                                    </li>
+                                        
+                                </ul>   
+                                <div class="media-middle col-blue">
+                                          <center>      <big><b>2-2</b></big> </center> <center> <small>MIJN GOK</small> </center>
+                                </div>                          
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+
             <!-- #END# Latest Social Trends -->
             <!-- Answered Tickets -->
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div class="card">
-                    <div class="body bg">
-                        <div class="font-bold m-b--35">MIJN BONUSSEN</div>
-                        <ul class="dashboard-stat-list">
-                            <li>
-                                WERELDKAMPIOEN
-                                <span class="pull-right col-blue"><b>COSTA RICA</b> <small></small></span>
-                            </li>
-                            <li>
-                                VERLIEZEND FINALIST
-                                <span class="pull-right col-blue"><b>PANAMA</b> <small></small></span>
-                            </li>
-                            <li>
-                                TOPSCHUTTER
-                                <span class="pull-right col-blue"><b>COURTOIS</b> <small></small></span>
-                            </li>
-                            <li>
-                                VUILSTE PLOEG
-                                <span class="pull-right col-blue"><b>BELGIE</b> <small></small></span>
-                            </li>
-                            <li>
-                                POSITIE BELGIE
-                                <span class="pull-right col-blue"><b>GROEPSFASE</b> <small></small></span>
-                            </li>
-                        </ul>
+
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="card">
+                        <div class="body bg">
+                            <div class="font-bold m-b--35">MIJN BONUSSEN</div>
+                            <ul class="dashboard-stat-list">
+                                <li>
+                                    WERELDKAMPIOEN
+                                    <span class="pull-right col-blue"><b>COSTA RICA</b> <small></small></span>
+                                </li>
+                                <li>
+                                    VERLIEZEND FINALIST
+                                    <span class="pull-right col-blue"><b>PANAMA</b> <small></small></span>
+                                </li>
+                                <li>
+                                    TOPSCHUTTER
+                                    <span class="pull-right col-blue"><b>COURTOIS</b> <small></small></span>
+                                </li>
+                                <li>
+                                    VUILSTE PLOEG
+                                    <span class="pull-right col-blue"><b>BELGIE</b> <small></small></span>
+                                </li>
+                                <li>
+                                    POSITIE BELGIE
+                                    <span class="pull-right col-blue"><b>GROEPSFASE</b> <small></small></span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
+
             <!-- #END# Answered Tickets -->
          
             <!-- Answered Tickets -->
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div class="card">
-                    <div class="body bg">
-                        <div class="font-bold m-b--35">LAATSTE WEDSTRIJDEN</div>
-                        <ul class="dashboard-stat-list">
-                            <li>
-                                PANAMA - PANAMA
-                                <span class="pull-right col-blue"><b>0-0</b> <small></small></span>
-                            </li>
-                            <li>
-                                PANAMA - PANAMA
-                                <span class="pull-right col-blue"><b>0-0</b> <small></small></span>
-                            </li>
-                            <li>
-                                PANAMA - PANAMA
-                                <span class="pull-right col-blue"><b>0-0</b> <small></small></span>
-                            </li>
-                            <li>
-                                PANAMA - PANAMA
-                                <span class="pull-right col-blue"><b>0-0</b> <small></small></span>
-                            </li>
-                            <li>
-                                PANAMA - PANAMA
-                                <span class="pull-right col-blue"><b>GROEPSFASE</b> <small></small></span>
-                            </li>
-                        </ul>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="card">
+                        <div class="body bg">
+                            <div class="font-bold m-b--35">LAATSTE WEDSTRIJDEN</div>
+                            <ul class="dashboard-stat-list">
+                                <li>
+                                    PANAMA - PANAMA
+                                    <span class="pull-right col-blue"><b>0-0</b> <small></small></span>
+                                </li>
+                                <li>
+                                    PANAMA - PANAMA
+                                    <span class="pull-right col-blue"><b>0-0</b> <small></small></span>
+                                </li>
+                                <li>
+                                    PANAMA - PANAMA
+                                    <span class="pull-right col-blue"><b>0-0</b> <small></small></span>
+                                </li>
+                                <li>
+                                    PANAMA - PANAMA
+                                    <span class="pull-right col-blue"><b>0-0</b> <small></small></span>
+                                </li>
+                                <li>
+                                    PANAMA - PANAMA
+                                    <span class="pull-right col-blue"><b>GROEPSFASE</b> <small></small></span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
