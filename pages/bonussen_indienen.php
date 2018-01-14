@@ -5,6 +5,10 @@
 <script type="text/javascript">
     document.getElementById("nav-gokken").classList.toggle('active');
     document.getElementById("nav-bonussen-indienen").classList.toggle('active');
+
+    $(document).ready(function() {
+   $('.selectpicker').selectpicker();
+});
 </script>
     <section class="content">
 	
@@ -29,77 +33,77 @@
 																													
                                 <div class="col-md-4"> 
 									<p><b>Wereldkampioen</b></p>								
-                                    <select class="form-control show-tick">
-										<option>Argentinië</option>
-                                        <option>Australië</option>
-                                        <option>België</option>
-										<option>Brazilië</option>
-                                        <option>Colombia</option>
-                                        <option>Costa Rica</option>
-										<option>Denemarken</option>
-                                        <option>Duitsland</option>
-                                        <option>Egypte</option>
-										<option>Engeland</option>
-                                        <option>Frankrijk</option>
-                                        <option>Ijsland</option>
-										<option>Iran</option>
-                                        <option>Japan</option>
-                                        <option>Kroatië</option>
-										<option>Marokko</option>
-                                        <option>Mexico</option>
-                                        <option>Nigeria</option>
-										<option>Panama</option>
-                                        <option>Peru</option>
-                                        <option>Polen</option>
-										<option>Portugal</option>
-                                        <option>Rusland</option>                                        
-										<option>Saoedi-Arabië</option>
-										<option>Senegal</option>
-										<option>Servië</option>
-                                        <option>Spanje</option>
-                                        <option>Tunesië</option>
-										<option>Uruguay</option>
-                                        <option>Zuid-Korea</option>
-                                        <option>Zweden</option>
-										<option>Zwitserland</option>
+                                    <select class="selectpicker">
+										<option data-thumbnail="../images/flags/hi_res/flag_arg.png">Argentina</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_aus.png">Australia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_bel.png">Belgium</option>
+										<option data-thumbnail="../images/flags/hi_res/flag_bra.png">Brazil</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_col.png">Colombia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_cos.png">Costa Rica</option>
+										<option data-thumbnail="../images/flags/hi_res/flag_cro.png">Croatia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_den.png">Denmark</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_egy.png">Egypt</option>
+										<option data-thumbnail="../images/flags/hi_res/flag_eng.png">England</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_fra.png">France</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_ger.png">Germany</option>
+										<option data-thumbnail="../images/flags/hi_res/flag_ice.png">Iceland</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_ira.png">Iran</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_jap.png">Japan</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_sou.png">Korea Republic</option>
+										<option data-thumbnail="../images/flags/hi_res/flag_mex.png">Mexico</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_mor.png">Morrocco</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_nig.png">Nigeria</option>
+										<option data-thumbnail="../images/flags/hi_res/flag_pan.png">Panama</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_per.png">Peru</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_pol.png">Poland</option>
+										<option data-thumbnail="../images/flags/hi_res/flag_por.png">Portugal</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_rus.png">Russia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_sau.png">Saudi Arabia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_sen.png">Senegal</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_ser.png">Serbia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_spa.png">Spain</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_swe.png">Sweden</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_swi.png">Switzerland</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_tun.png">Tunesia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_uru.png">Urugay</option>
                                     </select>					
                                 </div>  
 					            <div class="col-md-4"> 
 									<p><b>Verliezend finalist</b></p>								
-                                    <select class="form-control show-tick">
-										<option>Argentinië</option>
-                                        <option>Australië</option>
-                                        <option>België</option>
-										<option>Brazilië</option>
-                                        <option>Colombia</option>
-                                        <option>Costa Rica</option>
-										<option>Denemarken</option>
-                                        <option>Duitsland</option>
-                                        <option>Egypte</option>
-										<option>Engeland</option>
-                                        <option>Frankrijk</option>
-                                        <option>Ijsland</option>
-										<option>Iran</option>
-                                        <option>Japan</option>
-                                        <option>Kroatië</option>
-										<option>Marokko</option>
-                                        <option>Mexico</option>
-                                        <option>Nigeria</option>
-										<option>Panama</option>
-                                        <option>Peru</option>
-                                        <option>Polen</option>
-										<option>Portugal</option>
-                                        <option>Rusland</option>                                        
-										<option>Saoedi-Arabië</option>
-										<option>Senegal</option>
-										<option>Servië</option>
-                                        <option>Spanje</option>
-                                        <option>Tunesië</option>
-										<option>Uruguay</option>
-                                        <option>Zuid-Korea</option>
-                                        <option>Zweden</option>
-										<option>Zwitserland</option>
-                                    </select>					
+                                    <select class="selectpicker">
+                                        <option data-thumbnail="../images/flags/hi_res/flag_arg.png">Argentina</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_aus.png">Australia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_bel.png">Belgium</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_bra.png">Brazil</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_col.png">Colombia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_cos.png">Costa Rica</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_cro.png">Croatia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_den.png">Denmark</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_egy.png">Egypt</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_eng.png">England</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_fra.png">France</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_ger.png">Germany</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_ice.png">Iceland</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_ira.png">Iran</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_jap.png">Japan</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_sou.png">Korea Republic</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_mex.png">Mexico</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_mor.png">Morrocco</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_nig.png">Nigeria</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_pan.png">Panama</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_per.png">Peru</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_pol.png">Poland</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_por.png">Portugal</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_rus.png">Russia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_sau.png">Saudi Arabia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_sen.png">Senegal</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_ser.png">Serbia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_spa.png">Spain</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_swe.png">Sweden</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_swi.png">Switzerland</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_tun.png">Tunesia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_uru.png">Urugay</option>
+                                    </select>                   
                                 </div>  
 								</div>
 								 <div class="row clearfix">
@@ -114,44 +118,44 @@
 						</div>	
 						<div class="col-md-4"> 
 									<p><b>Vuilste ploeg</b></p>								
-                                    <select class="form-control show-tick">
-										<option>Argentinië</option>
-                                        <option>Australië</option>
-                                        <option>België</option>
-										<option>Brazilië</option>
-                                        <option>Colombia</option>
-                                        <option>Costa Rica</option>
-										<option>Denemarken</option>
-                                        <option>Duitsland</option>
-                                        <option>Egypte</option>
-										<option>Engeland</option>
-                                        <option>Frankrijk</option>
-                                        <option>Ijsland</option>
-										<option>Iran</option>
-                                        <option>Japan</option>
-                                        <option>Kroatië</option>
-										<option>Marokko</option>
-                                        <option>Mexico</option>
-                                        <option>Nigeria</option>
-										<option>Panama</option>
-                                        <option>Peru</option>
-                                        <option>Polen</option>
-										<option>Portugal</option>
-                                        <option>Rusland</option>                                        
-										<option>Saoedi-Arabië</option>
-										<option>Senegal</option>
-										<option>Servië</option>
-                                        <option>Spanje</option>
-                                        <option>Tunesië</option>
-										<option>Uruguay</option>
-                                        <option>Zuid-Korea</option>
-                                        <option>Zweden</option>
-										<option>Zwitserland</option>
-                                    </select>					
+                                    <select class="selectpicker">
+                                        <option data-thumbnail="../images/flags/hi_res/flag_arg.png">Argentina</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_aus.png">Australia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_bel.png">Belgium</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_bra.png">Brazil</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_col.png">Colombia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_cos.png">Costa Rica</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_cro.png">Croatia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_den.png">Denmark</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_egy.png">Egypt</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_eng.png">England</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_fra.png">France</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_ger.png">Germany</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_ice.png">Iceland</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_ira.png">Iran</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_jap.png">Japan</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_sou.png">Korea Republic</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_mex.png">Mexico</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_mor.png">Morrocco</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_nig.png">Nigeria</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_pan.png">Panama</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_per.png">Peru</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_pol.png">Poland</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_por.png">Portugal</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_rus.png">Russia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_sau.png">Saudi Arabia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_sen.png">Senegal</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_ser.png">Serbia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_spa.png">Spain</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_swe.png">Sweden</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_swi.png">Switzerland</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_tun.png">Tunesia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_uru.png">Urugay</option>
+                                    </select>                   
                                 </div>  
 					<div class="col-md-4"> 
 									<p><b>Positie België</b></p>								
-                                    <select class="form-control show-tick">
+                                    <select class="selectpicker">
                                         <option>Groepsfase</option>
                                         <option>8ste finales</option>
                                         <option>kwartfinales</option>
@@ -245,6 +249,9 @@
 	
     <!-- Demo Js -->
     <script src="../js/demo.js"></script>
+
+    <script src="../plugins/bootstrap-select/js/modified/bootstrap-select.js"></script>
+
 </body>
 
 </html>

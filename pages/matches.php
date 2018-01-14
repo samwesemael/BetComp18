@@ -2,343 +2,704 @@
 <html>
 
 <!-- navigator inladen en juist actief zetten -->
-<?php include 'navigator.php';?>
+<?php include 'navigator.php';
+    include 'server.php';
+
+    $matchenPerDag = array(1, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1);
+    $speeldagen = array("2018-06-14", "2018-06-15", "2018-06-16", "2018-06-17", "2018-06-18", "2018-06-19", "2018-06-20", "2018-06-21", "2018-06-22", "2018-06-23", "2018-06-24", "2018-06-25", "2018-06-26", "2018-06-27", "2018-06-28", "2018-06-30", "2018-07-01", "2018-07-02", "2018-07-03", "2018-07-06", "2018-07-07", "2018-07-10", "2018-07-11", "2018-07-14", "2018-07-15");
+    ?>
 <script type="text/javascript">
     document.getElementById("nav-matches").classList.toggle('active');
 </script>
-
     <section class="content">
-	
-	            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">                          
-                                <h4>MATCHEN</h4>            
-                        </div>
-						
-					
-                        <div class="body">
-						
-						<div class="panel-group" id="accordion_1" role="tablist" aria-multiselectable="true">
-                                        <div class="panel panel-primary">
-                                            <div class="panel-heading" role="tab" id="headingOne_1">
-                                                <h4 class="panel-title">
-                                                    <a role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseOne_1" aria-expanded="true" aria-controls="collapseOne_1">
-                                                        Groepsfase
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseOne_1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne_1">
-                                                <div class="panel-body">
-												
-												 <ul class="nav nav-tabs tab-nav-right" role="tablist">
-							<!-- TODO: active de speeldag van die dag laten zijn -->
-                                <li role="presentation" class="active"><a href="#1" data-toggle="tab">1</a></li>
-                                <li role="presentation"><a href="#2" data-toggle="tab">2</a></li>
-                                <li role="presentation"><a href="#3" data-toggle="tab">3</a></li>
-                                <li role="presentation"><a href="#4" data-toggle="tab">4</a></li>
-                                <li role="presentation"><a href="#5" data-toggle="tab">5</a></li>
-                                <li role="presentation"><a href="#6" data-toggle="tab">6</a></li>
-                                <li role="presentation"><a href="#7" data-toggle="tab">7</a></li>
-                                <li role="presentation"><a href="#8" data-toggle="tab">8</a></li>
-                                <li role="presentation"><a href="#9" data-toggle="tab">9</a></li>
-                                <li role="presentation"><a href="#10" data-toggle="tab">10</a></li>
-                                <li role="presentation"><a href="#11" data-toggle="tab">11</a></li>
-                                <li role="presentation"><a href="#12" data-toggle="tab">12</a></li>
-                                <li role="presentation"><a href="#13" data-toggle="tab">13</a></li>
-                                <li role="presentation"><a href="#14" data-toggle="tab">14</a></li>
-                                <li role="presentation"><a href="#15" data-toggle="tab">15</a></li>
-												</ul>
-                                                   
-                                                </div>
-												
-								<div class="tab-content">
-							
-							
-                                <div role="tabpanel" class="tab-pane fade in active" id="1">
-								<div class="media">
-                                <div class="media-left media-middle">
-								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <a href="#">
-                                        <img class="media-object" src="../images/flags/hi_res/flag_rus.png" width="100" height="67">
-                                    </a>
-                                </div>
-								
-                                <div class="media-body media-middle centered-content">
-                                     <h6>RUSLAND - SAUDI-ARABIA</h6> <br>
-									  <h5>2-2</h5>
-                                </div>
-                                <div class="media-right media-middle">
-                                    <a href="#">
-                                        <img class="media-object" src="../images/flags/hi_res/flag_sau.png" width="100" height="67">
-                                    </a>
-                                
-                            </div>
-                                  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    </div>
-                        <div class="header">
-                            <h3>
-                                Scores
-							</h3>                                                   
-                            
-                       
-                        <div class="body table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>                                
-                                        <th>Naam</th>
-										<th>Score</th>
-										<th>Punten</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                   
-                                        <td>Mark</td>
-										<td>2-2</td>
-										<td>3</td>
-
-                                    </tr>
-                                    <tr>
-                              
-                                        <td>Jacob</td>
-										<td>2-2</td>
-										<td>3</td>
-                                    </tr>
-                                    <tr>
-                         
-                                        <td>Larry</td>
-										<td>2-2</td>
-										<td>3</td>
-                                    </tr>
-                                    <tr>
-                              
-                                        <td>Larry</td>
-											<td>2-2</td>
-											<td>3</td>
-                                    </tr>
-                                    <tr>
-                          
-                                        <td>Larry</td>
-										<td>2-2</td>
-										<td>3</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-				
-                  </div>
-            
-				</div>
-				</div>				
-				</div>				
-                                <div role="tabpanel" class="tab-pane fade" id="2">
-                                   
-								<div class="media">
-                                <div class="media-left media-middle">
-								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <a href="#">
-                                        <img class="media-object" src="../images/flags/hi_res/flag_por.png" width="100" height="67">
-                                    </a>
-                                </div>
-                                <div class="media-body media-middle centered-content">
-                                     <h5>PORTUGAL - SPAIN</h5> <br>
-									  <h4>2-2</h4>
-                                </div>
-                                <div class="media-right media-middle">
-                                    <a href="#">
-                                        <img class="media-object" src="../images/flags/hi_res/flag_spa.png" width="100" height="67">
-                                    </a>
-                                
-                            </div>
-                                 
-                        <div class="header">
-                            <h3>
-                                Scores
-							</h3>                                                   
-                            
-                       
-                        <div class="body table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>                                
-                                        <th>Naam</th>
-										<th>Score</th>
-										<th>Punten</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                   
-                                        <td>Mark</td>
-										<td>2-2</td>
-										<td>3</td>
-
-                                    </tr>
-                                    <tr>
-                              
-                                        <td>Jacob</td>
-										<td>2-2</td>
-										<td>3</td>
-                                    </tr>
-                                    <tr>
-                         
-                                        <td>Larry</td>
-										<td>2-2</td>
-										<td>3</td>
-                                    </tr>
-                                    <tr>
-                              
-                                        <td>Larry</td>
-											<td>2-2</td>
-											<td>3</td>
-                                    </tr>
-                                    <tr>
-                          
-                                        <td>Larry</td>
-										<td>2-2</td>
-										<td>3</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-				
-                  </div>
-            
-				</div>
-				</div>	
-								   
-								   
-								   
-								   
-								   
-								   
-                                </div>
-								
-								
-								
-								
-                                <div role="tabpanel" class="tab-pane fade" id="3">
-                                    <b>Message Content</b>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
-                                        Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid
-                                        pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
-                                        sadipscing mel.
-                                    </p>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade" id="4">
-                                    <b>Settings Content</b>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
-                                        Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid
-                                        pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
-                                        sadipscing mel.
-                                    </p>
-                                </div>
-                            </div>
-												
-												
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-primary">
-                                            <div class="panel-heading" role="tab" id="headingTwo_1">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseTwo_1" aria-expanded="false"
-                                                       aria-controls="collapseTwo_1">
-                                                        8ste finales
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseTwo_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo_1">
-                                                <div class="panel-body">
-												 <ul class="nav nav-tabs tab-nav-right" role="tablist">
-                                                    <li role="presentation"><a href="#16" data-toggle="tab">16</a></li>
-                                <li role="presentation"><a href="#17" data-toggle="tab">17</a></li>
-                                <li role="presentation"><a href="#18" data-toggle="tab">18</a></li>
-                                <li role="presentation"><a href="#19" data-toggle="tab">19</a></li> </ul>
-								
-								
-								
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-primary">
-                                            <div class="panel-heading" role="tab" id="headingThree_1">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseThree_1" aria-expanded="false"
-                                                       aria-controls="collapseThree_1">
-                                                        Kwartfinales
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseThree_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree_1">
-                                                <div class="panel-body">
-                                                   
-												   <ul class="nav nav-tabs tab-nav-right" role="tablist">
-                                                    <li role="presentation"><a href="#20" data-toggle="tab">20</a></li>
-                                <li role="presentation"><a href="#21" data-toggle="tab">21</a></li>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                    Groepsfase</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                            <!-- <li role="presentation" class=""><a href="#16" data-toggle="tab">16</a></li> -->
+                            <?php
+                                for($i=1; $i<16;$i++){
+                                    if ($i==1){
+                                        echo '
+                                        <li role="presentation"><a href="#'.$i.'" data-toggle="tab" class="active">'.$i.'</a></li>
+                                    ';
+                                    }
+                                    else{
+                                        echo '
+                                        <li role="presentation"><a href="#'.$i.'" data-toggle="tab">'.$i.'</a></li>
+                                    ';
+                                    }
+                                }
+                            ?>
                         </ul>
-												   
-												   
-                                                </div>
-                                            </div>
-                                        </div>
-										
-										<div class="panel panel-primary">
-                                            <div class="panel-heading" role="tab" id="headingFour_1">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseFour_1" aria-expanded="false"
-                                                       aria-controls="collapseFour_1">
-                                                        Halve finales
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseFour_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour_1">
-                                                <div class="panel-body">
-                                                   
-												   <ul class="nav nav-tabs tab-nav-right" role="tablist">
-                                                    <li role="presentation"><a href="#21" data-toggle="tab">22</a></li>
-                                <li role="presentation"><a href="#22" data-toggle="tab">23</a></li>
-                        </ul>
-												   
-												   
-                                                </div>
-                                            </div>
-                                        </div>
-										
-																			<div class="panel panel-primary">
-                                            <div class="panel-heading" role="tab" id="headingFive_1">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseFive_1" aria-expanded="false"
-                                                       aria-controls="collapseFive_1">
-                                                        Troosting & Finale
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseFive_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive_1">
-                                                <div class="panel-body">
-                                                  <ul class="nav nav-tabs tab-nav-right" role="tablist">
-                                                    <li role="presentation"><a href="#24" data-toggle="tab">24</a></li>
-                                <li role="presentation"><a href="#25" data-toggle="tab">25</a></li>
-                        </ul>
-												   
-												   
-                                                </div>
-                                            </div>
-                                        </div>	
-										
-										
-                                        </div>	
-                                    </div>				
-						
-						
-                      </div>
+                        <div class="tab-content">
+                            <?php
+                                $image= array('aaron.jpg', 'sam.jpg', 'stan.jpg', 'jordy.jpg');
+                                $matchquery = "SELECT bc18_games.datum as datum, bc18_games.team_home as hometeam, bc18_games.team_away as awayteam, bc18_games.goals_home as goals_home, bc18_games.goals_away as goals_away, home.team_crest as homeflag, away.team_crest as awayflag FROM bc18_games INNER JOIN bc18_teams AS home ON bc18_games.team_home = home.team_name INNER JOIN bc18_teams AS away ON bc18_games.team_away = away.team_name WHERE bc18_games.datum between '2018-06-14' and '2018-06-28 23:59:59' ORDER BY bc18_games.datum ASC ";
+                                $results = mysqli_query($db, $matchquery);
+                                $i = 1;
+                                $data = mysqli_fetch_array($results);
+                                while ($data){
+                                    $date = new DateTime($data['datum']);
+                                    $dateCheck = $date->format('Y-m-d');
+                                    echo 
+                                        '<div role="tabpanel" class="tab-pane fade" id="'.$i.'">
+                                        <div id="myCarousel'.$i.'" class="carousel slide" data-ride="carousel" data-interval="false">
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators">';
+                                        $temp = $i-1;
+                                        for($x=1;$x<=$matchenPerDag[$temp];$x++){
+                                            $tempx = $x-1;
+                                            if($x==1){
+                                                echo '<li data-target="#myCarousel'.$i.'" data-slide-to="'.$tempx.'" class="active"></li>';
+                                                }    
+                                            else{
+                                                echo '<li data-target="#myCarousel'.$i.'" data-slide-to="'.$tempx.'"></li>';
+                                                }
+                                            }
+                                        echo '</ol><div class="carousel-inner">';
+                                        for($x=1;$x<=$matchenPerDag[$temp];$x++){
+                                            if($x==1){
+                                                echo '
+                                                    <div class="item active">
+                                                        <div class="row clearfix">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <div class="media">
+                                                                    <div class="media-left media-middle media-right">
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center><a href="#">
+                                                                                <img class="media-object" src="'.$data['homeflag'].'" width="80%">
+                                                                            </a></center>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <div class="media-body media-middle centered-content">
+                                                                                <center>
+                                                                                    <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
+                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                </center>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center>
+                                                                                <a href="#">
+                                                                                    <img class="media-object" src="'.$data['awayflag'].'" width="80%">
+                                                                                </a>
+                                                                            </center>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>';
+                                            }
+                                            else{
+                                                echo'
+                                                    <div class="item">
+                                                        <div class="row clearfix">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <div class="media">
+                                                                    <div class="media-left media-middle media-right">
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center><a href="#">
+                                                                                <img class="media-object" src="'.$data['homeflag'].'" width="80%">
+                                                                            </a></center>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <div class="media-body media-middle centered-content">
+                                                                                <center>
+                                                                                    <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
+                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                </center>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center>
+                                                                                <a href="#">
+                                                                                    <img class="media-object" src="'.$data['awayflag'].'" width="80%">
+                                                                                </a>
+                                                                            </center>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>';
+                                            }
+                                            $data = mysqli_fetch_array($results);
+                                        }
+                                        if($matchenPerDag[$i-1] != 1){
+                                            echo '
+                                              <!-- Left and right controls -->
+                                              <a class="left carousel-control" href="#myCarousel'.$i.'" data-slide="prev">
+                                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                                <span class="sr-only">Previous</span>
+                                              </a>
+                                              <a class="right carousel-control" href="#myCarousel'.$i.'" data-slide="next">
+                                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                                <span class="sr-only">Next</span>
+                                              </a>';
+                                            }
+                                        $i++;
+
+                                        echo '</div></div></div>';
+                                    }
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                    8ste Finales</a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                            <!-- <li role="presentation" class=""><a href="#16" data-toggle="tab">16</a></li> -->
+                            <?php
+                                for($i=16; $i<20;$i++){
+                                    echo '
+                                        <li role="presentation"><a href="#'.$i.'" data-toggle="tab">'.$i.'</a></li>
+                                    ';
+                                }
+                            ?>
+                        </ul>
+                        <div class="tab-content">
+                            <?php
+                                $image= array('aaron.jpg', 'sam.jpg', 'stan.jpg', 'jordy.jpg');
+                                $matchquery = "SELECT bc18_games.datum as datum, bc18_games.team_home as hometeam, bc18_games.team_away as awayteam, bc18_games.goals_home as goals_home, bc18_games.goals_away as goals_away, home.team_crest as homeflag, away.team_crest as awayflag FROM bc18_games INNER JOIN bc18_teams AS home ON bc18_games.team_home = home.team_name INNER JOIN bc18_teams AS away ON bc18_games.team_away = away.team_name WHERE bc18_games.datum between '2018-06-30' and '2018-07-03 23:59:59' ORDER BY bc18_games.datum ASC LIMIT 15";
+                                $results = mysqli_query($db, $matchquery);
+                                $i = 16;
+                                $data = mysqli_fetch_array($results);
+                                while ($data){
+                                    $date = new DateTime($data['datum']);
+                                    $dateCheck = $date->format('Y-m-d');
+                                    echo 
+                                        '<div role="tabpanel" class="tab-pane fade" id="'.$i.'">
+                                        <div id="myCarousel'.$i.'" class="carousel slide" data-ride="carousel" data-interval="false">
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators">';
+                                        $temp = $i-1;
+                                        for($x=1;$x<=$matchenPerDag[$temp];$x++){
+                                            $tempx = $x-1;
+                                            if($x==1){
+                                                echo '<li data-target="#myCarousel'.$i.'" data-slide-to="'.$tempx.'" class="active"></li>';
+                                                }    
+                                            else{
+                                                echo '<li data-target="#myCarousel'.$i.'" data-slide-to="'.$tempx.'"></li>';
+                                                }
+                                            }
+                                        echo '</ol><div class="carousel-inner">';
+                                        for($x=1;$x<=$matchenPerDag[$temp];$x++){
+                                            if($x==1){
+                                                echo '
+                                                    <div class="item active">
+                                                        <div class="row clearfix">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <div class="media">
+                                                                    <div class="media-left media-middle media-right">
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center><a href="#">
+                                                                                <img class="media-object" src="'.$data['homeflag'].'" width="80%">
+                                                                            </a></center>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <div class="media-body media-middle centered-content">
+                                                                                <center>
+                                                                                    <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
+                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                </center>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center>
+                                                                                <a href="#">
+                                                                                    <img class="media-object" src="'.$data['awayflag'].'" width="80%">
+                                                                                </a>
+                                                                            </center>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>';
+                                            }
+                                            else{
+                                                echo'
+                                                    <div class="item">
+                                                        <div class="row clearfix">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <div class="media">
+                                                                    <div class="media-left media-middle media-right">
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center><a href="#">
+                                                                                <img class="media-object" src="'.$data['homeflag'].'" width="80%">
+                                                                            </a></center>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <div class="media-body media-middle centered-content">
+                                                                                <center>
+                                                                                    <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
+                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                </center>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center>
+                                                                                <a href="#">
+                                                                                    <img class="media-object" src="'.$data['awayflag'].'" width="80%">
+                                                                                </a>
+                                                                            </center>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>';
+                                            }
+                                            $data = mysqli_fetch_array($results);
+                                        }
+                                        echo '
+                                          <!-- Left and right controls -->
+                                          <a class="left carousel-control" href="#myCarousel'.$i.'" data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left"></span>
+                                            <span class="sr-only">Previous</span>
+                                          </a>
+                                          <a class="right carousel-control" href="#myCarousel'.$i.'" data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right"></span>
+                                            <span class="sr-only">Next</span>
+                                          </a>';
+                                        $i++;
+
+                                        echo '</div></div></div>';
+                                    }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                    Kwart Finales</a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                            <!-- <li role="presentation" class=""><a href="#16" data-toggle="tab">16</a></li> -->
+                            <?php
+                                for($i=20; $i<22;$i++){
+                                    echo '
+                                        <li role="presentation"><a href="#'.$i.'" data-toggle="tab">'.$i.'</a></li>
+                                    ';
+                                }
+                            ?>
+                        </ul>
+                        <div class="tab-content">
+                            <?php
+                                $image= array('aaron.jpg', 'sam.jpg', 'stan.jpg', 'jordy.jpg');
+                                $matchquery = "SELECT bc18_games.datum as datum, bc18_games.team_home as hometeam, bc18_games.team_away as awayteam, bc18_games.goals_home as goals_home, bc18_games.goals_away as goals_away, home.team_crest as homeflag, away.team_crest as awayflag FROM bc18_games INNER JOIN bc18_teams AS home ON bc18_games.team_home = home.team_name INNER JOIN bc18_teams AS away ON bc18_games.team_away = away.team_name WHERE bc18_games.datum between '2018-07-06' and '2018-07-07 23:59:59' ORDER BY bc18_games.datum ASC LIMIT 15";
+                                $results = mysqli_query($db, $matchquery);
+                                $i = 20;
+                                $data = mysqli_fetch_array($results);
+                                while ($data){
+                                    $date = new DateTime($data['datum']);
+                                    $dateCheck = $date->format('Y-m-d');
+                                    echo 
+                                        '<div role="tabpanel" class="tab-pane fade" id="'.$i.'">
+                                        <div id="myCarousel'.$i.'" class="carousel slide" data-ride="carousel" data-interval="false">
+                                        <div class="carousel-inner">';
+                                        for($x=1;$x<=$matchenPerDag[$temp];$x++){
+                                            if($x==1){
+                                                echo '
+                                                    <div class="item active">
+                                                        <div class="row clearfix">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <div class="media">
+                                                                    <div class="media-left media-middle media-right">
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center><a href="#">
+                                                                                <img class="media-object" src="'.$data['homeflag'].'" width="80%">
+                                                                            </a></center>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <div class="media-body media-middle centered-content">
+                                                                                <center>
+                                                                                    <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
+                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                </center>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center>
+                                                                                <a href="#">
+                                                                                    <img class="media-object" src="'.$data['awayflag'].'" width="80%">
+                                                                                </a>
+                                                                            </center>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>';
+                                            }
+                                            else{
+                                                echo'
+                                                    <div class="item">
+                                                        <div class="row clearfix">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <div class="media">
+                                                                    <div class="media-left media-middle media-right">
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center><a href="#">
+                                                                                <img class="media-object" src="'.$data['homeflag'].'" width="80%">
+                                                                            </a></center>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <div class="media-body media-middle centered-content">
+                                                                                <center>
+                                                                                    <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
+                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                </center>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center>
+                                                                                <a href="#">
+                                                                                    <img class="media-object" src="'.$data['awayflag'].'" width="80%">
+                                                                                </a>
+                                                                            </center>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>';
+                                            }
+                                            $data = mysqli_fetch_array($results);
+                                        }
+                                        echo '<!-- Indicators -->
+                                        <ol class="carousel-indicators">';
+                                        $temp = $i-1;
+                                        for($x=1;$x<=$matchenPerDag[$temp];$x++){
+                                            $tempx = $x-1;
+                                            if($x==1){
+                                                echo '<li data-target="#myCarousel'.$i.'" data-slide-to="'.$tempx.'" class="active"></li>';
+                                                }    
+                                            else{
+                                                echo '<li data-target="#myCarousel'.$i.'" data-slide-to="'.$tempx.'"></li>';
+                                                }
+                                            }
+                                        echo '</ol>';
+                                        echo '
+                                          <!-- Left and right controls -->
+                                          <a class="left carousel-control" href="#myCarousel'.$i.'" data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left"></span>
+                                            <span class="sr-only">Previous</span>
+                                          </a>
+                                          <a class="right carousel-control" href="#myCarousel'.$i.'" data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right"></span>
+                                            <span class="sr-only">Next</span>
+                                          </a>';
+                                        $i++;
+
+                                        echo '</div></div></div>';
+                                    }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                    Halve Finales</a>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                            <!-- <li role="presentation" class=""><a href="#16" data-toggle="tab">16</a></li> -->
+                            <?php
+                                for($i=22; $i<24;$i++){
+                                    echo '
+                                        <li role="presentation"><a href="#'.$i.'" data-toggle="tab">'.$i.'</a></li>
+                                    ';
+                                }
+                            ?>
+                        </ul>
+                        <div class="tab-content">
+                            <?php
+                                $image= array('aaron.jpg', 'sam.jpg', 'stan.jpg', 'jordy.jpg');
+                                $matchquery = "SELECT bc18_games.datum as datum, bc18_games.team_home as hometeam, bc18_games.team_away as awayteam, bc18_games.goals_home as goals_home, bc18_games.goals_away as goals_away, home.team_crest as homeflag, away.team_crest as awayflag FROM bc18_games INNER JOIN bc18_teams AS home ON bc18_games.team_home = home.team_name INNER JOIN bc18_teams AS away ON bc18_games.team_away = away.team_name WHERE bc18_games.datum between '2018-07-10' and '2018-07-11 23:59:59' ORDER BY bc18_games.datum ASC LIMIT 15";
+                                $results = mysqli_query($db, $matchquery);
+                                $i = 22;
+                                $data = mysqli_fetch_array($results);
+                                while ($data){
+                                    $date = new DateTime($data['datum']);
+                                    $dateCheck = $date->format('Y-m-d');
+                                    echo 
+                                        '<div role="tabpanel" class="tab-pane fade" id="'.$i.'">
+                                        <div id="myCarousel'.$i.'" class="carousel slide" data-ride="carousel" data-interval="false">
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators">';
+                                        $temp = $i-1;
+                                        for($x=1;$x<=$matchenPerDag[$temp];$x++){
+                                            $tempx = $x-1;
+                                            if($x==1){
+                                                echo '<li data-target="#myCarousel'.$i.'" data-slide-to="'.$tempx.'" class="active"></li>';
+                                                }    
+                                            else{
+                                                echo '<li data-target="#myCarousel'.$i.'" data-slide-to="'.$tempx.'"></li>';
+                                                }
+                                            }
+                                        echo '</ol><div class="carousel-inner">';
+                                        for($x=1;$x<=$matchenPerDag[$temp];$x++){
+                                            if($x==1){
+                                                echo '
+                                                    <div class="item active">
+                                                        <div class="row clearfix">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <div class="media">
+                                                                    <div class="media-left media-middle media-right">
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center><a href="#">
+                                                                                <img class="media-object" src="'.$data['homeflag'].'" width="80%">
+                                                                            </a></center>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <div class="media-body media-middle centered-content">
+                                                                                <center>
+                                                                                    <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
+                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                </center>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center>
+                                                                                <a href="#">
+                                                                                    <img class="media-object" src="'.$data['awayflag'].'" width="80%">
+                                                                                </a>
+                                                                            </center>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>';
+                                            }
+                                            else{
+                                                echo'
+                                                    <div class="item">
+                                                        <div class="row clearfix">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <div class="media">
+                                                                    <div class="media-left media-middle media-right">
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center><a href="#">
+                                                                                <img class="media-object" src="'.$data['homeflag'].'" width="80%">
+                                                                            </a></center>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <div class="media-body media-middle centered-content">
+                                                                                <center>
+                                                                                    <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
+                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                </center>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center>
+                                                                                <a href="#">
+                                                                                    <img class="media-object" src="'.$data['awayflag'].'" width="80%">
+                                                                                </a>
+                                                                            </center>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>';
+                                            }
+                                            $data = mysqli_fetch_array($results);
+                                        }
+                                        echo '
+                                          <!-- Left and right controls -->
+                                          <a class="left carousel-control" href="#myCarousel'.$i.'" data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left"></span>
+                                            <span class="sr-only">Previous</span>
+                                          </a>
+                                          <a class="right carousel-control" href="#myCarousel'.$i.'" data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right"></span>
+                                            <span class="sr-only">Next</span>
+                                          </a>';
+                                        $i++;
+
+                                        echo '</div></div></div>';
+                                    }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                    Finales</a>
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                            <!-- <li role="presentation" class=""><a href="#16" data-toggle="tab">16</a></li> -->
+                            <?php
+                                for($i=24; $i<26;$i++){
+                                    echo '
+                                        <li role="presentation"><a href="#'.$i.'" data-toggle="tab">'.$i.'</a></li>
+                                    ';
+                                }
+                            ?>
+                        </ul>
+                        <div class="tab-content">
+                            <?php
+                                $image= array('aaron.jpg', 'sam.jpg', 'stan.jpg', 'jordy.jpg');
+                                $matchquery = "SELECT bc18_games.datum as datum, bc18_games.team_home as hometeam, bc18_games.team_away as awayteam, bc18_games.goals_home as goals_home, bc18_games.goals_away as goals_away, home.team_crest as homeflag, away.team_crest as awayflag FROM bc18_games INNER JOIN bc18_teams AS home ON bc18_games.team_home = home.team_name INNER JOIN bc18_teams AS away ON bc18_games.team_away = away.team_name WHERE bc18_games.datum between '2018-07-14' and '2018-07-1 5 23:59:59' ORDER BY bc18_games.datum ASC LIMIT 15";
+                                $results = mysqli_query($db, $matchquery);
+                                $i = 24;
+                                $data = mysqli_fetch_array($results);
+                                while ($data){
+                                    $date = new DateTime($data['datum']);
+                                    $dateCheck = $date->format('Y-m-d');
+                                    echo 
+                                        '<div role="tabpanel" class="tab-pane fade" id="'.$i.'">
+                                        <div id="myCarousel'.$i.'" class="carousel slide" data-ride="carousel" data-interval="false">
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators">';
+                                        $temp = $i-1;
+                                        for($x=1;$x<=$matchenPerDag[$temp];$x++){
+                                            $tempx = $x-1;
+                                            if($x==1){
+                                                echo '<li data-target="#myCarousel'.$i.'" data-slide-to="'.$tempx.'" class="active"></li>';
+                                                }    
+                                            else{
+                                                echo '<li data-target="#myCarousel'.$i.'" data-slide-to="'.$tempx.'"></li>';
+                                                }
+                                            }
+                                        echo '</ol><div class="carousel-inner">';
+                                        for($x=1;$x<=$matchenPerDag[$temp];$x++){
+                                            if($x==1){
+                                                echo '
+                                                    <div class="item active">
+                                                        <div class="row clearfix">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <div class="media">
+                                                                    <div class="media-left media-middle media-right">
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center><a href="#">
+                                                                                <img class="media-object" src="'.$data['homeflag'].'" width="80%">
+                                                                            </a></center>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <div class="media-body media-middle centered-content">
+                                                                                <center>
+                                                                                    <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
+                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                </center>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center>
+                                                                                <a href="#">
+                                                                                    <img class="media-object" src="'.$data['awayflag'].'" width="80%">
+                                                                                </a>
+                                                                            </center>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>';
+                                            }
+                                            else{
+                                                echo'
+                                                    <div class="item">
+                                                        <div class="row clearfix">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <div class="media">
+                                                                    <div class="media-left media-middle media-right">
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center><a href="#">
+                                                                                <img class="media-object" src="'.$data['homeflag'].'" width="80%">
+                                                                            </a></center>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <div class="media-body media-middle centered-content">
+                                                                                <center>
+                                                                                    <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
+                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                </center>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                            <center>
+                                                                                <a href="#">
+                                                                                    <img class="media-object" src="'.$data['awayflag'].'" width="80%">
+                                                                                </a>
+                                                                            </center>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>';
+                                            }
+                                            $data = mysqli_fetch_array($results);
+                                        }
+                                        echo '
+                                          <!-- Left and right controls -->
+                                          <a class="left carousel-control" href="#myCarousel'.$i.'" data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left"></span>
+                                            <span class="sr-only">Previous</span>
+                                          </a>
+                                          <a class="right carousel-control" href="#myCarousel'.$i.'" data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right"></span>
+                                            <span class="sr-only">Next</span>
+                                          </a>';
+                                        $i++;
+
+                                        echo '</div></div></div>';
+                                    }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>     
     </section>
 
     <!-- Jquery Core Js -->
@@ -361,6 +722,7 @@
 
     <!-- Demo Js -->
     <script src="../js/demo.js"></script>
+
 </body>
 
 </html>
