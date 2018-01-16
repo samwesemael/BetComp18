@@ -44,8 +44,18 @@
     --> bc18_klassement
 	
     --> bc18_...
+	
+	
 
 ## EXTRA:
 
 - chat?  
 - map met stadiums + info
+
+## bespreken Sam na examens
+
+-	bc18_klassement herbekijken
+	nu winnaar en correcte score maar in laatste rondes dubbele score? Dus dan aparte kolom hiervoor???
+	eventueel ook kolom me aantal gegokte matchen
+	
+-	API matchen veld met indicatie dat match gedaan is? --> vanaf wnr de uitslag meegerekend kan worden in berekening want nu probleem bij 0-0
