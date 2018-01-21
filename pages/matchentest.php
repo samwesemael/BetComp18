@@ -1,6 +1,62 @@
 ﻿<!DOCTYPE html>
 <html>
 
+<!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="../css/swiper.min.css">
+
+  <!-- Demo styles -->
+  <!-- Demo styles -->
+    <style>
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .swiper-pagination-bullet {
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        color:#000;
+        opacity: 1;
+        background: rgba(0,0,0,0.2);
+    }
+    .swiper-pagination-bullet-active {
+        color:#fff;
+        background: #007aff;
+    }
+    </style>
 
 <!-- navigator inladen en juist actief zetten -->
 <?php include 'navigator.php';
@@ -44,7 +100,8 @@
                         </ul>
                         <div class="tab-content">
                             <?php
-                                $matchquery = "SELECT bc18_games.status AS status, bc18_games.datum as datum, bc18_games.team_home as hometeam, bc18_games.team_away as awayteam, bc18_games.goals_home as goals_home, bc18_games.goals_away as goals_away, home.team_crest as homeflag, away.team_crest as awayflag FROM bc18_games INNER JOIN bc18_teams AS home ON bc18_games.team_home = home.team_name INNER JOIN bc18_teams AS away ON bc18_games.team_away = away.team_name WHERE bc18_games.datum between '2018-06-14' and '2018-06-28 23:59:59' ORDER BY bc18_games.datum ASC ";
+                                $image= array('aaron.jpg', 'sam.jpg', 'stan.jpg', 'jordy.jpg');
+                                $matchquery = "SELECT bc18_games.datum as datum, bc18_games.team_home as hometeam, bc18_games.team_away as awayteam, bc18_games.goals_home as goals_home, bc18_games.goals_away as goals_away, home.team_crest as homeflag, away.team_crest as awayflag FROM bc18_games INNER JOIN bc18_teams AS home ON bc18_games.team_home = home.team_name INNER JOIN bc18_teams AS away ON bc18_games.team_away = away.team_name WHERE bc18_games.datum between '2018-06-14' and '2018-06-28 23:59:59' ORDER BY bc18_games.datum ASC ";
                                 $results = mysqli_query($db, $matchquery);
                                 $i = 1;
                                 $data = mysqli_fetch_array($results);
@@ -57,33 +114,14 @@
                                             echo " active in";
                                             $eerste = false;
                                         }
-                                        echo '" id="'.$i.'">';                                      
-                                        echo '<div id="myCarousel'.$i.'" class="carousel slide" data-ride="carousel" data-interval="false">
-                                        <!-- Indicators -->
-                                        <ol class="carousel-indicators">';
+                                        echo '" id="'.$i.'">';
+                                        echo '<div class="swiper-container">
+                                                <div class="swiper-wrapper">';
                                         $temp = $i-1;
                                         for($x=1;$x<=$matchenPerDag[$temp];$x++){
-                                            $tempx = $x-1;
-                                            if($x==1){
-                                                echo '<li data-target="#myCarousel'.$i.'" data-slide-to="'.$tempx.'" class="active"></li>';
-                                                }    
-                                            else{
-                                                echo '<li data-target="#myCarousel'.$i.'" data-slide-to="'.$tempx.'"></li>';
-                                                }
-                                            }
-                                        echo '</ol><div class="carousel-inner">';
-                                        for($x=1;$x<=$matchenPerDag[$temp];$x++){
-                                            if($data['status'] == 'FINISHED'){
-                                                $goalsHome = $data['goals_home'];
-                                                $goalsAway = $data['goals_away']; 
-                                            }
-                                            else{
-                                                $goalsHome = $goalsAway = '?';
-                                            }
                                             if($x==1){
                                                 echo '
-                                                    <div class="item active">
-                                                        <div class="row clearfix">
+                                                   <div class="swiper-slide">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <div class="media">
                                                                     <div class="media-left media-middle media-right">
@@ -96,7 +134,7 @@
                                                                             <div class="media-body media-middle centered-content">
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
-                                                                                    <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
                                                                                     <h6>'.$data['datum'].'</h6>
                                                                                 </center>
                                                                             </div>
@@ -110,14 +148,14 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                <div class="swiper-pagination"></div>
                                                             </div>
-                                                        </div>
-                                                    </div>';
-                                            }
+
+                                                        </div>';
+                                            }                                        
                                             else{
                                                 echo'
-                                                    <div class="item">
-                                                        <div class="row clearfix">
+                                                    <div class="swiper-slide">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <div class="media">
                                                                     <div class="media-left media-middle media-right">
@@ -130,7 +168,7 @@
                                                                             <div class="media-body media-middle centered-content">
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
-                                                                                    <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
                                                                                     <h6>'.$data['datum'].'</h6>
                                                                                 </center>
                                                                             </div>
@@ -143,34 +181,134 @@
                                                                             </center>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </div>
+                                                            </div>                                         
                                                         </div>
+
                                                     </div>';
                                             }
+                                        
+
+                                        // echo '<div id="myCarousel'.$i.'" class="carousel slide" data-ride="carousel" data-interval="false">
+                                        // <!-- Indicators -->
+                                        // <ol class="carousel-indicators">';
+                                        // $temp = $i-1;
+                                        // for($x=1;$x<=$matchenPerDag[$temp];$x++){
+                                        //     $tempx = $x-1;
+                                        //     if($x==1){
+                                        //         echo '<li data-target="#myCarousel'.$i.'" data-slide-to="'.$tempx.'" class="active"></li>';
+                                        //         }    
+                                        //     else{
+                                        //         echo '<li data-target="#myCarousel'.$i.'" data-slide-to="'.$tempx.'"></li>';
+                                        //         }
+                                        //     }
+                                        // echo '</ol><div class="carousel-inner">';
+                                        // for($x=1;$x<=$matchenPerDag[$temp];$x++){
+                                        //     if($x==1){
+                                        //         echo '
+                                        //             <div class="item active">
+                                        //                 <div class="row clearfix">
+                                        //                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        //                         <div class="media">
+                                        //                             <div class="media-left media-middle media-right">
+                                        //                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        //                                     <center><a href="#">
+                                        //                                         <img class="media-object" src="'.$data['homeflag'].'" width="80%">
+                                        //                                     </a></center>
+                                        //                                 </div>
+                                        //                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        //                                     <div class="media-body media-middle centered-content">
+                                        //                                         <center>
+                                        //                                             <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
+                                        //                                             <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
+                                        //                                             <h6>'.$data['datum'].'</h6>
+                                        //                                         </center>
+                                        //                                     </div>
+                                        //                                 </div>
+                                        //                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        //                                     <center>
+                                        //                                         <a href="#">
+                                        //                                             <img class="media-object" src="'.$data['awayflag'].'" width="80%">
+                                        //                                         </a>
+                                        //                                     </center>
+                                        //                                 </div>
+                                        //                             </div>
+                                        //                         </div>
+                                        //                     </div>
+                                        //                 </div>
+                                        //             </div>';
+                                        //     }
+                                        //     else{
+                                        //         echo'
+                                        //             <div class="item">
+                                        //                 <div class="row clearfix">
+                                        //                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        //                         <div class="media">
+                                        //                             <div class="media-left media-middle media-right">
+                                        //                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        //                                     <center><a href="#">
+                                        //                                         <img class="media-object" src="'.$data['homeflag'].'" width="80%">
+                                        //                                     </a></center>
+                                        //                                 </div>
+                                        //                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        //                                     <div class="media-body media-middle centered-content">
+                                        //                                         <center>
+                                        //                                             <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
+                                        //                                             <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
+                                        //                                             <h6>'.$data['datum'].'</h6>
+                                        //                                         </center>
+                                        //                                     </div>
+                                        //                                 </div>
+                                        //                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        //                                     <center>
+                                        //                                         <a href="#">
+                                        //                                             <img class="media-object" src="'.$data['awayflag'].'" width="80%">
+                                        //                                         </a>
+                                        //                                     </center>
+                                        //                                 </div>
+                                        //                             </div>
+                                        //                         </div>
+                                        //                     </div>
+                                        //                 </div>
+                                        //             </div>';
+                                        //     }
                                             $data = mysqli_fetch_array($results);
                                         }
                                         if($matchenPerDag[$i-1] != 1){
-                                            echo '
-                                              <!-- Left and right controls -->
-                                              <a class="left carousel-control" href="#myCarousel'.$i.'" data-slide="prev">
-                                                <span class="glyphicon glyphicon-chevron-left"></span>
-                                                <span class="sr-only">Previous</span>
-                                              </a>
-                                              <a class="right carousel-control" href="#myCarousel'.$i.'" data-slide="next">
-                                                <span class="glyphicon glyphicon-chevron-right"></span>
-                                                <span class="sr-only">Next</span>
-                                              </a>';
+                                            // echo '
+                                            //   <!-- Left and right controls -->
+                                            //   <a class="left carousel-control" href="#myCarousel'.$i.'" data-slide="prev">
+                                            //     <span class="glyphicon glyphicon-chevron-left"></span>
+                                            //     <span class="sr-only">Previous</span>
+                                            //   </a>
+                                            //   <a class="right carousel-control" href="#myCarousel'.$i.'" data-slide="next">
+                                            //     <span class="glyphicon glyphicon-chevron-right"></span>
+                                            //     <span class="sr-only">Next</span>
+                                            //   </a>';
                                             }
                                         $i++;
 
-                                        echo '</div></div></div>';
+                                        echo '</div><div class="swiper-pagination">
+                                        
+                                        </div></div></div>';
                                     }
                             ?>
                         </div>
                     </div>
                 </div>
             </div>
+                <!-- Swiper JS -->
+    <script src="../js/swiper.min.js"></script>
+
+
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        paginationBulletRender: function (swiper, index, className) {
+            return '<span class="' + className + '">' + (index + 1) + '</span>';
+        }
+    });
+    </script>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
@@ -192,7 +330,8 @@
                         </ul>
                         <div class="tab-content">
                             <?php
-                                $matchquery = "SELECT bc18_games.status AS status, bc18_games.datum as datum, bc18_games.team_home as hometeam, bc18_games.team_away as awayteam, bc18_games.goals_home as goals_home, bc18_games.goals_away as goals_away, home.team_crest as homeflag, away.team_crest as awayflag FROM bc18_games INNER JOIN bc18_teams AS home ON bc18_games.team_home = home.team_name INNER JOIN bc18_teams AS away ON bc18_games.team_away = away.team_name WHERE bc18_games.datum between '2018-06-30' and '2018-07-03 23:59:59' ORDER BY bc18_games.datum ASC LIMIT 15";
+                                $image= array('aaron.jpg', 'sam.jpg', 'stan.jpg', 'jordy.jpg');
+                                $matchquery = "SELECT bc18_games.datum as datum, bc18_games.team_home as hometeam, bc18_games.team_away as awayteam, bc18_games.goals_home as goals_home, bc18_games.goals_away as goals_away, home.team_crest as homeflag, away.team_crest as awayflag FROM bc18_games INNER JOIN bc18_teams AS home ON bc18_games.team_home = home.team_name INNER JOIN bc18_teams AS away ON bc18_games.team_away = away.team_name WHERE bc18_games.datum between '2018-06-30' and '2018-07-03 23:59:59' ORDER BY bc18_games.datum ASC LIMIT 15";
                                 $results = mysqli_query($db, $matchquery);
                                 $i = 16;
                                 $data = mysqli_fetch_array($results);
@@ -222,13 +361,6 @@
                                             }
                                         echo '</ol><div class="carousel-inner">';
                                         for($x=1;$x<=$matchenPerDag[$temp];$x++){
-                                            if($data['status'] == 'FINISHED'){
-                                                $goalsHome = $data['goals_home'];
-                                                $goalsAway = $data['goals_away']; 
-                                            }
-                                            else{
-                                                $goalsHome = $goalsAway = '?';
-                                            }
                                             if($x==1){
                                                 echo '
                                                     <div class="item active">
@@ -245,7 +377,7 @@
                                                                             <div class="media-body media-middle centered-content">
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
-                                                                                    <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
                                                                                     <h6>'.$data['datum'].'</h6>
                                                                                 </center>
                                                                             </div>
@@ -279,7 +411,7 @@
                                                                             <div class="media-body media-middle centered-content">
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
-                                                                                    <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
                                                                                     <h6>'.$data['datum'].'</h6>
                                                                                 </center>
                                                                             </div>
@@ -339,7 +471,8 @@
                         </ul>
                         <div class="tab-content">
                             <?php
-                                $matchquery = "SELECT bc18_games.status AS status, bc18_games.datum as datum, bc18_games.team_home as hometeam, bc18_games.team_away as awayteam, bc18_games.goals_home as goals_home, bc18_games.goals_away as goals_away, home.team_crest as homeflag, away.team_crest as awayflag FROM bc18_games INNER JOIN bc18_teams AS home ON bc18_games.team_home = home.team_name INNER JOIN bc18_teams AS away ON bc18_games.team_away = away.team_name WHERE bc18_games.datum between '2018-07-06' and '2018-07-07 23:59:59' ORDER BY bc18_games.datum ASC LIMIT 15";
+                                $image= array('aaron.jpg', 'sam.jpg', 'stan.jpg', 'jordy.jpg');
+                                $matchquery = "SELECT bc18_games.datum as datum, bc18_games.team_home as hometeam, bc18_games.team_away as awayteam, bc18_games.goals_home as goals_home, bc18_games.goals_away as goals_away, home.team_crest as homeflag, away.team_crest as awayflag FROM bc18_games INNER JOIN bc18_teams AS home ON bc18_games.team_home = home.team_name INNER JOIN bc18_teams AS away ON bc18_games.team_away = away.team_name WHERE bc18_games.datum between '2018-07-06' and '2018-07-07 23:59:59' ORDER BY bc18_games.datum ASC LIMIT 15";
                                 $results = mysqli_query($db, $matchquery);
                                 $i = 20;
                                 $data = mysqli_fetch_array($results);
@@ -357,13 +490,6 @@
                                         <div id="myCarousel'.$i.'" class="carousel slide" data-ride="carousel" data-interval="false">
                                         <div class="carousel-inner">';
                                         for($x=1;$x<=$matchenPerDag[$temp];$x++){
-                                            if($data['status'] == 'FINISHED'){
-                                                $goalsHome = $data['goals_home'];
-                                                $goalsAway = $data['goals_away']; 
-                                            }
-                                            else{
-                                                $goalsHome = $goalsAway = '?';
-                                            }
                                             if($x==1){
                                                 echo '
                                                     <div class="item active">
@@ -380,7 +506,7 @@
                                                                             <div class="media-body media-middle centered-content">
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
-                                                                                    <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
                                                                                     <h6>'.$data['datum'].'</h6>
                                                                                 </center>
                                                                             </div>
@@ -414,7 +540,7 @@
                                                                             <div class="media-body media-middle centered-content">
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
-                                                                                    <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
                                                                                     <h6>'.$data['datum'].'</h6>
                                                                                 </center>
                                                                             </div>
@@ -487,7 +613,8 @@
                         </ul>
                         <div class="tab-content">
                             <?php
-                                $matchquery = "SELECT bc18_games.status AS status, bc18_games.datum as datum, bc18_games.team_home as hometeam, bc18_games.team_away as awayteam, bc18_games.goals_home as goals_home, bc18_games.goals_away as goals_away, home.team_crest as homeflag, away.team_crest as awayflag FROM bc18_games INNER JOIN bc18_teams AS home ON bc18_games.team_home = home.team_name INNER JOIN bc18_teams AS away ON bc18_games.team_away = away.team_name WHERE bc18_games.datum between '2018-07-10' and '2018-07-11 23:59:59' ORDER BY bc18_games.datum ASC LIMIT 15";
+                                $image= array('aaron.jpg', 'sam.jpg', 'stan.jpg', 'jordy.jpg');
+                                $matchquery = "SELECT bc18_games.datum as datum, bc18_games.team_home as hometeam, bc18_games.team_away as awayteam, bc18_games.goals_home as goals_home, bc18_games.goals_away as goals_away, home.team_crest as homeflag, away.team_crest as awayflag FROM bc18_games INNER JOIN bc18_teams AS home ON bc18_games.team_home = home.team_name INNER JOIN bc18_teams AS away ON bc18_games.team_away = away.team_name WHERE bc18_games.datum between '2018-07-10' and '2018-07-11 23:59:59' ORDER BY bc18_games.datum ASC LIMIT 15";
                                 $results = mysqli_query($db, $matchquery);
                                 $i = 22;
                                 $data = mysqli_fetch_array($results);
@@ -517,13 +644,6 @@
                                             }
                                         echo '</ol><div class="carousel-inner">';
                                         for($x=1;$x<=$matchenPerDag[$temp];$x++){
-                                            if($data['status'] == 'FINISHED'){
-                                                $goalsHome = $data['goals_home'];
-                                                $goalsAway = $data['goals_away']; 
-                                            }
-                                            else{
-                                                $goalsHome = $goalsAway = '?';
-                                            }
                                             if($x==1){
                                                 echo '
                                                     <div class="item active">
@@ -539,9 +659,10 @@
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <div class="media-body media-middle centered-content">
                                                                                 <center>
-                                                                                    <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
-                                                                                    <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
-                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                    <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>';
+                                                                                    echo 
+                                                                                    '<h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>';
+                                                                                    echo '<h6>'.$data['datum'].'</h6>
                                                                                 </center>
                                                                             </div>
                                                                         </div>
@@ -574,7 +695,7 @@
                                                                             <div class="media-body media-middle centered-content">
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
-                                                                                    <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
                                                                                     <h6>'.$data['datum'].'</h6>
                                                                                 </center>
                                                                             </div>
@@ -634,7 +755,8 @@
                         </ul>
                         <div class="tab-content">
                             <?php
-                                $matchquery = "SELECT bc18_games.status AS status, bc18_games.datum as datum, bc18_games.team_home as hometeam, bc18_games.team_away as awayteam, bc18_games.goals_home as goals_home, bc18_games.goals_away as goals_away, home.team_crest as homeflag, away.team_crest as awayflag FROM bc18_games INNER JOIN bc18_teams AS home ON bc18_games.team_home = home.team_name INNER JOIN bc18_teams AS away ON bc18_games.team_away = away.team_name WHERE bc18_games.datum between '2018-07-14' and '2018-07-1 5 23:59:59' ORDER BY bc18_games.datum ASC LIMIT 15";
+                                $image= array('aaron.jpg', 'sam.jpg', 'stan.jpg', 'jordy.jpg');
+                                $matchquery = "SELECT bc18_games.datum as datum, bc18_games.team_home as hometeam, bc18_games.team_away as awayteam, bc18_games.goals_home as goals_home, bc18_games.goals_away as goals_away, home.team_crest as homeflag, away.team_crest as awayflag FROM bc18_games INNER JOIN bc18_teams AS home ON bc18_games.team_home = home.team_name INNER JOIN bc18_teams AS away ON bc18_games.team_away = away.team_name WHERE bc18_games.datum between '2018-07-14' and '2018-07-1 5 23:59:59' ORDER BY bc18_games.datum ASC LIMIT 15";
                                 $results = mysqli_query($db, $matchquery);
                                 $i = 24;
                                 $data = mysqli_fetch_array($results);
@@ -664,13 +786,6 @@
                                             }
                                         echo '</ol><div class="carousel-inner">';
                                         for($x=1;$x<=$matchenPerDag[$temp];$x++){
-                                            if($data['status'] == 'FINISHED'){
-                                                $goalsHome = $data['goals_home'];
-                                                $goalsAway = $data['goals_away']; 
-                                            }
-                                            else{
-                                                $goalsHome = $goalsAway = '?';
-                                            }
                                             if($x==1){
                                                 echo '
                                                     <div class="item active">
@@ -687,7 +802,7 @@
                                                                             <div class="media-body media-middle centered-content">
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
-                                                                                    <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
                                                                                     <h6>'.$data['datum'].'</h6>
                                                                                 </center>
                                                                             </div>
@@ -721,7 +836,7 @@
                                                                             <div class="media-body media-middle centered-content">
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
-                                                                                    <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
+                                                                                    <h4>'.$data['goals_home'].'-'.$data['goals_away'].'</h4>
                                                                                     <h6>'.$data['datum'].'</h6>
                                                                                 </center>
                                                                             </div>

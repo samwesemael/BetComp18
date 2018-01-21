@@ -19,14 +19,15 @@
         $hometeam = trim($tempmatchid[0]);
         $awayteam = trim($tempmatchid[1]);
         $mail = $_SESSION['email'];
-        $tstquery = "SELECT datum FROM bc18_games WHERE team_home ='$hometeam' AND team_away = '$awayteam'";
+        $tstquery = "SELECT datum, status FROM bc18_games WHERE team_home ='$hometeam' AND team_away = '$awayteam'";
         $res = mysqli_query($db, $tstquery);
         while ($data = mysqli_fetch_array($res)) {
             $dtnow = new DateTime();
             // omzetten naar juiste timezone alleen als in database ook in juiste timezone zit
             // $dtnow ->setTimeZone(new DateTimeZone('Europe/Brussels'));
             $dtdatabase = new DateTime($data['datum']);
-            if($dtnow > $dtdatabase){
+            $datastatus = $data['status'];
+            if($dtnow > $dtdatabase || $datastatus == 'FINISHED' ||$datastatus == 'IN_PLAY'){
                 // match is al begonnen
                 $status = 'error_status';
             }

@@ -1,7 +1,10 @@
 ﻿<!DOCTYPE html>
 <html>
 
-<?php include 'navigator.php';?>
+<?php include 'navigator.php';
+      include('server.php');
+    $mail = $_SESSION['email'];
+                          ?>
 <script type="text/javascript">
     document.getElementById("nav-home").classList.toggle('active');
 </script>
@@ -16,17 +19,33 @@
             
             <!-- MEDEDELINGEN -->
             <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="info-box-4 hover-zoom-effect">
-                            <div class="icon">
-                                <i class="material-icons col-green">announcement</i>
-                            </div>
-                            <div class="content">
-                                <div class="text"><b>MEDEDELINGEN</b></div>
-                                <div class="text" id="mededelingen">Jullie zijn allemaal lelijk.</div>
-                            </div>
+                <?php
+                    $sqlmededeling = "SELECT message FROM bc18_overig WHERE name='homeMededeling'";
+                    $messages = mysqli_query($db, $sqlmededeling);
+                    if (!$messages) {
+                        printf("Error: %s\n", mysqli_error($db));
+                        exit();
+                      }
+                    
+                    if($data = mysqli_fetch_array($messages)){
+                        $mededeling = $data['message'];
+                    }
+                if($mededeling!='GEEN MEDEDELING'){
+                ?>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="info-box-4 hover-zoom-effect">
+                                <div class="icon">
+                                    <i class="material-icons col-green">announcement</i>
+                                </div>
+                                <div class="content">
+                                    <div class="text"><b>MEDEDELINGEN</b></div>
+                                    <div class="text" id="mededelingen"><?php echo $mededeling ?></div>
+                                </div>
+                        </div>
                     </div>
-                </div>
+                    <?php
+                    }
+                    ?>
             </div>
 
         	<!-- CountDown Timer -->
@@ -135,11 +154,11 @@
                                 <div class="row clearfix">
                                     <div class="col-xs-12 col-sm-12">                                        
                                             <?php  
-                                                include('server.php');
-                                                $sqlklassement = "SELECT bc18_users.user_name, bc18_users.first_name, bc18_klassement.totaal, bc18_users.pic_path FROM bc18_klassement inner join bc18_users on bc18_klassement.email = bc18_users.email ORDER BY totaal DESC LIMIT 4";
+
+                                                $sqlklassement = "SELECT bc18_users.user_name, bc18_users.first_name, bc18_klassement.totaal, bc18_users.pic_path FROM bc18_klassement inner join bc18_users on bc18_klassement.email = bc18_users.email ORDER BY totaal DESC, uitslag_correct DESC, winnaar_correct DESC LIMIT 4";
                                                 $results = mysqli_query($db, $sqlklassement);
                                                 if (!$results) {
-                                                    printf("Error: %s\n", mysqli_error($conn));
+                                                    printf("Error: %s\n", mysqli_error($db));
                                                     exit();
                                                   }
                                                 $loop = 1;
@@ -178,6 +197,22 @@
 
 
                <!-- NEXT GAME -->
+                <?php
+                    $sqlnext = "SELECT datum, game_id, team_home, team_away, home.team_crest AS homeflag, away.team_crest AS awayflag FROM bc18_games INNER JOIN bc18_teams AS home ON bc18_games.team_home = home.team_name INNER JOIN bc18_teams AS away ON bc18_games.team_away = away.team_name WHERE bettable = 1 AND status != 'FINISHED' ORDER BY datum ASC LIMIT 1 ";
+                    $next = mysqli_query($db, $sqlnext);
+                    if (!$next) {
+                        printf("Error: %s\n", mysqli_error($db));
+                        exit();
+                      }
+                    if($data = mysqli_fetch_array($next)){
+                        $date = $data['datum'];
+                        $nextGame = $data['game_id'];
+                        $hometeam = $data['team_home'];
+                        $awayteam = $data['team_away'];
+                        $flagHome = $data['homeflag'];
+                        $flagAway = $data['awayflag'];
+                        }
+                    ?>
                 <div class="row clearfix">
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <div class="card">
@@ -189,33 +224,73 @@
                                             <center>
                                                 <div class="media-left media-middle">                               
                                                     <a href="#">
-                                                        <img class="media-object" src="../images/flags/low_res/flag_por.png" width="23" height="15">
+                                                        <img class="media-object" src=<?php echo $flagHome; ?> width="23" height="15">
                                                     </a>
                                                 </div>                                      
                                                 <div class="media-body">
-                                                    <h5>PORTUGAL - SPAIN</h5> 
-                                                        <h7> 15/6/2018 - 20:00 </h7>
+                                                    <h5> <?php echo $hometeam.' - '.$awayteam; ?></h5> 
+                                                        <h7> <?php echo $date; ?> </h7>
                                                 </div>
                                                 <div class="media-right media-middle">
                                                 <a href="#">
-                                                    <img class="media-object" src="../images/flags/low_res/flag_spa.png" width="23" height="15">
+                                                    <img class="media-object" src=<?php echo $flagAway; ?> width="23" height="15">
                                                 </a>
                                                 </div>   
                                             </center>
                                             </div>                         
                                     </li>
                                         
-                                </ul>   
-                                <div class="media-middle col-blue">
-                                          <center>      <big><b>2-2</b></big> </center> <center> <small>MIJN GOK</small> </center>
-                                </div>                          
+                                </ul>
+                                <?php
+                                    $sqlnextbet = "SELECT bc18_pred_goalshome AS goalHome, bc18_pred_goalsaway AS goalAway, bc18_pred_penaltieshome AS penHome, bc18_pred_penaltiesaway AS penAway FROM bc18_bets WHERE bc18_userid = '$mail' AND bc18_gameid = '$nextGame'";
+                                    $nextbet = mysqli_query($db, $sqlnextbet);
+                                    if (!$nextbet) {
+                                        printf("Error: %s\n", mysqli_error($db));
+                                        exit();
+                                      }
+                                    if($data = mysqli_fetch_array($nextbet)){
+                                        $goalHome = $data['goalHome'];
+                                        $goalAway = $data['goalAway'];
+                                        $penHome = $data['penHome'];
+                                        $penAway = $data['penAway'];
+                                        ?>
+
+                                        <div class="media-middle col-blue">
+                                          <center>      <big><b><?php echo $goalHome.' - '. $goalAway; ?></b></big> </center> <center> <small>MIJN GOK</small> </center>
+                                        </div>
+                                        <?php
+                                        }
+                                        else{
+                                        ?>
+                                        <div class="media-middle col-blue">
+                                          <center>      <big><b>Nog geen bet voor deze wedstrijd</b></big> </center>
+                                        </div>
+                                        <?php    
+                                        }
+
+                                ?>   
+                          
                             </div>
                         </div>
                     </div>
 
             <!-- #END# Latest Social Trends -->
             <!-- Answered Tickets -->
-
+                <?php
+                    $sqlbonus = "SELECT * FROM `bc18_predictedbonusses` WHERE user_id='$mail'";
+                    $bonussen = mysqli_query($db, $sqlbonus);
+                    if (!$bonussen) {
+                        printf("Error: %s\n", mysqli_error($db));
+                        exit();
+                      }
+                    if($data = mysqli_fetch_array($bonussen)){
+                        $winnaar = $data['world_champion'];
+                        $verliezer = $data['finalist'];
+                        $topscorer = $data['topscorer'];
+                        $vuilste = $data['dirty_team'];
+                        $belgie = $data['pos_belgium'];
+                    
+                ?>
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="card">
                         <div class="body bg">
@@ -223,28 +298,45 @@
                             <ul class="dashboard-stat-list">
                                 <li>
                                     WERELDKAMPIOEN
-                                    <span class="pull-right col-blue"><b>COSTA RICA</b> <small></small></span>
+                                    <span class="pull-right col-blue"><b><?php echo strtoupper($winnaar); ?></b></span>
                                 </li>
                                 <li>
                                     VERLIEZEND FINALIST
-                                    <span class="pull-right col-blue"><b>PANAMA</b> <small></small></span>
+                                    <span class="pull-right col-blue"><b><?php echo strtoupper($verliezer); ?></b></span>
                                 </li>
                                 <li>
                                     TOPSCHUTTER
-                                    <span class="pull-right col-blue"><b>COURTOIS</b> <small></small></span>
+                                    <span class="pull-right col-blue"><b><?php echo strtoupper($topscorer); ?></b></span>
                                 </li>
                                 <li>
                                     VUILSTE PLOEG
-                                    <span class="pull-right col-blue"><b>BELGIE</b> <small></small></span>
+                                    <span class="pull-right col-blue"><b><?php echo strtoupper($vuilste); ?></b></span>
                                 </li>
                                 <li>
                                     POSITIE BELGIE
-                                    <span class="pull-right col-blue"><b>GROEPSFASE</b> <small></small></span>
+                                    <span class="pull-right col-blue"><b><?php echo strtoupper($belgie); ?></b></span>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
+                <?php         
+            }  
+            else{ ?>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="card">
+                        <div class="body bg">
+                            <div class="font-bold m-b--35">MIJN BONUSSEN</div>
+                            <div class="dashboard-stat-list"> 
+                                Geef je bonussen in onder Gokken/Bonussen.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <?php }      ?>
+
+
 
             <!-- #END# Answered Tickets -->
          

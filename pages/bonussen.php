@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
-<?php include 'navigator.php';?>
+<?php include 'navigator.php';
+        include 'server.php';?>
 <script type="text/javascript">
     document.getElementById("nav-bonussen").classList.toggle('active');
 </script>
@@ -194,162 +195,174 @@
                                 <small>Deze punten worden pas na de finale bij het totale klassement bijgeteld.</small>                                                
                         </div>
 						<div class="body">
-						<center>
-						 <ul class="nav nav-tabs tab-nav-right" role="tablist">
-							<!-- TODO: text vervangen door icoontjes, is te groot voor op 1 lijn op mobiel nu -->
-                                <li role="presentation" class="active"><a href="#1" data-toggle="tab">Wereldkampioen</a></li>
-                                <li role="presentation"><a href="#2" data-toggle="tab">Verliezend finalist</a></li>
-                                <li role="presentation"><a href="#3" data-toggle="tab">Topschutter</a></li>
-                                <li role="presentation"><a href="#4" data-toggle="tab">Vuilste ploeg</a></li>
-                                <li role="presentation"><a href="#5" data-toggle="tab">Positie België</a></li>
-						</ul>
-                         </center>      
+    						<center>
+    						 <ul class="nav nav-tabs tab-nav-right" role="tablist">
+    							<!-- TODO: text vervangen door icoontjes, is te groot voor op 1 lijn op mobiel nu -->
+                                    <li role="presentation" class="active"><a href="#1" data-toggle="tab">Wereldkampioen</a></li>
+                                    <li role="presentation"><a href="#2" data-toggle="tab">Verliezend finalist</a></li>
+                                    <li role="presentation"><a href="#3" data-toggle="tab">Topschutter</a></li>
+                                    <li role="presentation"><a href="#4" data-toggle="tab">Vuilste ploeg</a></li>
+                                    <li role="presentation"><a href="#5" data-toggle="tab">Positie België</a></li>
+    						</ul>
+                             </center>      
 
-						<div class="tab-content">							
-							
-                        <div role="tabpanel" class="tab-pane fade in active" id="1">
-								
-							<div class="body table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>                                
-                                        <th>Naam</th>
-										<th>Wereldkampioen</th>								
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>                                   
-                                        <td>Sam</td>
-										<td>Panama</td>					
-                                    </tr>
-                                    <tr>
-                              
-                                        <td>Jordy</td>
-										<td>Saoedi-Arabië</td>									
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-				
-						</div>	
-						
-						
-						<div role="tabpanel" class="tab-pane fade in" id="2">
-								
-							<div class="body table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>                                
-                                        <th>Naam</th>
-										<th>Verliezend finalist</th>								
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>                                   
-                                        <td>Sam</td>
-										<td>Panama</td>					
-                                    </tr>
-                                    <tr>
-                              
-                                        <td>Jordy</td>
-										<td>Saoedi-Arabië</td>									
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-				
-						</div>		
-						
-						
-					<div role="tabpanel" class="tab-pane fade in" id="3">
-								
-							<div class="body table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>                                
-                                        <th>Naam</th>
-										<th>Topschutter</th>								
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>                                   
-                                        <td>Sam</td>
-										<td>Dybala</td>					
-                                    </tr>
-                                    <tr>
-                              
-                                        <td>Jordy</td>
-										<td>Courtois</td>									
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-				
-						</div>	
+    						<div class="tab-content">							
+                                <div role="tabpanel" class="tab-pane fade in active" id="1">
+        								
+        							<div class="body table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>                                
+                                                    <th>Naam</th>
+                                                    <th>Kampioen</th>                             
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php
+                                                $sql = "SELECT user_id, world_champion FROM bc18_predictedbonusses ORDER BY user_id";
+                                                $results = mysqli_query($db, $sql);
+                                                
+                                                while ($data = mysqli_fetch_array($results)){
+                                            ?>
+                                                <tr>                                   
+                                                    <td><?php echo $data['user_id']; ?></td>
+                                                    <td><?php echo $data['world_champion']; ?></td>                 
+                                                </tr>
+                                                <?php
+                                                }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                        
+                                </div>      
+        						
+        						
+        						<div role="tabpanel" class="tab-pane fade in" id="2">
+        								
+                                    <div class="body table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>                                
+                                                    <th>Naam</th>
+                                                    <th>Finalist</th>                             
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php
+                                                $sql = "SELECT user_id, finalist FROM bc18_predictedbonusses ORDER BY user_id";
+                                                $results = mysqli_query($db, $sql);
+                                                
+                                                while ($data = mysqli_fetch_array($results)){
+                                            ?>
+                                                <tr>                                   
+                                                    <td><?php echo $data['user_id']; ?></td>
+                                                    <td><?php echo $data['finalist']; ?></td>                 
+                                                </tr>
+                                                <?php
+                                                }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+        				
+        						</div>		
+        						
+        						
+        					   <div role="tabpanel" class="tab-pane fade in" id="3">
+        								
+                                    <div class="body table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>                                
+                                                    <th>Naam</th>
+                                                    <th>Topschutter</th>                             
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php
+                                                $sql = "SELECT user_id, topscorer FROM bc18_predictedbonusses ORDER BY user_id";
+                                                $results = mysqli_query($db, $sql);
+                                                
+                                                while ($data = mysqli_fetch_array($results)){
+                                            ?>
+                                                <tr>                                   
+                                                    <td><?php echo $data['user_id']; ?></td>
+                                                    <td><?php echo $data['topscorer']; ?></td>                 
+                                                </tr>
+                                                <?php
+                                                }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+        				
+        						</div>	
 
-						
-				<div role="tabpanel" class="tab-pane fade in" id="4">
-								
-							<div class="body table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>                                
-                                        <th>Naam</th>
-										<th>Vuilste ploeg</th>								
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>                                   
-                                        <td>Sam</td>
-										<td>Panama</td>					
-                                    </tr>
-                                    <tr>
-                              
-                                        <td>Jordy</td>
-										<td>Saoedi-Arabië</td>									
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-				
-						</div>		
-						
-						
-					<div role="tabpanel" class="tab-pane fade in" id="5">
-								
-							<div class="body table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>                                
-                                        <th>Naam</th>
-										<th>Positie België</th>								
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>                                   
-                                        <td>Sam</td>
-										<td>finale</td>					
-                                    </tr>
-                                    <tr>
-                              
-                                        <td>Jordy</td>
-										<td>finale</td>									
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-				
-						</div>								
-                   </div>         
-				</div>	
-			</div>
-        </div>
-    </div>		
+        						
+        				        <div role="tabpanel" class="tab-pane fade in" id="4">
+        								
+                                    <div class="body table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>                                
+                                                    <th>Naam</th>
+                                                    <th>Vuilste ploeg</th>                             
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php
+                                                $sql = "SELECT user_id, dirty_team FROM bc18_predictedbonusses ORDER BY user_id";
+                                                $results = mysqli_query($db, $sql);
+                                                
+                                                while ($data = mysqli_fetch_array($results)){
+                                            ?>
+                                                <tr>                                   
+                                                    <td><?php echo $data['user_id']; ?></td>
+                                                    <td><?php echo $data['dirty_team']; ?></td>                 
+                                                </tr>
+                                                <?php
+                                                }
+                                                ?>
+                                        </table>
+                                    </div>
+        						</div>		
+        						
+        						
+        					   <div role="tabpanel" class="tab-pane fade in" id="5">
+        								
+                                    <div class="body table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>                                
+                                                    <th>Naam</th>
+                                                    <th>Positie België</th>                             
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php
+                                                $sql = "SELECT user_id, pos_belgium FROM bc18_predictedbonusses ORDER BY user_id";
+                                                $results = mysqli_query($db, $sql);
+                                                
+                                                while ($data = mysqli_fetch_array($results)){
+                                            ?>
+                                                <tr>                                   
+                                                    <td><?php echo $data['user_id']; ?></td>
+                                                    <td><?php echo $data['pos_belgium']; ?></td>                 
+                                                </tr>
+                                                <?php
+                                                }
+                                                ?>
+                                        </table>
+                                    </div>
+                                </div>								
+                            </div>         
+				        </div>	
+        			</div>
+                </div>
+            </div>		
 						
             <!-- #END# Basic Table -->
-	
-	
-	
     </section>
 
     <!-- Jquery Core Js -->

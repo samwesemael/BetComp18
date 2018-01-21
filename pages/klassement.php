@@ -39,7 +39,7 @@
 
                                     <?php
                                         include('server.php');
-                                        $sqlklassement = "SELECT bc18_users.user_name, bc18_klassement.totaal, bc18_klassement.uitslag_correct, bc18_klassement.winnaar_correct, bc18_users.pic_path FROM bc18_klassement inner join bc18_users on bc18_klassement.email = bc18_users.email ORDER BY totaal DESC";
+                                        $sqlklassement = "SELECT bc18_users.user_name, bc18_klassement.totaal, bc18_klassement.uitslag_correct, bc18_klassement.winnaar_correct, bc18_users.pic_path FROM bc18_klassement inner join bc18_users on bc18_klassement.email = bc18_users.email ORDER BY totaal DESC, uitslag_correct DESC, winnaar_correct DESC ";
                                         $results = mysqli_query($db, $sqlklassement);
                                         if (!$results) {
                                             printf("Error: %s\n", mysqli_error($conn));

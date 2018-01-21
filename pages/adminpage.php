@@ -38,38 +38,38 @@
 		$response_wc_fixtures = file_get_contents($WC_fixtures, false, $stream_context);
 		$response_wc_fixtures = json_decode($response_wc_fixtures);
 		
+		$stmt = $db->prepare("UPDATE bc18_teams (team_name) VALUES (?)");
 		foreach ($response_wc_teams->teams as $team){
 			$teamname = $team->name;		
 			//echo $teamname;
 			// $query = "UPDATE bc18_teams (team_name) VALUES ('$teamname')";
 			// mysqli_query($db, $query);
-
-			$stmt = $db->prepare("UPDATE bc18_teams (team_name) VALUES (?)");
       		$stmt->bind_param('s', $teamname);
       		$stmt->execute();
       		$stmt->bind_result($userName, $firstName, $lastName, $mail, $role, $picture);
-      		$stmt->close();
       	}
+    	$stmt->close();
+  //   	$dateNu = date_format(new DateTime(),'Y-m-d H:i:s');
+		// mysqli_query($db, "UPDATE bc18_overig SET last_run = '$dateNu' WHERE name='verification'");
      }
 
     
 	if(isset($_POST['set_verification'])){
 		$array = join("','",$_POST['users']);
 		$sqlusers = "UPDATE `bc18_users` SET `verification`= '1' WHERE email IN ('$array')";
-		$results = mysqli_query($db, $sqlusers);
-		if (!$results) {
-			printf("Error: %s\n", mysqli_error($conn));
-			exit();
-		}
+		mysqli_query($db, $sqlusers);
+		$dateNu = date_format(new DateTime(),'Y-m-d H:i:s');
+		$query = "UPDATE bc18_overig SET last_run = '$dateNu' WHERE name='verification'";
+		mysqli_query($db, $query);
+
 
 	}	
 	
 	if(isset($_POST['set_announcement'])){
-				
-		echo "<script type=\"text/javascript\">	
-			document.getElementById('mededelingen').innerHTML = ".$_POST['mede'].";
-		</script>";	
-				
+		$bericht = $_POST['mededeling'];
+		
+		$messagequery = "UPDATE bc18_overig SET message = '$bericht' WHERE name='homeMededeling'";
+		mysqli_query($db, $messagequery);                                            			
 	}	
 
 	
@@ -83,31 +83,39 @@
 	$response_wc_fixtures = file_get_contents($WC_fixtures, false, $stream_context);
 	$response_wc_fixtures = json_decode($response_wc_fixtures);
 	
-	$stmt = $db->prepare("UPDATE bc18_games SET goals_home = ?, goals_away = ? WHERE team_home = ? AND team_away = ?");
+	$stmt = $db->prepare("UPDATE bc18_games SET goals_home = ?, goals_away = ?, status = ? WHERE team_home = ? AND team_away = ?");
 
 	foreach ($response_wc_fixtures->fixtures as $fixture) {
 		 $datum = $fixture->date;
-		 //echo $datum;
+		 // echo $datum;
+
 		 // TODO DATUM BEVAT tijd in UTC --> eerst omzetten naar onze tijdzone
 		 $hometeam = $fixture->homeTeamName;
 		 $awayteam = $fixture->awayTeamName;
 		 $goalshome = $fixture->result->goalsHomeTeam;
 		 $goalsaway = $fixture->result->goalsAwayTeam;
-		 
+		 $status = $fixture->status;
+		 // if ($status != "FINISHED"){
+		 // 	$goalshome = 99;
+		 // 	$goalsaway = 99;
+		 // }
 		 //echo $teamname;
 		 // query met datum
 		 // $query = "UPDATE bc18_games SET goals_home = '$goalshome', goals_away = '$goalsaway',  datum = '$datum' WHERE team_home = '$hometeam' AND team_away = '$awayteam'";
 
 		 // query zonder datum
-	 	// misschien nog aanpassen naar ssss indien vna API string ontvangen wordt voor goal
-  		$stmt->bind_param('iiss', $goalshome, $goalsaway, $hometeam, $awayteam);
+	 	// misschien nog aanpassen naar ssss indien van API string ontvangen wordt voor goal
+  		$stmt->bind_param('iisss', $goalshome, $goalsaway, $status, $hometeam, $awayteam);
   		$stmt->execute();
   		
 		//$query = "UPDATE bc18_games SET goals_home = '$goalshome', goals_away = '$goalsaway' WHERE team_home = '$hometeam' AND team_away = '$awayteam'";
 		//mysqli_query($db, $query);
 		}
 	$stmt->close();
+	// $dateNu = date_format(new DateTime(),'Y-m-d H:i:s');
+	// mysqli_query($db, "UPDATE bc18_overig SET last_run = '$dateNu' WHERE name='update_fixture'");
 	}
+
 	 ?>
 
 
@@ -130,7 +138,7 @@
 							<form id = "mede" method="post" action="adminpage.php">
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <textarea  rows="1" class="form-control no-resize" placeholder="Please type what you want..."></textarea>
+                                        <textarea  rows="1" class="form-control no-resize" name='mededeling' placeholder="Please type what you want..."></textarea>
                                     </div>
                                 </div>                                                                                                         				    
 						<button type="submit" class="btn bg-grey waves-effect" name="set_announcement">
@@ -177,7 +185,12 @@
 						</form>  </div></td>
 						 </td>
 						<td> 							Set verification of user </td>
-						<td> / </td>
+						<td> <?php
+									$verquery = "SELECT last_run FROM bc18_overig WHERE name = 'verification'"; 
+									$results = mysqli_query($db, $verquery);
+									$data = mysqli_fetch_array($results);
+									echo $data['last_run'];
+									?> </td>
 						</tr>	
 					
 					<td>							
@@ -188,7 +201,12 @@
 						</button>
 						</form> </td>
 						<td> Get new teamdata from API  </td> 
-						<td> / </td> </tr>
+						<td> <?php
+									$verquery = "SELECT last_run FROM bc18_overig WHERE name = 'update_team'"; 
+									$results = mysqli_query($db, $verquery);
+									$data = mysqli_fetch_array($results);
+									echo $data['last_run'];
+									?> </td> </tr>
 						
 						<tr>							
 					<td>
@@ -199,7 +217,12 @@
 						</button> 
 						</form> </td>
 						<td> 							Get new matchdata from API (results) </td>
-						<td> / </td>
+						<td> <?php
+									$verquery = "SELECT last_run FROM bc18_overig WHERE name = 'update_fixture'"; 
+									$results = mysqli_query($db, $verquery);
+									$data = mysqli_fetch_array($results);
+									echo $data['last_run'];
+									?> </td>
 						</tr>
 										
 						
