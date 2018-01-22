@@ -115,6 +115,33 @@
 	// $dateNu = date_format(new DateTime(),'Y-m-d H:i:s');
 	// mysqli_query($db, "UPDATE bc18_overig SET last_run = '$dateNu' WHERE name='update_fixture'");
 	}
+	
+	
+	if(isset($_POST['update_players'])){
+		
+		$cl_teams = 'http://api.football-data.org/v1/competitions/464/teams';
+		$reqPrefs['http']['method'] = 'GET';
+		$reqPrefs['http']['header'] = 'X-Auth-Token: 46e58e3c48a747e09ccf6c9ac073c4d6';
+		$stream_context = stream_context_create($reqPrefs);
+		$response_cl_teams = file_get_contents($cl_teams, false, $stream_context);
+		$response_cl_teams = json_decode($response_cl_teams);	
+	
+		foreach ($response_cl_teams->teams as $team) {			
+			foreach($team->_links->players as $team_playerlink){ 
+			
+				$reqPrefs['http']['method'] = 'GET';
+				$reqPrefs['http']['header'] = 'X-Auth-Token: 46e58e3c48a747e09ccf6c9ac073c4d6';
+				$stream_context = stream_context_create($reqPrefs);
+				$response_cl_players = file_get_contents($team_playerlink, false, $stream_context);
+				$response_cl_players = json_decode($response_cl_players);			
+			
+				foreach($response_cl_players->players as $player){
+					//$sqlqry = "INSERT INTO bc18_players (player_name) VALUES ('$player->name')";
+					mysqli_query($db, $sqlqry);
+					//echo $player->name; 
+		}   }   }
+		
+	}	
 
 	 ?>
 
@@ -184,7 +211,7 @@
 							</button>
 						</form>  </div></td>
 						 </td>
-						<td> 							Set verification of user </td>
+						<td> 	Set verification of user </td>
 						<td> <?php
 									$verquery = "SELECT last_run FROM bc18_overig WHERE name = 'verification'"; 
 									$results = mysqli_query($db, $verquery);
@@ -216,7 +243,7 @@
                                 <span>UPDATE FIXTURES</span>
 						</button> 
 						</form> </td>
-						<td> 							Get new matchdata from API (results) </td>
+						<td> Get new matchdata from API (results) </td>
 						<td> <?php
 									$verquery = "SELECT last_run FROM bc18_overig WHERE name = 'update_fixture'"; 
 									$results = mysqli_query($db, $verquery);
@@ -225,7 +252,22 @@
 									?> </td>
 						</tr>
 										
-						
+						<tr>							
+					<td>
+						<form method="post" action="adminpage.php">
+						<button type="submit" class="btn bg-purple waves-effect" name="update_players">
+                                <i class="material-icons">save</i>
+                                <span>UPDATE PLAYERS</span>
+						</button> 
+						</form> </td>
+						<td> Get new playerdata from API </td>
+						<td> <?php
+									$verquery = "SELECT last_run FROM bc18_overig WHERE name = 'update_fixture'"; 
+									$results = mysqli_query($db, $verquery);
+									$data = mysqli_fetch_array($results);
+									echo $data['last_run'];
+									?> </td>
+						</tr>					
 						
 						
 						</tbody

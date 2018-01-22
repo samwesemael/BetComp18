@@ -71,7 +71,9 @@ $status = "";
 								</div>		
 																													
                                 <div class="col-md-4"> 
-									<p><b>Wereldkampioen</b></p>								
+									<p><b>Wereldkampioen</b></p>
+
+									
                                     <select name="wereldkampioen" class="selectpicker">
 										<option data-thumbnail="../images/flags/hi_res/flag_arg.png">Argentina</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_aus.png">Australia</option>
@@ -148,13 +150,30 @@ $status = "";
 							<div class="row clearfix">
                                 <div class="col-md-4">	
 									<p><b>Topschutter</b> </p>
+									<?php
+									 $query = "SELECT player_name FROM bc18_players";
+									 $results = mysqli_query($db, $query);
+                                     //$i = 1;
+                                     //$data = mysqli_fetch_array($results); ?>
+									<select class="form-control show-tick" data-live-search="true">
+									  <?php
+										while($data = mysqli_fetch_array($results)){
+											echo '<option>'.$data['player_name'].'</option>';
+										} ?>
+									</select>
+									
+									<!--
                                     <div class="form-group form-float">
                                         <div class="form-line">
                                             <input type="text" class="form-control" name="topschutter" required>
                                             <label class="form-label">Radja Nainggolan</label>
                                         </div>
-                                    </div>   
+                                    </div>   -->
+
+									
                                 </div>	
+								
+								
                                 <div class="col-md-4"> 
 									<p><b>Vuilste ploeg</b></p>								
                                     <select name="vuilste" class="selectpicker">
