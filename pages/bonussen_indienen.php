@@ -155,7 +155,7 @@ $status = "";
 									 $results = mysqli_query($db, $query);
                                      //$i = 1;
                                      //$data = mysqli_fetch_array($results); ?>
-									<select class="form-control show-tick" data-live-search="true">
+									<select class="form-control show-tick" name='topschutter' data-live-search="true">
 									  <?php
 										while($data = mysqli_fetch_array($results)){
 											echo '<option>'.$data['player_name'].'</option>';
