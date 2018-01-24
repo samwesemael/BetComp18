@@ -13,10 +13,10 @@ $dbpassword='k74TVAhNhD4UK5EBpoLgHePn';
 $dbuser = 'brackemannen_be';  
 $dbname= 'brackemannen_be';
 // real database query 
-$db = mysqli_connect($dbhostname, $dbuser, $dbpassword, $dbname);
+// $db = mysqli_connect($dbhostname, $dbuser, $dbpassword, $dbname);
 
 // for local use
-//$db = mysqli_connect('localhost', 'root', '', 'brackemannen_be');
+$db = mysqli_connect('localhost', 'root', '', 'brackemannen_be');
 
 if ($db->connect_error) {
   die("Connection failed: " . $db->connect_error);

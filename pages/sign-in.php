@@ -1,20 +1,14 @@
 <?php session_start();
-include('server.php'); ?> 
-<?php
-// LOGIN USER
-  if (isset($_POST['login_user'])) {
-
+    include('server.php');
+  if (isset($_POST['login_user'])){
     $email = mysqli_real_escape_string($db, $_POST['email']);
     $password = mysqli_real_escape_string($db, $_POST['password']);
-
-
     if (empty($email)) {
       array_push($errors, "Email is required");
     }
     if (empty($password)) {
       array_push($errors, "Password is required");
     }
-
     if (count($errors) == 0) {
       $passCookie = $password;
       $password = md5($password); 
@@ -37,26 +31,22 @@ include('server.php'); ?>
             else{
                 $_SESSION['profilepicpath'] = $picture;
             }
-
         $stmt->close();
-
         $_SESSION['success'] = "success";
-        ?>
-        <script type="text/javascript">
-        window.location.href = '/pages/index.php';
-        </script>
-        <?php
         if(!empty($_POST["rememberme"])){
-          setcookie ("email",$email,time()+ (10 * 365 * 24 * 60 * 60));  
+          setcookie ("email",$mail,time()+ (10 * 365 * 24 * 60 * 60));  
           setcookie ("password",$passCookie,time()+ (10 * 365 * 24 * 60 * 60));
         }
       }else {
         $_SESSION['success'] = "not_success";
         array_push($errors, "Wrong username/password combination");
-      }
+      }?>
+        <script type="text/javascript">
+            window.location.href = '/pages/index.php';
+        </script>
+        <?php
     }
   }
-
 ?>
 
 <!DOCTYPE html>
