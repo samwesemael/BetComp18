@@ -1,7 +1,7 @@
-﻿<!DOCTYPE html>
+<?php include 'navigator.php';?>
+<!DOCTYPE html>
 <html>
 <!-- navigator inladen en juist actief zetten -->
-<?php include 'navigator.php';?>
 <script type="text/javascript">
     document.getElementById("nav-klassement").classList.toggle('active');
 </script>

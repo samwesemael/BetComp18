@@ -1,31 +1,5 @@
-﻿<?php include('server.php') ?>
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Sign Up | Bootstrap Based Admin Template - Material Design</title>
-    <!-- Favicon-->
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
-
-    <!-- Bootstrap Core Css -->
-    <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Waves Effect Css -->
-    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
-
-    <!-- Animation Css -->
-    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
-
-    <!-- Custom Css -->
-    <link href="../css/style.css" rel="stylesheet">
-</head>
-
+<?php session_start();
+include('server.php');?>
 <?php
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
@@ -68,7 +42,7 @@ else{
         $password = md5($password_1); //encrypt the password before saving in the database
         $created = date("Y-m-d H:i:s");
         $modified = $created;
-
+        $_SESSION['success'] = "success";
 
         // OLD QUERIES
         // $query = "INSERT INTO bc18_users (user_name, first_name, last_name, email, password, role, verification, payed, oauth_provider, created, modified) 
@@ -100,21 +74,50 @@ else{
         $stmt2->bind_param('siiii', $email, $ver, $ver, $ver, $ver);
         $stmt2->execute();
         $stmt2->close();
+
+        // $_SESSION['username'] = $username;
+        // $_SESSION['firstname'] = $firstname;
+        // $_SESSION['lastname'] = $lastname;
+        // $_SESSION['email'] = $email;
+        // $_SESSION['role'] = 'speler';
+        // $_SESSION['profilepicpath']='../images/users/noImage.jpg';
         
-        $_SESSION['username'] = $username;
-        $_SESSION['firstname'] = $firstname;
-        $_SESSION['lastname'] = $lastname;
-        $_SESSION['email'] = $email;
-        $_SESSION['role'] = 'speler';
-        $_SESSION['profilepicpath']='../images/users/noImage.jpg';
-        $_SESSION['success'] = "success";
-        //header('location: index.php');
+        //header('location: sign-up.php');
+      }
+      else{
+          $_SESSION['success'] = 'error';
       }
     }
 }
 
 ?>
 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Sign Up | Bootstrap Based Admin Template - Material Design</title>
+    <!-- Favicon-->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="../css/style.css" rel="stylesheet">
+</head>
 <body class="signup-page">
     <div class="signup-box">
         <div class="logo">
@@ -124,6 +127,14 @@ else{
         <div class="card">
             <div class="body">
                 <form id="sign_up" method="POST" action="sign-up.php">
+                    <?php
+
+                            if ($_SESSION['success'] === 'success'){
+                                echo '<div id='.'succes'.' class="alert alert-success " >
+                                <strong>Gelukt!</strong> Je bent goed geregistreerd. Zodra admin heeft accepteerd kan je inloggen.
+                                </div>';
+                            }
+                    ?>
                     <div class="msg">Register a new membership</div>
                     <div class="input-group">
                         <span class="input-group-addon">

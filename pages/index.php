@@ -1,15 +1,11 @@
-﻿<!DOCTYPE html>
-<html>
-
 <?php include 'navigator.php';
-      include('server.php');
-    $mail = $_SESSION['email'];
-                          ?>
+      include 'server.php';?>
 <script type="text/javascript">
     document.getElementById("nav-home").classList.toggle('active');
 </script>
 
-	
+<!DOCTYPE html>
+<html>
     <section class="content">
     
         <!--
@@ -242,6 +238,7 @@
                                         
                                 </ul>
                                 <?php
+                                    $mail = $_SESSION['email'];
                                     $sqlnextbet = "SELECT bc18_pred_goalshome AS goalHome, bc18_pred_goalsaway AS goalAway, bc18_pred_penaltieshome AS penHome, bc18_pred_penaltiesaway AS penAway FROM bc18_bets WHERE bc18_userid = '$mail' AND bc18_gameid = '$nextGame'";
                                     $nextbet = mysqli_query($db, $sqlnextbet);
                                     if (!$nextbet) {
@@ -294,7 +291,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="card">
                         <div class="body bg">
-                            <div class="font-bold m-b--35">MIJN BONUSSEN</div>
+                            <div class="font-bold m-b--35">MIJN BONUSSEN </div>
                             <ul class="dashboard-stat-list">
                                 <li>
                                     WERELDKAMPIOEN

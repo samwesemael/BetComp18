@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html>
 <?php 
   session_start(); 
-  ?>
-<?php if($_SESSION['role'] == 'speler'){
+ if($_SESSION['role'] == 'speler'){
            header('Location: index.php'); 
     }
     else{
-        include('navigator.php');
+        include 'navigator.php';
 		include 'FootballData.php';
 		//include 'index.php';	
 		
     }
 ?>
 
-
+<!DOCTYPE html>
+<html>
 <script type="text/javascript">
     document.getElementById("nav-adminpage").classList.toggle('active');
 </script>
@@ -165,6 +163,7 @@
 							<form id = "mede" method="post" action="adminpage.php">
                                 <div class="form-group">
                                     <div class="form-line">
+                                        <label for="mededeling">Vul tekst in dat op homepage moet komen (GEEN MEDEDELING --> hide field)</label>
                                         <textarea  rows="1" class="form-control no-resize" name='mededeling' placeholder="Please type what you want..."></textarea>
                                     </div>
                                 </div>                                                                                                         				    

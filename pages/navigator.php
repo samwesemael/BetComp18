@@ -1,5 +1,7 @@
 <?php 
-  session_start(); 
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
   if (!isset($_SESSION['email'])) {
     $_SESSION['msg'] = "You must log in first";
@@ -587,3 +589,4 @@
         </aside>
         <!-- #END# Right Sidebar -->
     </section>
+</body>

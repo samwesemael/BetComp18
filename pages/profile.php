@@ -1,6 +1,6 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
-<?php include 'navigator.php';?>
 <script type="text/javascript">
     document.getElementById("nav-profile").classList.toggle('active');
 </script>
@@ -23,6 +23,7 @@
         mysqli_query($db, $query);
         // echo 'new username = '.$_POST['username'];
 
+
     }
     if(isset($_POST['reset_pass'])){
         $password = mysqli_real_escape_string($db, $_POST['password']);
@@ -35,7 +36,7 @@
 
     }
                             
-    
+    include 'navigator.php';
     ?>
 
 	<!-- header -->

@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
-<html>
-<!-- navigator inladen en juist actief zetten -->
 <?php include 'navigator.php';
 include 'FootballData.php';?>
+<!DOCTYPE html>
+<html>
+    <!-- navigator inladen en juist actief zetten -->
 <script type="text/javascript">
     document.getElementById("nav-datatest").classList.toggle('active');
 	document.getElementById("nav-extra").classList.toggle('active');

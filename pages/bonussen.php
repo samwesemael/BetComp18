@@ -1,7 +1,7 @@
-﻿<!DOCTYPE html>
-<html>
 <?php include 'navigator.php';
         include 'server.php';?>
+<!DOCTYPE html>
+<html>
 <script type="text/javascript">
     document.getElementById("nav-bonussen").classList.toggle('active');
 </script>

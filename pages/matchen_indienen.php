@@ -1,9 +1,10 @@
+<?php include 'navigator.php';
+        include 'server.php'; 
+        $status = '';?>
 <!DOCTYPE html>
 <html>
 <!-- navigator inladen en juist actief zetten -->
-<?php   include 'navigator.php';
-        include 'server.php'; 
-        $status = '';?>
+
 
 <script type="text/javascript">
     document.getElementById("nav-gokken").classList.toggle('active');

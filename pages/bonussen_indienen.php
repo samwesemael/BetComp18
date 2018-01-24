@@ -1,8 +1,8 @@
+<?php include 'navigator.php';
+    include 'server.php';?>
 <!DOCTYPE html>
 <html>
 <!-- navigator inladen en juist actief zetten -->
-<?php include 'navigator.php';
-    include 'server.php';?>
 <script type="text/javascript">
     document.getElementById("nav-gokken").classList.toggle('active');
     document.getElementById("nav-bonussen-indienen").classList.toggle('active');
@@ -15,7 +15,6 @@
 <?php
 $status = "";
     if(isset($_POST['indienen'])){
-        $userName = mysqli_real_escape_string($db, $_POST['username']);
         $kampioen = mysqli_real_escape_string($db, $_POST['wereldkampioen']);
         $verliezer = mysqli_real_escape_string($db, $_POST['finalist']);
         $topscorer = mysqli_real_escape_string($db, $_POST['topschutter']);

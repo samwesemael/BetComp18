@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include ('server.php');
 $target_dir = "../images/users/";
 chmod ($_FILES["file"]["tmp_name"], 0666);

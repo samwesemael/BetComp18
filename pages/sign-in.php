@@ -1,7 +1,66 @@
-﻿<?php include('server.php') ?>
+<?php session_start();
+include('server.php'); ?> 
+<?php
+// LOGIN USER
+  if (isset($_POST['login_user'])) {
+
+    $email = mysqli_real_escape_string($db, $_POST['email']);
+    $password = mysqli_real_escape_string($db, $_POST['password']);
+
+
+    if (empty($email)) {
+      array_push($errors, "Email is required");
+    }
+    if (empty($password)) {
+      array_push($errors, "Password is required");
+    }
+
+    if (count($errors) == 0) {
+      $passCookie = $password;
+      $password = md5($password); 
+      // oude query
+      // $query = "SELECT user_name, first_name, last_name, email, role, pic_path FROM bc18_users WHERE (email='$email' AND password='$password') OR (user_name='$email' AND password='$password')";
+      // $results = mysqli_query($db, $query);
+      $stmt = $db->prepare("SELECT user_name, first_name, last_name, email, role, pic_path FROM bc18_users WHERE ((email=? AND password=?) OR (user_name=? AND password=?)) AND verification='1'");
+      $stmt->bind_param('ssss', $email, $password, $email, $password);
+      $stmt->execute();
+      $stmt->bind_result($userName, $firstName, $lastName, $mail, $role, $picture);
+      if ($stmt->fetch()) {
+            $_SESSION['role'] = $role;
+            $_SESSION['username'] = $userName;
+            $_SESSION['firstname'] = $firstName;
+            $_SESSION['lastname'] = $lastName;
+            $_SESSION['email'] = $mail;
+            if($picture===''){
+                $_SESSION['profilepicpath']='../images/users/noImage.jpg';
+            }
+            else{
+                $_SESSION['profilepicpath'] = $picture;
+            }
+
+        $stmt->close();
+
+        $_SESSION['success'] = "success";
+        ?>
+        <script type="text/javascript">
+        window.location.href = '/pages/index.php';
+        </script>
+        <?php
+        if(!empty($_POST["rememberme"])){
+          setcookie ("email",$email,time()+ (10 * 365 * 24 * 60 * 60));  
+          setcookie ("password",$passCookie,time()+ (10 * 365 * 24 * 60 * 60));
+        }
+      }else {
+        $_SESSION['success'] = "not_success";
+        array_push($errors, "Wrong username/password combination");
+      }
+    }
+  }
+
+?>
+
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -25,61 +84,6 @@
     <!-- Custom Css -->
     <link href="../css/style.css" rel="stylesheet">
 </head>
-<?php
-// LOGIN USER
-  if (isset($_POST['login_user'])) {
-
-    $email = mysqli_real_escape_string($db, $_POST['email']);
-    $password = mysqli_real_escape_string($db, $_POST['password']);
-
-
-
-    if (empty($email)) {
-      array_push($errors, "Email is required");
-    }
-    if (empty($password)) {
-      array_push($errors, "Password is required");
-    }
-
-    if (count($errors) == 0) {
-      $passCookie = $password;
-      $password = md5($password); 
-      // oude query
-      // $query = "SELECT user_name, first_name, last_name, email, role, pic_path FROM bc18_users WHERE (email='$email' AND password='$password') OR (user_name='$email' AND password='$password')";
-      // $results = mysqli_query($db, $query);
-      $stmt = $db->prepare("SELECT user_name, first_name, last_name, email, role, pic_path FROM bc18_users WHERE (email=? AND password=?) OR (user_name=? AND password=?)");
-      $stmt->bind_param('ssss', $email, $password, $email, $password);
-      $stmt->execute();
-      $stmt->bind_result($userName, $firstName, $lastName, $mail, $role, $picture);
-      if ($stmt->fetch()) {
-            $_SESSION['role'] = $role;
-            $_SESSION['username'] = $userName;
-            $_SESSION['firstname'] = $firstName;
-            $_SESSION['lastname'] = $lastName;
-            $_SESSION['email'] = $mail;
-            if($picture===''){
-                $_SESSION['profilepicpath']='../images/users/noImage.jpg';
-            }
-            else{
-                $_SESSION['profilepicpath'] = $picture;
-            }
-
-        $stmt->close();
-
-        $_SESSION['success'] = "success";
-        header('location: index.php');
-        if(!empty($_POST["rememberme"])){
-          setcookie ("email",$email,time()+ (10 * 365 * 24 * 60 * 60));  
-          setcookie ("password",$passCookie,time()+ (10 * 365 * 24 * 60 * 60));
-        }
-      }else {
-        $_SESSION['success'] = "not_success";
-        array_push($errors, "Wrong username/password combination");
-      }
-    }
-  }
-
-?>
 
 <body class="login-page">
     <div class="login-box">
@@ -89,6 +93,13 @@
         </div>
         <div class="card">
             <div class="body">
+                <?php
+                    if($_SESSION['success'] === 'not_success'){
+                        echo '<div id='.'error'.' class="alert alert-danger">
+                            <strong>NOPE!</strong> Fout username/paswoord combinatie. Of je account is nog niet geverifieerd door admin. Nog even geduld!
+                            </div>';  
+                        }
+                ?>
                 <form id="sign_in" method="POST" action="sign-in.php">
                     <div class="msg"><?php if($_SESSION['success'] === 'error'){echo'Wrong username/password';}else{echo'Sign in to start your session';} ?></div>
                     <div class="input-group">
