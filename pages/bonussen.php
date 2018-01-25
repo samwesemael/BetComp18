@@ -256,7 +256,7 @@
                                                 while ($data = mysqli_fetch_array($results)){
                                             ?>
                                                 <tr>                                   
-                                                    <td><?php echo $data['user_id']; ?></td>
+                                                    <td><?php echo $data['user_name']; ?></td>
                                                     <td><?php echo $data['finalist']; ?></td>                 
                                                 </tr>
                                                 <?php
@@ -287,7 +287,7 @@
                                                 while ($data = mysqli_fetch_array($results)){
                                             ?>
                                                 <tr>                                   
-                                                    <td><?php echo $data['user_id']; ?></td>
+                                                    <td><?php echo $data['user_name']; ?></td>
                                                     <td><?php echo $data['topscorer']; ?></td>                 
                                                 </tr>
                                                 <?php
@@ -318,7 +318,7 @@
                                                 while ($data = mysqli_fetch_array($results)){
                                             ?>
                                                 <tr>                                   
-                                                    <td><?php echo $data['user_id']; ?></td>
+                                                    <td><?php echo $data['user_name']; ?></td>
                                                     <td><?php echo $data['dirty_team']; ?></td>                 
                                                 </tr>
                                                 <?php
@@ -347,7 +347,7 @@
                                                 while ($data = mysqli_fetch_array($results)){
                                             ?>
                                                 <tr>                                   
-                                                    <td><?php echo $data['user_id']; ?></td>
+                                                    <td><?php echo $data['user_name']; ?></td>
                                                     <td><?php echo $data['pos_belgium']; ?></td>                 
                                                 </tr>
                                                 <?php
