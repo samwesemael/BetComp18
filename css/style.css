@@ -7719,13 +7719,29 @@ fieldset[disabled] .form-control {
   color: #2196F3; }
 
 /* Login Page ================================== */
+@media only screen and (max-device-width: 600px) {
 .login-page {
-  background-image: url("../images/banner.jpg");
+	
+  background-image: url("../images/banner_small.png");
   background-color: #00BCD4;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding-left: 0;
   max-width: 360px;
   margin: 5% auto;
   overflow-x: hidden; }
+} 
+@media only screen and (min-device-width: 600px) {
+  .login-page {	
+  background-image: url("../images/banner.png");
+  background-color: #00BCD4;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-left: 0;
+  max-width: 360px;
+  margin: 5% auto;
+  overflow-x: hidden; }
+}
   .login-page .login-box .msg {
     color: #555;
     margin-bottom: 30px;
@@ -7750,12 +7766,28 @@ fieldset[disabled] .form-control {
       margin-top: -5px; }
 
 /* Sign Up Page ================================ */
+@media only screen and (max-device-width: 600px) {
 .signup-page {
+  background-image: url("../images/banner_small.png");
   background-color: #00BCD4;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding-left: 0;
   max-width: 360px;
   margin: 5% auto;
   overflow-x: hidden; }
+}
+@media only screen and (min-device-width: 600px) {
+.signup-page {
+   background-image: url("../images/banner.png");
+  background-color: #00BCD4;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-left: 0;
+  max-width: 360px;
+  margin: 5% auto;
+  overflow-x: hidden; }
+}
   .signup-page .signup-box .msg {
     color: #555;
     margin-bottom: 30px;
