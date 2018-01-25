@@ -398,6 +398,11 @@
                             <span>Extra</span>
                         </a>
                         <ul class="ml-menu">
+							<li id = 'nav-streaming'>
+								<a href="streaming.php">
+								<i class="material-icons">tv</i>
+								<span>Streaming</span>
+								</a>
                              <li id = 'nav-twitter'>
 								<a href="twitterfeed.php">
 								<i class="material-icons">whatshot</i>
