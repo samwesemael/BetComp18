@@ -332,38 +332,46 @@
                 </div>
 
             <?php }      ?>
-
-
-
-            <!-- #END# Answered Tickets -->
          
             <!-- Answered Tickets -->
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="card">
                         <div class="body bg">
-                            <div class="font-bold m-b--35">LAATSTE WEDSTRIJDEN</div>
-                            <ul class="dashboard-stat-list">
-                                <li>
-                                    PANAMA - PANAMA
-                                    <span class="pull-right col-blue"><b>0-0</b> <small></small></span>
-                                </li>
-                                <li>
-                                    PANAMA - PANAMA
-                                    <span class="pull-right col-blue"><b>0-0</b> <small></small></span>
-                                </li>
-                                <li>
-                                    PANAMA - PANAMA
-                                    <span class="pull-right col-blue"><b>0-0</b> <small></small></span>
-                                </li>
-                                <li>
-                                    PANAMA - PANAMA
-                                    <span class="pull-right col-blue"><b>0-0</b> <small></small></span>
-                                </li>
-                                <li>
-                                    PANAMA - PANAMA
-                                    <span class="pull-right col-blue"><b>GROEPSFASE</b> <small></small></span>
-                                </li>
-                            </ul>
+                            <div class="font-bold m-b--35">VORM</div> <br> <br>
+							<div class="table-responsive">
+								 <table class="table">
+								  <thead>								  
+									<tr>
+										<th scope="col"><small></small></th>
+										<th scope="col"><small>UITSLAG</small></th>
+										<th scope="col"><small>GOK</small></th>
+									</tr>									
+								</thead>
+								<tbody>
+									<tr> 
+										<td> <small>PANAMA - PANAMA </small></td>
+										<td> <small>0-0</small> </td>
+										<td><span class="col-blue"><b>1-0</b> </span></td>					
+									</tr>
+									<tr> 
+										<td><small>PANAMA - PANAMA</small> </td>
+										<td> <small>0-0 </small></td>
+										<td><span class="col-blue"><b>1-0</b> </span></td>					
+									</tr>
+									<tr> 
+										<td> <small>PANAMA - PANAMA </small></td>
+										<td> <small>0-0</small> </td>
+										<td><span class="col-blue"><b>1-0</b> </span></td>					
+									</tr>
+									<tr> 
+										<td><small> PANAMA - PANAMA </small></td>
+										<td><small> 0-0 </small></td>
+										<td><span class="col-blue"><b>1-0</b> </span></td>					
+									</tr>			
+								</tbody>
+							</div>	
+						</div>	
+					</div>
                         </div>
                     </div>
                 </div>
