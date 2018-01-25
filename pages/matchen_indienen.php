@@ -60,7 +60,7 @@
 									<p> <b>Naam</b></p>
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="username" value="<?php echo $_SESSION['firstname'];?>" disabled>
+												<input type="text" class="form-control" name="username" value="<?php echo $_SESSION['username'];?>" disabled>
 											</div>
 										</div>
 								</div>		
