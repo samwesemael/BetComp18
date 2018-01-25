@@ -4,7 +4,6 @@
 ## TODO:
 
 - poll om de matchen te kiezen waarop gegokt zal worden
-- username/naam standaard ingevuld bij formulieren (DONE maar hoeft eigenlijk niet, kan ook gwn ingevuld worden in de call) 
 - term of usage maken of check sign up verwijderen
 - kijken naar padding want teveel ruimte (vooral op mobile) niet gebruikt
 - change username form aanpassen (enkel nieuwe username mag)
@@ -31,7 +30,6 @@
 
 - enkel toegankelijk voor beheerders
 - mogelijkheid om velden in database te veranderen (vb. Mededelingen, bonussen als die niet geautomatiseerd raken...)
-- verification van users handmatig zetten
 
 ##### Database:
 
