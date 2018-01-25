@@ -219,13 +219,13 @@
                                             </thead>
                                             <tbody>
                                             <?php
-                                                $sql = "SELECT user_id, world_champion FROM bc18_predictedbonusses ORDER BY user_id";
+                                                $sql = "SELECT bc18_predictedbonusses.user_id, bc18_predictedbonusses.world_champion, bc18_users.user_id, bc18_users.user_name FROM bc18_predictedbonusses INNER JOIN bc18_users on bc18_predictedbonusses.user_id = bc18_users.user_id ORDER BY user_name";
                                                 $results = mysqli_query($db, $sql);
                                                 
                                                 while ($data = mysqli_fetch_array($results)){
                                             ?>
                                                 <tr>                                   
-                                                    <td><?php echo $data['user_id']; ?></td>
+                                                    <td><?php echo $data['user_name']; ?></td>
                                                     <td><?php echo $data['world_champion']; ?></td>                 
                                                 </tr>
                                                 <?php
@@ -250,7 +250,7 @@
                                             </thead>
                                             <tbody>
                                             <?php
-                                                $sql = "SELECT user_id, finalist FROM bc18_predictedbonusses ORDER BY user_id";
+                                                $sql = "SELECT bc18_predictedbonusses.user_id, bc18_predictedbonusses.finalist, bc18_users.user_id, bc18_users.user_name FROM bc18_predictedbonusses INNER JOIN bc18_users on bc18_predictedbonusses.user_id = bc18_users.user_id ORDER BY user_name";
                                                 $results = mysqli_query($db, $sql);
                                                 
                                                 while ($data = mysqli_fetch_array($results)){
@@ -281,7 +281,7 @@
                                             </thead>
                                             <tbody>
                                             <?php
-                                                $sql = "SELECT user_id, topscorer FROM bc18_predictedbonusses ORDER BY user_id";
+                                                $sql = "SELECT bc18_predictedbonusses.user_id, bc18_predictedbonusses.topscorer, bc18_users.user_id, bc18_users.user_name FROM bc18_predictedbonusses INNER JOIN bc18_users on bc18_predictedbonusses.user_id = bc18_users.user_id ORDER BY user_name";
                                                 $results = mysqli_query($db, $sql);
                                                 
                                                 while ($data = mysqli_fetch_array($results)){
@@ -312,7 +312,7 @@
                                             </thead>
                                             <tbody>
                                             <?php
-                                                $sql = "SELECT user_id, dirty_team FROM bc18_predictedbonusses ORDER BY user_id";
+                                                $sql = "SELECT bc18_predictedbonusses.user_id, bc18_predictedbonusses.dirty_team, bc18_users.user_id, bc18_users.user_name FROM bc18_predictedbonusses INNER JOIN bc18_users on bc18_predictedbonusses.user_id = bc18_users.user_id ORDER BY user_name";
                                                 $results = mysqli_query($db, $sql);
                                                 
                                                 while ($data = mysqli_fetch_array($results)){
@@ -341,7 +341,7 @@
                                             </thead>
                                             <tbody>
                                             <?php
-                                                $sql = "SELECT user_id, pos_belgium FROM bc18_predictedbonusses ORDER BY user_id";
+                                                $sql = "SELECT bc18_predictedbonusses.user_id, bc18_predictedbonusses.pos_belgium, bc18_users.user_id, bc18_users.user_name FROM bc18_predictedbonusses INNER JOIN bc18_users on bc18_predictedbonusses.user_id = bc18_users.user_id ORDER BY user_name";
                                                 $results = mysqli_query($db, $sql);
                                                 
                                                 while ($data = mysqli_fetch_array($results)){
