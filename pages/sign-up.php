@@ -131,7 +131,7 @@ else{
 
                             if ($_SESSION['success'] === 'success'){
                                 echo '<div id='.'succes'.' class="alert alert-success " >
-                                <strong>Gelukt!</strong> Je bent goed geregistreerd. Zodra admin heeft accepteerd kan je inloggen.
+                                <strong>Gelukt!</strong> Je bent goed geregistreerd. Zodra admin heeft accepteerd kan je inloggen.<br>Ga naar <a href="sign-in.php">Login page</a>
                                 </div>';
                             }
                     ?>

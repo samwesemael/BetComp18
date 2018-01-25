@@ -1,5 +1,7 @@
-<?php session_start();
+<?php session_set_cookie_params($lifetime = 6 * 30 * 24 * 60 * 60 );
+    session_start();
     include('server.php');
+    $status = "";
   if (isset($_POST['login_user'])){
     $email = mysqli_real_escape_string($db, $_POST['email']);
     $password = mysqli_real_escape_string($db, $_POST['password']);
@@ -34,17 +36,20 @@
         $stmt->close();
         $_SESSION['success'] = "success";
         if(!empty($_POST["rememberme"])){
-          setcookie ("email",$mail,time()+ (10 * 365 * 24 * 60 * 60));  
-          setcookie ("password",$passCookie,time()+ (10 * 365 * 24 * 60 * 60));
+          $_SESSION['remembermeUser'] = $mail;
+          $_SESSION['remembermePass']= $passCookie;
         }
-      }else {
-        $_SESSION['success'] = "not_success";
-        array_push($errors, "Wrong username/password combination");
-      }?>
+        echo 'session cookie set';
+        echo $_SESSION['remembermeUser'];
+                ?>
         <script type="text/javascript">
-            window.location.href = '/pages/index.php';
+            window.location.href = 'index.php';
         </script>
         <?php
+      }else {
+        $status = "not_success";
+        array_push($errors, "Wrong username/password combination");
+      }
     }
   }
 ?>
@@ -84,7 +89,7 @@
         <div class="card">
             <div class="body">
                 <?php
-                    if($_SESSION['success'] === 'not_success'){
+                    if($status === "not_success"){
                         echo '<div id='.'error'.' class="alert alert-danger">
                             <strong>NOPE!</strong> Fout username/paswoord combinatie. Of je account is nog niet geverifieerd door admin. Nog even geduld!
                             </div>';  
@@ -97,7 +102,7 @@
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="email" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?>" placeholder="Email" required autofocus>
+                            <input type="text" class="form-control" name="email" value="<?php if(isset($_SESSION['remembermeUser'])) { echo  $_SESSION['remembermeUser']; } ?>" placeholder="Email" required autofocus>
                         </div>
                     </div>
                     <div class="input-group">
@@ -105,12 +110,12 @@
                             <i class="material-icons">lock</i>
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="password" value="<?php if(isset($_COOKIE["password"])) { echo $_COOKIE["password"]; } ?>" placeholder="Password" required>
+                            <input type="password" class="form-control" name="password" value="<?php if(isset( $_SESSION['remembermePass'])) { echo  $_SESSION['remembermePass']; } ?>" placeholder="Password" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-8 p-t-5">
-                            <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink" <?php if(isset($_COOKIE["email"])) { ?> checked <?php } ?> />
+                            <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink" <?php if(isset($_SESSION['remembermeUser'])) { ?> checked <?php } ?> />
                             <label for="rememberme">Remember Me</label>
                         </div>
                         <div class="col-xs-4">
