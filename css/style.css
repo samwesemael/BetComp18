@@ -8231,3 +8231,15 @@ html.ie11 .bs-searchbox .form-control {
   background-color: #F44336;
   border-color: #2e6da4;
 }
+
+.d-flex {
+    display:flex;
+}
+
+row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.thumbnail {
+  height: 100%;
+}

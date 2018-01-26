@@ -46,30 +46,41 @@
 
         	<!-- CountDown Timer -->
             <!-- CountDown Timer -->
-            <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> -->
-                <div class="row clearfix">
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <div class="card">
-                            <div class="body">
+          
+			
+					 <div class="row d-flex">
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex">					
+							<div class="card">
+							<div class="header">
                                 <div class="row clearfix">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                        <center><input id="daysclock" data-min="0" data-max="356" type="text" class="knob" data-width="90%" data-thickness="0.25" data-fgColor="#F44336" data-rotation=anticlockwise data-readOnly=true>
-                                        DAGEN</center>
+                                    <div class="col-xs-12 col-sm-12">
+                                        <div class="font-bold m-b--35">COUNTDOWN</div>
+                                        <br>
                                     </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                        <center><input id="hoursclock" data-min="0" data-max="24" type="text" class="knob" data-width="90%" data-thickness="0.25" data-fgColor="#E91E63" data-rotation=anticlockwise
-                                        data-readOnly = "true">
-                                        UREN</center>
-                                    </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                        <center><input id="minutesclock" data-min="0" data-max="60" ype="text" class="knob" data-width="90%" data-thickness="0.25" data-fgColor="#00BCD4" data-rotation=anticlockwise data-readOnly="true">
-                                        MINUTEN</center>
-                                    </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                        <center><input id="secondsclock" data-min="0" data-max="60" type="text" class="knob" data-width="90%" data-thickness="0.25" data-fgColor="#009688" data-rotation=anticlockwise data-readOnly="true">
-                                        SECONDEN</center>
-                                    </div>
-                                </div>
+                                </div>                                
+                            </div>
+								<div class="body">
+								<br><br>
+									<div class="row clearfix">
+										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+											<center><input id="daysclock" data-min="0" data-max="356" type="text" class="knob" data-width="90%" data-thickness="0.25" data-fgColor="#F44336" data-rotation=anticlockwise data-readOnly=true>
+												<br><br>DAGEN</center>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+											<center><input id="hoursclock" data-min="0" data-max="24" type="text" class="knob" data-width="90%" data-thickness="0.25" data-fgColor="#E91E63" data-rotation=anticlockwise
+											data-readOnly = "true">
+											<br><br>UREN</center>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+											<center><input id="minutesclock" data-min="0" data-max="60" ype="text" class="knob" data-width="90%" data-thickness="0.25" data-fgColor="#00BCD4" data-rotation=anticlockwise data-readOnly="true">
+											<br><br>MINUTEN</center>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+											<center><input id="secondsclock" data-min="0" data-max="60" type="text" class="knob" data-width="90%" data-thickness="0.25" data-fgColor="#009688" data-rotation=anticlockwise data-readOnly="true">
+											<br><br>SECONDEN</center>
+										</div>
+									</div>
+									<br>
                                 <center><b> TILL WORLD CUP 2018</b></center> 
                             </div>
                         </div>
@@ -126,7 +137,7 @@
                         <!-- END CountDown Timer -->
 
                         <!-- Top4 Klassement -->
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 d-flex">
                         <div class="card">
                             <div class="header">
                                 <div class="row clearfix">
@@ -146,6 +157,7 @@
                                     </li>
                                 </ul>
                             </div>
+							
                             <div class="body">
                                 <div class="row clearfix">
                                     <div class="col-xs-12 col-sm-12">                                        
@@ -184,8 +196,9 @@
                                             ?>
                                     </div>
                                 </div>
+								</div>
                             </div>
-                        </div>
+                
                     </div>
                 </div>
 <!--             </div> -->
@@ -208,9 +221,11 @@
                         $flagHome = $data['homeflag'];
                         $flagAway = $data['awayflag'];
                         }
-                    ?>
-                <div class="row clearfix">
-                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    ?>					
+					
+	
+                <div class="row d-flex">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 d-flex">
                         <div class="card">
                             <div class="body bg">
                                 <div class="m-b--35 font-bold"> <center>VOLGENDE WEDSTRIJD</center></div>
@@ -288,7 +303,7 @@
                         $belgie = $data['pos_belgium'];
                     
                 ?>
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 d-flex">
                     <div class="card">
                         <div class="body bg">
                             <div class="font-bold m-b--35">MIJN BONUSSEN </div>
@@ -320,7 +335,7 @@
                 <?php         
             }  
             else{ ?>
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 d-flex">
                     <div class="card">
                         <div class="body bg">
                             <div class="font-bold m-b--35">MIJN BONUSSEN</div>
@@ -334,7 +349,7 @@
             <?php }      ?>
          
             <!-- Answered Tickets -->
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 d-flex">
                     <div class="card">
                         <div class="body bg">
                             <div class="font-bold m-b--35">VORM</div> <br> <br>
@@ -374,8 +389,7 @@
 					</div>
                         </div>
                     </div>
-                </div>
-            </div>
+
     
     </section>
 
