@@ -57,8 +57,8 @@
                                             <tr>
                                                 <th scope="row">'.$ranking.'</th>
                                                 <td><img style="max-height:40px;" src="'.$afbeelding.'" alt="" max-height=50px class="img-circle"> '.$data['user_name'].'</td>
-                                                <td>'.$data['uitslag_correct'].'</td>
                                                 <td>'.$data['winnaar_correct'].'</td>
+                                                <td>'.$data['uitslag_correct'].'</td>
 												<td>'.$data['bonus'].'</td>
                                                 <td><b>'.$data['totaal'].'</b></td>
                                             </tr>

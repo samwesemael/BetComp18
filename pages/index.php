@@ -47,7 +47,17 @@
         	<!-- CountDown Timer -->
             <!-- CountDown Timer -->
           
-			
+			 <?php
+                 // lijst van alle deadlines voor te gokken
+                    $sql = "SELECT datum FROM bc18_games WHERE bettable = 1 order by datum asc";
+                    $results = mysqli_query($db, $sql);
+                    $deadlines = array();
+                    while ($data = mysqli_fetch_array($results)){
+                        array_push($deadlines, strval($data['datum']));
+                    }
+                    $deadlines = implode (", ", $deadlines);
+
+                ?>
 					 <div class="row d-flex">
 						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex">					
 							<div class="card">
@@ -63,20 +73,20 @@
 								<br><br>
 									<div class="row clearfix">
 										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-											<center><input id="daysclock" data-min="0" data-max="356" type="text" class="knob" data-width="90%" data-thickness="0.25" data-fgColor="#F44336" data-rotation=anticlockwise data-readOnly=true>
+											<center><input id="daysclock" data-min="0" data-max="356" type="text" class="knob days" data-width="90%" data-thickness="0.25" data-fgColor="#F44336" data-rotation=anticlockwise data-readOnly=true>
 												<br><br>DAGEN</center>
 										</div>
 										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-											<center><input id="hoursclock" data-min="0" data-max="24" type="text" class="knob" data-width="90%" data-thickness="0.25" data-fgColor="#E91E63" data-rotation=anticlockwise
+											<center><input id="hoursclock" data-min="0" data-max="24" type="text" class="knob hours" data-width="90%" data-thickness="0.25" data-fgColor="#E91E63" data-rotation=anticlockwise
 											data-readOnly = "true">
 											<br><br>UREN</center>
 										</div>
 										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-											<center><input id="minutesclock" data-min="0" data-max="60" ype="text" class="knob" data-width="90%" data-thickness="0.25" data-fgColor="#00BCD4" data-rotation=anticlockwise data-readOnly="true">
+											<center><input id="minutesclock" data-min="0" data-max="60" ype="text" class="knob minutes" data-width="90%" data-thickness="0.25" data-fgColor="#00BCD4" data-rotation=anticlockwise data-readOnly="true">
 											<br><br>MINUTEN</center>
 										</div>
 										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-											<center><input id="secondsclock" data-min="0" data-max="60" type="text" class="knob" data-width="90%" data-thickness="0.25" data-fgColor="#009688" data-rotation=anticlockwise data-readOnly="true">
+											<center><input id="secondsclock" data-min="0" data-max="60" type="text" class="knob seconds" data-width="90%" data-thickness="0.25" data-fgColor="#009688" data-rotation=anticlockwise data-readOnly="true">
 											<br><br>SECONDEN</center>
 										</div>
 									</div>
@@ -85,55 +95,6 @@
                             </div>
                         </div>
                     </div>
-                    <script>
-                            function getTimeRemaining(endtime) {
-                                var t = Date.parse(endtime) - Date.parse(new Date());
-                                var seconds = Math.floor((t / 1000) % 60);
-                                var minutes = Math.floor((t / 1000 / 60) % 60);
-                                var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-                                var days = Math.floor(t / (1000 * 60 * 60 * 24));
-                                return {
-                                'total': t,
-                                'days': days,
-                                'hours': hours,
-                                'minutes': minutes,
-                                'seconds': seconds
-                                };
-                            }
-
-                            function initializeClock(endtime) {
-                                var daysSpan = document.getElementById('daysclock');
-                                var hoursSpan = document.getElementById('hoursclock');
-                                var minutesSpan = document.getElementById('minutesclock');
-                                var secondsSpan = document.getElementById('secondsclock');
-
-                                function updateClock() {
-                                    var t = getTimeRemaining(endtime);
-                                    // console.log('start');
-                                    function setClock(t){
-                                        // console.log('setCalled');
-                                        daysSpan.setAttribute('value', t.days);
-                                        hoursSpan.setAttribute('value', t.hours);
-                                        minutesSpan.setAttribute('value', t.minutes);
-                                        secondsSpan.setAttribute('value', t.seconds);
-                                        // console.log('stop');
-                                    }
-                                    
-
-                                    if (t.total <= 0) {
-                                        clearInterval(timeinterval);
-                                    }
-                                    setClock(t);
-                                }
-
-                                updateClock();
-                                //var timeinterval = setInterval(updateClock, 3000);
-                                }
-
-                                var deadline = new Date(Date.parse(new Date("June 14, 2018 16:00:00")));
-                                initializeClock(deadline);
-                        </script>
-                        <!-- #END# Basic Example -->
                         <!-- END CountDown Timer -->
 
                         <!-- Top4 Klassement -->
@@ -417,6 +378,63 @@
 
     <!-- Demo Js -->
     <script src="../js/demo.js"></script>
+
+    <?php $looper = 0; ?>
+    <script>
+        function getTimeRemaining(endtime) {
+            var t = Date.parse(endtime) - Date.parse(new Date());
+            var seconds = Math.floor((t / 1000) % 60);
+            var minutes = Math.floor((t / 1000 / 60) % 60);
+            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+            var days = Math.floor(t / (1000 * 60 * 60 * 24));
+            return {
+            'total': t,
+            'days': days,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+            };
+        }
+
+        function initializeClock(endtime) {
+            var daysSpan = document.getElementById('daysclock');
+            var hoursSpan = document.getElementById('hoursclock');
+            var minutesSpan = document.getElementById('minutesclock');
+            var secondsSpan = document.getElementById('secondsclock');
+
+            function updateClock() {
+                var t = getTimeRemaining(endtime);
+                function setClock(t){
+                    $('.seconds').val(t.seconds).trigger('change').trigger('draw');
+                    $('.minutes').val(t.minutes).trigger('change').trigger('draw');
+                    $('.hours').val(t.hours).trigger('change').trigger('draw');
+                    $('.days').val(t.days).trigger('change').trigger('draw');
+                }
+                if (t.total <= 0) {
+                    // teller++;
+                    // var deadline = new Date(Date.parse(new Date(deadlinesArray[teller])));
+                    initializeClock(deadline);
+
+                    //clearInterval(timeinterval);
+                }
+                setClock(t);
+            }
+            updateClock();
+            var timeinterval = setInterval(updateClock, 1000);
+        }
+        // var deadline = new Date(Date.parse(new Date("June 14, 2018 16:00:00")));
+        // var deadline = new Date(Date.parse(new Date("Jan 26, 2018 15:06:00")));
+        // initializeClock(deadline);
+
+        
+        var deadlinestring = "<?php echo $deadlines; ?>";
+        var deadlinesArray = deadlinestring.split(',');
+        var teller = 0;
+        var deadline = new Date(Date.parse(new Date(deadlinesArray[teller])));
+        initializeClock(deadline);
+
+    </script>
+    
 </body>
 
 </html>
