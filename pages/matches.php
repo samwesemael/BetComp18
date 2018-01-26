@@ -1,14 +1,13 @@
 <?php include 'navigator.php';
     include 'server.php';
-<!DOCTYPE html>
-<html>
-
-<!-- navigator inladen en juist actief zetten -->
 
     $matchenPerDag = array(1, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1);
     $speeldagen = array("2018-06-14", "2018-06-15", "2018-06-16", "2018-06-17", "2018-06-18", "2018-06-19", "2018-06-20", "2018-06-21", "2018-06-22", "2018-06-23", "2018-06-24", "2018-06-25", "2018-06-26", "2018-06-27", "2018-06-28", "2018-06-30", "2018-07-01", "2018-07-02", "2018-07-03", "2018-07-06", "2018-07-07", "2018-07-10", "2018-07-11", "2018-07-14", "2018-07-15");
     $eerste = true; 
     ?>
+
+<!DOCTYPE html>
+<html>
 <script type="text/javascript">
     document.getElementById("nav-matches").classList.toggle('active');
 </script>
