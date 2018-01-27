@@ -58,8 +58,8 @@
                     $deadlines = implode (", ", $deadlines);
 
                 ?>
-					 <div class="row d-flex">
-						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex">					
+					 <div class="row d-flex1">
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex1">					
 							<div class="card">
 							<div class="header">
                                 <div class="row clearfix">
@@ -98,7 +98,7 @@
                         <!-- END CountDown Timer -->
 
                         <!-- Top4 Klassement -->
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 d-flex">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 d-flex1">
                         <div class="card">
                             <div class="header">
                                 <div class="row clearfix">
@@ -184,9 +184,9 @@
                         }
                     ?>					
 					
-	
-                <div class="row d-flex">
-                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 d-flex">
+			<div class="container">
+                <div class="row d-flex1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 d-flex1">
                         <div class="card">
                             <div class="body bg">
                                 <div class="m-b--35 font-bold"> <center>VOLGENDE WEDSTRIJD</center></div>
@@ -264,30 +264,25 @@
                         $belgie = $data['pos_belgium'];
                     
                 ?>
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 d-flex">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 d-flex1">
                     <div class="card">
                         <div class="body bg">
                             <div class="font-bold m-b--35">MIJN BONUSSEN </div>
                             <ul class="dashboard-stat-list">
                                 <li>
-                                    WERELDKAMPIOEN
-                                    <span class="pull-right col-blue"><b><?php echo strtoupper($winnaar); ?></b></span>
+                                    WERELDKAMPIOEN <span class="pull-right col-blue"><b><?php echo strtoupper($winnaar); ?></b></span>
                                 </li>
                                 <li>
-                                    VERLIEZEND FINALIST
-                                    <span class="pull-right col-blue"><b><?php echo strtoupper($verliezer); ?></b></span>
+                                    VERLIEZEND FINALIST <span class="pull-right col-blue"><b><?php echo strtoupper($verliezer); ?></b></span>
                                 </li>
                                 <li>
-                                    TOPSCHUTTER
-                                    <span class="pull-right col-blue"><b><?php echo strtoupper($topscorer); ?></b></span>
+                                    TOPSCHUTTER <span class="pull-right col-blue"><b><?php echo strtoupper($topscorer); ?></b></span>
                                 </li>
                                 <li>
-                                    VUILSTE PLOEG
-                                    <span class="pull-right col-blue"><b><?php echo strtoupper($vuilste); ?></b></span>
+                                    VUILSTE PLOEG <span class="pull-right col-blue"><b><?php echo strtoupper($vuilste); ?></b></span>
                                 </li>
                                 <li>
-                                    POSITIE BELGIE
-                                    <span class="pull-right col-blue"><b><?php echo strtoupper($belgie); ?></b></span>
+                                    POSITIE BELGIE <span class="pull-right col-blue"><b><?php echo strtoupper($belgie); ?></b></span>
                                 </li>
                             </ul>
                         </div>
@@ -296,7 +291,7 @@
                 <?php         
             }  
             else{ ?>
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 d-flex">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="card">
                         <div class="body bg">
                             <div class="font-bold m-b--35">MIJN BONUSSEN</div>
@@ -310,7 +305,7 @@
             <?php }      ?>
          
             <!-- Answered Tickets -->
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 d-flex">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 d-flex1">
                     <div class="card">
                         <div class="body bg">
                             <div class="font-bold m-b--35">VORM</div> <br> <br>
@@ -349,8 +344,8 @@
 						</div>	
 					</div>
                         </div>
-                    </div>
-
+			</div>
+	</div>
     
     </section>
 

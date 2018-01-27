@@ -196,25 +196,24 @@
                         </div>
 						<div class="body">
     						<center>
-    						 <ul class="nav nav-tabs tab-nav-right" role="tablist">
+    						 <ul class="nav nav-tabs tab-nav-right nav-justified" role="tablist">
     							<!-- TODO: text vervangen door icoontjes, is te groot voor op 1 lijn op mobiel nu -->
-                                    <li role="presentation" class="active"><a href="#1" data-toggle="tab">Wereldkampioen</a></li>
-                                    <li role="presentation"><a href="#2" data-toggle="tab">Verliezend finalist</a></li>
-                                    <li role="presentation"><a href="#3" data-toggle="tab">Topschutter</a></li>
-                                    <li role="presentation"><a href="#4" data-toggle="tab">Vuilste ploeg</a></li>
-                                    <li role="presentation"><a href="#5" data-toggle="tab">Positie België</a></li>
+                                    <li role="presentation" class="active"><a href="#1" data-toggle="tab"><center><img src="../images/wordchamp.png" class="img-responsive" style="height:30px"></center></a></li>
+                                    <li role="presentation"><a href="#2" data-toggle="tab"><center><img src="../images/finalist.png" class="img-responsive" style="height:30px"></center></a></li>
+                                    <li role="presentation"><a href="#3" data-toggle="tab"><center><img src="../images/topschutter.png" class="img-responsive" style="height:30px"></center></a></li>
+                                    <li role="presentation"><a href="#4" data-toggle="tab"><center><img src="../images/dirtyteam.png" class="img-responsive" style="height:30px"></center></a></li>
+                                    <li role="presentation"><a href="#5" data-toggle="tab"><center><img src="../images/duivels.png" class="img-responsive" style="height:30px"></center></a></li>
     						</ul>
                              </center>      
 
-    						<div class="tab-content">							
-                                <div role="tabpanel" class="tab-pane fade in active" id="1">
-        								
+    						<div class="tab-content nav-justified">							
+                                <div role="tabpanel" class="tab-pane fade in active" id="1">        								
         							<div class="body table-responsive">
                                         <table class="table">
                                             <thead>
                                                 <tr>                                
                                                     <th>Naam</th>
-                                                    <th>Kampioen</th>                             
+                                                    <th><span class="pull-right">Kampioen</span></th>                             
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -226,7 +225,7 @@
                                             ?>
                                                 <tr>                                   
                                                     <td><?php echo $data['user_name']; ?></td>
-                                                    <td><?php echo $data['world_champion']; ?></td>                 
+                                                    <td><span class="pull-right"><?php echo $data['world_champion']; ?></span></td>                 
                                                 </tr>
                                                 <?php
                                                 }
@@ -245,7 +244,7 @@
                                             <thead>
                                                 <tr>                                
                                                     <th>Naam</th>
-                                                    <th>Finalist</th>                             
+                                                    <th><span class="pull-right">Finalist</span></th>                             
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -257,7 +256,7 @@
                                             ?>
                                                 <tr>                                   
                                                     <td><?php echo $data['user_name']; ?></td>
-                                                    <td><?php echo $data['finalist']; ?></td>                 
+                                                    <td><span class="pull-right"><?php echo $data['finalist']; ?></span></td>                 
                                                 </tr>
                                                 <?php
                                                 }
@@ -276,7 +275,7 @@
                                             <thead>
                                                 <tr>                                
                                                     <th>Naam</th>
-                                                    <th>Topschutter</th>                             
+                                                    <th><span class="pull-right">Topschutter</span></th>                             
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -288,7 +287,7 @@
                                             ?>
                                                 <tr>                                   
                                                     <td><?php echo $data['user_name']; ?></td>
-                                                    <td><?php echo $data['topscorer']; ?></td>                 
+                                                    <td><span class="pull-right"><?php echo $data['topscorer']; ?></span></td>                 
                                                 </tr>
                                                 <?php
                                                 }
@@ -307,7 +306,7 @@
                                             <thead>
                                                 <tr>                                
                                                     <th>Naam</th>
-                                                    <th>Vuilste ploeg</th>                             
+                                                    <th><span class="pull-right">Vuilste ploeg</span></th>                             
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -319,7 +318,7 @@
                                             ?>
                                                 <tr>                                   
                                                     <td><?php echo $data['user_name']; ?></td>
-                                                    <td><?php echo $data['dirty_team']; ?></td>                 
+                                                    <td><span class="pull-right"><?php echo $data['dirty_team']; ?></span></td>                 
                                                 </tr>
                                                 <?php
                                                 }
@@ -336,7 +335,7 @@
                                             <thead>
                                                 <tr>                                
                                                     <th>Naam</th>
-                                                    <th>Positie België</th>                             
+                                                    <th><span class="pull-right">Positie België</span></th>                             
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -348,7 +347,7 @@
                                             ?>
                                                 <tr>                                   
                                                     <td><?php echo $data['user_name']; ?></td>
-                                                    <td><?php echo $data['pos_belgium']; ?></td>                 
+                                                    <td><span class="pull-right"><?php echo $data['pos_belgium']; ?></span></td>                 
                                                 </tr>
                                                 <?php
                                                 }

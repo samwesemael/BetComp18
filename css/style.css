@@ -8232,14 +8232,24 @@ html.ie11 .bs-searchbox .form-control {
   border-color: #2e6da4;
 }
 
-.d-flex {
+@media only screen and (min-device-width: 600px) {
+  .d-flex1 {
     display:flex;
+}}
+
+.take-all-space-you-can{
+    width:100%;
 }
 
-row.display-flex {
-  display: flex;
-  flex-wrap: wrap;
+@media (max-width: 768px) {
+  .nav-justified > li {
+    display: table-cell;
+    width: 1%;
+  }
+  .nav-justified > li > a  {
+    border-bottom: 1px solid #ddd !important;
+    border-radius: 4px 4px 0 0 !important;
+    margin-bottom: 0 !important;
+  }
 }
-.thumbnail {
-  height: 100%;
-}
+
