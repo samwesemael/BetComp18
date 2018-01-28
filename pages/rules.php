@@ -43,42 +43,45 @@
     				        <h4> Gokken indienen </h4>
                             <p> 
                                 De gokken zullen worden ingediend op het tabblad Gokken --> matchen. <br>
-    				            Noot:
+    				           
         				        <ul> 
         				            <li> Je kan je gok zoveel aanpassen als je wilt (opnieuw indienen van die speeldag), enkel de laatst ingediende telt </li>
-        				            <li> Er is een timecheck ingebouwd, je kan tot 1 seconde voor aanvang van de wedstrijd posten, als je na aanvang post, wordt je gok door het website genegeerd </li>
+        				            <li> Er is een timecheck ingebouwd, je kan tot 1 seconde voor aanvang van de wedstrijd posten, als je na aanvang post, wordt je gok door de website genegeerd </li>
         				            <li> Je zal steeds kunnen gokken op een aantal wedstrijden op voorhand </li>
         				        </ul>
     				        </p>
 
     				        <h4> Bonussen </h4>
 
-                            <p> Met de bonussen blijft het spannend tot op het einde. De bonussen kennen een relatieve verdeling, ze wegen op zo’n manier door dat de personen die in het bovenste 1/3de 
-                                van het klassement eindigen theoretisch gezien nog 1ste kunnen eindigen (indien alles juist, en alle personen boven zich, alles fout). 
+                            <p> Met de bonussen blijft het spannend tot op het einde, je kan hier tot 10 extra punten mee verdienen.
                             	Voor de start van het toernooi moet ik van iedereen een voorspelling hebben (via tabblad Gokken --> bonussen) voor onderstaande gebeurtenissen:
 
                                 <ul> 
-                                    <li>  Wie wordt Europees kampioen? 40% van totaal aantal bonussen die zullen verdeeld worden </li>
-                                    <li>  Wie is verliezend finalist? 20% </li>
-                                    <li> Waar eindigen de Belgen? 20% </li>
-                                    <li>  Wie wordt de vuilste ploeg? 10% </li>
-                                    <li> Wie wordt topschutter? 10% </li> 
+                                    <li>  Wie wordt wereldkampioen? <b>4</b> punten </li>
+                                    <li>  Wie is verliezend finalist? <b>2</b> punten </li>
+                                    <li> Waar eindigen de Belgen? <b>2</b> punten </li>
+                                    <li>  Wie wordt de vuilste ploeg? <b>1</b> punt</li>
+                                    <li> Wie wordt topschutter? <b>1</b> punt</li> 
                                 </ul>
-                                Als je finalist blijkt kampioen te worden en omgekeerd krijg je ook nog een aantal punten (15% indien 1 vd 2 juist, maar omgewisseld, 35% indien beiden juist maar plaats omgewisseld). 
+                                Als je finalist blijkt kampioen te worden en/of omgekeerd krijg je ook nog een aantal punten:
+								<ul>
+								<li> Wereldkampioen OF finalist juist, maar op de verkeerde positie: <b>2</b> punten </li>
+								<li> Wereldkampioen EN finalist juist, maar omgewisseld: <b>4</b> punten</li>
+								</ul>								
                             </p>
-
+							<br>
                             <h4> Berekening bonussen </h4>
+							Iedereen met het juiste resultaat ontvangt de bonuspunten! <br>
                             <p>
                                 <ol>
                                     <li> Vuilste ploeg:
                                         <ul> 
-                                            <li> gele kaart = 1 punt </li>
-                                            <li> geel-geel = 2.5 punten </li>
-                                            <li> rode kaart = 3 punten </li>
-                                            <li> geel-rood = 4 punten </li> 
+                                            <li> gele kaart = <b>1</b> punt </li>                                         
+                                            <li> rode kaart = <b>3</b> punten </li>
+                                  
                                         </ul> 
                                     </li>
-
+									<br>
                                     <li>
                                     Positie België:
                                         <ul> 
@@ -87,12 +90,12 @@
                                             <li> kwartfinale </li>
                                             <li> 1/8ste finale </li>
                                             <li> groepsfase </li> 
-                                        </ul>
-                                        Je gokt het verst je denkt dat ze geraken. 
+                                        </ul> <br>
+                                        Je gokt het verst je denkt dat ze geraken, als je dit correct hebt krijg je 2 punten. 
                                     </li>
                                 </ol>
                             </p>
-                            <p> Noot: Iedereen met het juiste resultaat ontvangt de bonuspunten </p>
+                            <br>
 
                             <h4> Inzet </h4>
 
@@ -111,7 +114,6 @@
                                     </div>
                                 </div>
                             </p>
-
                             <h4> Winst </h4>
 
                             <ul> 
