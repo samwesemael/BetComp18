@@ -56,8 +56,8 @@
 		$array = join("','",$_POST['users']);
 		$sqlusers = "UPDATE `bc18_users` SET `verification`= '1' WHERE email IN ('$array')";
 		mysqli_query($db, $sqlusers);
-		$dateNu = date_format(new DateTime(),'Y-m-d H:i:s');
-		$query = "UPDATE bc18_overig SET last_run = '$dateNu' WHERE name='verification'";
+		// $dateNu = date_format(new DateTime(),'Y-m-d H:i:s');
+		$query = "UPDATE bc18_overig SET last_run = NOW() WHERE name='verification'";
 		mysqli_query($db, $query);
 
 
