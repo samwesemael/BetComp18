@@ -44,11 +44,7 @@ else{
         $modified = $created;
         $_SESSION['success'] = "success";
 
-        // OLD QUERIES
-        // $query = "INSERT INTO bc18_users (user_name, first_name, last_name, email, password, role, verification, payed, oauth_provider, created, modified) 
-        // VALUES('$username', '$firstname', '$lastname', '$email', '$password', 'speler', '0', false, 'manual', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."'    )";
-        // mysqli_query($db, $query);
-
+        // insert usertabel
         $stmt = $db->prepare("INSERT INTO bc18_users (user_name, first_name, last_name, email, password, role, verification, payed, oauth_provider, created, modified) 
         VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $ver = 0;
@@ -59,30 +55,22 @@ else{
         $stmt->execute();
         $stmt->close();
 
-
-        //OLD QUERY
-        // echo 'before query';
-        // $queryKlassement = "INSERT INTO bc18_klassement (email, uitslag_correct, winnaar_correct, bonus, totaal) VALUES('$email', '0', '0', '0', '0')";
-        // echo $queryKlassement;
-        // $results = mysqli_query($db, $queryKlassement);
-        // if (!$results) {
-        //                                     printf("Error: %s\n", mysqli_error($conn));
-        //                                     exit();
-        //                                   }
-
+        // insert klassement tabel
         $stmt2 = $db->prepare("INSERT INTO bc18_klassement (email, uitslag_correct, winnaar_correct, bonus, totaal) VALUES(?, ?, ?, ?, ?)");
         $stmt2->bind_param('siiii', $email, $ver, $ver, $ver, $ver);
         $stmt2->execute();
         $stmt2->close();
 
-        // $_SESSION['username'] = $username;
-        // $_SESSION['firstname'] = $firstname;
-        // $_SESSION['lastname'] = $lastname;
-        // $_SESSION['email'] = $email;
-        // $_SESSION['role'] = 'speler';
-        // $_SESSION['profilepicpath']='../images/users/noImage.jpg';
-        
-        //header('location: sign-up.php');
+        // notificatie toevoegen
+        $link = "matchen_indienen.php";
+        $class = "newUser";
+        $message = "Welkom! Start nu met wedden";
+        $read = 0;
+        $stmt3 = $db->prepare("INSERT INTO bc18_notifications(bc18_user, bc18_link, bc18_class, bc18_message, bc18_read, bc18_created) VALUES(?, ?, ?, ?, ?, NOW())");
+        $stmt3->bind_param('ssssi', $email, $link, $class, $message, $read);
+        $stmt3->execute();
+        $stmt3->close();
+
       }
       else{
           $_SESSION['success'] = 'error';

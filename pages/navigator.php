@@ -104,110 +104,67 @@
                     <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li> -->
                     <!-- #END# Call Search -->
                     <!-- Notifications -->
+                    <?php 
+                    include 'server.php';
+                        $mail = $_SESSION['email'];
+                        $sql = "SELECT * from bc18_notifications where bc18_user = '$mail' AND bc18_read = 0 ORDER BY bc18_created DESC LIMIT 5";
+                        // echo $sql;
+                        $result = mysqli_query($db,$sql);
+                        $rowcount = mysqli_num_rows($result);
+                    ?>
+
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
-                            <span class="label-count">7</span>
+                            <?php if($rowcount != 0){ ?>
+                            <span class="label-count"><?php echo $rowcount; ?></span>
+                            <?php } ?>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="header">NOTIFICATIONS</li>
                             <li class="body">
                                 <ul class="menu">
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-light-green">
-                                                <i class="material-icons">person_add</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4>12 new members joined</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 14 mins ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-cyan">
-                                                <i class="material-icons">add_shopping_cart</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4>4 sales made</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 22 mins ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-red">
-                                                <i class="material-icons">delete_forever</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4><b>Nancy Doe</b> deleted account</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 3 hours ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-orange">
-                                                <i class="material-icons">mode_edit</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4><b>Nancy</b> changed name</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 2 hours ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-blue-grey">
-                                                <i class="material-icons">comment</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4><b>John</b> commented your post</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 4 hours ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-light-green">
-                                                <i class="material-icons">cached</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4><b>John</b> updated status</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 3 hours ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-purple">
-                                                <i class="material-icons">settings</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4>Settings updated</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> Yesterday
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                                    <?php
+                                        while ($data = mysqli_fetch_array($result)){
+                                            // color are classes from style.css
+                                            //options: 
+                                            switch ($data['bc18_class']) {
+                                                case "chat":
+                                                    $icon = 'chat';
+                                                    $color = 'bg-light-green';
+                                                    break;
+                                                case "mededeling":
+                                                    $icon = 'add_shopping_cart';
+                                                    $color = 'bg-blue-grey';
+                                                    break;
+                                                case "klassement":
+                                                    $icon = 'format_list_numbered';
+                                                    $color = 'bg-orange';
+                                                    break;
+                                                case "newUser":
+                                                    $icon = 'person_add';
+                                                    $color = 'bg-indigo';
+                                                    break;
+                                            }
+                                            echo '
+                                            <li>
+                                                <a href="'.$data['bc18_link'].'">
+                                                    <div class="icon-circle '.$color.'">
+                                                        <i class="material-icons">'.$icon.'</i>
+                                                    </div>
+                                                    <div class="menu-info">
+                                                        <h4>'.$data['bc18_message'].'</h4>
+                                                        <p>
+                                                            <i class="material-icons">access_time</i>'.$data['bc18_created'].'
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                            </li>';
+                                        }
+
+                                    ?>
                             <li class="footer">
-                                <a href="javascript:void(0);">View All Notifications</a>
+                                <a href="profile.php">View All Notifications</a>
                             </li>
                         </ul>
                     </li>

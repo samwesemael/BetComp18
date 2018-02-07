@@ -10,10 +10,22 @@
     <link rel="stylesheet" type="text/css" href="../css/chatbox.css">
     
     <script>
+        String.prototype.trim = function() {
+            return this.replace(/^\s+|\s+$/g,"");
+            
+        }
+
+        function enter_comment(event) {
+               if (event.which == 13 && document.getElementById("msg").value.trim != '') {
+                    alert(document.getElementById("msg").value);
+                    submitChat(); // Call any function here: Just pass your actual Parameters to enter_comment().
+               }
+
+        }
 
         function submitChat(){
             $('#chatlogs').scrollTop($('#chatlogs')[0].scrollHeight);
-            if(form.msg.value ==''){
+            if(form.msg.value == ""){
                 alert('FIELD SHOULD BE FILLED IN!!');
                 return;
             }
@@ -34,7 +46,6 @@
             xhttp.send();
             // alert('done');
         }
-
         $(document).ready(function(e){
             $.ajaxSetup({
                 cache: false
@@ -67,7 +78,7 @@
             </div>
             <form name="form">
                 <div class="chat-form">
-                    <textarea name="msg"></textarea>
+                    <textarea name="msg" id="msg" placeholder="Write a comment here..." onkeyup="enter_comment(event);"></textarea>
                     <a onclick="submitChat()">Send</a> 
                 </div>
             </form>

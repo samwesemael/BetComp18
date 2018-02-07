@@ -15,8 +15,13 @@ while($extract = mysqli_fetch_array($result)){
           <p class="chat-message">'.$extract['msg'].'<br><small>'.$extract['created'].'</small></p></div>';
       }
       else{
+     	$picture = $extract['picture'];
+      	if($extract['picture'] == '')
+      	{
+      		$picture = '../images/users/noImage.jpg';
+      	}
         echo '<div class="chat friend">
-                    <div class="user-photo"><img src="'.$extract['picture'].'"></div>
+                    <div class="user-photo"><img src="'.$picture.'"></div>
                     <p class="chat-message">'.$extract['msg'].'<br><small>'.$extract['created'].'</small></p>
                 </div>';
       }

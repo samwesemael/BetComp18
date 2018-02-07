@@ -66,7 +66,7 @@
                 </script>
                 <div class="btn-group" role="group">
                     <center><button onclick="myFunction(this)" type="button" id="stars" class="profilebtn profilebtn-default profilebtn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <div class="hidden-xs">Stars</div>
+                        <div class="hidden-xs">Notifications</div>
                     </button>
                 </center>
             </div>
@@ -89,7 +89,11 @@
         <div class="well">
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="tab1">
-                    <h3>This is tab 1</h3>
+                    <h3>lijst van alle notificaties hier</h3>
+                    <div>
+                        rechts boven enkel de laatste 5. 
+                        hier oplijsting van alle notifications
+                    </div>
                 </div>
                 <div class="tab-pane fade in" id="tab2">
                     <h3>This is tab 2</h3>
