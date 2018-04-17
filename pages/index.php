@@ -91,7 +91,7 @@
 										</div>
 									</div>
 									<br>
-                                <center><b> TILL WORLD CUP 2018</b></center> 
+                                <center><b> TILL NEXT GAME</b></center> 
                             </div>
                         </div>
                     </div>
