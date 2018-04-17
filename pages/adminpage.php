@@ -44,7 +44,7 @@
 			// mysqli_query($db, $query);
       		$stmt->bind_param('s', $teamname);
       		$stmt->execute();
-      		$stmt->bind_result($userName, $firstName, $lastName, $mail, $role, $picture);
+      		// $stmt->bind_result($userName, $firstName, $lastName, $mail, $role, $picture);
       	}
     	$stmt->close();
   //   	$dateNu = date_format(new DateTime(),'Y-m-d H:i:s');

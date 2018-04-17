@@ -89,10 +89,58 @@
         <div class="well">
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="tab1">
-                    <h3>lijst van alle notificaties hier</h3>
+                    <h3>Notifications</h3>
                     <div>
-                        rechts boven enkel de laatste 5. 
-                        hier oplijsting van alle notifications
+                        <?php 
+                        $mail = $_SESSION['email'];
+                        $sql = "SELECT * from bc18_notifications where bc18_user = '$mail' AND bc18_read = 0 ORDER BY bc18_created DESC";
+                        // echo $sql;
+                        $result = mysqli_query($db,$sql);
+                        $rowcount = mysqli_num_rows($result);
+                    ?>
+                    <ol>
+                                    <?php
+                                        while ($data = mysqli_fetch_array($result)){
+                                            // color are classes from style.css
+                                            //options: 
+                                            switch ($data['bc18_class']) {
+                                                case "chat":
+                                                    $icon = 'chat';
+                                                    $color = 'bg-light-green';
+                                                    break;
+                                                case "mededeling":
+                                                    $icon = 'add_shopping_cart';
+                                                    $color = 'bg-blue-grey';
+                                                    break;
+                                                case "klassement":
+                                                    $icon = 'format_list_numbered';
+                                                    $color = 'bg-orange';
+                                                    break;
+                                                case "newUser":
+                                                    $icon = 'person_add';
+                                                    $color = 'bg-indigo';
+                                                    break;
+                                            }
+                                            echo '
+                                            <li class="body">
+                                                    <div>
+                                                <a href="'.$data['bc18_link'].'">
+                                                    <div class="icon-circle '.$color.'">
+                                                        <i class="material-icons">'.$icon.'</i>
+                                                    </div>
+                                                    <div class="menu-info">
+                                                        <h4>'.$data['bc18_message'].'</h4></a>
+                                                        <p>
+                                                            <i class="material-icons">access_time</i>'.$data['bc18_created'].'
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li>';
+                                        }
+
+                                    ?>
+                                </ol>
+
                     </div>
                 </div>
                 <div class="tab-pane fade in" id="tab2">
