@@ -1,5 +1,12 @@
 ﻿# BRACKE MANNEN - BETCOMP WK2018
 
+##### UAT:
+
+- mogelijkheid om bets te zetten nadat match gestart is (wrs opgelost wanneer matchen niet manueel toegevoegd worden)
+- berekening score werkt enkel als match op FINISHED staat (gebeurt automatisch als matchen niet manueel toegevoegd worden)
+- timer next match geeft NAN wanneer hij op 0 was en niet automatisch naar nieuwe match
+- navigator still fucked
+
 
 ## TODO:
 
