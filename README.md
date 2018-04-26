@@ -4,8 +4,12 @@
 
 - mogelijkheid om bets te zetten nadat match gestart is (wrs opgelost wanneer matchen niet manueel toegevoegd worden)
 - berekening score werkt enkel als match op FINISHED staat (gebeurt automatisch als matchen niet manueel toegevoegd worden)
+- calculate punten aanpassen zodat ook na poule werkt (met penalties)
+- automatisch berekenen na de wedstrijd (nu nog manueel naar calculate.php gaan)
+- tijd van notificatie in UTC --> verzetten naar werkelijke tijdzone
 - timer next match geeft NAN wanneer hij op 0 was en niet automatisch naar nieuwe match
 - navigator still fucked
+- nice to have: overzicht van iedereen zijn bets van vorige matchen met juist of fout (zoals de excel van vorig jaar)
 
 
 ## TODO:
