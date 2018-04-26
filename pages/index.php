@@ -49,7 +49,7 @@
           
 			 <?php
                  // lijst van alle deadlines voor te gokken
-                    $sql = "SELECT datum FROM bc18_games WHERE bettable = 1 order by datum asc";
+                    $sql = "SELECT datum FROM bc18_games WHERE bettable = 1 AND status != 'FINISHED' order by datum asc";
                     $results = mysqli_query($db, $sql);
                     $deadlines = array();
                     while ($data = mysqli_fetch_array($results)){
@@ -90,7 +90,7 @@
 											<br><br>SECONDEN</center>
 										</div>
 									</div>
-									<br>
+									<br>7 
                                 <center><b> TILL NEXT GAME</b></center> 
                             </div>
                         </div>
