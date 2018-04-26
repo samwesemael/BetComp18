@@ -90,7 +90,7 @@
 											<br><br>SECONDEN</center>
 										</div>
 									</div>
-									<br>7 
+									<br> 
                                 <center><b> TILL NEXT GAME</b></center> 
                             </div>
                         </div>
