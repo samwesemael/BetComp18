@@ -129,7 +129,8 @@
                                             // color are classes from style.css
                                             //options: 
                                             switch ($data['bc18_class']) {
-                                                case "chat":
+                                                case "6
+												":
                                                     $icon = 'chat';
                                                     $color = 'bg-light-green';
                                                     break;
@@ -361,6 +362,13 @@
 								<i class="material-icons">whatshot</i>
 								<span>Social media</span>
 								</a>
+							</li>											
+							
+							<li id = 'nav-chat'>								
+								<a href="chat.php">								
+								<i class="material-icons">chat</i>								
+								<span>Chat</span>								
+								</a>							
 							</li>
 							
 							<li id = 'nav-maps'>
@@ -369,24 +377,9 @@
 								<span>Map</span>
 								</a>
 							</li>
-							
-							<li id = 'nav-chat'>
-								<a href="chat.php">
-								<i class="material-icons">chat</i>
-								<span>Chat</span>
-								</a>
-							</li>							
-                         
-							<li id = 'nav-datatest'>
-								<a href="data_test.php">
-                            <i class="material-icons">archive</i>
-                            <span>Data_test</span>
-                        </a>
-                    </li>
+						
                         </ul>
                     </li>
-						
-                    
 						
                 </ul>
             </div>

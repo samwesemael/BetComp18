@@ -3,16 +3,13 @@
 <script type="text/javascript">
     document.getElementById("nav-home").classList.toggle('active');
 </script>
-
 <!DOCTYPE html>
 <html>
-    <section class="content">
-    
+    <section class="content">    
         <!--
             <div class="block-header">
                 <h2>DASHBOARD</h2>
-            </div> -->
-            
+            </div> -->            
             <!-- MEDEDELINGEN -->
             <div class="row clearfix">
                 <?php
@@ -43,10 +40,8 @@
                     }
                     ?>
             </div>
-
         	<!-- CountDown Timer -->
-            <!-- CountDown Timer -->
-          
+            <!-- CountDown Timer -->          
 			 <?php
                  // lijst van alle deadlines voor te gokken
                     $sql = "SELECT datum FROM bc18_games WHERE bettable = 1 AND status != 'FINISHED' order by datum asc";
@@ -96,7 +91,6 @@
                         </div>
                     </div>
                         <!-- END CountDown Timer -->
-
                         <!-- Top4 Klassement -->
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 d-flex1">
                         <div class="card">
@@ -123,15 +117,13 @@
                                 <div class="row clearfix">
                                     <div class="col-xs-12 col-sm-12">                                        
                                             <?php  
-
                                                 $sqlklassement = "SELECT bc18_users.user_name, bc18_users.first_name, bc18_klassement.totaal, bc18_users.pic_path FROM bc18_klassement inner join bc18_users on bc18_klassement.email = bc18_users.email WHERE bc18_users.verification = 1 ORDER BY totaal DESC, uitslag_correct DESC, winnaar_correct DESC LIMIT 4";
                                                 $results = mysqli_query($db, $sqlklassement);
                                                 if (!$results) {
                                                     printf("Error: %s\n", mysqli_error($db));
                                                     exit();
                                                   }
-                                                $loop = 1;
-                                                
+                                                $loop = 1;                                                
                                                 while($data = mysqli_fetch_array($results)){
                                                     if($data['pic_path']===''){
                                                         $afbeelding = '../images/users/noImage.jpg';
@@ -164,8 +156,6 @@
                 </div>
 <!--             </div> -->
             <!-- #END# Top 4 Klassement -->
-
-
                <!-- NEXT GAME -->
                 <?php
                     $sqlnext = "SELECT datum, game_id, team_home, team_away, home.team_crest AS homeflag, away.team_crest AS awayflag FROM bc18_games INNER JOIN bc18_teams AS home ON bc18_games.team_home = home.team_name INNER JOIN bc18_teams AS away ON bc18_games.team_away = away.team_name WHERE bettable = 1 AND status != 'FINISHED' ORDER BY datum ASC LIMIT 1 ";
@@ -184,7 +174,7 @@
                         }
                     ?>					
 					
-			<div class="container">
+			<div class="row d-flex1">
                 <div class="row d-flex1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 d-flex1">
                         <div class="card">
@@ -210,8 +200,7 @@
                                                 </div>   
                                             </center>
                                             </div>                         
-                                    </li>
-                                        
+                                    </li>                                        
                                 </ul>
                                 <?php
                                     $mail = $_SESSION['email'];
@@ -240,9 +229,7 @@
                                         </div>
                                         <?php    
                                         }
-
-                                ?>   
-                          
+                                ?>                             
                             </div>
                         </div>
                     </div>
@@ -264,25 +251,25 @@
                         $belgie = $data['pos_belgium'];
                     
                 ?>
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 d-flex1">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="card">
                         <div class="body bg">
                             <div class="font-bold m-b--35">MIJN BONUSSEN </div>
                             <ul class="dashboard-stat-list">
                                 <li>
-                                    WERELDKAMPIOEN <span class="pull-right col-blue"><b><?php echo strtoupper($winnaar); ?></b></span>
+                                    <small>WERELDKAMPIOEN</small> <span class="pull-right col-blue"><b><?php echo strtoupper($winnaar); ?></b></span>
                                 </li>
                                 <li>
-                                    VERLIEZEND FINALIST <span class="pull-right col-blue"><b><?php echo strtoupper($verliezer); ?></b></span>
+                                    <small>VERLIEZEND FINALIST</small> <span class="pull-right col-blue"><b><?php echo strtoupper($verliezer); ?></b></span>
                                 </li>
                                 <li>
-                                    TOPSCHUTTER <span class="pull-right col-blue"><b><?php echo strtoupper($topscorer); ?></b></span>
+                                    <small>TOPSCHUTTER</small> <span class="pull-right col-blue"><b><?php echo strtoupper($topscorer); ?></b></span>
                                 </li>
                                 <li>
-                                    VUILSTE PLOEG <span class="pull-right col-blue"><b><?php echo strtoupper($vuilste); ?></b></span>
+                                    <small>VUILSTE PLOEG</small> <span class="pull-right col-blue"><b><?php echo strtoupper($vuilste); ?></b></span>
                                 </li>
                                 <li>
-                                    POSITIE BELGIE <span class="pull-right col-blue"><b><?php echo strtoupper($belgie); ?></b></span>
+                                    <small>POSITIE BELGIE</small> <span class="pull-right col-blue"><b><?php echo strtoupper($belgie); ?></b></span>
                                 </li>
                             </ul>
                         </div>
@@ -304,7 +291,7 @@
 
             <?php }      ?>
          
-            <!-- Answered Tickets -->
+            <!-- Answered Tickets -->						
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 d-flex1">
                     <div class="card">
                         <div class="body bg">
@@ -343,8 +330,8 @@
 							</div>	
 						</div>	
 					</div>
-                        </div>
-			</div>
+                        </div> 
+			</div> 
 	</div>
     
     </section>
