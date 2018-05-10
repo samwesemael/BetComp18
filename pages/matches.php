@@ -3,7 +3,8 @@
 
     $matchenPerDag = array(1, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1);
     $speeldagen = array("2018-06-14", "2018-06-15", "2018-06-16", "2018-06-17", "2018-06-18", "2018-06-19", "2018-06-20", "2018-06-21", "2018-06-22", "2018-06-23", "2018-06-24", "2018-06-25", "2018-06-26", "2018-06-27", "2018-06-28", "2018-06-30", "2018-07-01", "2018-07-02", "2018-07-03", "2018-07-06", "2018-07-07", "2018-07-10", "2018-07-11", "2018-07-14", "2018-07-15");
-    $eerste = true; 
+    $speeldagnummers = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25);
+	$eerste = true; 
     ?>
 
 <!DOCTYPE html>
@@ -12,6 +13,89 @@
     document.getElementById("nav-matches").classList.toggle('active');
 </script>
     <section class="content">
+	
+	 	    <!-- Basic Table -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4>
+                                OVERZICHT
+							</h4>
+                                <small>Uitgebreide resultaten</small>                                                
+                        </div>
+						<div class="body"> 						      
+							<div class="body table-responsive">
+                                <table class="table table-bordered">
+                                     <thead>
+										
+                                         <tr>                                
+                                                    <th>Naam</th>
+													<?php 
+													foreach ($speeldagnummers as $nr){
+													?>
+                                                    <th>
+													 <?php echo $nr; ?>
+													</th>  
+													<?php
+													}
+													?>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php
+											
+											    // link gameid met speeldagnummer --> dynamisch behalve die 25
+												$sqlmatches = "SELECT game_id FROM bc18_games WHERE bettable = 1 AND status = 'FINISHED' ORDER BY datum LIMIT 0,25";
+											    $resultsgameids = mysqli_query($db,$sqlmatches);
+												$ids = mysqli_fetch_array($resultsgameids);														
+												
+												$sqlbets = "SELECT bc18_bets.bc18_userid, bc18_users.user_name, bc18_users.email, bc18_pred_goalshome, bc18_pred_goalsaway, bc18_gameid FROM bc18_bets INNER JOIN bc18_users on bc18_bets.bc18_userid = bc18_users.email ORDER BY bc18_users.user_name";
+												$resultsbets = mysqli_query($db,$sqlbets);
+												$bets = mysqli_fetch_array($resultsbets);
+											
+                                                $sqlusers = "SELECT bc18_users.user_name FROM bc18_users WHERE verification = 1 ORDER BY user_name";											
+                                                $resultsusers = mysqli_query($db, $sqlusers);                                                
+                                                while ($users = mysqli_fetch_array($resultsusers)){
+													$user = $users['user_name'];
+                                            
+											?>
+                                                <tr>                                   
+                                                    <td><?php echo $user; ?></td>
+													<?php
+													
+													//	if($bets['bc18_gameid'] == 
+													//echo '
+												//	<td> '.$bets['team_home'].'-'.$bets['team_away'].' </td>'; ?>
+                                                </tr>
+                                                <?php
+                                               // }
+												}
+                                                ?> 
+                                            </tbody>
+                                        </table>
+                                    </div>
+                        
+                                </div>      
+        						
+                                </div>								
+                            </div>         
+				        </div>	
+        			</div>
+                </div>
+            </div>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
         <div class="panel-group" id="accordion">
             <div class="panel panel-default">
                 <div class="panel-heading">

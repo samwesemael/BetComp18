@@ -136,7 +136,16 @@
 					//echo $player->name; 
 		}   }   }
 		
-	} 		?>
+	}
+
+	if(isset($_POST['update_ranking'])){
+		
+		$query = "UPDATE bc18_overig SET last_run = NOW() WHERE name='klassement'";
+		mysqli_query($db, $query);                                          			
+	}	
+
+
+	?>
      
     <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -148,7 +157,7 @@
                     </div>
                     <div class="body table-responsive">
 					<center>
-                        My Role: <b><?php echo $_SESSION['role']; ?></b> </center> <br> <br>
+                        My Role: <b><font color="blue"><?php echo $_SESSION['role']; ?></font></b> </center> <br> 
 						
 					<h4 class="card-inside-title"><small>CHANGE ANNOUNCEMENTS</small></h4>
                         <div class="row clearfix">
@@ -168,7 +177,7 @@
 					</div>	
 					</div>						
 						
-						
+					<div style="overflow-x:auto;">	
 					<table class="table">
 					<thead>
 					<tr>
@@ -198,8 +207,7 @@
 								?>
                             </select>
 							<button type="submit" class="btn bg-green waves-effect" name="set_verification">
-                            <i class="material-icons">save</i>
-                            <span>SET VERIFICATION</span>
+                            <span>VERIFICATION</span>
 							</button>
 						</form>  </div></td>
 						 </td>
@@ -210,13 +218,50 @@
 									$data = mysqli_fetch_array($results);
 									echo $data['last_run'];
 									?> </td>
-						</tr>																		<tr>												<td><div class="row clearfix"> 						<form method="post" action="adminpage.php">							<select class="form-control show-tick" id="games" name='games[]' multiple>								<?php									$verqueryy = "SELECT team_home,team_away,datum FROM bc18_games WHERE status != 'FINISHED' ORDER BY datum LIMIT 0,5"; 									$results = mysqli_query($db, $verqueryy);																																				while($data = mysqli_fetch_array($results)){										echo '<option>'.$data['datum'].'</option>';									}																		?>                            </select>							<button type="submit" class="btn bg-green waves-effect" name="set_games">                            <i class="material-icons">save</i>                            <span>SET SCORE</span>							</button>						</form>  </div></td>						 </td>						<td> Set manual score</td>						<td> <?php									$verqueryy = "SELECT team_home,team_away,datum FROM bc18_games WHERE status != 'FINISHED' ORDER BY datum LIMIT 0,5"; 									$results = mysqli_query($db, $verqueryy);									$data = mysqli_fetch_array($results);									echo $data['last_run'];									?> </td>						</tr>
+						</tr>		
+
+						<tr>							
+					<td>
+						<form method="post" action="calculate.php">
+						<button type="submit" class="btn bg-purple waves-effect" name="update_ranking">
+                             <span>TABLE</span>
+						</button> 
+						</form> </td>
+						<td> Calculate new table </td>
+						<td> <?php
+									$verquery = "SELECT last_run FROM bc18_overig WHERE name = 'klassement'"; 
+									$results = mysqli_query($db, $verquery);
+									$data = mysqli_fetch_array($results);
+									echo $data['last_run'];
+									?> </td>
+						</tr>	
+						
+
+						<tr>
+						<td><div class="row clearfix"> 					
+						<form method="post" action="adminpage.php">				
+						<select class="form-control show-tick" id="games" name='games[]' multiple>	
+						<?php							
+						$verqueryy = "SELECT team_home,team_away,datum FROM bc18_games WHERE status != 'FINISHED' ORDER BY datum LIMIT 0,5"; 	
+						$results = mysqli_query($db, $verqueryy);																		
+						while($data = mysqli_fetch_array($results)){									
+						echo '<option>'.$data['datum'].'</option>';									}			
+						?>                            </select>				
+						<button type="submit" class="btn bg-green waves-effect" name="set_games">    
+						<span>RESULT</span>							</button>			
+						</form>  </div></td>						 </td>		
+						<td> Set manual score</td>						<td> <?php	
+						$verqueryy = "SELECT team_home,team_away,datum FROM bc18_games WHERE status != 'FINISHED' ORDER BY datum LIMIT 0,5"; 			
+						$results = mysqli_query($db, $verqueryy);								
+						$data = mysqli_fetch_array($results);		
+						echo $data['last_run'];									?> </td>						</tr>
+						
+					
 					
 					<td>							
 						<form method="post" action="adminpage.php">
 						<button type="submit" class="btn bg-orange waves-effect" name="update_teams">
-                                <i class="material-icons">save</i>
-                                <span>UPDATE TEAMS</span>
+                              <span>TEAMS</span>
 						</button>
 						</form> </td>
 						<td> Get new teamdata from API  </td> 
@@ -231,8 +276,7 @@
 					<td>
 						<form method="post" action="adminpage.php">
 						<button type="submit" class="btn bg-cyan waves-effect" name="update_fixtures">
-                                <i class="material-icons">save</i>
-                                <span>UPDATE FIXTURES</span>
+                                <span>FIXTURES</span>
 						</button> 
 						</form> </td>
 						<td> Get new matchdata from API (results) </td>
@@ -248,8 +292,7 @@
 					<td>
 						<form method="post" action="adminpage.php">
 						<button type="submit" class="btn bg-purple waves-effect" name="update_players">
-                                <i class="material-icons">save</i>
-                                <span>UPDATE PLAYERS</span>
+                                <span>PLAYERS</span>
 						</button> 
 						</form> </td>
 						<td> Get new playerdata from API </td>
@@ -262,8 +305,9 @@
 						</tr>					
 						
 						
-						</tbody
-						
+						</tbody>		
+						</table>
+						</div>
                     </div>
                 </div>
             </div>
