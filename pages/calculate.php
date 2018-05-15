@@ -2,7 +2,7 @@
 include 'server.php';
 echo 'start';
 
-$puntenMatchCorrect = 2;
+$puntenMatchCorrect = 3;
 $puntenWinnaarCorrect = 1;
 $meegerekend = 1;
 $nieuweUpdate = False;

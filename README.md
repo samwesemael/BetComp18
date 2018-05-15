@@ -10,7 +10,7 @@
 - timer next match geeft NAN wanneer hij op 0 was en niet automatisch naar nieuwe match
 - navigator still fucked
 - nice to have: overzicht van iedereen zijn bets van vorige matchen met juist of fout (zoals de excel van vorig jaar)
-- notificatie blijft 5 ongelezen berichten aangeven
+- notificatie blijft 5 ongelezen berichten aangeven FIXED
 
 
 ## TODO:

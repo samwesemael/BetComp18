@@ -89,7 +89,20 @@
             <i class="material-icons">close</i>
         </div>
     </div> -->
-    <!-- #END# Search Bar -->
+
+<!-- php code voor notifactie  -->
+<?php
+    include 'server.php';
+    if (!empty($_GET['notif'])) {
+        $notification = $_GET['notif'];
+        if($notification == "called"){
+        $mail = $_SESSION['email'];
+        $sqlnotif = "UPDATE bc18_notifications SET bc18_read=1 WHERE bc18_user = '$mail'";
+        $results = mysqli_query($db, $sqlnotif);
+    }
+}
+?>
+
     <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
@@ -104,20 +117,21 @@
                     <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li> -->
                     <!-- #END# Call Search -->
                     <!-- Notifications -->
-                    <?php 
-                    include 'server.php';
+                    <?php
                         $mail = $_SESSION['email'];
-                        $sql = "SELECT * from bc18_notifications where bc18_user = '$mail' AND bc18_read = 0 ORDER BY bc18_created DESC LIMIT 5";
-                        // echo $sql;
+                        $sql = "SELECT * FROM bc18_notifications WHERE bc18_read = 0 AND bc18_user = '$mail'";
+                        $res = mysqli_query($db,$sql);
+                        $aantal = mysqli_num_rows($res);
+
+                        $sql = "SELECT * from bc18_notifications where bc18_user = '$mail' ORDER BY bc18_created DESC LIMIT 5";
                         $result = mysqli_query($db,$sql);
-                        $rowcount = mysqli_num_rows($result);
                     ?>
 
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
-                            <?php if($rowcount != 0){ ?>
-                            <span class="label-count"><?php echo $rowcount; ?></span>
+                            <?php if($aantal != 0){ ?>
+                            <span class="label-count"><?php echo $aantal; ?></span>
                             <?php } ?>
                         </a>
                         <ul class="dropdown-menu">
@@ -148,8 +162,8 @@
                                                     break;
                                             }
                                             echo '
-                                            <li>
-                                                <a href="'.$data['bc18_link'].'">
+                                            <li>    
+                                                <a href="'.$data['bc18_link'].'?notif=called">
                                                     <div class="icon-circle '.$color.'">
                                                         <i class="material-icons">'.$icon.'</i>
                                                     </div>

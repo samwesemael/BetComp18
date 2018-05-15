@@ -175,7 +175,6 @@
                     ?>					
 					
 			<div class="row d-flex1">
-                <div class="row d-flex1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 d-flex1">
                         <div class="card">
                             <div class="body bg">
@@ -234,8 +233,6 @@
                         </div>
                     </div>
 
-            <!-- #END# Latest Social Trends -->
-            <!-- Answered Tickets -->
                 <?php
                     $sqlbonus = "SELECT * FROM `bc18_predictedbonusses` WHERE user_id='$mail'";
                     $bonussen = mysqli_query($db, $sqlbonus);
@@ -251,8 +248,8 @@
                         $belgie = $data['pos_belgium'];
                     
                 ?>
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                    <div class="card">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 d-flex1">
+                        <div class="card">
                         <div class="body bg">
                             <div class="font-bold m-b--35">MIJN BONUSSEN </div>
                             <ul class="dashboard-stat-list">
@@ -292,47 +289,48 @@
             <?php }      ?>
          
             <!-- Answered Tickets -->						
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 d-flex1">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 d-flex1">
                     <div class="card">
                         <div class="body bg">
                             <div class="font-bold m-b--35">VORM</div> <br> <br>
-							<div class="table-responsive">
-								 <table class="table">
-								  <thead>								  
-									<tr>
-										<th scope="col"><small></small></th>
-										<th scope="col"><small>UITSLAG</small></th>
-										<th scope="col"><small>GOK</small></th>
-									</tr>									
-								</thead>
-								<tbody>
-									<tr> 
-										<td> <small>PANAMA - PANAMA </small></td>
-										<td> <small>0-0</small> </td>
-										<td><span class="col-blue"><b>1-0</b> </span></td>					
-									</tr>
-									<tr> 
-										<td><small>PANAMA - PANAMA</small> </td>
-										<td> <small>0-0 </small></td>
-										<td><span class="col-blue"><b>1-0</b> </span></td>					
-									</tr>
-									<tr> 
-										<td> <small>PANAMA - PANAMA </small></td>
-										<td> <small>0-0</small> </td>
-										<td><span class="col-blue"><b>1-0</b> </span></td>					
-									</tr>
-									<tr> 
-										<td><small> PANAMA - PANAMA </small></td>
-										<td><small> 0-0 </small></td>
-										<td><span class="col-blue"><b>1-0</b> </span></td>					
-									</tr>			
-								</tbody>
-							</div>	
+    							<div class="table-responsive">
+    								 <table class="table">
+    								  <thead>								  
+    									<tr>
+    										<th scope="col"><small></small></th>
+    										<th scope="col"><small>UITSLAG</small></th>
+    										<th scope="col"><small>GOK</small></th>
+    									</tr>									
+    								</thead>
+    								<tbody>
+    									<tr> 
+    										<td> <small>PANAMA - PANAMA </small></td>
+    										<td> <small>0-0</small> </td>
+    										<td><span class="col-blue"><b>1-0</b> </span></td>					
+    									</tr>
+    									<tr> 
+    										<td><small>PANAMA - PANAMA</small> </td>
+    										<td> <small>0-0 </small></td>
+    										<td><span class="col-blue"><b>1-0</b> </span></td>					
+    									</tr>
+    									<tr> 
+    										<td> <small>PANAMA - PANAMA </small></td>
+    										<td> <small>0-0</small> </td>
+    										<td><span class="col-blue"><b>1-0</b> </span></td>					
+    									</tr>
+    									<tr> 
+    										<td><small> PANAMA - PANAMA </small></td>
+    										<td><small> 0-0 </small></td>
+    										<td><span class="col-blue"><b>1-0</b> </span></td>					
+    									</tr>			
+    								</tbody>
+                                </table>
+    							</div>	
 						</div>	
 					</div>
-                        </div> 
-			</div> 
-	</div>
+			</div>
+        </div> 
+    
     
     </section>
 
