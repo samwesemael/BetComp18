@@ -124,8 +124,6 @@
                                                                             // home wint
                                                                             if($bets['correctHome']>$bets['correctAway']){
                                                                                 // Juiste winnaar
-                                                                                echo $bets['goalshome'];
-                                                                                echo $bets['goalsaway'];
                                                                                 $color = '#ff6600';
                                                                             }
                                                                         }
