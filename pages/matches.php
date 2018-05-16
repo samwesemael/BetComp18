@@ -46,32 +46,119 @@
                                             <?php
 											
 											    // link gameid met speeldagnummer --> dynamisch behalve die 25
-												$sqlmatches = "SELECT game_id FROM bc18_games WHERE bettable = 1 AND status = 'FINISHED' ORDER BY datum LIMIT 0,25";
+
+                                                // lijst met alle matchIDs waarop gewed kan worden
+                                                $matchIDs = array();
+												$sqlmatches = "SELECT game_id FROM bc18_games WHERE bettable = 1 AND status = 'FINISHED' ORDER BY datum LIMIT 0,25 ";
 											    $resultsgameids = mysqli_query($db,$sqlmatches);
-												$ids = mysqli_fetch_array($resultsgameids);														
-												
-												$sqlbets = "SELECT bc18_bets.bc18_userid, bc18_users.user_name, bc18_users.email, bc18_pred_goalshome, bc18_pred_goalsaway, bc18_gameid FROM bc18_bets INNER JOIN bc18_users on bc18_bets.bc18_userid = bc18_users.email ORDER BY bc18_users.user_name";
-												$resultsbets = mysqli_query($db,$sqlbets);
-												$bets = mysqli_fetch_array($resultsbets);
-											
-                                                $sqlusers = "SELECT bc18_users.user_name FROM bc18_users WHERE verification = 1 ORDER BY user_name";											
+												while($ids = mysqli_fetch_array($resultsgameids)){
+                                                    array_push($matchIDs, $ids['game_id']);
+                                                }												
+                                                $sqlusers = "SELECT bc18_users.user_name FROM bc18_users WHERE verification = 1 ORDER BY user_name";					
                                                 $resultsusers = mysqli_query($db, $sqlusers);                                                
                                                 while ($users = mysqli_fetch_array($resultsusers)){
 													$user = $users['user_name'];
-                                            
 											?>
                                                 <tr>                                   
                                                     <td><?php echo $user; ?></td>
 													<?php
-													
-													//	if($bets['bc18_gameid'] == 
-													//echo '
-												//	<td> '.$bets['team_home'].'-'.$bets['team_away'].' </td>'; ?>
+                                                    $sqlbets = "SELECT bc18_games.status AS status, bc18_bets.bc18_userid AS userID, bc18_users.user_name AS Username, bc18_users.email AS email, bc18_pred_goalshome AS goalshome, bc18_pred_goalsaway AS goalsaway, bc18_gameid AS gameid, bc18_games.goals_home AS correctHome, bc18_games.goals_away AS correctAway FROM bc18_bets INNER JOIN bc18_users on bc18_bets.bc18_userid = bc18_users.email INNER JOIN bc18_games on bc18_bets.bc18_gameid = bc18_games.game_id WHERE bc18_users.user_name = '$user' AND status = 'FINISHED' ORDER BY bc18_users.user_name, bc18_gameid ";
+                                                        $resultsbets = mysqli_query($db,$sqlbets);
+                                                        $teller = 0;
+                                                        while($bets = mysqli_fetch_array($resultsbets)){
+                                                            $res = "{$bets['goalshome']}-{$bets['goalsaway']}";
+                                                            if($teller<=sizeof($matchIDs) && $bets['gameid'] != $matchIDs[$teller]  ){
+                                                                ?>
+                                                                <td></td>
+                                                                <?php
+                                                                $teller++;
+                                                                while($teller<=sizeof($matchIDs) && $bets['gameid'] != $matchIDs[$teller]){
+                                                                    ?>
+                                                                    <td><?php echo " "; ?></td>
+                                                                <?php
+                                                                $teller++;
+                                                                }
+                                                                if($teller>sizeof($matchIDs)){
+                                                                    ?>
+                                                                        <td><?php echo ' '; ?></td>
+                                                                    <?php
+                                                                }
+                                                                else{
+                                                                    $color = '#ffffff';
+                                                                    if ($bets['correctHome'] == $bets['goalshome'] && $bets['correctAway'] == $bets['goalsaway']){
+                                                                        $color = '#00ff00';
+                                                                    }
+                                                                    elseif ($bets['goalshome']>$bets['goalsaway']){
+                                                                            // home wint
+                                                                            if($bets['correctHome']>$bets['correctAway']){
+                                                                                // Juiste winnaar
+                                                                                $color = '#ff6600';
+                                                                            }
+                                                                        }
+                                                                    elseif ($bets['goalshome']<$bets['goalsaway']) {
+                                                                            // away wint
+                                                                            if($bets['correctHome']<$bets['correctAway']){
+                                                                                // Juiste winnaar
+                                                                                $color = '#ff6600';
+                                                                            }
+                                                                        }
+                                                                    elseif ($bets['goalshome']==$bets['goalsaway']) {
+                                                                            // gelijkspel
+                                                                            if($bets['correctHome']==$bets['correctAway']){
+                                                                                // Juiste gok gelijkspel (fout aantal goals)
+                                                                                $color = '#ff6600';
+                                                                            }
+                                                                        }
+                                                                ?>
+                                                                    <td bgcolor=<?php echo $color; ?>><?php echo $res; ?></td>
+                                                                <?php
+                                                                }
+                                                            }
+                                                            else{
+                                                                if($teller<=sizeof($matchIDs)){
+                                                                    $color = '#ffffff';
+                                                                    if ($bets['correctHome'] == $bets['goalshome'] && $bets['correctAway'] == $bets['goalsaway']){
+                                                                        $color = '#00ff00';
+                                                                    }
+                                                                    elseif ($bets['goalshome']>$bets['goalsaway']){
+                                                                            // home wint
+                                                                            if($bets['correctHome']>$bets['correctAway']){
+                                                                                // Juiste winnaar
+                                                                                echo $bets['goalshome'];
+                                                                                echo $bets['goalsaway'];
+                                                                                $color = '#ff6600';
+                                                                            }
+                                                                        }
+                                                                    elseif ($bets['goalshome']<$bets['goalsaway']) {
+                                                                            // away wint
+                                                                            if($bets['correctHome']<$bets['correctAway']){
+                                                                                // Juiste winnaar
+                                                                                $color = '#ff6600';
+                                                                            }
+                                                                        }
+                                                                    elseif ($bets['goalshome']==$bets['goalsaway']) {
+                                                                            // gelijkspel
+                                                                            if($bets['correctHome']==$bets['correctAway']){
+                                                                                // Juiste gok gelijkspel (fout aantal goals)
+                                                                                $color = '#ff6600';
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                                                        <td bgcolor=<?php echo $color; ?>><?php echo $res; ?></td>
+                                                                    <?php
+                                                                }
+
+                                                            }
+                                                            $teller++;
+                                                }
+                                                ?> 
+
                                                 </tr>
                                                 <?php
                                                // }
 												}
                                                 ?> 
+
                                             </tbody>
                                         </table>
                                     </div>
