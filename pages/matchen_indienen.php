@@ -4,8 +4,6 @@
 <!DOCTYPE html>
 <html>
 <!-- navigator inladen en juist actief zetten -->
-
-
 <script type="text/javascript">
     document.getElementById("nav-gokken").classList.toggle('active');
     document.getElementById("nav-matchen-indienen").classList.toggle('active');
@@ -159,7 +157,7 @@
     <!-- Demo Js -->
     <script src="../js/demo.js"></script>
 
-    <script src="../js/pages/examples/sign-up.js"></script>
+    <!-- <script src="../js/pages/examples/sign-up.js"></script> -->
 </body>
 
 </html>

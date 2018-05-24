@@ -144,7 +144,7 @@
                                             //options: 
                                             switch ($data['bc18_class']) {
                                                 case "6
-												":
+                                                ":
                                                     $icon = 'chat';
                                                     $color = 'bg-light-green';
                                                     break;
@@ -293,7 +293,7 @@
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-				
+                
                     <li class="header">MAIN NAVIGATION</li>
                     <li id = 'nav-home'>
                         <a href="index.php">
@@ -333,7 +333,7 @@
                             </li>
                         </ul>
                     </li>
-					<li id = 'nav-klassement'>
+                    <li id = 'nav-klassement'>
                         <a href="klassement.php">
                             <i class="material-icons">format_list_numbered</i>
                             <span>Klassement</span>
@@ -359,42 +359,42 @@
                             <span>Spelregels</span>
                         </a>
                     </li>
-					
-					<li id="nav-extra">
+                    
+                    <li id="nav-extra">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">pages</i>
                             <span>Extra</span>
                         </a>
                         <ul class="ml-menu">
-							<li id = 'nav-streaming'>
-								<a href="streaming.php">
-								<i class="material-icons">tv</i>
-								<span>Streaming</span>
-								</a>
+                            <li id = 'nav-streaming'>
+                                <a href="streaming.php">
+                                <i class="material-icons">tv</i>
+                                <span>Streaming</span>
+                                </a>
                              <li id = 'nav-twitter'>
-								<a href="twitterfeed.php">
-								<i class="material-icons">whatshot</i>
-								<span>Social media</span>
-								</a>
-							</li>											
-							
-							<li id = 'nav-chat'>								
-								<a href="chat.php">								
-								<i class="material-icons">chat</i>								
-								<span>Chat</span>								
-								</a>							
-							</li>
-							
-							<li id = 'nav-maps'>
-								<a href="maps.php">
-								<i class="material-icons">map</i>
-								<span>Map</span>
-								</a>
-							</li>
-						
+                                <a href="twitterfeed.php">
+                                <i class="material-icons">whatshot</i>
+                                <span>Social media</span>
+                                </a>
+                            </li>                                           
+                            
+                            <li id = 'nav-chat'>                                
+                                <a href="chat.php">                             
+                                <i class="material-icons">chat</i>                              
+                                <span>Chat</span>                               
+                                </a>                            
+                            </li>
+                            
+                            <li id = 'nav-maps'>
+                                <a href="maps.php">
+                                <i class="material-icons">map</i>
+                                <span>Map</span>
+                                </a>
+                            </li>
+                        
                         </ul>
                     </li>
-						
+                        
                 </ul>
             </div>
             <!-- #Menu -->

@@ -4,6 +4,7 @@
 <!-- navigator inladen en juist actief zetten -->
 <script type="text/javascript">
     document.getElementById("nav-streaming").classList.toggle('active');
+    document.getElementById("nav-extra").classList.toggle('active');
 </script>
     <section class="content">
 	 <!-- <div class="container-fluid"> -->

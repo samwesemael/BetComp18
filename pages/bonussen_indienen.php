@@ -7,9 +7,7 @@
     document.getElementById("nav-gokken").classList.toggle('active');
     document.getElementById("nav-bonussen-indienen").classList.toggle('active');
 
-    $(document).ready(function() {
-   $('.selectpicker').selectpicker();
-});
+
 </script>
 
 <?php
@@ -305,14 +303,10 @@ $status = "";
 
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>
-	
-	 <!-- SweetAlert Plugin Js -->
-    <script src="../../plugins/sweetalert/sweetalert.min.js"></script>
 
     <!-- Custom Js -->
     <script src="../js/admin.js"></script>
 	<script src="../js/pages/ui/dialogs.js"></script>
-	<script src="../js/pages/forms/advanced-form-elements.js"></script>
 	
 	    <!-- Dropzone Plugin Js -->
     <script src="../plugins/dropzone/dropzone.js"></script>
@@ -324,6 +318,12 @@ $status = "";
     <script src="../js/demo.js"></script>
 
     <script src="../plugins/bootstrap-select/js/modified/bootstrap-select.js"></script>
+    <script>
+
+         $(document).ready(function() {
+        $('.selectpicker').selectpicker();
+});</script>
+
 
 </body>
 

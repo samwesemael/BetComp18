@@ -78,7 +78,7 @@ else{
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Sign Up | Bootstrap Based Admin Template - Material Design</title>
     <!-- Favicon-->
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
@@ -150,14 +150,14 @@ else{
                         <?php
                         if(isset($_GET['email_exists'])) {
                             echo'<div class="form-group has-error has-feedback">
-                                <input type="text" class="form-control" id="inputErrormail" name="email" placeholder="Email Address" aria-describedby="inputError2Status" required autofocus>
+                                <input type="email" class="form-control" id="inputErrormail" name="email" placeholder="Email Address" aria-describedby="inputError2Status" required autofocus>
                                 <label class="control-label" for="inputErrormail">Email Address already used. Use another one.</label>
                                 </div>';
                         }
                         else{
                             echo'
                                 <div class="form-line">
-                                <input type="text" class="form-control" name="email" placeholder="Email Address" required autofocus>
+                                <input type="email" class="form-control" name="email" placeholder="Email Address" required autofocus>
                                 </div>';
                         }
                         ?>
@@ -190,6 +190,8 @@ else{
             </div>
         </div>
     </div>
+
+
     <!-- Jquery Core Js -->
     <script src="../plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap Core Js -->
@@ -198,8 +200,55 @@ else{
     <script src="../plugins/node-waves/waves.js"></script>
     <!-- Validation Plugin Js -->
     <script src="../plugins/jquery-validation/jquery.validate.js"></script>
+
+    <script>
+        $(function () {
+            $('#sign_up').validate({
+                rules: {
+                    'terms': {
+                        required: true
+                    },
+                    'confirm': {
+                        equalTo: '[name="password"]'
+                    }
+                },
+                highlight: function (input) {
+                    console.log(input);
+                    $(input).parents('.form-line').addClass('error');
+                },
+                unhighlight: function (input) {
+                    $(input).parents('.form-line').removeClass('error');
+                },
+                errorPlacement: function (error, element) {
+                    $(element).parents('.input-group').append(error);
+                    $(element).parents('.form-group').append(error);
+                }
+            });
+            $('#userNameCheck').validate({
+                rules: {
+                    'terms': {
+                        required: true
+                    },
+                    'confirm': {
+                        equalTo: '[name="username"]'
+                    }
+                },
+                highlight: function (input) {
+                    console.log(input);
+                    $(input).parents('.form-line').addClass('error');
+                },
+                unhighlight: function (input) {
+                    $(input).parents('.form-line').removeClass('error');
+                },
+                errorPlacement: function (error, element) {
+                    $(element).parents('.input-group').append(error);
+                    $(element).parents('.form-group').append(error);
+                }
+            })
+        });
+    </script>
     <!-- Custom Js -->
     <script src="../js/admin.js"></script>
-    <script src="../js/pages/examples/sign-up.js"></script>
+    <!-- <script src="../js/pages/examples/sign-up.js"></script> -->
 </body>
 </html>
