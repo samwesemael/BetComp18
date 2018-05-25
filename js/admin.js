@@ -77,7 +77,7 @@ $.AdminBSB.leftSideBar = {
 
         //Collapse or Expand Menu
         $('.menu-toggle').on('click', function (e) {
-            console.info('called');
+            // console.info('called');
             var $this = $(this);
             var $content = $this.next();
 
@@ -100,7 +100,7 @@ $.AdminBSB.leftSideBar = {
         _this.setMenuHeight();
         _this.checkStatuForResize(true);
         $(window).resize(function () {
-            console.info('resize function triggered');
+            // console.info('resize function triggered');
             _this.setMenuHeight();
             _this.checkStatuForResize(false);
         });
@@ -113,7 +113,7 @@ $.AdminBSB.leftSideBar = {
         if (typeof $.fn.slimScroll != 'undefined') {
             var configs = $.AdminBSB.options.leftSideBar;
             var height = (window.innerHeight - ($('.legal').outerHeight() + $('.user-info').outerHeight() + $('.navbar').innerHeight()));
-            console.info('window: ' + window.innerHeight + ' height: ' + height);
+            // console.info('window: ' + window.innerHeight + ' height: ' + height);
             var $el = $('.list');
 
             $el.slimscroll({

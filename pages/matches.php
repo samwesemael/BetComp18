@@ -26,7 +26,7 @@
                         </div>
 						<div class="body"> 						      
 							<div class="body table-responsive">
-                                <table class="table table-bordered">
+                                <table class="table table-bordered ">
                                      <thead>
 										
                                          <tr>                                
@@ -53,7 +53,7 @@
 											    $resultsgameids = mysqli_query($db,$sqlmatches);
 												while($ids = mysqli_fetch_array($resultsgameids)){
                                                     array_push($matchIDs, $ids['game_id']);
-                                                }												
+                                                }										
                                                 $sqlusers = "SELECT bc18_users.user_name FROM bc18_users WHERE verification = 1 ORDER BY user_name";					
                                                 $resultsusers = mysqli_query($db, $sqlusers);                                                
                                                 while ($users = mysqli_fetch_array($resultsusers)){
@@ -62,7 +62,7 @@
                                                 <tr>                                   
                                                     <td><?php echo $user; ?></td>
 													<?php
-                                                    $sqlbets = "SELECT bc18_games.status AS status, bc18_bets.bc18_userid AS userID, bc18_users.user_name AS Username, bc18_users.email AS email, bc18_pred_goalshome AS goalshome, bc18_pred_goalsaway AS goalsaway, bc18_gameid AS gameid, bc18_games.goals_home AS correctHome, bc18_games.goals_away AS correctAway FROM bc18_bets INNER JOIN bc18_users on bc18_bets.bc18_userid = bc18_users.email INNER JOIN bc18_games on bc18_bets.bc18_gameid = bc18_games.game_id WHERE bc18_users.user_name = '$user' AND status = 'FINISHED' ORDER BY bc18_users.user_name, bc18_gameid ";
+                                                    $sqlbets = "SELECT bc18_games.status AS status, bc18_bets.bc18_userid AS userID, bc18_users.user_name AS Username, bc18_users.email AS email, bc18_pred_goalshome AS goalshome, bc18_pred_goalsaway AS goalsaway, bc18_gameid AS gameid, bc18_games.goals_home AS correctHome, bc18_games.goals_away AS correctAway FROM bc18_bets INNER JOIN bc18_users on bc18_bets.bc18_userid = bc18_users.email INNER JOIN bc18_games on bc18_bets.bc18_gameid = bc18_games.game_id WHERE bc18_users.user_name = '$user' AND status = 'FINISHED' ORDER BY bc18_users.user_name, bc18_games.datum ";
                                                         $resultsbets = mysqli_query($db,$sqlbets);
                                                         $teller = 0;
                                                         while($bets = mysqli_fetch_array($resultsbets)){
@@ -74,13 +74,13 @@
                                                                 $teller++;
                                                                 while($teller<=sizeof($matchIDs) && $bets['gameid'] != $matchIDs[$teller]){
                                                                     ?>
-                                                                    <td><?php echo " "; ?></td>
+                                                                    <td></td>
                                                                 <?php
                                                                 $teller++;
                                                                 }
                                                                 if($teller>sizeof($matchIDs)){
                                                                     ?>
-                                                                        <td><?php echo ' '; ?></td>
+                                                                        <td></td>
                                                                     <?php
                                                                 }
                                                                 else{
@@ -110,7 +110,7 @@
                                                                             }
                                                                         }
                                                                 ?>
-                                                                    <td bgcolor=<?php echo $color; ?>><?php echo $res; ?></td>
+                                                                    <td style="width:1px;white-space:nowrap;" bgcolor=<?php echo $color; ?>><?php echo $res; ?></td>
                                                                 <?php
                                                                 }
                                                             }
@@ -142,7 +142,7 @@
                                                                             }
                                                                         }
                                                                     ?>
-                                                                        <td bgcolor=<?php echo $color; ?>><?php echo $res; ?></td>
+                                                                        <td style="width:1px;white-space:nowrap;" bgcolor=<?php echo $color; ?>><?php echo $res; ?></td>
                                                                     <?php
                                                                 }
 
