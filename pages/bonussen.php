@@ -183,8 +183,22 @@
                 </div>
             </div>
             <!-- #END# Basic Table -->
-	
+            <?php
+            $wkStarted = false;
+            $valquery = "SELECT status FROM `bc18_games` WHERE team_home = 'Russia' AND team_away = 'Saudi Arabia'";
+            $val = mysqli_query($db, $valquery);
+            while ($valdata = mysqli_fetch_array($val)) {
+                if ($valdata['status'] != 'TIMED'){
+                    $wkStarted = true;
+                }
+            }
+            ?>
 	    <!-- Basic Table -->
+
+        <?php
+        // de boodschap die getoond wordt wanneer het wk nog niet begonnen is
+        $boodschap = 'De bonussen van de andere spelers wordt na de start van het WK bekend gemaakt'
+        ?>
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
@@ -207,8 +221,16 @@
                              </center>      
 
     						<div class="tab-content nav-justified">							
-                                <div role="tabpanel" class="tab-pane fade in active" id="1">        								
-        							<div class="body table-responsive">
+                                <div role="tabpanel" class="tab-pane fade in active" id="1">   
+
+                                <?php
+                                if(!$wkStarted){
+                                    echo "<br>";
+                                    echo $boodschap;
+                                }
+                                else{
+                                    ?>
+                                    <div class="body table-responsive">
                                         <table class="table">
                                             <thead>
                                                 <tr>                                
@@ -233,11 +255,22 @@
                                             </tbody>
                                         </table>
                                     </div>
-                        
+                                    <?php
+                                }
+
+                                ?>     								
                                 </div>      
         						
         						
         						<div role="tabpanel" class="tab-pane fade in" id="2">
+
+                                <?php
+                                if(!$wkStarted){
+                                    echo "<br>";
+                                    echo $boodschap;
+                                }
+                                else{
+                                    ?>
         								
                                     <div class="body table-responsive">
                                         <table class="table">
@@ -264,11 +297,21 @@
                                             </tbody>
                                         </table>
                                     </div>
-        				
+        				            <?php 
+                                }
+                                ?>
         						</div>		
         						
         						
         					   <div role="tabpanel" class="tab-pane fade in" id="3">
+
+                                <?php
+                                if(!$wkStarted){
+                                    echo "<br>";
+                                    echo $boodschap;
+                                }
+                                else{
+                                    ?>
         								
                                     <div class="body table-responsive">
                                         <table class="table">
@@ -295,11 +338,22 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    <?php
+                                }
+                                ?>
         				
         						</div>	
 
         						
         				        <div role="tabpanel" class="tab-pane fade in" id="4">
+
+                                <?php
+                                if(!$wkStarted){
+                                    echo "<br>";
+                                    echo $boodschap;
+                                }
+                                else{
+                                    ?>
         								
                                     <div class="body table-responsive">
                                         <table class="table">
@@ -311,24 +365,35 @@
                                             </thead>
                                             <tbody>
                                             <?php
-                                                $sql = "SELECT bc18_predictedbonusses.user_id, bc18_predictedbonusses.dirty_team, bc18_users.email, bc18_users.user_name FROM bc18_predictedbonusses INNER JOIN bc18_users on bc18_predictedbonusses.user_id = bc18_users.email ORDER BY user_name";
-                                                $results = mysqli_query($db, $sql);
-                                                
-                                                while ($data = mysqli_fetch_array($results)){
-                                            ?>
+                                            $sql = "SELECT bc18_predictedbonusses.user_id, bc18_predictedbonusses.dirty_team, bc18_users.email, bc18_users.user_name FROM bc18_predictedbonusses INNER JOIN bc18_users on bc18_predictedbonusses.user_id = bc18_users.email ORDER BY user_name";
+                                            $results = mysqli_query($db, $sql);
+                                            while ($data = mysqli_fetch_array($results)){
+                                                ?>
                                                 <tr>                                   
                                                     <td><?php echo $data['user_name']; ?></td>
                                                     <td><span class="pull-right"><?php echo $data['dirty_team']; ?></span></td>                 
                                                 </tr>
                                                 <?php
-                                                }
-                                                ?>
+                                            } 
+                                            ?> 
                                         </table>
                                     </div>
+                                    <?php
+
+                                }
+                                ?>
         						</div>		
         						
         						
         					   <div role="tabpanel" class="tab-pane fade in" id="5">
+
+                                <?php
+                                if(!$wkStarted){
+                                    echo "<br>";
+                                    echo $boodschap;
+                                }
+                                else{
+                                    ?>
         								
                                     <div class="body table-responsive">
                                         <table class="table">
@@ -354,6 +419,9 @@
                                                 ?>
                                         </table>
                                     </div>
+                                    <?php
+                                }
+                                ?>
                                 </div>								
                             </div>         
 				        </div>	

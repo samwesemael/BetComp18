@@ -13,38 +13,36 @@
 <?php
 $status = "";
     if(isset($_POST['indienen'])){
-        $kampioen = mysqli_real_escape_string($db, $_POST['wereldkampioen']);
-        $verliezer = mysqli_real_escape_string($db, $_POST['finalist']);
-        $topscorer = mysqli_real_escape_string($db, $_POST['topschutter']);
-        $vuilste = mysqli_real_escape_string($db, $_POST['vuilste']);
-        $posBelgie = mysqli_real_escape_string($db, $_POST['posBelgie']);
-        $mail = $_SESSION['email'];		
-        $tstquery = "SELECT datum, status FROM bc18_games WHERE 1 ORDER BY datum ASC LIMIT 1";
-        $res = mysqli_query($db, $tstquery);
-        while ($data = mysqli_fetch_array($res)) {
-            $dtnow = new DateTime();
-            // omzetten naar juiste timezone alleen als in database ook in juiste timezone zit
-            // $dtnow ->setTimeZone(new DateTimeZone('Europe/Brussels'));
-            $dtdatabase = new DateTime($data['datum']);
-            $datastatus = $data['status'];
-            if($dtnow > $dtdatabase || $datastatus == 'FINISHED'){
-                // match is al begonnen
-                $status = 'error_status';
+        $valquery = "SELECT status FROM `bc18_games` WHERE team_home = 'Russia' AND team_away = 'Saudi Arabia'";
+        $val = mysqli_query($db, $valquery);
+        $indienenToegestaan = true;
+        while ($valdata = mysqli_fetch_array($val)) {
+            if ($valdata['status'] != 'TIMED'){
+                $indienenToegestaan = false;
             }
-            else{
-                $status = 'succes_status';
-                // match moet nog beginnen
-
-                $indienquery = "INSERT INTO bc18_predictedbonusses(user_id, world_champion, finalist, topscorer, dirty_team, pos_belgium, submitted_data) VALUES ('$mail','$kampioen','$verliezer','$topscorer','$vuilste','$posBelgie',NOW()) ON DUPLICATE KEY UPDATE world_champion = '$kampioen', finalist='$verliezer', topscorer='$topscorer', dirty_team='$vuilste', pos_belgium='$posBelgie', submitted_data=NOW()";
-                mysqli_query($db, $indienquery);
+        }
+        if($indienenToegestaan){
+            $kampioen = mysqli_real_escape_string($db, $_POST['wereldkampioen']);
+            $verliezer = mysqli_real_escape_string($db, $_POST['finalist']);
+            $topscorer = mysqli_real_escape_string($db, $_POST['topschutter']);
+            $vuilste = mysqli_real_escape_string($db, $_POST['vuilste']);
+            $posBelgie = mysqli_real_escape_string($db, $_POST['posBelgie']);
+            $mail = $_SESSION['email'];		
+            
+                    $status = 'succes_status';
+                    // match moet nog beginnen 
+                    $indienquery = "INSERT INTO bc18_predictedbonusses(user_id, world_champion, finalist, topscorer, dirty_team, pos_belgium, submitted_data) VALUES ('$mail','$kampioen','$verliezer','$topscorer','$vuilste','$posBelgie',NOW()) ON DUPLICATE KEY UPDATE world_champion = '$kampioen', finalist='$verliezer', topscorer='$topscorer', dirty_team='$vuilste', pos_belgium='$posBelgie', submitted_data=NOW()";
+                    mysqli_query($db, $indienquery);
+            if (mysqli_affected_rows($db)==0){
+                if($status != 'error_status'){
+                    $status = 'overall_error';
+                }
             }
-    }
-    if (mysqli_affected_rows($db)==0){
-        if($status != 'error_status'){
-            $status = 'overall_error';
+        }
+        else{
+            $status = 'error_status';
         }
     }
-}
 ?>
     <section class="content">
 	
