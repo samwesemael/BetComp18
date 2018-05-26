@@ -378,12 +378,12 @@
                                 </a>
                             </li>                                           
                             
-                            <li id = 'nav-chat'>                                
+                            <!-- <li id = 'nav-chat'>                                
                                 <a href="chat.php">                             
                                 <i class="material-icons">chat</i>                              
                                 <span>Chat</span>                               
                                 </a>                            
-                            </li>
+                            </li> -->
                             
                             <li id = 'nav-maps'>
                                 <a href="maps.php">
