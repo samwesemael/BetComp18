@@ -376,22 +376,19 @@
                                 <i class="material-icons">whatshot</i>
                                 <span>Social media</span>
                                 </a>
-                            </li>                                           
-                            
-                            <!-- <li id = 'nav-chat'>                                
-                                <a href="chat.php">                             
-                                <i class="material-icons">chat</i>                              
-                                <span>Chat</span>                               
-                                </a>                            
-                            </li> -->
-                            
+                            </li>                                                                    
                             <li id = 'nav-maps'>
                                 <a href="maps.php">
                                 <i class="material-icons">map</i>
-                                <span>Map</span>
+                                <span>Stadions</span>
                                 </a>
                             </li>
-                        
+                            <!-- <li id = 'nav-contact'>                                
+                                <a href="contact.php">                             
+                                <i class="material-icons">chat</i>                              
+                                <span>Contact</span>                               
+                                </a>                            
+                            </li>  -->
                         </ul>
                     </li>
                         
