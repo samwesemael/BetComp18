@@ -14,36 +14,41 @@
         $matchid = mysqli_real_escape_string($db, $_POST['match']);
         $score = mysqli_real_escape_string($db, $_POST['score']);
         $tempscore = explode('-', $score);
-        $tempmatchid = explode('-', $matchid);
-        $hometeam = trim($tempmatchid[0]);
-        $awayteam = trim($tempmatchid[1]);
-        $mail = $_SESSION['email'];
-        $tstquery = "SELECT datum, status FROM bc18_games WHERE team_home ='$hometeam' AND team_away = '$awayteam'";
-        $res = mysqli_query($db, $tstquery);
-        while ($data = mysqli_fetch_array($res)) {
-            $dtnow = new DateTime();
-            // omzetten naar juiste timezone alleen als in database ook in juiste timezone zit
-            // $dtnow ->setTimeZone(new DateTimeZone('Europe/Brussels'));
-            $dtdatabase = new DateTime($data['datum']);
-            $datastatus = $data['status'];
-            if($dtnow > $dtdatabase || $datastatus == 'FINISHED' ||$datastatus == 'IN_PLAY'){
-                // match is al begonnen
-                $status = 'error_status';
-            }
-            else{
-                $status = 'succes_status';
-                // match moet nog beginnen
+        if($tempscore[0] == '' || $tempscore[1] == ''){
+            $status = 'invalid';
+        }
+        if($status != 'invalid'){
+            $tempmatchid = explode('-', $matchid);
+            $hometeam = trim($tempmatchid[0]);
+            $awayteam = trim($tempmatchid[1]);
+            $mail = $_SESSION['email'];
+            $tstquery = "SELECT datum, status FROM bc18_games WHERE team_home ='$hometeam' AND team_away = '$awayteam'";
+            $res = mysqli_query($db, $tstquery);
+            while ($data = mysqli_fetch_array($res)) {
+                $dtnow = new DateTime();
+                // omzetten naar juiste timezone alleen als in database ook in juiste timezone zit
+                // $dtnow ->setTimeZone(new DateTimeZone('Europe/Brussels'));
+                $dtdatabase = new DateTime($data['datum']);
+                $datastatus = $data['status'];
+                if($dtnow > $dtdatabase || $datastatus == 'FINISHED' ||$datastatus == 'IN_PLAY'){
+                    // match is al begonnen
+                    $status = 'error_status';
+                }
+                else{
+                    $status = 'succes_status';
+                    // match moet nog beginnen
 
-                $indienquery = "INSERT INTO bc18_bets (bc18_userid, bc18_gameid, bc18_pred_goalshome, bc18_pred_goalsaway, created) VALUES('$mail', (SELECT game_id FROM bc18_games WHERE team_home ='$hometeam' AND team_away = '$awayteam'), '$tempscore[0]', '$tempscore[1]', NOW()) ON DUPLICATE KEY UPDATE bc18_pred_goalshome='$tempscore[0]', bc18_pred_goalsaway='$tempscore[1]', created = NOW()";
-                mysqli_query($db, $indienquery);
+                    $indienquery = "INSERT INTO bc18_bets (bc18_userid, bc18_gameid, bc18_pred_goalshome, bc18_pred_goalsaway, created) VALUES('$mail', (SELECT game_id FROM bc18_games WHERE team_home ='$hometeam' AND team_away = '$awayteam'), '$tempscore[0]', '$tempscore[1]', NOW()) ON DUPLICATE KEY UPDATE bc18_pred_goalshome='$tempscore[0]', bc18_pred_goalsaway='$tempscore[1]', created = NOW()";
+                    mysqli_query($db, $indienquery);
+                }
             }
-    }
-    if (mysqli_affected_rows($db)==0){
-        if($status != 'error_status'){
-            $status = 'overall_error';
+            if (mysqli_affected_rows($db)==0){
+                if($status != 'error_status'){
+                    $status = 'overall_error';
+                }
+            }
         }
     }
-}
 ?>
     <section class="content">	
            <div class="row clearfix">
@@ -109,7 +114,7 @@
 
                             if ($status == 'succes_status'){
                                 echo '<div id='.'succes'.' class="alert alert-success " >
-                                <strong>Gelukt!</strong> Je bet is goed ontvangen.
+                                <strong>Gelukt!</strong> Je bet ('. $tempscore[0] . '-'. $tempscore[1] .') is goed ontvangen.
                                 </div>';
                             }
                             if($status == 'error_status'){
@@ -120,6 +125,11 @@
                             if($status == 'overal_status'){
                             echo '<div id='.'error'.' class="alert alert-danger">
                                 <strong>FOUT!</strong> Er ging iets mis bij het submitten. Probeer opnieuw en laat iets weten aan de system administrators.
+                                </div>';  
+                            }
+                            if($status == 'invalid'){
+                            echo '<div id='.'error'.' class="alert alert-danger">
+                                <strong>FOUT!</strong> Vul de score correct in (bv: 0-0)
                                 </div>';  
                             }
 	
@@ -135,6 +145,9 @@
             </div>
 	   
     </section>
+
+        <!-- Validation Plugin Js -->
+    <script src="../plugins/jquery-validation/jquery.validate.js"></script>
 
     <!-- Jquery Core Js -->
     <script src="../plugins/jquery/jquery.min.js"></script>
