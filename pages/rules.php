@@ -119,11 +119,42 @@
                             <ul> 
                                 <li> 60% van de pot wordt onder iedereen verdeeld. Je krijgt een bedrag in verhouding met je aantal behaalde punten </li>
                                 <li> 40% van de pot wordt uitsluitend verdeeld onder de top 3 (50% naar de winnaar, 33% naar de 2de en 17% naar de 3de. Alsook ontvangt de top 3 een mooie herinnering in de vorm van een certificaat/beker (nog te bepalen) </li>
-                            </ul>	  
+                            </ul>	<br>  
+							
+							<h4> Doneer om de hosting te financieren: </h4> <br>
+	
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+
+				<!-- Identify your business so that you can collect the payments. -->
+				<input type="hidden" name="business"
+					value="samwesemael@gmail.com">
+
+				<!-- Specify a Donate button. -->
+				<input type="hidden" name="cmd" value="_donations">
+
+				<!-- Specify details about the contribution -->
+				<input type="hidden" name="item_name" value="Hosting Betcompetition">
+				<input type="hidden" name="currency_code" value="EUR">
+
+				<!-- Display the payment button. -->
+				<input type="image" name="submit"
+				src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"
+				alt="Donate">
+				<img alt="" width="1" height="1"
+				src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+
+				</form>
+                </div>			
+				
+				
+            </div>
+							
                         </div>
                     </div>
-                </div>
-            </div>
+					
+					
+	
+	
 	   
     </section>
 

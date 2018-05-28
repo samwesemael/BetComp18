@@ -329,11 +329,7 @@
                                         <td> <small>0-0</small> </td>
                                         <td><span class="col-blue"><b>1-0</b> </span></td>
                                     </tr>
-                                    <tr>
-                                        <td><small> PANAMA - PANAMA </small></td>
-                                        <td><small> 0-0 </small></td>
-                                        <td><span class="col-blue"><b>1-0</b> </span></td>
-                                    </tr>
+                                   
                                 </tbody>
                             </table>
                         </div>  
