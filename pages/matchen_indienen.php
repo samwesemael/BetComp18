@@ -197,7 +197,7 @@
                         <h4>SUBMIT BONUSSES</h4>
                     </div>
                     <div class="body">						
-                        <form id="form_validation" method="POST" action="bonussen_indienen.php">	
+                        <form id="form_validation" method="POST" action="matchen_indienen.php">	
 							<div class="row clearfix">
 								<div class="col-md-4"> 
 									<p> <b>Naam</b></p>
