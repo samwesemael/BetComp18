@@ -85,18 +85,18 @@
             $posBelgie = mysqli_real_escape_string($db, $_POST['posBelgie']);
             $mail = $_SESSION['email'];		
             
-                    $status = 'succes_status';
+                    $status = 'succes_status-bonus';
                     // match moet nog beginnen 
                     $indienquery = "INSERT INTO bc18_predictedbonusses(user_id, world_champion, finalist, topscorer, dirty_team, pos_belgium, submitted_data) VALUES ('$mail','$kampioen','$verliezer','$topscorer','$vuilste','$posBelgie',NOW()) ON DUPLICATE KEY UPDATE world_champion = '$kampioen', finalist='$verliezer', topscorer='$topscorer', dirty_team='$vuilste', pos_belgium='$posBelgie', submitted_data=NOW()";
                     mysqli_query($db, $indienquery);
             if (mysqli_affected_rows($db)==0){
-                if($status != 'error_status'){
-                    $status = 'overall_error';
+                if($status != 'error_status-bonus'){
+                    $status = 'overall_error-bonus';
                 }
             }
         }
         else{
-            $status = 'error_status';
+            $status = 'error_status-bonus';
         }
     }
 ?>
@@ -164,22 +164,22 @@
 
                             if ($status == 'succes_status'){
                                 echo '<div id='.'succes'.' class="alert alert-success " >
-                                <strong>Gelukt!</strong> Je bet ('. $tempscore[0] . '-'. $tempscore[1] .') is goed ontvangen.
+                                <strong>Gelukt!</strong> Your bet ('. $tempscore[0] . '-'. $tempscore[1] .') is well received.
                                 </div>';
                             }
                             if($status == 'error_status'){
                             echo '<div id='.'error'.' class="alert alert-danger">
-                                <strong>FOUT!</strong> Je kan niet meer gokken op deze wedstrijd.
+                                <strong>FOUT!</strong> Not allowed to bet on this game anymore.
                                 </div>';  
                             }
                             if($status == 'overal_status'){
                             echo '<div id='.'error'.' class="alert alert-danger">
-                                <strong>FOUT!</strong> Er ging iets mis bij het submitten. Probeer opnieuw en laat iets weten aan de system administrators.
+                                <strong>FOUT!</strong> Something went wrong. Please try again later and notify the system administrators.
                                 </div>';  
                             }
                             if($status == 'invalid'){
                             echo '<div id='.'error'.' class="alert alert-danger">
-                                <strong>FOUT!</strong> Vul de score correct in (bv: 0-0)
+                                <strong>FOUT!</strong> Use the right format (ex. 0-0)
                                 </div>';  
                             }
 	
@@ -364,19 +364,19 @@
               
 							<?php
 
-                            if ($status == 'succes_status'){
+                            if ($status == 'succes_status-bonus'){
                                 echo '<div id='.'succes'.' class="alert alert-success " >
-                                <strong>Gelukt!</strong> Je bonussen zijn goed ontvangen.
+                                <strong>Gelukt!</strong> Succeeded. 
                                 </div>';
                             }
-                            if($status == 'error_status'){
+                            if($status == 'error_status-bonus'){
                             echo '<div id='.'error'.' class="alert alert-danger">
-                                <strong>FOUT!</strong> WK is begonnen. Bonussen kunnen niet meer gewijzigd worden.
+                                <strong>FOUT!</strong> WC is started. Not allowed to bet on the bonuses anymore.
                                 </div>';  
                             }
-                            if($status == 'overal_status'){
+                            if($status == 'overal_status-bonus'){
                             echo '<div id='.'error'.' class="alert alert-danger">
-                                <strong>FOUT!</strong> Er ging iets mis bij het submitten. Probeer opnieuw en laat iets weten aan de system administrators.
+                                <strong>FOUT!</strong> Something went wrong. Please try again later and notify the system administrators.
                                 </div>';  
                             }
     
