@@ -47,6 +47,23 @@
                     $status = 'overall_error';
                 }
             }
+
+            $achievsql = "SELECT * FROM bc18_bets WHERE bc18_userid = '$mail'";
+            $res = mysqli_query($db, $achievsql);
+            $aantal = mysqli_num_rows($res);
+            if($aantal == 1){
+
+
+                //1st bet achievement
+                //achievement toevoegen
+
+                addAchievement($db, 2, $mail);
+            }
+            elseif($aantal == 15){
+                //eerste 5 bets
+                //achievement toevoegen
+                addAchievement($db, 3, $mail);            
+            }
         }
     }
 ?>

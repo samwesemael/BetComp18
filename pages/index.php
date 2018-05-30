@@ -50,7 +50,7 @@
 
         ?>
 		<div class="row d-flex1">
-			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex1">					
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">					
 				<div class="card">
 					<div class="header">
                         <div class="row clearfix">
@@ -78,20 +78,34 @@
                                     UREN
                                 </center>
 							</div>
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+							<div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
 								<center>
                                     <input id="minutesclock" data-min="0" data-max="60" ype="text" class="knob minutes" data-width="90%" data-thickness="0.25" data-fgColor="#00BCD4" data-rotation=anticlockwise data-readOnly="true">
                                     <br><br>
                                     MINUTEN
                                 </center>
 							</div>
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+							<div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
 								<center>
                                     <input id="secondsclock" data-min="0" data-max="60" type="text" class="knob seconds" data-width="90%" data-thickness="0.25" data-fgColor="#009688" data-rotation=anticlockwise data-readOnly="true">
 									<br><br>
                                     SECONDEN
                                 </center>
 							</div>
+                            <div class="hidden-lg hidden-md col-sm-3 col-xs-3">
+                                <center>
+                                    <input id="minutesclock" data-min="0" data-max="60" ype="text" class="knob minutes" data-width="90%" data-thickness="0.25" data-fgColor="#00BCD4" data-rotation=anticlockwise data-readOnly="true">
+                                    <br><br>
+                                    MIN
+                                </center>
+                            </div>
+                            <div class="hidden-lg hidden-md col-sm-3 col-xs-3">
+                                <center>
+                                    <input id="secondsclock" data-min="0" data-max="60" type="text" class="knob seconds" data-width="90%" data-thickness="0.25" data-fgColor="#009688" data-rotation=anticlockwise data-readOnly="true">
+                                    <br><br>
+                                    SEC
+                                </center>
+                            </div>
 						</div>
 						<br> 
                         <center>
@@ -144,7 +158,12 @@
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                                       <div>
                                                         <h6><center>'.$loop.'e plaats</center></h6>
-                                                        <img src=" '.$afbeelding.'" alt="" class="img-circle img-responsive">
+                                                        <img src=" '.$afbeelding.'" alt="" class="img-circle img-responsive">';
+                                                        if( $numberofAchievements>5 && $data['user_name'] == $_SESSION['username'])
+                                                            echo '<img src="../images/1star.svg" alt="" style="display: block;
+                                                          max-width: 30%;
+                                                          height: auto; position:absolute; top:37%; left:55%;">';
+                                                        echo '
                                                         <div>
                                                         <br>
                                                           <h4><center>'.$data['first_name'].'</center></h4>

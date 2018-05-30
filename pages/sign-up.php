@@ -63,7 +63,19 @@ else{
         $stmt3 = $db->prepare("INSERT INTO bc18_notifications(bc18_user, bc18_link, bc18_class, bc18_message, bc18_read, bc18_created) VALUES(?, ?, ?, ?, ?, NOW())");
         $stmt3->bind_param('ssssi', $email, $link, $class, $message, $read);
         $stmt3->execute();
+        $link = "profile.php";
+        $class = 'achieve';
+        $message = 'New achievement unlocked!';
+        $stmt3->bind_param('ssssi', $email, $link, $class, $message, $read);
+        $stmt3->execute();
         $stmt3->close();
+
+        //achievement toevoegen
+        $stmt4 = $db->prepare("INSERT INTO bc18_achieved(bc18_user, bc18_achievement, bc18_created) VALUES (?,?,NOW())");
+        $achie = 1;
+        $stmt4->bind_param('si', $email, $achie);
+        $stmt4->execute();
+        $stmt4->close();
       }
       else{
           $_SESSION['success'] = 'error';

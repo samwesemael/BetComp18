@@ -58,7 +58,10 @@ include('server.php');
                                         echo'
                                             <tr>
                                                 <th scope="row">'.$ranking.'</th>
-                                                <td><img style="max-height:40px;" src="'.$afbeelding.'" alt="" max-height=50px class="img-circle"> '.$data['user_name'].'</td>
+                                                <td><img style="max-height:40px;" src="'.$afbeelding.'" alt="" class="img-circle">';
+                                            if( $numberofAchievements>5 && $data['user_name'] == $_SESSION['username'])
+                                                echo '<img style="max-height:20px; position: relative; left:-20px; top:15px;" src="../images/1star.svg" alt="" > ';
+                                            echo $data['user_name'].'</td>
                                                 <td>'.$data['winnaar_correct'].'</td>
                                                 <td>'.$data['uitslag_correct'].'</td>
 												<td>'.$data['bonus'].'</td>

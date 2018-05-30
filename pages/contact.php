@@ -12,6 +12,7 @@
 <?php
     if(isset($_POST['sub-btn'])){
         $uname = $_SESSION['username'];
+        $mail = $_SESSION['email'];
         $dtnow = new DateTime();
         // omzetten naar juiste timezone alleen als in database ook in juiste timezone zit        
         $dtnow ->setTimeZone(new DateTimeZone('Europe/Brussels'));
@@ -39,6 +40,7 @@
 
         }
         mysqli_query($db, "INSERT INTO bc18_chat(bc18_username, bc18_msg, bc18_created) VALUES ('$uname','$msg', NOW()) ");
+        addAchievement($db, 15, $mail);
     }
 ?>
     <section class="content">	

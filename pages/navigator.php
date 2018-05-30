@@ -12,6 +12,7 @@
     unset($_SESSION['email']);
     header("location: sign-in.php");
   }
+
 ?>
 
 
@@ -93,6 +94,23 @@
 <!-- php code voor notifactie  -->
 <?php
     include 'server.php';
+
+    function addAchievement($db, $id, $userid) {
+        $stmt4 = $db->prepare("INSERT INTO bc18_achieved(bc18_user, bc18_achievement, bc18_created) VALUES (?,?,NOW())");
+        $stmt4->bind_param('si', $userid, $id);
+        $stmt4->execute();
+        $stmt4->close();
+        $stmt3 = $db->prepare("INSERT INTO bc18_notifications(bc18_user, bc18_link, bc18_class, bc18_message, bc18_read, bc18_created) VALUES(?, ?, ?, ?, ?, NOW())");
+        $link = "profile.php";
+        $class = 'achieve';
+        $message = 'New achievement unlocked!';
+        $read = 0;
+        $stmt3->bind_param('ssssi', $userid, $link, $class, $message, $read);
+        $stmt3->execute();
+        $stmt3->close();
+        return;
+    }
+
     if (!empty($_GET['notif'])) {
         $notification = $_GET['notif'];
         if($notification == "called"){
@@ -159,6 +177,10 @@
                                                     $icon = 'person_add';
                                                     $color = 'bg-indigo';
                                                     break;
+                                                case "achieve":
+                                                    $icon = 'whatshot';
+                                                    $color = 'bg-cyan';
+                                                    break;
                                             }
                                             echo '
                                             <li>    
@@ -192,8 +214,21 @@
         <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
             <div class="user-info">
+                <?php
+
+                        $rank = "SELECT * from bc18_achieved where bc18_user = '$mail'";
+                        // echo $sql;
+                        $result = mysqli_query($db,$rank);
+                        $numberofAchievements = mysqli_num_rows($result);
+
+                ?>
+
                 <div class="image">
                     <img src="<?php echo $_SESSION['profilepicpath'] ?>" width="48" height="48" alt="User" class="img-responsive"/>
+                    <?php 
+                    if( $numberofAchievements>5)
+                        echo '<img src="../images/1star.svg" style="width:25px; position: absolute; top:40px; left:50px" />'; 
+                    ?>
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['username']?></div>

@@ -1,5 +1,22 @@
 <?php
 include 'server.php';
+
+function addAchievement($db, $id, $userid) {
+        $stmt4 = $db->prepare("INSERT INTO bc18_achieved(bc18_user, bc18_achievement, bc18_created) VALUES (?,?,NOW())");
+        $stmt4->bind_param('si', $userid, $id);
+        $stmt4->execute();
+        $stmt4->close();
+        $stmt3 = $db->prepare("INSERT INTO bc18_notifications(bc18_user, bc18_link, bc18_class, bc18_message, bc18_read, bc18_created) VALUES(?, ?, ?, ?, ?, NOW())");
+        $link = "profile.php";
+        $class = 'achieve';
+        $message = 'New achievement unlocked!';
+        $read = 0;
+        $stmt3->bind_param('ssssi', $userid, $link, $class, $message, $read);
+        $stmt3->execute();
+        $stmt3->close();
+        return;
+    }
+
 echo 'start';
 
 $puntenMatchCorrect = 3;
@@ -13,6 +30,8 @@ $stmtklassement = $db->prepare("UPDATE bc18_klassement INNER JOIN bc18_bets ON b
 
 $results = mysqli_query($db, $query);
 while ($data = mysqli_fetch_array($results)){
+	$correcteScore = False;
+	$correcteWinnaar = False;
 	echo 'berekenen...';
 	$nieuweUpdate = True;
 	$email = $data['userID'];
@@ -26,6 +45,7 @@ while ($data = mysqli_fetch_array($results)){
 		$newTotaal = $oldTotaal+$puntenMatchCorrect;
 		$newUitslag++;
 		echo ' --> zijn totaalscore gaat nu van '.$data['totaal'].' naar '.$newTotaal.'<br>';
+		$correcteScore = True;
 	}
 	elseif ($data['pred_goals_home']>$data['pred_goals_away']){
 			// home wint
@@ -34,6 +54,7 @@ while ($data = mysqli_fetch_array($results)){
 				$newTotaal = $oldTotaal+$puntenWinnaarCorrect;
 				$newWinnaar++;
 				echo 'Juiste Winnaar (home) dus totaalscore +1 <br>';
+				$correcteWinnaar = True;
 			}
 			else{
 				echo 'fout gegokt! <br>';
@@ -46,6 +67,7 @@ while ($data = mysqli_fetch_array($results)){
 				$newTotaal = $oldTotaal+$puntenWinnaarCorrect;
 				$newWinnaar++;
 				echo 'Juiste Winnaar (away) dus totaalscore +1 <br>';
+				$correcteWinnaar = True;
 			}
 			else{
 				echo 'fout gegokt! <br>';
@@ -67,7 +89,13 @@ while ($data = mysqli_fetch_array($results)){
 	$gameid = $data['gameID'];
 	$stmtklassement->bind_param('iiiisi', $newUitslag, $newWinnaar, $newTotaal, $meegerekend, $email, $gameid);
   	$stmtklassement->execute();
+
+  	if($correcteWinnaar)
+  		addAchievement($db, 5,$email);
+  	if($correcteScore)
+  		addAchievement($db, 7,$email);
 	}
+
  	$stmtklassement->close();
  	
  	if ($nieuweUpdate){
@@ -77,7 +105,6 @@ while ($data = mysqli_fetch_array($results)){
 	    $message = "Nieuw klassement staat online";
 	    $read = 0;
 	   	$stmt3 = $db->prepare("INSERT INTO bc18_notifications(bc18_user, bc18_link, bc18_class, bc18_message, bc18_read, bc18_created) VALUES(?, ?, ?, ?, ?, NOW())");
- 		
  		$queryUser = 'SELECT email FROM bc18_users WHERE 1';
  		$resultsUser = mysqli_query($db, $queryUser);
 		while ($dataUser = mysqli_fetch_array($resultsUser)){
@@ -85,8 +112,29 @@ while ($data = mysqli_fetch_array($results)){
 			$email = $dataUser['email'];
 	        $stmt3->bind_param('ssssi', $email, $link, $class, $message, $read);
 	        $stmt3->execute();
-
 	 	}
+
+	 	//voor achievement zien of er iemand alleen aan de leiding staat
+	 	$klassement = 'SELECT totaal, email FROM bc18_klassement order BY totaal DESC LIMIT 2';
+ 		$resultsKlassement = mysqli_query($db, $klassement);
+ 		$mail='';
+		$totaal='';
+		$totaalTweede='';
+		$teller=0;
+		while($dataKlassement = mysqli_fetch_array($resultsKlassement)){
+			if($teller == 0){
+				$mail = $dataKlassement['email'];
+				$totaal = $dataKlassement['totaal'];
+			}
+			if($teller == 1){
+				$totaalTweede = $dataKlassement['totaal'];
+			}
+			$teller++;
+		}
+		echo $totaal .'   '. $totaalTweede;
+		if($totaal>$totaalTweede){
+			addAchievement($db, 18,$mail);
+		}
 	 }
 	
 ?>

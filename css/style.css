@@ -8224,7 +8224,7 @@ html.ie11 .bs-searchbox .form-control {
     left: 0;
     right: 0;
 }
-.profilecard.hovercard .useravatar img {
+.profilecard.hovercard .useravatar .mainImage {
     width: 100px;
     height: 100px;
     max-width: 100px;
@@ -8233,6 +8233,19 @@ html.ie11 .bs-searchbox .form-control {
     -moz-border-radius: 50%;
     border-radius: 50%;
     border: 5px solid rgba(255, 255, 255, 0.5);
+}
+.profilecard.hovercard .useravatar .secondImage {
+    width: 100%;
+    height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    /*-webkit-border-radius: 50%;*/
+    /*-moz-border-radius: 50%;*/
+    /*border-radius: 50%;*/
+    position: absolute;
+    left:52%;
+    top:60%;
+    /*border: 5px solid rgba(255, 255, 255, 0.5);*/
 }
 .profilecard.hovercard .card-info {
     position: absolute;
@@ -8315,3 +8328,8 @@ html.ie11 .bs-searchbox .form-control {
   }
 }
 
+
+/*achievements*/
+.achievement {
+  opacity: 0.3;
+}

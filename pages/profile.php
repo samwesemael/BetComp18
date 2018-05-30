@@ -1,9 +1,7 @@
 <?php session_start();?>
 <!DOCTYPE html>
 <html>
-<script type="text/javascript">
-    document.getElementById("nav-profile").classList.toggle('active');
-</script>
+<link rel="stylesheet" href="../css/progressbarstyle.css">
 <link href='../css/dropzone.css' type='text/css' rel='stylesheet'>
 <script src='../js/dropzone.js' type='text/javascript'></script>
 <section class="content">
@@ -39,7 +37,12 @@
                     <!-- http://lorempixel.com/850/280/people/9/ -->
                 </div>
                 <div class="useravatar">
-                    <img alt="" src="<?php echo $_SESSION["profilepicpath"]; ?>">
+                    <img class="mainImage" alt="" src="<?php echo $_SESSION["profilepicpath"]; ?>">
+                    <?php
+                    if( $numberofAchievements>5)
+                        echo '<img class="secondImage" alt="star" src="../images/1star.svg">';
+                    ?>
+                    
                 </div>
                 <div class="card-info"> <span class="card-title"><?php echo $_SESSION["firstname"].' '.$_SESSION["lastname"]; ?></span>
                 </div>
@@ -62,7 +65,7 @@
             <div class="btn-group" role="group">
                 <center>
                     <button onclick="myFunction(this)" type="button" id="favorites" class="profilebtn profilebtn-default col-lg-12 col-md-12 col-sm-12 col-xs-12" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                        <div class="hidden-xs">Favorites</div>
+                        <div class="hidden-xs">Achievements</div>
                     </button>
                 </center>
             </div>
@@ -108,10 +111,14 @@
                                                     $icon = 'person_add';
                                                     $color = 'bg-indigo';
                                                     break;
+                                                case "achieve":
+                                                    $icon = 'whatshot';
+                                                    $color = 'bg-cyan';
+                                                    break;
                                             }
                                             echo '<li>    
                                                 <a href="'.$data['bc18_link'].'">
-                                                    <div class="icon-circle '.$color.'">
+                                                    <div style="width:"30px" " class="icon-circle '.$color.'">
                                                         <i class="material-icons">'.$icon.'</i>
                                                     </div>
                                                     <div class="menu-info">
@@ -130,10 +137,76 @@
                     </div>
                 </div>
                 <div class="tab-pane fade in" id="tab2">
-                    <h3>This is tab 2</h3>
+                    <h3>ACHIEVEMENTS</h3>
+    <!--                 <div class="row clearfix">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"">
+                                <div class="card">
+                                    progress bar 
+                                </div>
+                            </div>
+                        </div>                        --> 
+
+                    <div class="row clearfix">
+                    <?php
+                        $sql = "SELECT bc18_achievement FROM bc18_achieved WHERE bc18_user='$mail' ";
+                        // echo $sql;
+                        $result = mysqli_query($db,$sql);
+                        $achieved = array();
+                        while ($data = mysqli_fetch_array($result)){
+                            array_push($achieved,$data['bc18_achievement']);
+                        }
+                        $achievsql = "SELECT * FROM bc18_achievements LEFT JOIN `bc18_achieved`ON bc18_achievements.bc18_id = bc18_achieved.bc18_achievement ORDER BY bc18_id";
+                        $achieves = mysqli_query($db,$achievsql);
+                        while ($data = mysqli_fetch_array($achieves)){
+                            if(in_array($data['bc18_id'], $achieved) ){
+                                echo '
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="card">
+                                        <div class="row clearfix">
+                                            <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2">
+                                              
+                                                <img style="max-height:100px;" src="'.$data['bc18_picpath'].'">
+                                            </div>
+                                            <div class="col-xs-10 col-sm-10 col-lg-10 col-md-10">
+                                                <h5><center>'.$data['bc18_title'].'</center></h5>
+                                                <p><center>
+                                                    '.$data['bc18_message'].'
+                                                </center></p>
+                                                <p>
+                                                <center><small>'.$data['bc18_created'].'</small></center>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                ';
+                            }
+                            else{
+                                echo '
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 achievement">
+                                    <div class="card">
+                                        <div class="row clearfix">
+                                            <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2">
+                                                <img style="max-height:100px;" src="https://static1.squarespace.com/static/58c7f1771b10e32dd8e9cd24/t/59f1f7dc7131a528acd76eb4/1509030009589/Locked+Achievement?format=300w"" alt="" class="img-circle">
+                                            </div>
+                                            <div class="col-xs-10 col-sm-10 col-lg-10 col-md-10">
+                                                <h5><center>Achievement Locked</center></h5>
+                                                <p><center>
+                                                    Achievement Locked
+                                                </center></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                ';
+                            }
+                        }
+
+                    ?>
                 </div>
+                                    </div>
                 <div class="tab-pane fade in" id="tab3">
-                    <h4>INSTELLINGEN</h4>
+                    <h3>INSTELLINGEN</h3>
                     
                     <!-- profielfoto -->
                     <div class="row clearfix">
@@ -206,7 +279,7 @@
                                                     <i class="material-icons">lock</i>
                                                 </span>
                                                 <div class="form-line">
-                                                    <input type="password" class="form-control" name="password" minlength="6" placeholder="Password" required>
+                                                    <input type="password" class="form-control" name="password" id='password' minlength="6" placeholder="Password" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -216,7 +289,8 @@
                                                     <i class="material-icons">lock</i>
                                                 </span>
                                                 <div class="form-line">
-                                                    <input type="password" class="form-control" name="confirm" minlength="6" placeholder="Confirm Password" required>
+                                                    <input type="password" class="form-control" name="confirm" id='confirm' minlength="6" placeholder="Confirm Password" required>
+                                                    <span id="confirmMessage" class="confirmMessage"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -232,6 +306,22 @@
                         </div>
                     </div>
                 </div>
+
+
+                <script>
+                var password = document.getElementById("password"), confirm_password = document.getElementById("confirm");
+
+                function validatePassword(){
+                  if(password.value != confirm_password.value) {
+                    confirm_password.setCustomValidity("Passwords Don't Match");
+                  } else {
+                    confirm_password.setCustomValidity('');
+                  }
+                }
+
+                password.onchange = validatePassword;
+                confirm_password.onkeyup = validatePassword;
+                </script>
 	
         </section>
         <!-- Jquery Core Js -->
@@ -245,7 +335,7 @@
         <!-- Custom Js -->
         <script src="../js/admin.js"></script>
         <!-- deze is nodig om te checken of de ingevulde passwoorden matchen en of ze lang genoeg zijn en dergelijk -->
-        <script src="../js/pages/examples/sign-up.js"></script>
+        <!-- <script src="../js/pages/examples/sign-up.js"></script> -->
         <!-- Demo Js -->
    <!--      <script src="../js/demo.js"></script> -->
         <!-- Dropzone JS -->
