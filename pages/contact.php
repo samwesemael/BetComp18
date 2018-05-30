@@ -54,8 +54,8 @@
                         <div class="row clearfix">	
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <p>
-                                    Probleem gevonden? Of gewoon iets leuk te vertellen?
-                                    Laat het ons weten! 
+                                    Found a bug? Want to piss us off?
+                                    Let us know! 
                                 </p>    
                             </div>	
                         </div>
@@ -126,7 +126,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h4>Berichten</h4>
+                        <h4>Messages</h4>
                     </div>
                     <div class="body">
                         <?php

@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="header">
                             <h4>
-                                TOPSCHUTTERS
+                                TOPSCORERS
 							</h4>
                                                           
                             
@@ -24,7 +24,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Naam</th>
+                                        <th>Name</th>
 										<th>Goals</th>
 
                                     </tr>
@@ -46,6 +46,16 @@
                                         <td>Olivier Giroud</td>
 										<td>5</td>
                                     </tr>
+									<tr>
+                                        <th scope="row">4</th>
+                                        <td>Olivier Giroud</td>
+										<td>5</td>
+                                    </tr>
+									<tr>
+                                        <th scope="row">5</th>
+                                        <td>Olivier Giroud</td>
+										<td>5</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -56,7 +66,7 @@
                     <div class="card">
                         <div class="header">
                             <h4>
-                                VUILSTE PLOEG
+                                DIRTIEST TEAM
 							</h4>
                               
                             
@@ -66,9 +76,10 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Land</th>
-										<th>Rood<th>
-										<th>Geel<th>
+                                        <th>Team</th>
+										<th>Red<th>
+										<th>Yellow<th>
+										<th>Points<th>
 
                                     </tr>
                                 </thead>
@@ -83,6 +94,7 @@
                                           Panama   </div>	</td>      
 										<td>4<td>
 										<td>6<td>
+										<td>6<td>
 
                                     </tr>
                                     <tr>
@@ -95,6 +107,7 @@
                                           Rusland   </div>	</td>      
 										<td>3<td>
 										<td>8<td>
+										<td>6<td>
                                     </tr>
                                     <tr>
                                        <th scope="row">3</th>
@@ -105,6 +118,31 @@
 											<div class="media-body">
                                           Costa-Rica   </div>	</td>      
 										<td>2<td>
+										<td>6<td>
+										<td>6<td>
+                                    </tr>
+									<tr>
+                                       <th scope="row">4</th>
+                                        <td><div class="media-left media-middle">
+											<a href="javascript:void(0);">
+											<img class="media-object" src="../images/flags/low_res/flag_cos.png" width="23" height="15">
+											</a> </div>
+											<div class="media-body">
+                                          Costa-Rica   </div>	</td>      
+										<td>2<td>
+										<td>6<td>
+										<td>6<td>
+                                    </tr>
+									<tr>
+                                       <th scope="row">5</th>
+                                        <td><div class="media-left media-middle">
+											<a href="javascript:void(0);">
+											<img class="media-object" src="../images/flags/low_res/flag_cos.png" width="23" height="15">
+											</a> </div>
+											<div class="media-body">
+                                          Costa-Rica   </div>	</td>      
+										<td>2<td>
+										<td>6<td>
 										<td>6<td>
                                     </tr>
                                 </tbody>
@@ -121,7 +159,7 @@
                     <div class="card">
                         <div class="header">
                             <h4>
-                                FINALE
+                                FINAL
 							</h4>
 							<div class="media">
 										<center>
@@ -150,14 +188,14 @@
                     <div class="card">
                         <div class="header">
                             <h4>
-                                POSITIE BELGIE
+                                POSITION BELGIUM
 							</h4>
                              				
 							<div class="body">
                             <div class="progress">
 							
 							    <div class="progress-bar progress-bar-success" role="progressbar" style="width:20%">
-								GROEP
+								GROUP
 								</div>
 								 <div class="progress-bar progress-bar-warning" role="progressbar" style="width:20%">
 								1/8
@@ -169,7 +207,7 @@
 								1/2
 								</div>
 								<div class="progress-bar progress-bar-warning" role="progressbar" style="width:20%">
-								Finale
+								Final
 								</div>
                             </div>
                         </div>
@@ -204,9 +242,9 @@
                     <div class="card">
                         <div class="header">
                             <h4>
-                                OVERZICHT
+                                SUMMARY
 							</h4>
-                                <small>Deze punten worden pas na de finale bij het totale klassement bijgeteld.</small>                                                
+                                                  
                         </div>
 						<div class="body">
     						<center>
@@ -234,8 +272,8 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>                                
-                                                    <th>Naam</th>
-                                                    <th><span class="pull-right">Kampioen</span></th>                             
+                                                    <th>Name</th>
+                                                    <th><span class="pull-right">Champion</span></th>                             
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -276,8 +314,8 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>                                
-                                                    <th>Naam</th>
-                                                    <th><span class="pull-right">Finalist</span></th>                             
+                                                    <th>Name</th>
+                                                    <th><span class="pull-right">Second</span></th>                             
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -317,8 +355,8 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>                                
-                                                    <th>Naam</th>
-                                                    <th><span class="pull-right">Topschutter</span></th>                             
+                                                    <th>Name</th>
+                                                    <th><span class="pull-right">Topscorer</span></th>                             
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -359,8 +397,8 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>                                
-                                                    <th>Naam</th>
-                                                    <th><span class="pull-right">Vuilste ploeg</span></th>                             
+                                                    <th>Name</th>
+                                                    <th><span class="pull-right">Dirtiest team</span></th>                             
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -399,8 +437,8 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>                                
-                                                    <th>Naam</th>
-                                                    <th><span class="pull-right">Positie België</span></th>                             
+                                                    <th>Name</th>
+                                                    <th><span class="pull-right">Position Belgium</span></th>                             
                                                 </tr>
                                             </thead>
                                             <tbody>

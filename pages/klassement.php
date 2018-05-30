@@ -17,11 +17,11 @@ include('server.php');
                     <div class="card">
                         <div class="header">
                             <h4>
-                                KLASSEMENT
+                                RANKING
 							</h4>
-                                <small>WJ = winnaar juist</small> <br>
-								<small>SJ = score juist</small> </br>
-								<small>B = bonuspunten</small>
+                                <small>CW = Correct Winner</small> <br>
+								<small>CS = Correct Score</small> </br>
+								<small>BP = Bonus Points</small>
                             
                             
                         </div>
@@ -30,10 +30,10 @@ include('server.php');
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Naam</th>
-                                        <th>WJ</th>
-                                        <th>SJ</th>
-										<th>B</th>
+                                        <th>Name</th>
+                                        <th>CW</th>
+                                        <th>CS</th>
+										<th>BP</th>
 										<th>TOT</th>
                                     </tr>
                                 </thead>

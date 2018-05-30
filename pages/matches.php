@@ -20,9 +20,9 @@
                     <div class="card">
                         <div class="header">
                             <h4>
-                                OVERZICHT
+                                SUMMARY
 							</h4>
-                                <small>Uitgebreide resultaten</small>                                                
+                                <small>All results</small>                                                
                         </div>
 						<div class="body"> 						      
 							<div class="body table-responsive">
@@ -30,7 +30,7 @@
                                      <thead>
 										
                                          <tr>                                
-                                                    <th>Naam</th>
+                                                    <th>Name</th>
 													<?php 
 													foreach ($speeldagnummers as $nr){
 													?>

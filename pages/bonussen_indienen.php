@@ -50,7 +50,7 @@ $status = "";
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h4>BONUSSEN INDIENEN</h4>
+                        <h4>SUBMIT BONUSSES</h4>
                     </div>
                     <div class="body">						
                         <form id="form_validation" method="POST" action="bonussen_indienen.php">	
@@ -66,7 +66,7 @@ $status = "";
 								</div>		
 																													
                                 <div class="col-md-4"> 
-									<p><b>Wereldkampioen</b></p>
+									<p><b>Worldchampion</b></p>
 
 									
                                     <select name="wereldkampioen" class="selectpicker">
@@ -105,7 +105,7 @@ $status = "";
                                     </select>					
                                 </div>  
 					            <div class="col-md-4"> 
-									<p><b>Verliezend finalist</b></p>								
+									<p><b>Second Place</b></p>								
                                     <select name = "finalist" class="selectpicker">
                                         <option data-thumbnail="../images/flags/hi_res/flag_arg.png">Argentina</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_aus.png">Australia</option>
@@ -144,7 +144,7 @@ $status = "";
 							</div>
 							<div class="row clearfix">
                                 <div class="col-md-4">	
-									<p><b>Topschutter</b> </p>
+									<p><b>Topscorer</b> </p>
 									<?php
 									 $query = "SELECT player_name FROM bc18_players";
 									 $results = mysqli_query($db, $query);
@@ -170,7 +170,7 @@ $status = "";
 								
 								
                                 <div class="col-md-4"> 
-									<p><b>Vuilste ploeg</b></p>								
+									<p><b>Dirtiest Team</b></p>								
                                     <select name="vuilste" class="selectpicker">
                                         <option data-thumbnail="../images/flags/hi_res/flag_arg.png">Argentina</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_aus.png">Australia</option>
@@ -207,13 +207,13 @@ $status = "";
                                     </select>                   
                                 </div>  
                                 <div class="col-md-4"> 
-									<p><b>Positie België</b></p>								
+									<p><b>Position Belgium</b></p>								
                                     <select name="posBelgie" class="selectpicker">
-                                        <option>Groepsfase</option>
-                                        <option>8ste finales</option>
-                                        <option>kwartfinales</option>
-										<option>halve finales</option>
-                                        <option>finale</option>                                      
+                                        <option>Groupstage</option>
+                                        <option>Round of 16</option>
+                                        <option>Round of 8</option>
+										<option>Quarter Finals</option>
+                                        <option>Final</option>                                      
                                     </select>					
                                 </div>  	
                             </div>								

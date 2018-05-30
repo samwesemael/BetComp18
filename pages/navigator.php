@@ -274,15 +274,15 @@
                     <li id="nav-gokken">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">input</i>
-                            <span>Gokken</span>
+                            <span>Betting</span>
                         </a>
                         <ul class="ml-menu">
                             <li id="nav-matchen-indienen">
-                                <a href="matchen_indienen.php">Matchen</a>
+                                <a href="matchen_indienen.php">Fixtures</a>
                               
                             </li>
                             <li id="nav-bonussen-indienen">
-                               <a href="bonussen_indienen.php">Bonussen</a>
+                               <a href="bonussen_indienen.php">Bonusses</a>
                                
                             </li>
                         </ul>
@@ -290,27 +290,27 @@
                     <li id = 'nav-klassement'>
                         <a href="klassement.php">
                             <i class="material-icons">format_list_numbered</i>
-                            <span>Klassement</span>
+                            <span>Ranking</span>
                         </a>
                     </li>
                     <li id = 'nav-bonussen'>
                         <a href="bonussen.php">
                             <i class="material-icons">redeem</i>
-                            <span>Bonussen</span>
+                            <span>Bonusses</span>
                         </a>
                     </li>
                     <li
                     id = 'nav-matches'>
                         <a href="matches.php">
                             <i class="material-icons">today</i>
-                            <span>Matchen</span>
+                            <span>Fixtures</span>
                         </a>
                     </li>
                                        
                     <li id = 'nav-rules'>
                         <a href="rules.php">
                             <i class="material-icons">book</i>
-                            <span>Spelregels</span>
+                            <span>Rules</span>
                         </a>
                     </li>
                     
@@ -334,7 +334,7 @@
                             <li id = 'nav-maps'>
                                 <a href="maps.php">
                                 <i class="material-icons">map</i>
-                                <span>Stadions</span>
+                                <span>Stadiums</span>
                                 </a>
                             </li>
                             <li id = 'nav-contact'>                                

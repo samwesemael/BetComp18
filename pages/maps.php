@@ -13,7 +13,7 @@
             <div class="card">
                 <div class="header">
                     <h4>
-                        Stadions
+                        Stadiums
                     </h4>
                 </div>
                 <div class="body">

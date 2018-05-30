@@ -72,7 +72,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h4>MATCHEN INDIENEN</h4>
+                            <h4>SUBMIT MATCHES</h4>
                         </div>
                         <div class="body">						
                             <form id="form_validation" method="POST" action="matchen_indienen.php">								
@@ -86,7 +86,7 @@
 								</div>		
 																													
                                 <div class="col-md-3"> 
-									<p><b>Speeldag</b></p>								
+									<p><b>Fixture</b></p>								
                                     <select name="match" id="match" class="form-control show-tick">
                                         <?php 
                                         $dateNu = date_format(new DateTime(),'Y-m-d H:i:s');
@@ -116,7 +116,7 @@
 						</div>	
 						
 						<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">	
-															<p><b>Extra</b>  <small>(vanaf knockout)</small> </p>
+															<p><b>Extra</b>  <small>(from knockout)</small> </p>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="extra">
