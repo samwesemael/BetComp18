@@ -67,7 +67,8 @@
 								<ul>
 								<li> Wereldkampioen OF finalist juist, maar op de verkeerde positie: <b>2</b> punten </li>
 								<li> Wereldkampioen EN finalist juist, maar omgewisseld: <b>4</b> punten</li>
-								</ul>								
+								</ul>
+								Bij Wereldkampioen en finalist hetzelfde land invullen is verboden.
                             </p>
 							<br>
                             <h4> Berekening bonussen </h4>

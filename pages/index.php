@@ -27,7 +27,7 @@
                             <i class="material-icons col-green">announcement</i>
                         </div>
                         <div class="content">
-                            <div class="text"><b>MEDEDELINGEN</b></div>
+                            <div class="text"><b>ANNOUNCEMENTS</b></div>
                             <div class="text" id="mededelingen"><?php echo $mededeling ?></div>
                         </div>
                 </div>
@@ -67,7 +67,7 @@
 								<center>
                                     <input id="daysclock" data-min="0" data-max="356" type="text" class="knob days" data-width="90%" data-thickness="0.25" data-fgColor="#F44336" data-rotation=anticlockwise data-readOnly=true>
 								    <br><br>
-                                    DAGEN
+                                    DAYS
                                 </center>
 							</div>
 			     			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -75,21 +75,21 @@
                                     <input id="hoursclock" data-min="0" data-max="24" type="text" class="knob hours" data-width="90%" data-thickness="0.25" data-fgColor="#E91E63" data-rotation=anticlockwise
 											data-readOnly = "true">
 									<br><br>
-                                    UREN
+                                    HOURS
                                 </center>
 							</div>
 							<div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
 								<center>
                                     <input id="minutesclock" data-min="0" data-max="60" ype="text" class="knob minutes" data-width="90%" data-thickness="0.25" data-fgColor="#00BCD4" data-rotation=anticlockwise data-readOnly="true">
                                     <br><br>
-                                    MINUTEN
+                                    MINUTES
                                 </center>
 							</div>
 							<div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
 								<center>
                                     <input id="secondsclock" data-min="0" data-max="60" type="text" class="knob seconds" data-width="90%" data-thickness="0.25" data-fgColor="#009688" data-rotation=anticlockwise data-readOnly="true">
 									<br><br>
-                                    SECONDEN
+                                    SECONDS
                                 </center>
 							</div>
                             <div class="hidden-lg hidden-md col-sm-3 col-xs-3">
@@ -121,7 +121,7 @@
                     <div class="header">
                         <div class="row clearfix">
                             <div class="col-xs-12 col-sm-12">
-                                <div class="font-bold m-b--35">KLASSEMENT TOP 4</div>
+                                <div class="font-bold m-b--35">RANKING</div>
                                 <br>
                             </div>
                         </div>
@@ -131,7 +131,7 @@
                                     <i class="material-icons">more_vert</i>
                                 </a>
                                 <ul class="dropdown-menu pull-right">
-                                    <li><a href="klassement.php">Volledig Klassement</a></li>
+                                    <li><a href="klassement.php">FULL RANKING</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -157,7 +157,7 @@
                                             echo '
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                                       <div>
-                                                        <h6><center>'.$loop.'e plaats</center></h6>
+                                                        <h6><center>'.$loop.'e place</center></h6>
                                                         <img src=" '.$afbeelding.'" alt="" class="img-circle img-responsive">';
                                                         if( $numberofAchievements>5 && $data['user_name'] == $_SESSION['username'])
                                                             echo '<img src="../images/1star.svg" alt="" style="display: block;
@@ -168,7 +168,7 @@
                                                         <br>
                                                           <h4><center>'.$data['first_name'].'</center></h4>
                                                           <h6 class="hidden-sm hidden-xs"><center>('.$data['user_name'].')</center></h5>                                                                  
-                                                          <div class="col-blue"><p><b><center>'.$data['totaal'].' ptn</center></b></p></div>
+                                                          <div class="col-blue"><p><b><center>'.$data['totaal'].' pts</center></b></p></div>
                                                         </div>
                                                       </div>
                                                     </div>';
@@ -205,7 +205,7 @@
                     <div class="body bg">
                         <div class="m-b--35 font-bold"> 
                             <center>
-                                VOLGENDE WEDSTRIJD
+                                NEXT GAME
                             </center>
                         </div>
                         <ul class="dashboard-stat-list">
@@ -246,14 +246,14 @@
                         ?>
 
                             <div class="media-middle col-blue">
-                              <center>      <big><b><?php echo $goalHome.' - '. $goalAway; ?></b></big> </center> <center> <small>MIJN GOK</small> </center>
+                              <center>      <big><b><?php echo $goalHome.' - '. $goalAway; ?></b></big> </center> <center> <small>MY BET</small> </center>
                             </div>
                             <?php
                             }
                             else{
                             ?>
                             <div class="media-middle col-blue">
-                              <center>      <big><b>Nog geen bet voor deze wedstrijd</b></big> </center>
+                              <center>      <big><b>NO BET YET FOR THIS GAME</b></big> </center>
                             </div>
                             <?php    
                             }
@@ -280,22 +280,22 @@
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="card">
                     <div class="body bg">
-                        <div class="font-bold m-b--35">MIJN BONUSSEN </div>
+                        <div class="font-bold m-b--35">MY BONUSSES </div>
                         <ul class="dashboard-stat-list">
                             <li>
-                                WERELDKAMPIOEN <span class="pull-right col-blue"><b><?php echo strtoupper($winnaar); ?></b></span>
+                                WORLDCHAMPION <span class="pull-right col-blue"><b><?php echo strtoupper($winnaar); ?></b></span>
                             </li>
                             <li>
-                                VERLIEZEND FINALIST <span class="pull-right col-blue"><b><?php echo strtoupper($verliezer); ?></b></span>
+                                SECOND PLACE <span class="pull-right col-blue"><b><?php echo strtoupper($verliezer); ?></b></span>
                             </li>
                             <li>
-                                TOPSCHUTTER <span class="pull-right col-blue"><b><?php echo strtoupper($topscorer); ?></b></span>
+                                TOPSCORER <span class="pull-right col-blue"><b><?php echo strtoupper($topscorer); ?></b></span>
                             </li>
                             <li>
-                                VUILSTE PLOEG <span class="pull-right col-blue"><b><?php echo strtoupper($vuilste); ?></b></span>
+                                DIRTIEST TEAM <span class="pull-right col-blue"><b><?php echo strtoupper($vuilste); ?></b></span>
                             </li>
                             <li>
-                                POSITIE BELGIE <span class="pull-right col-blue"><b><?php echo strtoupper($belgie); ?></b></span>
+                                POSITION BELGIUM <span class="pull-right col-blue"><b><?php echo strtoupper($belgie); ?></b></span>
                             </li>
                         </ul>
                     </div>
@@ -307,10 +307,10 @@
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="card">
                     <div class="body bg">
-                        <div class="font-bold m-b--35">MIJN BONUSSEN </div>
+                        <div class="font-bold m-b--35">MY BONUSSES </div>
                         <ul class="dashboard-stat-list">
                             <li>
-                                Geef je bonussen in onder Gokken/Bonussen.
+                                SUBMIT BONUSSES AT BETTING --> BONUSSES
                             </li>
                         </ul>
                     </div>
@@ -322,36 +322,17 @@
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="card">
                     <div class="body bg">
-                        <div class="font-bold m-b--35">VORM</div> <br> <br>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>                               
-                                    <tr>
-                                       <th scope="col"><small></small></th>
-                                       <th scope="col"><small>UITSLAG</small></th>
-                                       <th scope="col"><small>GOK</small></th>
-                                    </tr>                                   
-                                </thead>
-                                <tbody>
-                                    <tr> 
-                                        <td> <small>PANAMA - PANAMA </small></td>
-                                        <td> <small>0-0</small> </td>
-                                        <td><span class="col-blue"><b>1-0</b> </span></td>
-                                    </tr>
-                                    <tr> 
-                                        <td><small>PANAMA - PANAMA</small> </td>
-                                        <td> <small>0-0 </small></td>
-                                        <td><span class="col-blue"><b>1-0</b> </span></td>
-                                    </tr>
-                                    <tr> 
-                                        <td> <small>PANAMA - PANAMA </small></td>
-                                        <td> <small>0-0</small> </td>
-                                        <td><span class="col-blue"><b>1-0</b> </span></td>
-                                    </tr>
-                                   
-                                </tbody>
-                            </table>
-                        </div>  
+                        <div class="font-bold m-b--35">ACHIEVEMENTS  <a class="btn btn-small btn-info pull-right" href="profile.php">All Achievements</a> </div>  <br> <br>
+                        
+							<div class="font-bold m-b--35"><center><h1><class="col-blue">xx</font>/20</h1></center></div> 
+							<ul class="dashboard-stat-list">
+                            <li>
+                                CURRENT RANK <span class="pull-right col-blue"><b>Tom Soetaers</b></span> 
+                        	</li>
+							<li>
+								LAST ACHIEVEMENT    <span class="pull-right col-blue"><b>Welcome  <img src="../images/achievements/welcome.png" alt="" class="img-circle img-responsive"> </b></span>
+							</li>
+							</ul>
                     </div>
                 </div>
             </div>
