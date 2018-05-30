@@ -272,20 +272,11 @@
                         </a>
                     </li>
                     <li id="nav-gokken">
-                        <a href="javascript:void(0);" class="menu-toggle">
+                        <a href="matchen_indienen.php">
                             <i class="material-icons">input</i>
                             <span>Betting</span>
                         </a>
-                        <ul class="ml-menu">
-                            <li id="nav-matchen-indienen">
-                                <a href="matchen_indienen.php">Fixtures</a>
-                              
-                            </li>
-                            <li id="nav-bonussen-indienen">
-                               <a href="bonussen_indienen.php">Bonusses</a>
-                               
-                            </li>
-                        </ul>
+                        
                     </li>
                     <li id = 'nav-klassement'>
                         <a href="klassement.php">
