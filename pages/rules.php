@@ -19,35 +19,46 @@
 						</div>
     					<div class="body">
     				        <h4>Wedstrijden</h4>
-    					       <p> We gokken op 1 wedstrijd per dag (de leukste affiche, bij twijfel de wedstrijd ‘s avonds), dit zijn in totaal <b>25 wedstrijden</b>.</p>
+    					       <p> We gokken op 1 match per dag zodat de studenten maar 2 uur per dag nagelbijtend voor hun tv moeten zitten. Dit zijn in totaal <b>25 wedstrijden</b>, <br> waarvan de te wedden wedstrijden van de groepsfase voor aanvang van het WK bepaald worden.</p>
                             <h4> Punten </h4>
     					
                             <p> Iedereen geeft voor aanvang van de wedstrijd zijn gok voor de einduitslag mee:
         					    <ul>
-                                    <li> Score volledig juist: <b>3 punten</b> </li>
-                                    <li> Winnaar/gelijkspel juist: <b>1 punt</b> </li> 
+                                    <li> Score volledig juist: <b>&#9;3 punten</b> </li>
+                                    <li> Winnaar/gelijkspel juist: <b>&#9;1 punt</b> </li> 
                                 </ul>
-                                De laatste 3 wedstrijden (de 2 halve finales en de finale) zijn dubbel zo belangrijk en daarvoor krijg je respectievelijk 6 en 2 punten. 
-                                De score die je indient is de score na <b>120'</b>. Wanneer je een gelijkspel indient tijdens de knockoutfase, vul je in het vakje 'extra' ook de winnaar van de penalties in. De puntenverdeling is dan als volgt: je had het gelijkspel voor de penalties perfect juist: 3 punten, je hebt gelijkspel gegokt, maar geen exacte score: 1 punt, wanneer je de winnaar van de penalties ook nog eens juist hebt, komt bij beiden nog 1 punt bij. 
-                                Indien er na puntenverdeling van alle wedstrijden een gelijkstand plaatsvindt zijn dit de volgende criteria waarop je positie in het klassement bepaald wordt: 
+                               
+								De uitzondering zit hem vanaf de knock-outfase. De score die je dan indient is de score na <b>90'</b>. Wanneer je een gelijkspel indient vul je in het vakje 'extra' 
+								ook de winnaar na <b>120'</b> (verlengingen/penalties) in. Wanneer je dit correct hebt kan je een extra punt verdienen, degenen die geen gelijkspel invulden kunnen 
+								dit punt ook verdienen als zij de winnende ploeg in hun pronotiek juist inschatten.
+								<br>De puntenverdeling is dan als volgt: 
+								<p>
+								<ul>
+									<li>je had het gelijkspel na 90' juist met de juiste score en duidt de verkeerde winnaar aan na 120': <b>3 punten</b> </li>
+									<li>je had het gelijkspel na 90' juist met de juiste score en duidt de juiste winnaar aan na 120': <b>4 punten</b> </li>
+									<li>je had het gelijkspel na 90' juist maar niet de juiste score en duidt de juiste winnaar aan na 120': <b>4 punten</b> </li>
+									<li>je had het gelijkspel na 90' juist maar niet de juiste score en duidt de foute winnaar aan: <b>1 punt</b> </li>
+									<li>je gokt geen gelijkspel na 90', en hebt de score perfect juist: <b>4 punten</b> </li>
+									<li>je gokt geen gelijkspel na 90', en hebt de winnaar juist: <b>1 punt</b> </li>
+								</ul>
+								</p>								
+								<i>De laatste 4 wedstrijden (de 2 halve finales, troosting en finale) worden je punten verdubbeld. </i>
+							   Indien er na puntenverdeling van alle wedstrijden een gelijkstand plaatsvindt zijn dit de volgende criteria waarop je positie in het klassement bepaald wordt: 
                             </p> 
                             <p>
                                 <ol>
                                     <li>Aantal maal de score volledig correct tijdens het WK</li>
-                                    <li>Aantal punten behaald tijdens de voorbereiding</li>
-                                    <li>Aantal maal de score volledig correct tijdens de voorbereiding</li>
                                     <li>Minuut van de eerste goal in de finale</li>             
                                     </ol> 
                             </p>
     								
     				        <h4> Gokken indienen </h4>
                             <p> 
-                                De gokken zullen worden ingediend op het tabblad Gokken --> matchen. <br>
+                                De gokken zullen worden ingediend op het tabblad Betting. <br>
     				           
         				        <ul> 
         				            <li> Je kan je gok zoveel aanpassen als je wilt (opnieuw indienen van die speeldag), enkel de laatst ingediende telt </li>
         				            <li> Er is een timecheck ingebouwd, je kan tot 1 seconde voor aanvang van de wedstrijd posten, als je na aanvang post, wordt je gok door de website genegeerd </li>
-        				            <li> Je zal steeds kunnen gokken op een aantal wedstrijden op voorhand </li>
         				        </ul>
     				        </p>
 
@@ -68,7 +79,7 @@
 								<li> Wereldkampioen OF finalist juist, maar op de verkeerde positie: <b>2</b> punten </li>
 								<li> Wereldkampioen EN finalist juist, maar omgewisseld: <b>4</b> punten</li>
 								</ul>
-								Bij Wereldkampioen en finalist hetzelfde land invullen is verboden.
+								Bij wereldkampioen en finalist hetzelfde land invullen is verboden.
                             </p>
 							<br>
                             <h4> Berekening bonussen </h4>
@@ -100,9 +111,9 @@
 
                             <h4> Inzet </h4>
 
-                            <p> Iedereen bezorgt mij 10€ voor 10 juni 2018. Om niet met te weinig geld te eindigen zoals in vorige edities schrijft iedereen dit over op:
+                            <p> Iedereen bezorgt mij 10€ voor 14 juni 2018, dit kan cash of via overschrijving:
                                 <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                                         <div class="info-box-4">
                                             <div class="icon">
                                                 <i class="material-icons col-light-green">credit_card</i>
@@ -117,10 +128,12 @@
                             </p>
                             <h4> Winst </h4>
 
+							De top 3 bij afloop van de competitie ontvangt een beker die wordt gefinancierd met het opgehaalde geld. Het overige geld wordt als volgt verdeeld:
+							<i>
                             <ul> 
                                 <li> 60% van de pot wordt onder iedereen verdeeld. Je krijgt een bedrag in verhouding met je aantal behaalde punten </li>
                                 <li> 40% van de pot wordt uitsluitend verdeeld onder de top 3 (50% naar de winnaar, 33% naar de 2de en 17% naar de 3de. Alsook ontvangt de top 3 een mooie herinnering in de vorm van een certificaat/beker (nog te bepalen) </li>
-                            </ul>	<br>  
+                            </ul> </i>	<br>  
 							
 							<h4> Doneer om de hosting te financieren: </h4> <br>
 	
