@@ -77,9 +77,9 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Team</th>
-										<th>Red<th>
-										<th>Yellow<th>
-										<th>Points<th>
+										<th>R<th>
+										<th>Y<th>
+										<th>Pts<th>
 
                                     </tr>
                                 </thead>
