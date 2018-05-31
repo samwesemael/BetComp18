@@ -322,7 +322,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="card">
                     <div class="body bg">
-                        <div class="font-bold m-b--35">ACHIEVEMENTS  <a class="btn btn-small btn-info pull-right" href="profile.php">All Achievements</a> </div>  <br> <br>
+                        <div class="font-bold m-b--35">ACHIEVEMENTS  <a class="btn btn-small btn-info pull-right" href="profile.php">Full List</a> </div>  <br> <br>
                         
 							<div class="font-bold m-b--35"><center><h1><class="col-blue">xx</font>/20</h1></center></div> 
 							<ul class="dashboard-stat-list">
@@ -330,7 +330,7 @@
                                 CURRENT RANK <span class="pull-right col-blue"><b>Tom Soetaers</b></span> 
                         	</li>
 							<li>
-								LAST ACHIEVEMENT    <span class="pull-right col-blue"><b>Welcome  <img src="../images/achievements/welcome.png" alt="" class="img-circle img-responsive"> </b></span>
+								LAST ACHIEVEMENT    <span class="pull-right col-blue"><b>Welcome</b></span>
 							</li>
 							</ul>
                     </div>
