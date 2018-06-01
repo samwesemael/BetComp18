@@ -22,12 +22,14 @@
 ## TODO:
 
 - [x] poll om de matchen te kiezen waarop gegokt zal worden
+- [ ] spelregels finaal maken
 - [ ] term of usage maken of check sign up verwijderen
 - [ ] kijken naar padding want teveel ruimte (vooral op mobile) niet gebruikt
 - [ ] change username form aanpassen (enkel nieuwe username mag)
 - [ ] rommel opkuisen van template (vooral map plugins is groot)
 - [ ] vuilste ploeg bonus berekenen
 - [ ] code voor achievements berekenen
+- [ ] contact page --> messages dubbel in db en op pagina
 
 ##### Veiligheid:
 
