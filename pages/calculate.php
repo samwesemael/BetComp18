@@ -26,6 +26,17 @@ function addAchievement($db, $id, $userid) {
         else
         	return False;
    }
+   
+   function isKnockoutStage($matchday){
+		if($gameday > 3){
+			return True;
+		}
+		else{
+			return False;
+		}
+	   
+	   
+   }
 
 echo 'start';
 
