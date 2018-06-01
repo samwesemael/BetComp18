@@ -36,10 +36,10 @@
 								<ul>
 									<li>je had het gelijkspel na 90' juist met de juiste score en duidt de verkeerde winnaar aan na 120': <b>3 punten</b> </li>
 									<li>je had het gelijkspel na 90' juist met de juiste score en duidt de juiste winnaar aan na 120': <b>4 punten</b> </li>
-									<li>je had het gelijkspel na 90' juist maar niet de juiste score en duidt de juiste winnaar aan na 120': <b>4 punten</b> </li>
+									<li>je had het gelijkspel na 90' juist maar niet de juiste score en duidt de juiste winnaar aan na 120': <b>2 punten</b> </li>
 									<li>je had het gelijkspel na 90' juist maar niet de juiste score en duidt de foute winnaar aan: <b>1 punt</b> </li>
 									<li>je gokt geen gelijkspel na 90', en hebt de score perfect juist: <b>4 punten</b> </li>
-									<li>je gokt geen gelijkspel na 90', en hebt de winnaar juist: <b>1 punt</b> </li>
+									<li>je gokt geen gelijkspel na 90', en hebt de winnaar juist: <b>2 punt</b> </li>
 								</ul>
 								</p>								
 								<i>De laatste 4 wedstrijden (de 2 halve finales, troosting en finale) worden je punten verdubbeld. </i>
