@@ -42,8 +42,7 @@
 									<li>je gokt geen gelijkspel na 90', en hebt de winnaar juist: <b>2 punt</b> </li>
 								</ul>
 								</p>								
-								<i>De laatste 4 wedstrijden (de 2 halve finales, troosting en finale) worden je punten verdubbeld. </i>
-							   Indien er na puntenverdeling van alle wedstrijden een gelijkstand plaatsvindt zijn dit de volgende criteria waarop je positie in het klassement bepaald wordt: 
+								Indien er na puntenverdeling van alle wedstrijden een gelijkstand plaatsvindt zijn dit de volgende criteria waarop je positie in het klassement bepaald wordt: 
                             </p> 
                             <p>
                                 <ol>
@@ -128,11 +127,11 @@
                             </p>
                             <h4> Winst </h4>
 
-							De top 3 bij afloop van de competitie ontvangt een beker die wordt gefinancierd met het opgehaalde geld. Het overige geld wordt als volgt verdeeld:
+							 Het opgehaalde geld wordt als volgt verdeeld:
 							<i>
                             <ul> 
-                                <li> 60% van de pot wordt onder iedereen verdeeld. Je krijgt een bedrag in verhouding met je aantal behaalde punten </li>
-                                <li> 40% van de pot wordt uitsluitend verdeeld onder de top 3 (50% naar de winnaar, 33% naar de 2de en 17% naar de 3de. Alsook ontvangt de top 3 een mooie herinnering in de vorm van een certificaat/beker (nog te bepalen) </li>
+							  <li> De top 3 bij afloop van de competitie ontvangt een beker die wordt gefinancierd met het opgehaalde geld. </li>
+                              <li> Het resterende geld wordt onder de top 10 verdeeld naar verhouding van het aantal gehaalde punten. </li>                              
                             </ul> </i>	<br>  
 							
 							<h4> Doneer om de hosting te financieren: </h4> <br>
