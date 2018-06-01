@@ -40,11 +40,12 @@
         <!-- CountDown Timer -->          
 		<?php
              // lijst van alle deadlines voor te gokken
-                $sql = "SELECT datum FROM bc18_games WHERE bettable = 1 AND status != 'FINISHED' order by datum asc";
+                $sql = "SELECT datum FROM bc18_games WHERE bettable = 1 AND status = 'TIMED' order by datum asc LIMIT 2";
                 $results = mysqli_query($db, $sql);
                 $deadlines = array();
                 while ($data = mysqli_fetch_array($results)){
-                    array_push($deadlines, strval($data['datum']));
+                    $datum = $data['datum'];
+                    array_push($deadlines, strval($datum));
                 }
                 $deadlines = implode (", ", $deadlines);
 
@@ -192,7 +193,10 @@
                     exit();
                   }
                 if($data = mysqli_fetch_array($next)){
-                    $date = $data['datum'];
+                    $datum = $data['datum'];
+                    $date = new DateTime($datum);
+                    $date->setTimezone(new DateTimeZone('Europe/Brussels'));
+                    $dateNu = $date->format('Y-m-d H:i:s');
                     $nextGame = $data['game_id'];
                     $hometeam = $data['team_home'];
                     $awayteam = $data['team_away'];
@@ -219,7 +223,7 @@
                                         </div>                                      
                                         <div class="media-body">
                                             <h5> <?php echo $hometeam.' - '.$awayteam; ?></h5> 
-                                            <h7> <?php echo $date; ?> </h7>
+                                            <h7> <?php echo $dateNu; ?> </h7>
                                         </div>
                                         <div class="media-right media-middle">
                                             <a href="#">
@@ -370,8 +374,14 @@
     <?php $looper = 0; ?>
     <script>
         function getTimeRemaining(endtime) {
+            var d = new Date();
+            var n = -(d.getTimezoneOffset()*60000);
+
             var t = Date.parse(endtime) - Date.parse(new Date());
+            console.info(t);
+            t=t+n;
             var seconds = Math.floor((t / 1000) % 60);
+            console.info( )
             var minutes = Math.floor((t / 1000 / 60) % 60);
             var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
             var days = Math.floor(t / (1000 * 60 * 60 * 24));
@@ -391,7 +401,7 @@
             var secondsSpan = document.getElementById('secondsclock');
 
             function updateClock() {
-                var t = getTimeRemaining(endtime);
+                var t = getTimeRemaining(deadline);
                 function setClock(t){
                     $('.seconds').val(t.seconds).trigger('change').trigger('draw');
                     $('.minutes').val(t.minutes).trigger('change').trigger('draw');
@@ -400,7 +410,8 @@
                 }
                 if (t.total <= 0) {
                     // teller++;
-                    // var deadline = new Date(Date.parse(new Date(deadlinesArray[teller])));
+                    // var deadline = new Date(Date.parse(new Date(deadlinesArray[teller])))
+                    deadline = new Date(Date.parse(new Date(deadlinesArray[1])));
                     initializeClock(deadline);
 
                     //clearInterval(timeinterval);
@@ -413,13 +424,13 @@
         // var deadline = new Date(Date.parse(new Date("June 14, 2018 16:00:00")));
         // var deadline = new Date(Date.parse(new Date("Jan 26, 2018 15:06:00")));
         // initializeClock(deadline);
-
         
         var deadlinestring = "<?php echo $deadlines; ?>";
         var deadlinesArray = deadlinestring.split(',');
-        var teller = 0;
-        var deadline = new Date(Date.parse(new Date(deadlinesArray[teller])));
+        console.info(deadlinesArray);
+        var deadline = new Date(Date.parse(new Date(deadlinesArray[0])));
         initializeClock(deadline);
+
 
     </script>
     

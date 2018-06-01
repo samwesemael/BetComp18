@@ -1,7 +1,6 @@
 <?php session_start();?>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="../css/progressbarstyle.css">
 <link href='../css/dropzone.css' type='text/css' rel='stylesheet'>
 <script src='../js/dropzone.js' type='text/javascript'></script>
 <section class="content">
@@ -9,12 +8,19 @@
     include 'server.php';
     if(isset($_POST['reset_username'])){
         $username = mysqli_real_escape_string($db,$_POST['username']);
-        $modified = date("Y-m-d H:i:s");
-        $mail = $_SESSION['email'];
-        $query = "UPDATE bc18_users SET user_name = '$username', modified = '$modified' WHERE email = '$mail'";
-        $_SESSION['username'] = $username;
-        mysqli_query($db, $query);
-        // echo 'new username = '.$_POST['username'];
+        $check = "SELECT user_name FROM `bc18_users` WHERE user_name = '$username'";
+        $result = mysqli_query($db, $check);
+        if(mysqli_num_rows($result) > 0){
+            echo "<script>alert('This username is already in use. Take another one.');</script>";
+        }
+        else{
+            $mail = $_SESSION['email'];
+            $query = "UPDATE bc18_users SET user_name = '$username', modified = NOW() WHERE email = '$mail'";
+            $_SESSION['username'] = $username;
+            mysqli_query($db, $query);
+            // echo 'new username = '.$_POST['username'];
+        }
+        
     }
     if(isset($_POST['reset_pass'])){
         $password = mysqli_real_escape_string($db, $_POST['password']);
@@ -89,7 +95,7 @@
                         $result = mysqli_query($db,$sql);
                         $rowcount = mysqli_num_rows($result);
                     ?>
-                    <ol class="menu">
+                    <ol class="menu" style="list-style-type: none;">
                                     <?php
                                         while ($data = mysqli_fetch_array($result)){
                                             // color are classes from style.css
@@ -155,7 +161,7 @@
                         while ($data = mysqli_fetch_array($result)){
                             array_push($achieved,$data['bc18_achievement']);
                         }
-                        $achievsql = "SELECT * FROM bc18_achievements LEFT JOIN `bc18_achieved`ON bc18_achievements.bc18_id = bc18_achieved.bc18_achievement ORDER BY bc18_id";
+                        $achievsql = "SELECT * FROM bc18_achievements LEFT JOIN `bc18_achieved`ON bc18_achievements.bc18_id = bc18_achieved.bc18_achievement AND bc18_achieved.bc18_user = '$mail' ORDER BY bc18_id ";
                         $achieves = mysqli_query($db,$achievsql);
                         while ($data = mysqli_fetch_array($achieves)){
                             if(in_array($data['bc18_id'], $achieved) ){
@@ -203,8 +209,8 @@
                         }
 
                     ?>
+                    </div>
                 </div>
-                                    </div>
                 <div class="tab-pane fade in" id="tab3">
                     <h3>INSTELLINGEN</h3>
                     
@@ -263,6 +269,7 @@
                                     </form>
                                 </div>
                             </div>
+                            <div id="error"></div>
                         </div>
                     </div>
                     <!-- END username -->

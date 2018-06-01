@@ -27,11 +27,10 @@
             $res = mysqli_query($db, $tstquery);
             while ($data = mysqli_fetch_array($res)) {
                 $dtnow = new DateTime();
-                // omzetten naar juiste timezone alleen als in database ook in juiste timezone zit
-                // $dtnow ->setTimeZone(new DateTimeZone('Europe/Brussels'));
+                $date->setTimezone(new DateTimeZone('UTC'));
                 $dtdatabase = new DateTime($data['datum']);
                 $datastatus = $data['status'];
-                if($dtnow > $dtdatabase || $datastatus == 'FINISHED' ||$datastatus == 'IN_PLAY'){
+                if($dtnow > $dtdatabase || $datastatus == 'FINISHED' || $datastatus == 'IN_PLAY'){
                     // match is al begonnen
                     $status = 'error_status';
                 }
@@ -53,17 +52,14 @@
             $res = mysqli_query($db, $achievsql);
             $aantal = mysqli_num_rows($res);
             if($aantal == 1){
-
-
                 //1st bet achievement
-                //achievement toevoegen
-
-                addAchievement($db, 2, $mail);
+                if(!achievedAchievement($db, 2, $mail))
+                    addAchievement($db, 2, $mail);
             }
             elseif($aantal == 15){
                 //eerste 5 bets
-                //achievement toevoegen
-                addAchievement($db, 3, $mail);            
+                if(!achievedAchievement($db, 3, $mail))
+                    addAchievement($db, 3, $mail);            
             }
         }
     }
@@ -122,7 +118,11 @@
 									<p><b>Fixture</b></p>								
                                     <select name="match" id="match" class="form-control show-tick">
                                         <?php 
-                                        $dateNu = date_format(new DateTime(),'Y-m-d H:i:s');
+                                        $date = new DateTime();
+                                        $date->setTimezone(new DateTimeZone('UTC'));
+                                        $dateNu = $date->format('Y-m-d H:i:sP');
+ 
+
                                         $matchenquery = "SELECT team_home, team_away FROM bc18_games WHERE bettable ='1' and datum >= '$dateNu' ORDER BY datum"; 
                                         $results = mysqli_query($db, $matchenquery);
                                                 if (!$results) {
@@ -134,7 +134,15 @@
                                                             <option>'.$data['team_home'].' - '.$data['team_away'].'</option>';
                                                 }
                                         ?>
-                                    </select>					
+                                    </select>	
+
+                                    <?php
+                                    
+//                                     $date = new DateTime();
+// echo $date->format('Y-m-d H:i:sP') . "\n";
+
+// $date->setTimezone(new DateTimeZone('UTC'));
+// echo $date->format('Y-m-d H:i:sP') . "\n";		?>
                                 </div>  
 					
 					<div class="row clearfix">
@@ -394,11 +402,11 @@
 	   
     </section>
 
-        <!-- Validation Plugin Js -->
-    <script src="../plugins/jquery-validation/jquery.validate.js"></script>
-
     <!-- Jquery Core Js -->
     <script src="../plugins/jquery/jquery.min.js"></script>
+
+    <!-- Validation Plugin Js -->
+    <script src="../plugins/jquery-validation/jquery.validate.js"></script>
 
     <!-- Bootstrap Core Js -->
     <script src="../plugins/bootstrap/js/bootstrap.js"></script>

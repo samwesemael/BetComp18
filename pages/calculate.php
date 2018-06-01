@@ -17,6 +17,16 @@ function addAchievement($db, $id, $userid) {
         return;
     }
 
+   function achievedAchievement($db, $id, $userid){
+   		$achieved = "SELECT bc18_achievement FROM bc18_achieved WHERE bc18_user = '$userid' AND bc18_achievement = '$id'";
+        $results = mysqli_query($db, $achieved);
+        $aantal = mysqli_num_rows($results);
+        if ($aantal > 0)
+        	return True;
+        else
+        	return False;
+   }
+
 echo 'start';
 
 $puntenMatchCorrect = 3;
@@ -90,11 +100,27 @@ while ($data = mysqli_fetch_array($results)){
 	$stmtklassement->bind_param('iiiisi', $newUitslag, $newWinnaar, $newTotaal, $meegerekend, $email, $gameid);
   	$stmtklassement->execute();
 
-  	if($correcteWinnaar)
-  		addAchievement($db, 5,$email);
-  	if($correcteScore)
-  		addAchievement($db, 7,$email);
-	}
+  	if($correcteWinnaar || $correcteScore){
+  		//guess the right winner
+  		if(!achievedAchievement($db,5,$email))
+  			addAchievement($db, 5,$email);
+  	}
+  	if($correcteScore){
+  		//guess the right score
+  		if(!achievedAchievement($db,7,$email))
+  			addAchievement($db, 7,$email);
+  	}
+  	if($newWinnaar+$newUitslag == 10){
+  		//guess the right winner of a game 10 times
+  		if(!achievedAchievement($db,6,$email))
+  			addAchievement($db, 6,$email);
+  	}
+  	if($newUitslag == 3){
+  		//guess the right score of a game 3 times
+  		if(!achievedAchievement($db,8,$email))
+  			addAchievement($db, 8,$email);
+  	}
+}
 
  	$stmtklassement->close();
  	
@@ -131,11 +157,12 @@ while ($data = mysqli_fetch_array($results)){
 			}
 			$teller++;
 		}
-		echo $totaal .'   '. $totaalTweede;
+		// echo $totaal .'   '. $totaalTweede;
 		if($totaal>$totaalTweede){
-			addAchievement($db, 18,$mail);
-		}
+			if(!achievedAchievement($db, 18, $mail))
+				addAchievement($db, 18,$mail);
 	 }
+	}
 	
 ?>
 <html>

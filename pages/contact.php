@@ -19,7 +19,6 @@
         $status = 'succes_status';
         $msg = mysqli_real_escape_string($db, $_POST['message']);
         mysqli_query($db, "INSERT INTO bc18_chat(bc18_username, bc18_msg, bc18_created) VALUES ('$uname','$msg', NOW()) ");
-    }
     if (mysqli_affected_rows($db)==0){
         if($status != 'error_status'){
             $status = 'overall_error';
@@ -39,9 +38,10 @@
             $stmt3->execute();
 
         }
-        mysqli_query($db, "INSERT INTO bc18_chat(bc18_username, bc18_msg, bc18_created) VALUES ('$uname','$msg', NOW()) ");
-        addAchievement($db, 15, $mail);
+        if(!achievedAchievement($db,15,$mail))
+            addAchievement($db, 15, $mail);
     }
+}
 ?>
     <section class="content">	
        <div class="row clearfix">

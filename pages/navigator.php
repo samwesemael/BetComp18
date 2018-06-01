@@ -79,19 +79,6 @@
     <!-- #END# Page Loader -->
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
-    <!-- #END# Overlay For Sidebars -->
-    <!-- Search Bar 
-    <div class="search-bar">
-        <div class="search-icon">
-            <i class="material-icons">search</i>
-        </div>
-        <input type="text" placeholder="START TYPING...">
-        <div class="close-search">
-            <i class="material-icons">close</i>
-        </div>
-    </div> -->
-
-<!-- php code voor notifactie  -->
 <?php
     include 'server.php';
 
@@ -108,8 +95,36 @@
         $stmt3->bind_param('ssssi', $userid, $link, $class, $message, $read);
         $stmt3->execute();
         $stmt3->close();
+        echo "<script>
+                var span = document.getElementById('notiflabel');
+                var waarde = document.getElementById('notiflabel').innerHTML;
+                if (waarde == '' || waarde == null){
+                    while( span.firstChild ) {
+                        span.removeChild( span.firstChild );
+                    }
+                    span.appendChild( document.createTextNode('1'));
+                }
+                else {
+                    waarde = parseInt(waarde)+1;
+
+                    while( span.firstChild ) {
+                        span.removeChild( span.firstChild );
+                    }
+                    span.appendChild( document.createTextNode(waarde) );
+                }
+            </script>";
         return;
     }
+
+    function achievedAchievement($db, $id, $userid){
+        $achieved = "SELECT bc18_achievement FROM bc18_achieved WHERE bc18_user = '$userid' AND bc18_achievement = '$id'";
+        $results = mysqli_query($db, $achieved);
+        $aantal = mysqli_num_rows($results);
+        if ($aantal > 0)
+            return True;
+        else
+            return False;
+   }
 
     if (!empty($_GET['notif'])) {
         $notification = $_GET['notif'];
@@ -149,13 +164,16 @@
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
                             <?php if($aantal != 0){ ?>
-                            <span class="label-count"><?php echo $aantal; ?></span>
+                                <span id="notiflabel" class="label-count"><?php echo $aantal; ?></span>
+                            <?php }
+                            else{ ?>
+                                <span id="notiflabel" class="label-count"><?php echo ''; ?></span>
                             <?php } ?>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="header">NOTIFICATIONS</li>
                             <li class="body">
-                                <ul class="menu">
+                                <ul class="menu" style="list-style-type: none;">
                                     <?php
                                         while ($data = mysqli_fetch_array($result)){
                                             // color are classes from style.css

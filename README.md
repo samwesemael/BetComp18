@@ -5,8 +5,8 @@
 
 - [ ] calculate punten aanpassen zodat ook na poule werkt (met penalties)
 - [ ] automatisch berekenen na de wedstrijd (nu nog manueel naar calculate.php gaan)
-- [ ] tijd van notificatie in UTC --> verzetten naar werkelijke tijdzone
-- [ ] timer next match geeft NAN wanneer hij op 0 was en niet automatisch naar nieuwe match
+- [x] tijd van notificatie in UTC --> verzetten naar werkelijke tijdzone
+- [x] timer next match geeft NAN wanneer hij op 0 was en niet automatisch naar nieuwe match
 - [ ] navbar collapse
 - [ ] eventueel ook kolom me aantal gegokte matchen bij klassement
 - [x] chat?  
@@ -23,13 +23,15 @@
 
 - [x] poll om de matchen te kiezen waarop gegokt zal worden
 - [ ] spelregels finaal maken
-- [ ] term of usage maken of check sign up verwijderen
+- [ ] veld op indienen aanpassen zodat laatste veld een dropdown is om de winnaar aan te duiden
+- [x] term of usage maken of check sign up verwijderen  --> voorlopig verwijderd --> makkelijk toe te voegen indien nodig
 - [ ] kijken naar padding want teveel ruimte (vooral op mobile) niet gebruikt
-- [ ] change username form aanpassen (enkel nieuwe username mag)
+- [x] change username form aanpassen (enkel nieuwe username mag)
 - [ ] rommel opkuisen van template (vooral map plugins is groot)
 - [ ] vuilste ploeg bonus berekenen
 - [ ] code voor achievements berekenen
-- [ ] contact page --> messages dubbel in db en op pagina
+- [x] contact page --> messages dubbel in db en op pagina
+- [ ] juiste ster tonen bij juiste aantal achievements
 
 ##### Veiligheid:
 

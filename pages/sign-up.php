@@ -190,10 +190,10 @@ else{
                             <input type="password" class="form-control" name="confirm" minlength="6" placeholder="Confirm Password" required>
                         </div>
                     </div>
-                    <div class="form-group">
+<!--                     <div class="form-group">
                         <input type="checkbox" name="terms" id="terms" class="filled-in chk-col-pink">
                         <label for="terms">I read and agree to the <a href="javascript:void(0);">terms of usage</a>.</label>
-                    </div>
+                    </div> -->
                     <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit" name="reg_user">SIGN UP</button>
                     <div class="m-t-25 m-b--5 align-center">
                         <a href="sign-in.php">You already have a membership?</a>
