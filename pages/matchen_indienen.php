@@ -27,7 +27,7 @@
             $res = mysqli_query($db, $tstquery);
             while ($data = mysqli_fetch_array($res)) {
                 $dtnow = new DateTime();
-                $date->setTimezone(new DateTimeZone('UTC'));
+                $dtnow->setTimezone(new DateTimeZone('UTC'));
                 $dtdatabase = new DateTime($data['datum']);
                 $datastatus = $data['status'];
                 if($dtnow > $dtdatabase || $datastatus == 'FINISHED' || $datastatus == 'IN_PLAY'){

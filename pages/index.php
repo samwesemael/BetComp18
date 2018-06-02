@@ -378,10 +378,10 @@
             var n = -(d.getTimezoneOffset()*60000);
 
             var t = Date.parse(endtime) - Date.parse(new Date());
-            console.info(t);
+            // console.info(t);
             t=t+n;
             var seconds = Math.floor((t / 1000) % 60);
-            console.info( )
+            // console.info( )
             var minutes = Math.floor((t / 1000 / 60) % 60);
             var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
             var days = Math.floor(t / (1000 * 60 * 60 * 24));
