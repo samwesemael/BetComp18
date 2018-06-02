@@ -244,8 +244,12 @@
                 <div class="image">
                     <img src="<?php echo $_SESSION['profilepicpath'] ?>" width="48" height="48" alt="User" class="img-responsive"/>
                     <?php 
-                    if( $numberofAchievements>5)
-                        echo '<img src="../images/1star.svg" style="width:25px; position: absolute; top:40px; left:50px" />'; 
+                    if($numberofAchievements<10 && $numberofAchievements>=5)
+                        echo '<img src="../images/1star.png" style="width:25px; position: absolute; top:40px; left:50px" />'; 
+                    if($numberofAchievements<15 && $numberofAchievements>=10)
+                        echo '<img src="../images/2star.png" style="width:25px; position: absolute; top:40px; left:50px" />'; 
+                    if($numberofAchievements>=15)
+                        echo '<img src="../images/3star.png" style="width:25px; position: absolute; top:40px; left:50px" />'; 
                     ?>
                 </div>
                 <div class="info-container">

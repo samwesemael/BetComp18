@@ -141,7 +141,7 @@
                         <div class="row clearfix">
                             <div class="col-xs-12 col-sm-12">                                        
                                     <?php  
-                                        $sqlklassement = "SELECT bc18_users.user_name, bc18_users.first_name, bc18_klassement.totaal, bc18_users.pic_path FROM bc18_klassement inner join bc18_users on bc18_klassement.email = bc18_users.email WHERE bc18_users.verification = 1 ORDER BY totaal DESC, uitslag_correct DESC, winnaar_correct DESC LIMIT 4";
+                                        $sqlklassement = "SELECT bc18_users.email, bc18_users.user_name, bc18_users.first_name, bc18_klassement.totaal, bc18_users.pic_path FROM bc18_klassement inner join bc18_users on bc18_klassement.email = bc18_users.email WHERE bc18_users.verification = 1 ORDER BY totaal DESC, uitslag_correct DESC, winnaar_correct DESC LIMIT 4";
                                         $results = mysqli_query($db, $sqlklassement);
                                         if (!$results) {
                                             printf("Error: %s\n", mysqli_error($db));
@@ -149,19 +149,34 @@
                                           }
                                         $loop = 1;                                                
                                         while($data = mysqli_fetch_array($results)){
+                                            $adres=$data['email'];
                                             if($data['pic_path']===''){
                                                 $afbeelding = '../images/users/noImage.jpg';
                                             }
                                             else{
                                                 $afbeelding = $data['pic_path'];
                                             }
+                                            $rank = "SELECT * from bc18_achieved where bc18_user = '$adres' ";
+                                            // echo $sql;
+                                            $result = mysqli_query($db,$rank);
+                                            $numberofAchievements = mysqli_num_rows($result);
+                                            if($adres==$_SESSION['email'])
+                                                $achievementsActiveUser = $numberofAchievements;
                                             echo '
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                                       <div>
                                                         <h6><center>'.$loop.'e place</center></h6>
                                                         <img src=" '.$afbeelding.'" alt="" class="img-circle img-responsive">';
-                                                        if( $numberofAchievements>5 && $data['user_name'] == $_SESSION['username'])
-                                                            echo '<img src="../images/1star.svg" alt="" style="display: block;
+                                                        if($numberofAchievements<10 && $numberofAchievements>=5)
+                                                            echo '<img src="../images/1star.png" alt="" style="display: block;
+                                                          max-width: 30%;
+                                                          height: auto; position:absolute; top:37%; left:55%;">';
+                                                        if($numberofAchievements<15 && $numberofAchievements>=10)
+                                                            echo '<img src="../images/2star.png" alt="" style="display: block;
+                                                          max-width: 30%;
+                                                          height: auto; position:absolute; top:37%; left:55%;">';
+                                                        if($numberofAchievements>=15)
+                                                            echo '<img src="../images/3star.png" alt="" style="display: block;
                                                           max-width: 30%;
                                                           height: auto; position:absolute; top:37%; left:55%;">';
                                                         echo '
@@ -328,13 +343,32 @@
                     <div class="body bg">
                         <div class="font-bold m-b--35">ACHIEVEMENTS  <a class="btn btn-small btn-info pull-right" href="profile.php">Full List</a> </div>  <br> <br>
                         
-							<div class="font-bold m-b--35"><center><h1><class="col-blue">xx</font>/20</h1></center></div> 
+							<div class="font-bold m-b--35"><center><h1><class="col-blue"><?php echo $achievementsActiveUser;?></font>/20</h1></center></div> 
 							<ul class="dashboard-stat-list">
                             <li>
-                                CURRENT RANK <span class="pull-right col-blue"><b>Tom Soetaers</b></span> 
+                                <?php
+                                $rank = "Tom Soetaers";
+                                if($achievementsActiveUser<10 && $achievementsActiveUser>=5)
+                                    $rank="Frank Raes";
+                                if($achievementsActiveUser<15 && $achievementsActiveUser>=10)
+                                    $rank="Marc Degryse";
+                                if($achievementsActiveUser>=15)
+                                    $rank="Peter Vandenbempt"
+                            ?>
+                                CURRENT RANK <span class="pull-right col-blue"><b><?php echo $rank; ?></b></span> 
                         	</li>
 							<li>
-								LAST ACHIEVEMENT    <span class="pull-right col-blue"><b>Welcome</b></span>
+                                <?php
+                                    $mail = $_SESSION['email'];
+                                    $rank = "SELECT * from bc18_achieved INNER JOIN bc18_achievements ON bc18_achievements.bc18_id = bc18_achieved.bc18_achievement where bc18_user = 'jordy_vds@msn.com' ORDER BY bc18_created DESC LIMIT 1";
+                                    // echo $sql;
+                                    $result = mysqli_query($db,$rank);
+                                    if($data = mysqli_fetch_array($result)){
+                                        $lastAchieved = $data['bc18_title'];
+                                    }
+
+                                ?>
+								LAST ACHIEVEMENT    <span class="pull-right col-blue"><b><?php echo $lastAchieved; ?></b></span>
 							</li>
 							</ul>
                     </div>
@@ -427,7 +461,7 @@
         
         var deadlinestring = "<?php echo $deadlines; ?>";
         var deadlinesArray = deadlinestring.split(',');
-        console.info(deadlinesArray);
+        // console.info(deadlinesArray);
         var deadline = new Date(Date.parse(new Date(deadlinesArray[0])));
         initializeClock(deadline);
 

@@ -31,7 +31,7 @@
 - [ ] vuilste ploeg bonus berekenen
 - [ ] code voor achievements berekenen
 - [x] contact page --> messages dubbel in db en op pagina
-- [ ] juiste ster tonen bij juiste aantal achievements
+- [x] juiste ster tonen bij juiste aantal achievements
 
 ##### Veiligheid:
 

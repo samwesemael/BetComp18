@@ -41,7 +41,7 @@ include('server.php');
 
                                     <?php
 
-                                        $sqlklassement = "SELECT bc18_users.user_name, bc18_klassement.totaal, bc18_klassement.bonus, bc18_klassement.uitslag_correct, bc18_klassement.winnaar_correct, bc18_users.pic_path FROM bc18_klassement inner join bc18_users on bc18_klassement.email = bc18_users.email WHERE bc18_users.verification = 1 ORDER BY totaal DESC, uitslag_correct DESC, winnaar_correct DESC ";
+                                        $sqlklassement = "SELECT bc18_users.email, bc18_users.user_name, bc18_klassement.totaal, bc18_klassement.bonus, bc18_klassement.uitslag_correct, bc18_klassement.winnaar_correct, bc18_users.pic_path FROM bc18_klassement inner join bc18_users on bc18_klassement.email = bc18_users.email WHERE bc18_users.verification = 1 ORDER BY totaal DESC, uitslag_correct DESC, winnaar_correct DESC ";
                                         $results = mysqli_query($db, $sqlklassement);
                                         if (!$results) {
                                             printf("Error: %s\n", mysqli_error($conn));
@@ -49,27 +49,35 @@ include('server.php');
                                           }
                                         $ranking = 1;
                                         while($data = mysqli_fetch_array($results)){
-                                             if($data['pic_path']===''){
-                                                        $afbeelding = '../images/users/noImage.jpg';
-                                                    }
-                                                    else{
-                                                        $afbeelding = $data['pic_path'];
-                                                    }
-                                        echo'
-                                            <tr>
-                                                <th scope="row">'.$ranking.'</th>
-                                                <td><img style="max-height:40px;" src="'.$afbeelding.'" alt="" class="img-circle">';
-                                            if( $numberofAchievements>5 && $data['user_name'] == $_SESSION['username'])
-                                                echo '<img style="max-height:20px; position: relative; left:-20px; top:15px;" src="../images/1star.svg" alt="" > ';
+                                            $adres = $data['email'];
+                                            if($data['pic_path']===''){
+                                                $afbeelding = '../images/users/noImage.jpg';
+                                                }
+                                            else{
+                                                $afbeelding = $data['pic_path'];
+                                            }
+                                            $rank = "SELECT * from bc18_achieved where bc18_user = '$adres' ";
+                                            // echo $sql;
+                                            $result = mysqli_query($db,$rank);
+                                            $numberofAchievements = mysqli_num_rows($result);
+                                            echo'
+                                                <tr>
+                                                    <th scope="row">'.$ranking.'</th>
+                                                    <td><img style="max-height:40px;" src="'.$afbeelding.'" alt="" class="img-circle">';
+                                            if($numberofAchievements<10 && $numberofAchievements>=5)
+                                                echo '<img style="max-height:20px; position: relative; left:-20px; top:15px;" src="../images/1star.png" alt="">';
+                                            if($numberofAchievements<15 && $numberofAchievements>=10)
+                                                echo '<img style="max-height:20px; position: relative; left:-20px; top:15px;" src="../images/2star.png" alt="">';
+                                            if($numberofAchievements>=15)
+                                                echo '<img style="max-height:20px; position: relative; left:-20px; top:15px;" src="../images/3star.png" alt="">';
                                             echo $data['user_name'].'</td>
                                                 <td>'.$data['winnaar_correct'].'</td>
                                                 <td>'.$data['uitslag_correct'].'</td>
 												<td>'.$data['bonus'].'</td>
                                                 <td><b>'.$data['totaal'].'</b></td>
-                                            </tr>
-                                        ';
-                                        $ranking++;
-                                        }
+                                            </tr>';
+                                            $ranking++;
+                                            }
                                         ?>
                                 </tbody>
                             </table>

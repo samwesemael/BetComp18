@@ -45,8 +45,12 @@
                 <div class="useravatar">
                     <img class="mainImage" alt="" src="<?php echo $_SESSION["profilepicpath"]; ?>">
                     <?php
-                    if( $numberofAchievements>5)
-                        echo '<img class="secondImage" alt="star" src="../images/1star.svg">';
+                    if($numberofAchievements<10 && $numberofAchievements>=5)
+                        echo '<img class="secondImage" alt="star" src="../images/1star.png">';
+                    if($numberofAchievements<15 && $numberofAchievements>=10)
+                        echo '<img class="secondImage" alt="star" src="../images/2star.png">';
+                    if($numberofAchievements>=15)
+                        echo '<img class="secondImage" alt="star" src="../images/3star.png">';
                     ?>
                     
                 </div>
