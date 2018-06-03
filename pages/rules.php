@@ -133,11 +133,10 @@
                             <h4> Winst </h4>
 
 							 Het opgehaalde geld wordt als volgt verdeeld:
-							<i>
-                            <ul> 
+						     <ul> 
 							  <li> De top 3 bij afloop van de competitie ontvangt een beker die wordt gefinancierd met het opgehaalde geld. </li>
                               <li> Het resterende geld wordt onder de top 5 verdeeld naar verhouding van het aantal gehaalde punten. </li>                              
-                            </ul> </i>	<br>  
+                            </ul> 	<br>  
 							
 							<h4> Doneer om de hosting te financieren: </h4> <br>
 	
