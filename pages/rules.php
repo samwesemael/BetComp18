@@ -28,25 +28,20 @@
                                     <li> Winnaar/gelijkspel juist: <b>&#9;1 punt</b> </li> 
                                 </ul>
                                
-								In de groepsfase worden de punten berekend op basis van de wedstrijduitslag na 90'. In de knockoutfase gebeurt de puntenverdeling na 120'. Een voorbeelden:
+								De uitzondering zit hem vanaf de knock-outfase. De score die je dan indient is de score na <b>90'</b>. Wanneer je een gelijkspel indient vul je in het vakje 'extra' 
+								ook de winnaar na <b>120'</b> (verlengingen/penalties) in. Wanneer je dit correct hebt kan je een extra punt verdienen, degenen die geen gelijkspel invulden kunnen 
+								dit punt ook verdienen als zij de winnende ploeg in hun pronotiek juist inschatten.
+								<br>De puntenverdeling is dan als volgt: 
 								<p>
 								<ul>
-								<li>	Persoon A gokt 1-1 </li>
-								<li> 	Persoon B gokt 1-0 </li>
-								<li>	Persoon C gokt 0-2 </li>
-								<li>	Persoon D gokt 2-2 </li>
+									<li>je had het gelijkspel na 90' juist met de juiste score en duidt de verkeerde winnaar aan na 120': <b>3 punten</b> </li>
+									<li>je had het gelijkspel na 90' juist met de juiste score en duidt de juiste winnaar aan na 120': <b>4 punten</b> </li>
+									<li>je had het gelijkspel na 90' juist maar niet de juiste score en duidt de juiste winnaar aan na 120': <b>2 punten</b> </li>
+									<li>je had het gelijkspel na 90' juist maar niet de juiste score en duidt de foute winnaar aan: <b>1 punt</b> </li>
+									<li>je gokt geen gelijkspel na 90', en hebt de score perfect juist: <b>4 punten</b> </li>
+									<li>je gokt geen gelijkspel na 90', en hebt de winnaar juist: <b>2 punt</b> </li>
 								</ul>
-								</p>
-								De westrijd eindigt op 2-2 (120'), de thuisploeg wint na penalties. Dan is de puntenverdeling als volgt:
-								<p>
-								<ul>
-								<li> Persoon A: 1 punt voor gelijkspel juist. </li>
-								<li> Persoon B: 1 punt voor correcte ploeg naar volgende ronde </li>
-								<li> Persoon C: 0 punten </li>
-								<li> Persoon D: 3 punten </li>
-								</ul>
-								</p>
-								
+								</p>								
 								Indien er na puntenverdeling van alle wedstrijden een gelijkstand plaatsvindt zijn dit de volgende criteria waarop je positie in het klassement bepaald wordt: 
                             </p> 
                             <p>
@@ -135,8 +130,13 @@
 							 Het opgehaalde geld wordt als volgt verdeeld:
 						     <ul> 
 							  <li> De top 3 bij afloop van de competitie ontvangt een beker die wordt gefinancierd met het opgehaalde geld. </li>
+<<<<<<< HEAD
                               <li> Het resterende geld wordt onder de top 5 verdeeld naar verhouding van het aantal gehaalde punten. </li>                              
                             </ul> 	<br>  
+=======
+                              <li> Het resterende geld wordt onder de top 10 verdeeld naar verhouding van het aantal gehaalde punten. </li>                              
+                            </ul> </i>	<br>  
+>>>>>>> parent of bc1905c... rules
 							
 							<h4> Doneer om de hosting te financieren: </h4> <br>
 	
