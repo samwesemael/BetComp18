@@ -130,13 +130,11 @@
 							 Het opgehaalde geld wordt als volgt verdeeld:
 						     <ul> 
 							  <li> De top 3 bij afloop van de competitie ontvangt een beker die wordt gefinancierd met het opgehaalde geld. </li>
-<<<<<<< HEAD
                               <li> Het resterende geld wordt onder de top 5 verdeeld naar verhouding van het aantal gehaalde punten. </li>                              
                             </ul> 	<br>  
-=======
                               <li> Het resterende geld wordt onder de top 10 verdeeld naar verhouding van het aantal gehaalde punten. </li>                              
-                            </ul> </i>	<br>  
->>>>>>> parent of bc1905c... rules
+                            </ul> br>  
+
 							
 							<h4> Doneer om de hosting te financieren: </h4> <br>
 	
