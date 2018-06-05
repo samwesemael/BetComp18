@@ -20,7 +20,7 @@
     					<div class="body">
     				        <h4>Wedstrijden</h4>
     					       <p> We gokken op 1 match per dag zodat de studenten maar 2 uur per dag nagelbijtend voor hun tv moeten zitten. Dit zijn in totaal <b>25 wedstrijden</b>, <br> waarvan de te wedden wedstrijden van de groepsfase voor aanvang van het WK bepaald worden.</p>
-                            <h4> Punten </h4>
+							<h4> Punten </h4>
     					
                             <p> Iedereen geeft voor aanvang van de wedstrijd zijn gok voor de einduitslag mee:
         					    <ul>
