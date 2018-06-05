@@ -132,10 +132,7 @@
 							  <li> De top 3 bij afloop van de competitie ontvangt een beker die wordt gefinancierd met het opgehaalde geld. </li>
                               <li> Het resterende geld wordt onder de top 5 verdeeld naar verhouding van het aantal gehaalde punten. </li>                              
                             </ul> 	<br>  
-                              <li> Het resterende geld wordt onder de top 10 verdeeld naar verhouding van het aantal gehaalde punten. </li>                              
-                            </ul> br>  
-
-							
+                            							
 							<h4> Doneer om de hosting te financieren: </h4> <br>
 	
 				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
