@@ -79,12 +79,12 @@
 	$response_wc_fixtures = file_get_contents($WC_fixtures, false, $stream_context);
 	$response_wc_fixtures = json_decode($response_wc_fixtures);
 	
-	$stmt = $db->prepare("UPDATE bc18_games SET matchday = ?, goals_home = ?, goals_away = ?, status = ?, href = ? WHERE team_home = ? AND team_away = ?");
+	$stmt = $db->prepare("UPDATE bc18_games SET datum = ?, matchday = ?, goals_home = ?, goals_away = ?, status = ? WHERE href = ?");
 
 	foreach ($response_wc_fixtures->fixtures as $fixture) {
 		 $datum = $fixture->date;
 		 // echo $datum;
-
+		 $href = $fixture->_links->self->href;
 		 $hometeam = $fixture->homeTeamName;
 		 $awayteam = $fixture->awayTeamName;
 		 $goalshome = $fixture->result->goalsHomeTeam;
@@ -102,7 +102,7 @@
 		 // query zonder datum
 	 	// misschien nog aanpassen naar ssss indien van API string ontvangen wordt voor goal
   		
-  		$stmt->bind_param('iiissss', $matchday, $goalshome, $goalsaway, $status, $href, $hometeam, $awayteam);
+  		$stmt->bind_param('siiiss', $datum, $matchday, $goalshome, $goalsaway, $status, $href);
   		$stmt->execute();
   		
 		//$query = "UPDATE bc18_games SET goals_home = '$goalshome', goals_away = '$goalsaway' WHERE team_home = '$hometeam' AND team_away = '$awayteam'";

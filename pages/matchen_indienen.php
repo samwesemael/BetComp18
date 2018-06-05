@@ -14,6 +14,7 @@
     if(isset($_POST['bet-btn'])){
         $matchid = mysqli_real_escape_string($db, $_POST['match']);
         $score = mysqli_real_escape_string($db, $_POST['score']);
+        $survivor = mysqli_real_escape_string($db, $_POST['survivor']);
         $tempscore = explode('-', $score);
         if($tempscore[0] == '' || $tempscore[1] == ''){
             $status = 'invalid';
@@ -37,8 +38,22 @@
                 else{
                     $status = 'succes_status';
                     // match moet nog beginnen
+                    if(!achievedAchievement($db, 13, $mail)){
 
-                    $indienquery = "INSERT INTO bc18_bets (bc18_userid, bc18_gameid, bc18_pred_goalshome, bc18_pred_goalsaway, created) VALUES('$mail', (SELECT game_id FROM bc18_games WHERE team_home ='$hometeam' AND team_away = '$awayteam'), '$tempscore[0]', '$tempscore[1]', NOW()) ON DUPLICATE KEY UPDATE bc18_pred_goalshome='$tempscore[0]', bc18_pred_goalsaway='$tempscore[1]', created = NOW()";
+                        $gameid;
+                        $gamequery = "SELECT game_id FROM bc18_games WHERE team_home ='$hometeam' AND team_away = '$awayteam'";
+                        $res = mysqli_query($db, $gamequery);
+                        if($data = mysqli_fetch_array($res)){
+                            $gameid = $data['game_id'];
+                        }
+                        $checkquery = "SELECT * FROM bc18_bets WHERE bc18_game_id = '$gameid' AND bc18_userid = '$mail'";
+                        $results = mysqli_query($db, $checkquery);
+                        $aantal = mysqli_num_rows($results);
+                        if($aantal > 1){
+                            addAchievement($db, 13, $mail);
+                        }
+                    }
+                    $indienquery = "INSERT INTO bc18_bets (bc18_userid, bc18_gameid, bc18_pred_goalshome, bc18_pred_goalsaway, bc18_survivor, created) VALUES('$mail', (SELECT game_id FROM bc18_games WHERE team_home ='$hometeam' AND team_away = '$awayteam'), '$tempscore[0]', '$tempscore[1]', '$survivor', NOW()) ON DUPLICATE KEY UPDATE bc18_pred_goalshome='$tempscore[0]', bc18_pred_goalsaway='$tempscore[1]', bc18_survivor = '$survivor', created = NOW()";
                     mysqli_query($db, $indienquery);
                 }
             }
@@ -157,12 +172,13 @@
 						</div>	
 						
 						<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">	
-															<p><b>Extra</b>  <small>(from knockout)</small> </p>
+															<p><b>Extra when draw</b>  <small>(from knockout)</small> </p>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="extra">
-                                        <label class="form-label">69</label>
-										
+                                        <select name="survivor" id="survivor" class="show-tick">
+                                            <option>Home</option>
+                                            <option>Away</option>
+                                        </select>
                                     </div>
                                 </div>   
 						</div>	

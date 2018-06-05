@@ -74,5 +74,14 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
 	$query = "UPDATE bc18_users SET pic_path = '$filename' WHERE email = '$email'";
 	$_SESSION['profilepicpath'] = $filename;
 	mysqli_query($db, $query);
+	$achieved = "SELECT bc18_achievement FROM bc18_achieved WHERE bc18_user = '$userid' AND bc18_achievement = '$id'";
+    $results = mysqli_query($db, $achieved);
+    $aantal = mysqli_num_rows($results);
+    if ($aantal > 0){
+       	$query = "INSERT INTO bc18_achieved(bc18_user, bc18_achievement, bc18_created) VALUES ('$email', 14,NOW())";
+		mysqli_query($db, $query);
+		$query = "INSERT INTO bc18_notifications(bc18_user, bc18_link, bc18_class, bc18_message, bc18_read, bc18_created) VALUES('$email', 'profile.php', 'achieve', 'New achievement unlocked', 0, NOW())";
+		mysqli_query($db, $query);
+        }
 	}
 ?>
