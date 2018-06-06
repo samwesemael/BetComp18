@@ -28,7 +28,7 @@ function addAchievement($db, $id, $userid) {
    }
    
    function isKnockoutStage($matchday){
-		if($gameday > 3){
+		if($matchday > 3){
 			return True;
 		}
 		else{
@@ -42,95 +42,248 @@ echo 'start';
 
 $puntenMatchCorrect = 3;
 $puntenWinnaarCorrect = 1;
+$teamGaatDoor = 1;
 $meegerekend = 1;
 $nieuweUpdate = False;
 
-$query = 'SELECT bc18_betid as betID, bc18_userid AS userID, bc18_gameid AS gameID, games.goals_home AS goals_home, games.goals_away AS goals_away, bc18_pred_goalshome AS pred_goals_home, bc18_pred_goalsaway AS pred_goals_away, games.penalties_home AS penalties_home, games.penalties_away AS penalties_away, bc18_pred_penaltieshome AS pred_penalties_home, bc18_pred_penaltiesaway AS pred_penalties_away, klassement.uitslag_correct AS uitslag_correct, klassement.winnaar_correct AS winnaar_correct, klassement.totaal AS totaal FROM bc18_bets AS bets INNER JOIN bc18_games AS games ON games.game_id = bets.bc18_gameid INNER JOIN bc18_klassement AS klassement on klassement.email = bets.bc18_userid WHERE games.status = "FINISHED" AND bets.bc18_meegerekend = 0 order by bets.bc18_gameid asc ';
+$query = 'SELECT bc18_survivor AS survivor, bc18_betid as betID, bc18_userid AS userID, games.matchday AS matchday, bc18_gameid AS gameID, games.goals_home AS goals_home, games.goals_away AS goals_away, games.extra_home AS extra_home, games.extra_away AS extra_away, bc18_pred_goalshome AS pred_goals_home, bc18_pred_goalsaway AS pred_goals_away, games.penalties_home AS penalties_home, games.penalties_away AS penalties_away, bc18_pred_penaltieshome AS pred_penalties_home, bc18_pred_penaltiesaway AS pred_penalties_away, klassement.uitslag_correct AS uitslag_correct, klassement.winnaar_correct AS winnaar_correct, klassement.totaal AS totaal FROM bc18_bets AS bets INNER JOIN bc18_games AS games ON games.game_id = bets.bc18_gameid INNER JOIN bc18_klassement AS klassement on klassement.email = bets.bc18_userid WHERE games.status = "FINISHED" AND bets.bc18_meegerekend = 0 order by bets.bc18_gameid asc';
 	
 $stmtklassement = $db->prepare("UPDATE bc18_klassement INNER JOIN bc18_bets ON bc18_klassement.email = bc18_bets.bc18_userid SET bc18_klassement.uitslag_correct = ?, bc18_klassement.winnaar_correct = ?, bc18_klassement.totaal = ?, bc18_bets.bc18_meegerekend = ? WHERE bc18_klassement.email = ? AND bc18_bets.bc18_gameid = ?");
 
 $results = mysqli_query($db, $query);
 while ($data = mysqli_fetch_array($results)){
-	$correcteScore = False;
-	$correcteWinnaar = False;
-	echo 'berekenen...';
-	$nieuweUpdate = True;
-	$email = $data['userID'];
-	$oldUitslag = $newUitslag = $data['uitslag_correct'];
-	$oldWinnaar = $newWinnaar = $data['winnaar_correct'];
-	$oldTotaal = $newTotaal = $data['totaal'];
-	echo $data['userID'].' wedt op de match met matchid = '.$data['gameID'].' met volgedende predicitie: '.$data['pred_goals_home'].'-'.$data['pred_goals_away'].'<br>';
-	echo 'De echte uitslag van deze wedstrijd was: '.$data['goals_home'].'-'.$data['goals_away'].'<br>';
-	if ($data['goals_home'] == $data['pred_goals_home'] && $data['goals_away'] == $data['pred_goals_away']){
-		echo 'user '.$data['userID'].' gokte juist ';
-		$newTotaal = $oldTotaal+$puntenMatchCorrect;
-		$newUitslag++;
-		echo ' --> zijn totaalscore gaat nu van '.$data['totaal'].' naar '.$newTotaal.'<br>';
-		$correcteScore = True;
-	}
-	elseif ($data['pred_goals_home']>$data['pred_goals_away']){
-			// home wint
-			if($data['goals_home']>$data['goals_away']){
-				// Juiste winnaar
-				$newTotaal = $oldTotaal+$puntenWinnaarCorrect;
-				$newWinnaar++;
-				echo 'Juiste Winnaar (home) dus totaalscore +1 <br>';
-				$correcteWinnaar = True;
-			}
-			else{
-				echo 'fout gegokt! <br>';
-			}
+	if(!isKnockoutStage($data['matchday'])){
+		//groepsfase
+		$correcteScore = False;
+		$correcteWinnaar = False;
+		echo 'berekenen...';
+		$nieuweUpdate = True;
+		$email = $data['userID'];
+		$oldUitslag = $newUitslag = $data['uitslag_correct'];
+		$oldWinnaar = $newWinnaar = $data['winnaar_correct'];
+		$oldTotaal = $newTotaal = $data['totaal'];
+		echo $data['userID'].' wedt op de match met matchid = '.$data['gameID'].' met volgedende predicitie: '.$data['pred_goals_home'].'-'.$data['pred_goals_away'].'<br>';
+		echo 'De echte uitslag van deze wedstrijd was: '.$data['goals_home'].'-'.$data['goals_away'].'<br>';
+		if ($data['goals_home'] == $data['pred_goals_home'] && $data['goals_away'] == $data['pred_goals_away']){
+			echo 'user '.$data['userID'].' gokte juist ';
+			$newTotaal = $oldTotaal+$puntenMatchCorrect;
+			$newUitslag++;
+			echo ' --> zijn totaalscore gaat nu van '.$data['totaal'].' naar '.$newTotaal.'<br>';
+			$correcteScore = True;
 		}
-	elseif ($data['pred_goals_home']<$data['pred_goals_away']) {
-			// away wint
-			if($data['goals_home']<$data['goals_away']){
-				// Juiste winnaar
-				$newTotaal = $oldTotaal+$puntenWinnaarCorrect;
-				$newWinnaar++;
-				echo 'Juiste Winnaar (away) dus totaalscore +1 <br>';
-				$correcteWinnaar = True;
+		elseif ($data['pred_goals_home']>$data['pred_goals_away']){
+				// home wint
+				if($data['goals_home']>$data['goals_away']){
+					// Juiste winnaar
+					$newTotaal = $oldTotaal+$puntenWinnaarCorrect;
+					$newWinnaar++;
+					echo 'Juiste Winnaar (home) dus totaalscore +1 <br>';
+					$correcteWinnaar = True;
+				}
+				else{
+					echo 'fout gegokt! <br>';
+				}
 			}
-			else{
-				echo 'fout gegokt! <br>';
+		elseif ($data['pred_goals_home']<$data['pred_goals_away']) {
+				// away wint
+				if($data['goals_home']<$data['goals_away']){
+					// Juiste winnaar
+					$newTotaal = $oldTotaal+$puntenWinnaarCorrect;
+					$newWinnaar++;
+					echo 'Juiste Winnaar (away) dus totaalscore +1 <br>';
+					$correcteWinnaar = True;
+				}
+				else{
+					echo 'fout gegokt! <br>';
+				}
 			}
-		}
-	elseif ($data['pred_goals_home']==$data['pred_goals_away']) {
-			// gelijkspel
-			if($data['goals_home']==$data['goals_away']){
-				// Juiste gok gelijkspel (fout aantal goals)
-				$newTotaal = $oldTotaal+$puntenWinnaarCorrect;
-				$newWinnaar++;
-				echo 'Juiste gok gelijkspel dus totaalscore +1 <br>';
+		elseif ($data['pred_goals_home']==$data['pred_goals_away']) {
+				// gelijkspel
+				if($data['goals_home']==$data['goals_away']){
+					// Juiste gok gelijkspel (fout aantal goals)
+					$newTotaal = $oldTotaal+$puntenWinnaarCorrect;
+					$newWinnaar++;
+					echo 'Juiste gok gelijkspel dus totaalscore +1 <br>';
+				}
+				else{
+					echo 'fout gegokt! <br>';
+				}
 			}
-			else{
-				echo 'fout gegokt! <br>';
-			}
-		}
-	echo '<br><br>';
-	$gameid = $data['gameID'];
-	$stmtklassement->bind_param('iiiisi', $newUitslag, $newWinnaar, $newTotaal, $meegerekend, $email, $gameid);
-  	$stmtklassement->execute();
+		echo '<br><br>';
+		$gameid = $data['gameID'];
+		$stmtklassement->bind_param('iiiisi', $newUitslag, $newWinnaar, $newTotaal, $meegerekend, $email, $gameid);
+	  	$stmtklassement->execute();
+	
+	  	if($correcteWinnaar || $correcteScore){
+	  		//first points
+	  		if(!achievedAchievement($db,5,$email))
+	  			addAchievement($db, 5,$email);
+	  	}
+	  	if($correcteScore){
+	  		//guess the right score
+	  		if(!achievedAchievement($db,7,$email))
+	  			addAchievement($db, 7,$email);
+	  	}
+	  	if($newWinnaar+$newUitslag == 10){
+	  		//guess the right winner of a game 10 times
+	  		if(!achievedAchievement($db,6,$email))
+	  			addAchievement($db, 6,$email);
+	  	}
+	  	if($newUitslag == 3){
+	  		//guess the right score of a game 3 times
+	  		if(!achievedAchievement($db,8,$email))
+	  			addAchievement($db, 8,$email);
+	  	}
+	  }
+	  else{
+	  	//berekening van de scores voor na de groepsfase
+	  	//groepsfase
+		$correcteScore = False;
+		$correcteWinnaar = False;
+		echo 'berekenen...';
+		$nieuweUpdate = True;
+		$email = $data['userID'];
+		$oldUitslag = $newUitslag = $data['uitslag_correct'];
+		$oldWinnaar = $newWinnaar = $data['winnaar_correct'];
+		$oldTotaal = $newTotaal = $data['totaal'];
+		echo $data['userID'].' wedt op de match met matchid = '.$data['gameID'].' met volgedende predicitie: '.$data['pred_goals_home'].'-'.$data['pred_goals_away'].'<br>';
+		echo 'De echte uitslag van deze wedstrijd was: '.$data['goals_home'].'-'.$data['goals_away'].'<br>';
 
-  	if($correcteWinnaar || $correcteScore){
-  		//guess the right winner
-  		if(!achievedAchievement($db,5,$email))
-  			addAchievement($db, 5,$email);
-  	}
-  	if($correcteScore){
-  		//guess the right score
-  		if(!achievedAchievement($db,7,$email))
-  			addAchievement($db, 7,$email);
-  	}
-  	if($newWinnaar+$newUitslag == 10){
-  		//guess the right winner of a game 10 times
-  		if(!achievedAchievement($db,6,$email))
-  			addAchievement($db, 6,$email);
-  	}
-  	if($newUitslag == 3){
-  		//guess the right score of a game 3 times
-  		if(!achievedAchievement($db,8,$email))
-  			addAchievement($db, 8,$email);
-  	}
+		// resultaat is winnaar home na 90 of 120 min
+		if($data['goals_home']>$data['goals_away'] || $data['extra_home']>$data['extra_away']){
+			echo 'na 90 of 120 min was home de winnaar <br>';
+			//juiste winnaar gegokt
+			if ($data['pred_goals_home']>$data['pred_goals_away']){
+				echo 'de user gokte dit correct <br>';
+				//juiste score gegokt na 90 of 120 min
+				if($data['goals_home'] == $data['pred_goals_home'] && $data['goals_away'] == $data['pred_goals_away'] || $data['extra_home'] == $data['pred_goals_home'] && $data['extra_away'] == $data['pred_goals_away']){
+					echo 'De user gokte ook de correcte eindstand <br>';
+					$newTotaal = $oldTotaal+$puntenMatchCorrect+$teamGaatDoor;
+					$newUitslag++;
+					echo ' --> zijn totaalscore gaat nu van '.$data['totaal'].' naar '.$newTotaal.'<br>';
+					$correcteScore = True;
+				}
+				//foute score 
+				else{
+					echo 'de eindstand van de user was echter niet correct <br>';
+					$newTotaal = $oldTotaal+$puntenWinnaarCorrect+$teamGaatDoor;
+					$newWinnaar++;
+					echo 'Juiste Winnaar (home) dus totaalscore +1 <br>';
+					$correcteWinnaar = True;
+				}
+			}
+			else{
+				echo 'de user had dit fout voorspeld <br>';
+			}
+		}
+		// resulaat is winnaar away na 90 of 120 min
+		elseif($data['goals_home']<$data['goals_away'] || $data['extra_home']<$data['extra_away']){
+			echo 'na 90 of 120 min was away de winnaar <br>';
+			//juiste winnaar gegokt
+			if ($data['pred_goals_home']<$data['pred_goals_away']){
+				echo 'de user gokte dit correct <br>';
+				//juiste score gegokt na 90 of 120 min
+				if($data['goals_home'] == $data['pred_goals_home'] && $data['goals_away'] == $data['pred_goals_away'] || $data['extra_home'] == $data['pred_goals_home'] && $data['extra_away'] == $data['pred_goals_away']){
+					echo 'De user gokte ook de correcte eindstand';
+					$newTotaal = $oldTotaal+$puntenMatchCorrect+$teamGaatDoor;
+					$newUitslag++;
+					echo ' --> zijn totaalscore gaat nu van '.$data['totaal'].' naar '.$newTotaal.'<br>';
+					$correcteScore = True;
+				}
+				//foute score 
+				else{
+					echo 'de eindstand van de user was echter niet correct <br>';
+					$newTotaal = $oldTotaal+$puntenWinnaarCorrect+$teamGaatDoor;
+					$newWinnaar++;
+					echo 'Juiste Winnaar (away) dus totaalscore +1 <br>';
+					$correcteWinnaar = True;
+				}
+			}
+			else{
+				echo 'de user had dit fout voorspeld <br>';
+			}
+		}
+		//resultaat is gelijk na 120 min
+		elseif($data['goals_home']==$data['goals_away'] && $data['extra_home']==$data['extra_away']){
+			$survivor = "";
+			if($data['penalties_home']>$data['penalties_away']){
+				$survivor = 'Home';
+			}
+			else{
+				$survivor = 'Away';
+			}
+			//user gokte op gelijkspel
+			if($data['pred_goals_home'] == $data['pred_goals_away']){
+				echo 'user gokte correct op gelijkspel <br>';
+				//correcte gelijkspel
+				if($data['pred_goals_home']==$data['goals_home']){
+					echo 'De user gokte ook de correcte eindstand<br>';
+					$newTotaal = $oldTotaal+$puntenMatchCorrect;
+					$newUitslag++;
+					echo ' --> zijn totaalscore gaat nu van '.$data['totaal'].' naar '.$newTotaal.'<br>';
+					$correcteScore = True;
+					// check if survivor is correct
+					if($survivor == $data['survivor'])
+					{
+						$newTotaal = $newTotaal + $teamGaatDoor;
+						echo 'ook de juiste ploeg die doorgaat werd geraden dus newtotaal = '.$newTotaal;
+					}
+				}
+				// ander gelijkspel gegokt
+				else{
+					echo 'de eindstand van de user was echter niet correct <br>';
+					$newTotaal = $oldTotaal+$puntenWinnaarCorrect;
+					$newWinnaar++;
+					echo 'Juiste voorspelling (draw) dus totaalscore +1 <br>';
+					$correcteWinnaar = True;
+					if($survivor == $data['survivor'])
+					{
+						$newTotaal = $newTotaal + $teamGaatDoor;
+						echo 'ook de juiste ploeg die doorgaat werd geraden dus newtotaal = '.$newtotaal;
+					}
+				}
+			}
+			elseif($data['pred_goals_home'] > $data['pred_goals_away']){
+				echo 'user fout gegokt want uitslag is draw<br>';
+				if($data['survivor'] == 'Home'){
+					$newTotaal = $oldTotaal + $teamGaatDoor;
+					echo 'wel de juiste survivor aangeduid dus nieuwe totaal = '.$newtotaal;
+				}
+			}
+			elseif($data['pred_goals_home'] < $data['pred_goals_away']){
+				echo 'user fout gegokt want uitslag is draw<br>';
+				if($data['survivor'] == 'Away'){
+					$newTotaal = $oldTotaal + $teamGaatDoor;
+					echo 'wel de juiste survivor aangeduid dus nieuwe totaal = '.$newtotaal;
+				}
+			}
+		}
+		echo '<br><br>';
+		$gameid = $data['gameID'];
+		$stmtklassement->bind_param('iiiisi', $newUitslag, $newWinnaar, $newTotaal, $meegerekend, $email, $gameid);
+	  	$stmtklassement->execute();
+
+	  	if($correcteWinnaar || $correcteScore){
+	  		//first points
+	  		if(!achievedAchievement($db,5,$email))
+	  			addAchievement($db, 5,$email);
+	  	}
+	  	if($correcteScore){
+	  		//guess the right score
+	  		if(!achievedAchievement($db,7,$email))
+	  			addAchievement($db, 7,$email);
+	  	}
+	  	if($newWinnaar+$newUitslag == 10){
+	  		//guess the right winner of a game 10 times
+	  		if(!achievedAchievement($db,6,$email))
+	  			addAchievement($db, 6,$email);
+	  	}
+	  	if($newUitslag == 3){
+	  		//guess the right score of a game 3 times
+	  		if(!achievedAchievement($db,8,$email))
+	  			addAchievement($db, 8,$email);
+	  	}
+	  }
 }
 
  	$stmtklassement->close();
