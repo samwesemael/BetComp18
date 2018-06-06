@@ -70,8 +70,8 @@
                                     <li>  Wie wordt wereldkampioen? <b>4</b> punten </li>
                                     <li>  Wie is verliezend finalist? <b>2</b> punten </li>
                                     <li> Waar eindigen de Belgen? <b>2</b> punten </li>
-                                    <li>  Wie wordt de vuilste ploeg? <b>1</b> punt</li>
-                                    <li> Wie wordt topschutter? <b>1</b> punt</li> 
+                                    <li>  Wie wordt de vuilste ploeg? <b>2</b> punt</li>
+                                    <li> Wie wordt topschutter? <b>2</b> punt</li> 
                                 </ul>
                                 Als je finalist blijkt kampioen te worden en/of omgekeerd krijg je ook nog een aantal punten:
 								<ul>
