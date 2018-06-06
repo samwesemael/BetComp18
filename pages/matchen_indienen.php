@@ -36,10 +36,23 @@
                     $status = 'error_status';
                 }
                 else{
+                    $verschil = $dtdatabase->getTimestamp()-$dtnow->getTimestamp();
+                    echo 'verschil '.$verschil;
+                    if($verschil<=60){
+                        //laatste minuut nog bet geplaatst
+                        if(!achievedAchievement($db, 11, $mail)){
+                            addAchievement($db, 11, $mail);
+                        }
+                    }
+                    if($verschil>=604800){
+                        if(!achievedAchievement($db, 12, $mail)){
+                            addAchievement($db, 12, $mail);
+                        }
+                    }
+
                     $status = 'succes_status';
                     // match moet nog beginnen
                     if(!achievedAchievement($db, 13, $mail)){
-
                         $gameid;
                         $gamequery = "SELECT game_id FROM bc18_games WHERE team_home ='$hometeam' AND team_away = '$awayteam'";
                         $res = mysqli_query($db, $gamequery);
