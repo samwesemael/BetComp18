@@ -8,6 +8,8 @@
     document.getElementById("nav-gokken").classList.toggle('active');
    // document.getElementById("nav-matchen-indienen").classList.toggle('active');
 </script>
+<!-- Jquery Core Js -->
+<script src="../plugins/jquery/jquery.min.js"></script>
 
 
 <?php
@@ -132,7 +134,8 @@
                             <h4>SUBMIT MATCHES</h4>
                         </div>
                         <div class="body">						
-                            <form id="form_validation" method="POST" action="matchen_indienen.php">								
+                            <form id="form_validation" method="POST" action="matchen_indienen.php">		
+                            <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12">						
 								<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"> 
 									<p> <b>Naam</b></p>
 										<div class="form-group form-float">
@@ -163,40 +166,59 @@
                                                 }
                                         ?>
                                     </select>	
+                                </div> 
 
-                                    <?php
-                                    
-//                                     $date = new DateTime();
-// echo $date->format('Y-m-d H:i:sP') . "\n";
+                                <script>
+                                    $(document).ready(function(){
+                                        var groepsfase = ["Russia - Saudi Arabia", "Portugal - Spain", "Argentina - Iceland", "Brazil - Switzerland", "Belgium - Panama", "Colombia - Japan", "Uruguay - Saudi Arabia", "Argentina - Croatia", "Brazil - Costa Rica", "Belgium - Tunisia", "Poland - Colombia", "Spain - Morocco", "Denmark - France", "Korea Republic - Germany", "England - Belgium"];
+                                        $('#match').on('change', function(){
+                                            var selectedMatch = $("#match").val();
+                                            if(groepsfase.indexOf(selectedMatch)!=-1){
+                                                var x = document.getElementById("knockoutfase");
+                                                x.style.display = "none";
+                                            }
+                                            else{                                               
+                                                var x = document.getElementById("knockoutfase");
+                                                x.style.display = "block";
+                                            }
+                                        });
+                                        var selectedMatch = $("#match").val();
+                                        if(groepsfase.indexOf(selectedMatch)!=-1){
+                                            var x = document.getElementById("knockoutfase");
+                                            x.style.display = "none";
+                                        }
+                                        else{                                               
+                                            var x = document.getElementById("knockoutfase");
+                                            x.style.display = "block";
+                                        }
 
-// $date->setTimezone(new DateTimeZone('UTC'));
-// echo $date->format('Y-m-d H:i:sP') . "\n";		?>
-                                </div>  
+                                    });
+
+                                </script> 
 					
-					<div class="row clearfix">
-                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">	
-															 <p><b>Score</b> </p>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" id="score" name="score" required>
-                                        <label class="form-label">0-0</label>
-                                    </div>
-                                </div>   
-						</div>	
-						
-						<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">	
-															<p><b>Extra when draw</b>  <small>(from knockout)</small> </p>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <select name="survivor" id="survivor" class="show-tick">
-                                            <option>Home</option>
-                                            <option>Away</option>
-                                        </select>
-                                    </div>
-                                </div>   
-						</div>	
+                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                    <p><b>Score</b></p>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" id="score" name="score" required>
+                                            <label class="form-label">0-0</label>
+                                        </div>
+                                    </div>   
+        						</div>	
+					
+        						<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" id='knockoutfase' name='knockoutfase' style="display:none;">	
+        															<p><b>Extra when draw</b>  <small>(from knockout)</small> </p>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <select name="survivor" id="survivor" class="show-tick">
+                                                <option>Home</option>
+                                                <option>Away</option>
+                                            </select>
+                                        </div>
+                                    </div>   
+        						</div>
+                                </div>	
 
-					</div>	
                             <?php
 
                             if ($status == 'succes_status'){
@@ -220,7 +242,8 @@
                                 </div>';  
                             }
 	
-                            ?>				
+                            ?>	
+
                                  <button type="submit" name='bet-btn' class="btn bg-blue waves-effect">
                                     <i class="material-icons">save</i>
                                     <span>SAVE</span>
@@ -250,7 +273,7 @@
 									<p><b>Worldchampion</b></p>
 
 									
-                                    <select name="wereldkampioen" class="selectpicker">
+                                    <select name="wereldkampioen" class="selectpicker" data-live-search="true">
 										<option data-thumbnail="../images/flags/hi_res/flag_arg.png">Argentina</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_aus.png">Australia</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_bel.png">Belgium</option>
@@ -268,7 +291,7 @@
                                         <option data-thumbnail="../images/flags/hi_res/flag_jap.png">Japan</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_sou.png">Korea Republic</option>
 										<option data-thumbnail="../images/flags/hi_res/flag_mex.png">Mexico</option>
-                                        <option data-thumbnail="../images/flags/hi_res/flag_mor.png">Morrocco</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_mor.png">Morocco</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_nig.png">Nigeria</option>
 										<option data-thumbnail="../images/flags/hi_res/flag_pan.png">Panama</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_per.png">Peru</option>
@@ -281,13 +304,13 @@
                                         <option data-thumbnail="../images/flags/hi_res/flag_spa.png">Spain</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_swe.png">Sweden</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_swi.png">Switzerland</option>
-                                        <option data-thumbnail="../images/flags/hi_res/flag_tun.png">Tunesia</option>
-                                        <option data-thumbnail="../images/flags/hi_res/flag_uru.png">Urugay</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_tun.png">Tunisia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_uru.png">Uruguay</option>
                                     </select>					
                                 </div>  
 					            <div class="col-md-4"> 
 									<p><b>Second Place</b></p>								
-                                    <select name = "finalist" class="selectpicker">
+                                    <select name = "finalist" class="selectpicker" data-live-search="true">
                                         <option data-thumbnail="../images/flags/hi_res/flag_arg.png">Argentina</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_aus.png">Australia</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_bel.png">Belgium</option>
@@ -305,7 +328,7 @@
                                         <option data-thumbnail="../images/flags/hi_res/flag_jap.png">Japan</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_sou.png">Korea Republic</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_mex.png">Mexico</option>
-                                        <option data-thumbnail="../images/flags/hi_res/flag_mor.png">Morrocco</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_mor.png">Morocco</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_nig.png">Nigeria</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_pan.png">Panama</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_per.png">Peru</option>
@@ -318,8 +341,8 @@
                                         <option data-thumbnail="../images/flags/hi_res/flag_spa.png">Spain</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_swe.png">Sweden</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_swi.png">Switzerland</option>
-                                        <option data-thumbnail="../images/flags/hi_res/flag_tun.png">Tunesia</option>
-                                        <option data-thumbnail="../images/flags/hi_res/flag_uru.png">Urugay</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_tun.png">Tunisia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_uru.png">Uruguay</option>
                                     </select>                   
                                 </div>  
 							</div>
@@ -383,7 +406,7 @@
                                         <option data-thumbnail="../images/flags/hi_res/flag_spa.png">Spain</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_swe.png">Sweden</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_swi.png">Switzerland</option>
-                                        <option data-thumbnail="../images/flags/hi_res/flag_tun.png">Tunesia</option>
+                                        <option data-thumbnail="../images/flags/hi_res/flag_tun.png">Tunisia</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_uru.png">Urugay</option>
                                     </select>                   
                                 </div>  
@@ -430,9 +453,6 @@
             </div>
 	   
     </section>
-
-    <!-- Jquery Core Js -->
-    <script src="../plugins/jquery/jquery.min.js"></script>
 
     <!-- Validation Plugin Js -->
     <script src="../plugins/jquery-validation/jquery.validate.js"></script>

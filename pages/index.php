@@ -182,8 +182,7 @@
                                                         echo '
                                                         <div>
                                                         <br>
-                                                          <h4><center>'.$data['first_name'].'</center></h4>
-                                                          <h6 class="hidden-sm hidden-xs"><center>('.$data['user_name'].')</center></h5>                                                                  
+                                                          <h4><center>'.$data['first_name'].'</center></h4>                                                              
                                                           <div class="col-blue"><p><b><center>'.$data['totaal'].' pts</center></b></p></div>
                                                         </div>
                                                       </div>

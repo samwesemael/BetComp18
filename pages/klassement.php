@@ -60,17 +60,29 @@ include('server.php');
                                             // echo $sql;
                                             $result = mysqli_query($db,$rank);
                                             $numberofAchievements = mysqli_num_rows($result);
+                                            $star = false;
                                             echo'
                                                 <tr>
                                                     <th scope="row">'.$ranking.'</th>
                                                     <td><img style="max-height:40px;" src="'.$afbeelding.'" alt="" class="img-circle">';
-                                            if($numberofAchievements<10 && $numberofAchievements>=5)
+                                            if($numberofAchievements<10 && $numberofAchievements>=5){
                                                 echo '<img style="max-height:20px; position: relative; left:-20px; top:15px;" src="../images/1star.png" alt="">';
-                                            if($numberofAchievements<15 && $numberofAchievements>=10)
+                                                $star = true;
+                                            }
+                                            if($numberofAchievements<15 && $numberofAchievements>=10){
                                                 echo '<img style="max-height:20px; position: relative; left:-20px; top:15px;" src="../images/2star.png" alt="">';
-                                            if($numberofAchievements>=15)
+                                                $star = true;
+                                            }
+                                            if($numberofAchievements>=15){
                                                 echo '<img style="max-height:20px; position: relative; left:-20px; top:15px;" src="../images/3star.png" alt="">';
-                                            echo $data['user_name'].'</td>
+                                                $star = true;
+                                            }
+                                            if($star){
+                                                echo '<span style="margin-left:10px";>'.$data['user_name'].'</span></td>';
+                                            }else{
+                                                echo '<span style="margin-left:32px";>'.$data['user_name'].'</span></td>';
+                                            }
+                                            echo'
                                                 <td>'.$data['winnaar_correct'].'</td>
                                                 <td>'.$data['uitslag_correct'].'</td>
 												<td>'.$data['bonus'].'</td>

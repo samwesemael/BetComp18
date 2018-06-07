@@ -1,10 +1,25 @@
 ﻿# BRACKE MANNEN - BETCOMP WK2018
 
+##### before go live
+
+- [ ] calculate uitgebreid testen
+- [x] spelers in database updaten via API
+- [ ] tabbellen leegmaken waar nodig
+- [ ] achievement for beauty queen
+- [ ] achievement belgie als winnaar
+- [x] ruimte tussen foto en naam in klassement
+
+#### to do after go live
+
+- [ ] bonus ophalen
+- [ ] code voor achievements berekenen (die voor bonussen)
+
+
 ##### UAT:
 
 
-- [ ] calculate punten aanpassen zodat ook na poule werkt (met penalties)
-- [ ] automatisch berekenen na de wedstrijd (nu nog manueel naar calculate.php gaan)
+- [x] calculate punten aanpassen zodat ook na poule werkt (met penalties)
+- [x] automatisch berekenen na de wedstrijd (nu nog manueel naar calculate.php gaan)
 - [x] tijd van notificatie in UTC --> verzetten naar werkelijke tijdzone
 - [x] timer next match geeft NAN wanneer hij op 0 was en niet automatisch naar nieuwe match
 - [ ] navbar collapse
@@ -22,7 +37,7 @@
 ## TODO:
 
 - [x] poll om de matchen te kiezen waarop gegokt zal worden
-- [ ] spelregels finaal maken
+- [x] spelregels finaal maken
 - [ ] veld op indienen aanpassen zodat laatste veld een dropdown is om de winnaar aan te duiden
 - [x] term of usage maken of check sign up verwijderen  --> voorlopig verwijderd --> makkelijk toe te voegen indien nodig
 - [ ] kijken naar padding want teveel ruimte (vooral op mobile) niet gebruikt
