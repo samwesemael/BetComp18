@@ -32,29 +32,29 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>Paulo Dybala</td>
-										<td>9</td>
+                                        <td>T.B.D.</td>
+										<td>0</td>
 
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>
-                                        <td>Paul Pogba</td>
-										<td>6</td>
+                                        <td>T.B.D.</td>
+										<td>0</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">3</th>
-                                        <td>Olivier Giroud</td>
-										<td>5</td>
+                                        <td>T.B.D.</td>
+										<td>0</td>
                                     </tr>
 									<tr>
                                         <th scope="row">4</th>
-                                        <td>Olivier Giroud</td>
-										<td>5</td>
+                                        <td>T.B.D.</td>
+										<td>0</td>
                                     </tr>
 									<tr>
                                         <th scope="row">5</th>
-                                        <td>Olivier Giroud</td>
-										<td>5</td>
+                                        <td>T.B.D.</td>
+										<td>0</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -88,62 +88,62 @@
                                         <th scope="row">1</th>
                                         <td><div class="media-left media-middle">
 											<a href="javascript:void(0);">
-											<img class="media-object" src="../images/flags/low_res/flag_pan.png" width="23" height="15">
+											<img class="media-object" src="../images/flags/low_res/flag_unk.png" width="23" height="15">
 											</a> </div>
 											<div class="media-body">
-                                          Panama   </div>	</td>      
-										<td>4<td>
-										<td>6<td>
-										<td>6<td>
+                                          T.B.D.   </div>	</td>      
+										<td>0<td>
+										<td>0<td>
+										<td>0<td>
 
                                     </tr>
                                     <tr>
                                        <th scope="row">2</th>
                                         <td><div class="media-left media-middle">
 											<a href="javascript:void(0);">
-											<img class="media-object" src="../images/flags/low_res/flag_rus.png" width="23" height="15">
+											<img class="media-object" src="../images/flags/low_res/flag_unk.png" width="23" height="15">
 											</a> </div>
 											<div class="media-body">
-                                          Rusland   </div>	</td>      
-										<td>3<td>
-										<td>8<td>
-										<td>6<td>
+                                          T.B.D.   </div>	</td>      
+										<td>0<td>
+										<td>0<td>
+										<td>0<td>
                                     </tr>
                                     <tr>
                                        <th scope="row">3</th>
                                         <td><div class="media-left media-middle">
 											<a href="javascript:void(0);">
-											<img class="media-object" src="../images/flags/low_res/flag_cos.png" width="23" height="15">
+											<img class="media-object" src="../images/flags/low_res/flag_unk.png" width="23" height="15">
 											</a> </div>
 											<div class="media-body">
-                                          Costa-Rica   </div>	</td>      
-										<td>2<td>
-										<td>6<td>
-										<td>6<td>
+                                          T.B.D.   </div>	</td>      
+										<td>0<td>
+										<td>0<td>
+										<td>0<td>
                                     </tr>
 									<tr>
                                        <th scope="row">4</th>
                                         <td><div class="media-left media-middle">
 											<a href="javascript:void(0);">
-											<img class="media-object" src="../images/flags/low_res/flag_cos.png" width="23" height="15">
+											<img class="media-object" src="../images/flags/low_res/flag_unk.png" width="23" height="15">
 											</a> </div>
 											<div class="media-body">
-                                          Costa-Rica   </div>	</td>      
-										<td>2<td>
-										<td>6<td>
-										<td>6<td>
+                                          T.B.D.   </div>	</td>      
+										<td>0<td>
+										<td>0<td>
+										<td>0<td>
                                     </tr>
 									<tr>
                                        <th scope="row">5</th>
                                         <td><div class="media-left media-middle">
 											<a href="javascript:void(0);">
-											<img class="media-object" src="../images/flags/low_res/flag_cos.png" width="23" height="15">
+											<img class="media-object" src="../images/flags/low_res/flag_unk.png" width="23" height="15">
 											</a> </div>
 											<div class="media-body">
-                                          Costa-Rica   </div>	</td>      
-										<td>2<td>
-										<td>6<td>
-										<td>6<td>
+                                          T.B.D.   </div>	</td>      
+										<td>0<td>
+										<td>0<td>
+										<td>0<td>
                                     </tr>
                                 </tbody>
                             </table>
