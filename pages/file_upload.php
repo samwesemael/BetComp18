@@ -8,6 +8,11 @@ $fullFileExtension = strtolower('.'.$fileExtension[1]);
 
 $target_file = $target_dir . $_SESSION['username'].'_temp'.$fullFileExtension;
 
+?>
+<script>
+	console.info('started');
+</script>
+<?php
 
 if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
 	chmod ($target_file , 0666);
@@ -67,7 +72,8 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
 	imagedestroy($image);
 	imagedestroy($thumb);
 	imagedestroy($target_file);
-	@ unlink($target_file); // delete the original upload		
+	@ unlink($target_file); // delete the original upload
+		
 	
 	$status = 1;
 	$email = $_SESSION['email'];
@@ -77,7 +83,7 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
 	$achieved = "SELECT bc18_achievement FROM bc18_achieved WHERE bc18_user = '$userid' AND bc18_achievement = '$id'";
     $results = mysqli_query($db, $achieved);
     $aantal = mysqli_num_rows($results);
-    if ($aantal > 0){
+    if ($aantal == 0){
        	$query = "INSERT INTO bc18_achieved(bc18_user, bc18_achievement, bc18_created) VALUES ('$email', 14,NOW())";
 		mysqli_query($db, $query);
 		$query = "INSERT INTO bc18_notifications(bc18_user, bc18_link, bc18_class, bc18_message, bc18_read, bc18_created) VALUES('$email', 'profile.php', 'achieve', 'New achievement unlocked', 0, NOW())";
