@@ -115,7 +115,7 @@
 		
 	if(isset($_POST['update_players'])){
 		
-		$cl_teams = 'http://api.football-data.org/v1/competitions/464/teams';
+		$cl_teams = 'http://api.football-data.org/v1/competitions/467/teams';
 		$reqPrefs['http']['method'] = 'GET';
 		$reqPrefs['http']['header'] = 'X-Auth-Token: 46e58e3c48a747e09ccf6c9ac073c4d6';
 		$stream_context = stream_context_create($reqPrefs);
@@ -132,7 +132,7 @@
 				$response_cl_players = json_decode($response_cl_players);			
 			
 				foreach($response_cl_players->players as $player){
-					//$sqlqry = "INSERT INTO bc18_players (player_name) VALUES ('$player->name')";
+					$sqlqry = "INSERT INTO bc18_players (player_name) VALUES ('$player->name')";
 					mysqli_query($db, $sqlqry);
 					//echo $player->name; 
 		}   }   }
