@@ -1,19 +1,4 @@
-<?php include 'navigator.php';?>
-<!DOCTYPE html>
-<html>
-<!-- navigator inladen en juist actief zetten -->
-
-<script type="text/javascript">
-    document.getElementById("nav-rules").classList.toggle('active');
-</script>
-
-    <section class="content">
-	 <!-- <div class="container-fluid"> -->
-			 <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">	
-    					<div class="header">
-                            <h4>
+ <h4>
                                 SPELREGELS
                             </h4>
 						</div>
@@ -132,64 +117,3 @@
 							  <li> De top 3 bij afloop van de competitie ontvangt een beker die wordt gefinancierd met het opgehaalde geld. </li>
                               <li> Het resterende geld wordt onder de top 5 verdeeld naar verhouding van het aantal gehaalde punten. </li>                              
                             </ul> 	<br>  
-                            							
-							<h4> Doneer om de hosting te financieren: </h4> <br>
-	
-				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-
-				<!-- Identify your business so that you can collect the payments. -->
-				<input type="hidden" name="business"
-					value="samwesemael@gmail.com">
-
-				<!-- Specify a Donate button. -->
-				<input type="hidden" name="cmd" value="_donations">
-
-				<!-- Specify details about the contribution -->
-				<input type="hidden" name="item_name" value="Hosting Betcompetition">
-				<input type="hidden" name="currency_code" value="EUR">
-
-				<!-- Display the payment button. -->
-				<input type="image" name="submit"
-				src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"
-				alt="Donate">
-				<img alt="" width="1" height="1"
-				src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
-
-				</form>
-                </div>			
-				
-				
-            </div>
-							
-                        </div>
-                    </div>
-					
-					
-	
-	
-	   
-    </section>
-
-    <!-- Jquery Core Js -->
-    <script src="../plugins/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core Js -->
-    <script src="../plugins/bootstrap/js/bootstrap.js"></script>
-
-    <!-- Select Plugin Js -->
-    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-    <!-- Slimscroll Plugin Js -->
-    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-
-    <!-- Waves Effect Plugin Js -->
-    <script src="../plugins/node-waves/waves.js"></script>
-
-    <!-- Custom Js -->
-    <script src="../js/admin.js"></script>
-
-    <!-- Demo Js -->
-    <script src="../js/demo.js"></script>
-</body>
-
-</html>
