@@ -126,6 +126,10 @@
                                                     $color = 'bg-cyan';
                                                     break;
                                             }
+                                            $datum = $data['bc18_created'];
+                                            $date = new DateTime($datum);
+                                            $date->setTimezone(new DateTimeZone('Europe/Brussels'));
+                                            $dateNu = $date->format('Y-m-d H:i:s');
                                             echo '<li>    
                                                 <a href="'.$data['bc18_link'].'">
                                                     <div style="width:"30px" " class="icon-circle '.$color.'">
@@ -134,7 +138,7 @@
                                                     <div class="menu-info">
                                                         <h4>'.$data['bc18_message'].'</h4>
                                                         <p>
-                                                            <i class="material-icons">access_time</i>'.$data['bc18_created'].'
+                                                            <i class="material-icons">access_time</i>'.$dateNu.'
                                                         </p>
                                                     </div>
                                                 </a>
@@ -169,6 +173,10 @@
                         $achieves = mysqli_query($db,$achievsql);
                         while ($data = mysqli_fetch_array($achieves)){
                             if(in_array($data['bc18_id'], $achieved) ){
+                                $datum = $data['bc18_created'];
+                                $date = new DateTime($datum);
+                                $date->setTimezone(new DateTimeZone('Europe/Brussels'));
+                                $dateNu = $date->format('Y-m-d H:i:s');
                                 echo '
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div class="card">
@@ -183,7 +191,7 @@
                                                     '.$data['bc18_message'].'
                                                 </center></p>
                                                 <p>
-                                                <center><small>'.$data['bc18_created'].'</small></center>
+                                                <center><small>'.$dateNu.'</small></center>
                                                 </p>
                                             </div>
                                         </div>

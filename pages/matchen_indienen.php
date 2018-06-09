@@ -26,20 +26,23 @@
             $hometeam = trim($tempmatchid[0]);
             $awayteam = trim($tempmatchid[1]);
             $mail = $_SESSION['email'];
-            $tstquery = "SELECT datum, status FROM bc18_games WHERE team_home ='$hometeam' AND team_away = '$awayteam'";
+            $tstquery = "SELECT datum, status, game_id FROM bc18_games WHERE team_home ='$hometeam' AND team_away = '$awayteam'";
             $res = mysqli_query($db, $tstquery);
             while ($data = mysqli_fetch_array($res)) {
+                $gameid = $data['game_id'];
                 $dtnow = new DateTime();
                 $dtnow->setTimezone(new DateTimeZone('UTC'));
                 $dtdatabase = new DateTime($data['datum']);
+                echo '$dtdatabase: '.$dtdatabase->format('Y-m-d H:i:s').'<br>';
                 $datastatus = $data['status'];
+                echo $dtnow->format('Y-m-d H:i:s');
+                echo $dtdatabase->format('Y-m-d H:i:s');
                 if($dtnow > $dtdatabase || $datastatus == 'FINISHED' || $datastatus == 'IN_PLAY'){
                     // match is al begonnen
                     $status = 'error_status';
                 }
                 else{
                     $verschil = $dtdatabase->getTimestamp()-$dtnow->getTimestamp();
-                    echo 'verschil '.$verschil;
                     if($verschil<=60){
                         //laatste minuut nog bet geplaatst
                         if(!achievedAchievement($db, 11, $mail)){
@@ -55,16 +58,10 @@
                     $status = 'succes_status';
                     // match moet nog beginnen
                     if(!achievedAchievement($db, 13, $mail)){
-                        $gameid;
-                        $gamequery = "SELECT game_id FROM bc18_games WHERE team_home ='$hometeam' AND team_away = '$awayteam'";
-                        $res = mysqli_query($db, $gamequery);
-                        if($data = mysqli_fetch_array($res)){
-                            $gameid = $data['game_id'];
-                        }
-                        $checkquery = "SELECT * FROM bc18_bets WHERE bc18_game_id = '$gameid' AND bc18_userid = '$mail'";
+                        $checkquery = "SELECT * FROM bc18_bets WHERE bc18_gameid = '$gameid' AND bc18_userid = '$mail'";
                         $results = mysqli_query($db, $checkquery);
                         $aantal = mysqli_num_rows($results);
-                        if($aantal > 1){
+                        if($aantal >= 1){
                             addAchievement($db, 13, $mail);
                         }
                     }
@@ -95,11 +92,18 @@
     }
 	
 	if(isset($_POST['indienen'])){
-        $valquery = "SELECT status FROM `bc18_games` WHERE team_home = 'Russia' AND team_away = 'Saudi Arabia'";
+        $valquery = "SELECT status, datum FROM `bc18_games` WHERE team_home = 'Russia' AND team_away = 'Saudi Arabia'";
         $val = mysqli_query($db, $valquery);
         $indienenToegestaan = true;
         while ($valdata = mysqli_fetch_array($val)) {
-            if ($valdata['status'] != 'TIMED'){
+            $dtnow = new DateTime();
+            $dtnow->setTimezone(new DateTimeZone('UTC'));
+            echo 'now: '.$dtnow->format('Y-m-d H:i:s');
+            $dtdatabase = new DateTime($valdata['datum']);
+            $dtdatabase->setTimezone(new DateTimeZone('UTC'));
+                        echo 'db: '.$dtdatabase->format('Y-m-d H:i:s');
+            $datastatus = $data['status'];
+            if($dtnow > $dtdatabase || $datastatus == 'FINISHED' || $datastatus == 'IN_PLAY'){
                 $indienenToegestaan = false;
             }
         }
@@ -217,30 +221,31 @@
                                         </div>
                                     </div>   
         						</div>
-                                </div>	
+                            </div>	
 
                             <?php
 
                             if ($status == 'succes_status'){
-                                echo '<div id='.'succes'.' class="alert alert-success " >
-                                <strong>Gelukt!</strong> Your bet ('. $tempscore[0] . '-'. $tempscore[1] .') is well received.
+                                echo '<div id='.'succes'.' class="alert alert-success col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+                                <strong>Done!</strong> Your bet ('. $tempscore[0] . '-'. $tempscore[1] .') is well received.
                                 </div>';
                             }
                             if($status == 'error_status'){
-                            echo '<div id='.'error'.' class="alert alert-danger">
-                                <strong>FOUT!</strong> Not allowed to bet on this game anymore.
+                            echo '<div id='.'error'.' class="alert alert-danger col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <strong>ERROR!</strong> Not allowed to bet on this game anymore.
                                 </div>';  
                             }
                             if($status == 'overal_status'){
-                            echo '<div id='.'error'.' class="alert alert-danger">
-                                <strong>FOUT!</strong> Something went wrong. Please try again later and notify the system administrators.
+                            echo '<div id='.'error'.' class="alert alert-danger col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <strong>ERROR!</strong> Something went wrong. Please try again later and notify the system administrators.
                                 </div>';  
                             }
                             if($status == 'invalid'){
-                            echo '<div id='.'error'.' class="alert alert-danger">
-                                <strong>FOUT!</strong> Use the right format (ex. 0-0)
+                            echo '<div id='.'error'.' class="alert alert-danger col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <strong>ERROR!</strong> Use the right format (ex. 0-0)
                                 </div>';  
                             }
+
 	
                             ?>	
 
@@ -252,7 +257,7 @@
                         </div>
                     </div>
 					
-					                <div class="card">
+					<div class="card">
                     <div class="header">
                         <h4>SUBMIT BONUSSES</h4>
                     </div>
@@ -426,17 +431,17 @@
 
                             if ($status == 'succes_status-bonus'){
                                 echo '<div id='.'succes'.' class="alert alert-success " >
-                                <strong>Gelukt!</strong> Succeeded. 
+                                <strong>Done!</strong> Bonussen received. 
                                 </div>';
                             }
                             if($status == 'error_status-bonus'){
                             echo '<div id='.'error'.' class="alert alert-danger">
-                                <strong>FOUT!</strong> WC is started. Not allowed to bet on the bonuses anymore.
+                                <strong>ERROR!</strong> WC is started. Not allowed to bet on the bonuses anymore.
                                 </div>';  
                             }
                             if($status == 'overal_status-bonus'){
                             echo '<div id='.'error'.' class="alert alert-danger">
-                                <strong>FOUT!</strong> Something went wrong. Please try again later and notify the system administrators.
+                                <strong>ERROR!</strong> Something went wrong. Please try again later and notify the system administrators.
                                 </div>';  
                             }
     

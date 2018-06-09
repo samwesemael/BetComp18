@@ -200,6 +200,10 @@
                                                     $color = 'bg-cyan';
                                                     break;
                                             }
+                                            $datum = $data['bc18_created'];
+                                            $date = new DateTime($datum);
+                                            $date->setTimezone(new DateTimeZone('Europe/Brussels'));
+                                            $dateNu = $date->format('Y-m-d H:i:s');
                                             echo '
                                             <li>    
                                                 <a href="'.$data['bc18_link'].'?notif=called">
@@ -209,7 +213,7 @@
                                                     <div class="menu-info">
                                                         <h4>'.$data['bc18_message'].'</h4>
                                                         <p>
-                                                            <i class="material-icons">access_time</i>'.$data['bc18_created'].'
+                                                            <i class="material-icons">access_time</i>'.$dateNu.'
                                                         </p>
                                                     </div>
                                                 </a>

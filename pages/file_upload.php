@@ -80,7 +80,7 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
 	$query = "UPDATE bc18_users SET pic_path = '$filename' WHERE email = '$email'";
 	$_SESSION['profilepicpath'] = $filename;
 	mysqli_query($db, $query);
-	$achieved = "SELECT bc18_achievement FROM bc18_achieved WHERE bc18_user = '$userid' AND bc18_achievement = '$id'";
+	$achieved = "SELECT bc18_achievement FROM bc18_achieved WHERE bc18_user = '$email' AND bc18_achievement = 14";
     $results = mysqli_query($db, $achieved);
     $aantal = mysqli_num_rows($results);
     if ($aantal == 0){

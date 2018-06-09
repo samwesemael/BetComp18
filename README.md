@@ -5,9 +5,10 @@
 - [ ] calculate uitgebreid testen
 - [x] spelers in database updaten via API
 - [ ] tabbellen leegmaken waar nodig
-- [ ] achievement for beauty queen
-- [ ] achievement belgie als winnaar
+- [x] achievement for beauty queen
+- [x] achievement belgie als winnaar
 - [x] ruimte tussen foto en naam in klassement
+- [ ] op fixtures page worden de andere hun bet getoond op moment dat match gedaan is. Moet dit ook al gebeuren zodra de match gestart is?
 
 #### to do after go live
 
