@@ -49,7 +49,7 @@
 
                                                 // lijst met alle matchIDs waarop gewed kan worden
                                                 $matchIDs = array();
-												$sqlmatches = "SELECT game_id FROM bc18_games WHERE bettable = 1 AND status = 'FINISHED' ORDER BY datum LIMIT 0,25 ";
+												$sqlmatches = "SELECT game_id FROM bc18_games WHERE bettable = 1 AND datum < NOW() ORDER BY datum LIMIT 0,25" ;
 											    $resultsgameids = mysqli_query($db,$sqlmatches);
 												while($ids = mysqli_fetch_array($resultsgameids)){
                                                     array_push($matchIDs, $ids['game_id']);
@@ -62,7 +62,7 @@
                                                 <tr>                                   
                                                     <td><?php echo $user; ?></td>
 													<?php
-                                                    $sqlbets = "SELECT bc18_games.status AS status, bc18_bets.bc18_userid AS userID, bc18_users.user_name AS Username, bc18_users.email AS email, bc18_pred_goalshome AS goalshome, bc18_pred_goalsaway AS goalsaway, bc18_gameid AS gameid, bc18_games.goals_home AS correctHome, bc18_games.goals_away AS correctAway FROM bc18_bets INNER JOIN bc18_users on bc18_bets.bc18_userid = bc18_users.email INNER JOIN bc18_games on bc18_bets.bc18_gameid = bc18_games.game_id WHERE bc18_users.user_name = '$user' AND status = 'FINISHED' ORDER BY bc18_users.user_name, bc18_games.datum ";
+                                                    $sqlbets = "SELECT bc18_games.status AS status, bc18_bets.bc18_userid AS userID, bc18_users.user_name AS Username, bc18_users.email AS email, bc18_pred_goalshome AS goalshome, bc18_pred_goalsaway AS goalsaway, bc18_gameid AS gameid, bc18_games.goals_home AS correctHome, bc18_games.goals_away AS correctAway FROM bc18_bets INNER JOIN bc18_users on bc18_bets.bc18_userid = bc18_users.email INNER JOIN bc18_games on bc18_bets.bc18_gameid = bc18_games.game_id WHERE bc18_users.user_name = '$user' AND bc18_games.datum < NOW() ORDER BY bc18_users.user_name, bc18_games.datum ";
                                                         $resultsbets = mysqli_query($db,$sqlbets);
                                                         $teller = 0;
                                                         while($bets = mysqli_fetch_array($resultsbets)){
@@ -84,66 +84,85 @@
                                                                     <?php
                                                                 }
                                                                 else{
-                                                                    $color = '#ffffff';
-                                                                    if ($bets['correctHome'] == $bets['goalshome'] && $bets['correctAway'] == $bets['goalsaway']){
-                                                                        $color = '#00ff00';
-                                                                    }
-                                                                    elseif ($bets['goalshome']>$bets['goalsaway']){
-                                                                            // home wint
-                                                                            if($bets['correctHome']>$bets['correctAway']){
-                                                                                // Juiste winnaar
-                                                                                $color = '#ff6600';
-                                                                            }
+                                                                    if($bets['status']=='FINISHED'){
+                                                                        $color = '#ffffff';
+
+                                                                        if ($bets['correctHome'] == $bets['goalshome'] && $bets['correctAway'] == $bets['goalsaway']){
+                                                                            $color = '#00ff00';
                                                                         }
-                                                                    elseif ($bets['goalshome']<$bets['goalsaway']) {
-                                                                            // away wint
-                                                                            if($bets['correctHome']<$bets['correctAway']){
-                                                                                // Juiste winnaar
-                                                                                $color = '#ff6600';
+                                                                        elseif ($bets['goalshome']>$bets['goalsaway']){
+                                                                                // home wint
+                                                                                if($bets['correctHome']>$bets['correctAway']){
+                                                                                    // Juiste winnaar
+                                                                                    $color = '#ff6600';
+                                                                                }
                                                                             }
-                                                                        }
-                                                                    elseif ($bets['goalshome']==$bets['goalsaway']) {
-                                                                            // gelijkspel
-                                                                            if($bets['correctHome']==$bets['correctAway']){
-                                                                                // Juiste gok gelijkspel (fout aantal goals)
-                                                                                $color = '#ff6600';
+                                                                        elseif ($bets['goalshome']<$bets['goalsaway']) {
+                                                                                // away wint
+                                                                                if($bets['correctHome']<$bets['correctAway']){
+                                                                                    // Juiste winnaar
+                                                                                    $color = '#ff6600';
+                                                                                }
                                                                             }
-                                                                        }
-                                                                ?>
-                                                                    <td style="width:1px;white-space:nowrap;" bgcolor=<?php echo $color; ?>><?php echo $res; ?></td>
-                                                                <?php
-                                                                }
-                                                            }
-                                                            else{
-                                                                if($teller<=sizeof($matchIDs)){
-                                                                    $color = '#ffffff';
-                                                                    if ($bets['correctHome'] == $bets['goalshome'] && $bets['correctAway'] == $bets['goalsaway']){
-                                                                        $color = '#00ff00';
-                                                                    }
-                                                                    elseif ($bets['goalshome']>$bets['goalsaway']){
-                                                                            // home wint
-                                                                            if($bets['correctHome']>$bets['correctAway']){
-                                                                                // Juiste winnaar
-                                                                                $color = '#ff6600';
+                                                                        elseif ($bets['goalshome']==$bets['goalsaway']) {
+                                                                                // gelijkspel
+                                                                                if($bets['correctHome']==$bets['correctAway']){
+                                                                                    // Juiste gok gelijkspel (fout aantal goals)
+                                                                                    $color = '#ff6600';
+                                                                                }
                                                                             }
-                                                                        }
-                                                                    elseif ($bets['goalshome']<$bets['goalsaway']) {
-                                                                            // away wint
-                                                                            if($bets['correctHome']<$bets['correctAway']){
-                                                                                // Juiste winnaar
-                                                                                $color = '#ff6600';
-                                                                            }
-                                                                        }
-                                                                    elseif ($bets['goalshome']==$bets['goalsaway']) {
-                                                                            // gelijkspel
-                                                                            if($bets['correctHome']==$bets['correctAway']){
-                                                                                // Juiste gok gelijkspel (fout aantal goals)
-                                                                                $color = '#ff6600';
-                                                                            }
-                                                                        }
                                                                     ?>
                                                                         <td style="width:1px;white-space:nowrap;" bgcolor=<?php echo $color; ?>><?php echo $res; ?></td>
                                                                     <?php
+                                                                    }
+                                                                    else{
+                                                                        $color = '#ffffff';
+                                                                         ?>
+                                                                        <td style="width:1px;white-space:nowrap;" bgcolor=<?php echo $color; ?>><?php echo $res; ?></td>
+                                                                    <?php
+                                                                    }
+                                                                }
+         
+                                                            }
+                                                            else{
+                                                                if($teller<=sizeof($matchIDs)){
+                                                                    if($bets['status']=='FINISHED'){
+                                                                        $color = '#ffffff';
+                                                                        if ($bets['correctHome'] == $bets['goalshome'] && $bets['correctAway'] == $bets['goalsaway']){
+                                                                            $color = '#00ff00';
+                                                                        }
+                                                                        elseif ($bets['goalshome']>$bets['goalsaway']){
+                                                                                // home wint
+                                                                                if($bets['correctHome']>$bets['correctAway']){
+                                                                                    // Juiste winnaar
+                                                                                    $color = '#ff6600';
+                                                                                }
+                                                                            }
+                                                                        elseif ($bets['goalshome']<$bets['goalsaway']) {
+                                                                                // away wint
+                                                                                if($bets['correctHome']<$bets['correctAway']){
+                                                                                    // Juiste winnaar
+                                                                                    $color = '#ff6600';
+                                                                                }
+                                                                            }
+                                                                        elseif ($bets['goalshome']==$bets['goalsaway']) {
+                                                                                // gelijkspel
+                                                                                if($bets['correctHome']==$bets['correctAway']){
+                                                                                    // Juiste gok gelijkspel (fout aantal goals)
+                                                                                    $color = '#ff6600';
+                                                                                }
+                                                                            }
+                                                                        ?>
+                                                                            <td style="width:1px;white-space:nowrap;" bgcolor=<?php echo $color; ?>><?php echo $res; ?></td>
+                                                                        <?php 
+                                                                    }
+                                                                    else{
+                                                                        $color = '#ffffff';
+                                                                         ?>
+                                                                        <td style="width:1px;white-space:nowrap;" bgcolor=<?php echo $color; ?>><?php echo $res; ?></td>
+                                                                    <?php
+                                                                    }
+
                                                                 }
 
                                                             }
