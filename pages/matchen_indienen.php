@@ -33,10 +33,10 @@
                 $dtnow = new DateTime();
                 $dtnow->setTimezone(new DateTimeZone('UTC'));
                 $dtdatabase = new DateTime($data['datum']);
-                echo '$dtdatabase: '.$dtdatabase->format('Y-m-d H:i:s').'<br>';
+                // echo '$dtdatabase: '.$dtdatabase->format('Y-m-d H:i:s').'<br>';
                 $datastatus = $data['status'];
-                echo $dtnow->format('Y-m-d H:i:s');
-                echo $dtdatabase->format('Y-m-d H:i:s');
+                // echo $dtnow->format('Y-m-d H:i:s');
+                // echo $dtdatabase->format('Y-m-d H:i:s');
                 if($dtnow > $dtdatabase || $datastatus == 'FINISHED' || $datastatus == 'IN_PLAY'){
                     // match is al begonnen
                     $status = 'error_status';
@@ -98,10 +98,10 @@
         while ($valdata = mysqli_fetch_array($val)) {
             $dtnow = new DateTime();
             $dtnow->setTimezone(new DateTimeZone('UTC'));
-            echo 'now: '.$dtnow->format('Y-m-d H:i:s');
+            // echo 'now: '.$dtnow->format('Y-m-d H:i:s');
             $dtdatabase = new DateTime($valdata['datum']);
             $dtdatabase->setTimezone(new DateTimeZone('UTC'));
-                        echo 'db: '.$dtdatabase->format('Y-m-d H:i:s');
+                        // echo 'db: '.$dtdatabase->format('Y-m-d H:i:s');
             $datastatus = $data['status'];
             if($dtnow > $dtdatabase || $datastatus == 'FINISHED' || $datastatus == 'IN_PLAY'){
                 $indienenToegestaan = false;
