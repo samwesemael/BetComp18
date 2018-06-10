@@ -235,8 +235,6 @@
                                 $i = 1;
                                 $data = mysqli_fetch_array($results);
                                 while ($data){
-                                    $date = new DateTime($data['datum']);
-                                    $dateCheck = $date->format('Y-m-d');
                                     echo 
                                         '<div role="tabpanel" class="tab-pane fade';
                                         if ($eerste == true){
@@ -259,6 +257,10 @@
                                             }
                                         echo '</ol><div class="carousel-inner">';
                                         for($x=1;$x<=$matchenPerDag[$temp];$x++){
+                                            $datum = $data['datum'];
+                                            $date = new DateTime($datum);
+                                            $date->setTimezone(new DateTimeZone('Europe/Brussels'));
+                                            $date = $date->format('Y-m-d H:i:s');
                                             if($data['status'] == 'FINISHED'){
                                                 $goalsHome = $data['goals_home'];
                                                 $goalsAway = $data['goals_away']; 
@@ -283,7 +285,7 @@
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
                                                                                     <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
-                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                    <h6>'.$date.'</h6>
                                                                                 </center>
                                                                             </div>
                                                                         </div>
@@ -317,7 +319,7 @@
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
                                                                                     <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
-                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                    <h6>'.$date.'</h6>
                                                                                 </center>
                                                                             </div>
                                                                         </div>
@@ -384,8 +386,7 @@
                                 $data = mysqli_fetch_array($results);
                                 $eerste = true;
                                 while ($data){
-                                    $date = new DateTime($data['datum']);
-                                    $dateCheck = $date->format('Y-m-d');
+                               
                                     echo 
                                         '<div role="tabpanel" class="tab-pane fade';
                                         if ($eerste == true){
@@ -398,6 +399,10 @@
                                         <ol class="carousel-indicators">';
                                         $temp = $i-1;
                                         for($x=1;$x<=$matchenPerDag[$temp];$x++){
+                                            $datum = $data['datum'];
+                                            $date = new DateTime($datum);
+                                            $date->setTimezone(new DateTimeZone('Europe/Brussels'));
+                                            $date = $date->format('Y-m-d H:i:s');
                                             $tempx = $x-1;
                                             if($x==1){
                                                 echo '<li data-target="#myCarousel'.$i.'" data-slide-to="'.$tempx.'" class="active"></li>';
@@ -432,7 +437,7 @@
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
                                                                                     <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
-                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                    <h6>'.$date.'</h6>
                                                                                 </center>
                                                                             </div>
                                                                         </div>
@@ -466,7 +471,7 @@
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
                                                                                     <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
-                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                    <h6>'.$date.'</h6>
                                                                                 </center>
                                                                             </div>
                                                                         </div>
@@ -531,8 +536,6 @@
                                 $data = mysqli_fetch_array($results);
                                 $eerste = true;
                                 while ($data){
-                                    $date = new DateTime($data['datum']);
-                                    $dateCheck = $date->format('Y-m-d');
                                     echo 
                                         '<div role="tabpanel" class="tab-pane fade';
                                         if ($eerste == true){
@@ -543,6 +546,10 @@
                                         <div id="myCarousel'.$i.'" class="carousel slide" data-ride="carousel" data-interval="false">
                                         <div class="carousel-inner">';
                                         for($x=1;$x<=$matchenPerDag[$temp];$x++){
+                                            $datum = $data['datum'];
+                                            $date = new DateTime($datum);
+                                            $date->setTimezone(new DateTimeZone('Europe/Brussels'));
+                                            $date = $date->format('Y-m-d H:i:s');
                                             if($data['status'] == 'FINISHED'){
                                                 $goalsHome = $data['goals_home'];
                                                 $goalsAway = $data['goals_away']; 
@@ -567,7 +574,7 @@
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
                                                                                     <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
-                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                    <h6>'.$date.'</h6>
                                                                                 </center>
                                                                             </div>
                                                                         </div>
@@ -601,7 +608,7 @@
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
                                                                                     <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
-                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                    <h6>'.$date.'</h6>
                                                                                 </center>
                                                                             </div>
                                                                         </div>
@@ -679,8 +686,6 @@
                                 $data = mysqli_fetch_array($results);
                                 $eerste = true;
                                 while ($data){
-                                    $date = new DateTime($data['datum']);
-                                    $dateCheck = $date->format('Y-m-d');
                                     echo 
                                         '<div role="tabpanel" class="tab-pane fade';
                                         if ($eerste == true){
@@ -693,6 +698,10 @@
                                         <ol class="carousel-indicators">';
                                         $temp = $i-1;
                                         for($x=1;$x<=$matchenPerDag[$temp];$x++){
+                                            $datum = $data['datum'];
+                                            $date = new DateTime($datum);
+                                            $date->setTimezone(new DateTimeZone('Europe/Brussels'));
+                                            $date = $date->format('Y-m-d H:i:s');
                                             $tempx = $x-1;
                                             if($x==1){
                                                 echo '<li data-target="#myCarousel'.$i.'" data-slide-to="'.$tempx.'" class="active"></li>';
@@ -727,7 +736,7 @@
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
                                                                                     <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
-                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                    <h6>'.$date.'</h6>
                                                                                 </center>
                                                                             </div>
                                                                         </div>
@@ -761,7 +770,7 @@
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
                                                                                     <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
-                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                    <h6>'.$date.'</h6>
                                                                                 </center>
                                                                             </div>
                                                                         </div>
@@ -826,8 +835,6 @@
                                 $data = mysqli_fetch_array($results);
                                 $eerste = true;
                                 while ($data){
-                                    $date = new DateTime($data['datum']);
-                                    $dateCheck = $date->format('Y-m-d');
                                     echo 
                                         '<div role="tabpanel" class="tab-pane fade';
                                         if ($eerste == true){
@@ -840,6 +847,10 @@
                                         <ol class="carousel-indicators">';
                                         $temp = $i-1;
                                         for($x=1;$x<=$matchenPerDag[$temp];$x++){
+                                            $datum = $data['datum'];
+                                            $date = new DateTime($datum);
+                                            $date->setTimezone(new DateTimeZone('Europe/Brussels'));
+                                            $date = $date->format('Y-m-d H:i:s');
                                             $tempx = $x-1;
                                             if($x==1){
                                                 echo '<li data-target="#myCarousel'.$i.'" data-slide-to="'.$tempx.'" class="active"></li>';
@@ -874,7 +885,7 @@
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
                                                                                     <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
-                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                    <h6>'.$date.'</h6>
                                                                                 </center>
                                                                             </div>
                                                                         </div>
@@ -908,7 +919,7 @@
                                                                                 <center>
                                                                                     <h3>'.$data['hometeam'].' - '.$data['awayteam'].'</h3> <br>
                                                                                     <h4>'.$goalsHome.'-'.$goalsAway.'</h4>
-                                                                                    <h6>'.$data['datum'].'</h6>
+                                                                                    <h6>'.$date.'</h6>
                                                                                 </center>
                                                                             </div>
                                                                         </div>
