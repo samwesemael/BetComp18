@@ -410,6 +410,7 @@
                                         <option>Round of 16</option>
                                         <option>Round of 8</option>
     									<option>Quarter Finals</option>
+                                        <option>Semi Finals</option>
                                         <option>Final</option>                                      
                                     </select>					
                                 </div>  	
