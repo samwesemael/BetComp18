@@ -152,14 +152,46 @@
                 </div>
                 <div class="tab-pane fade in" id="tab2">
                     <h3>ACHIEVEMENTS</h3>
-    <!--                 <div class="row clearfix">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"">
-                                <div class="card">
-                                    progress bar 
-                                </div>
-                            </div>
-                        </div>                        --> 
-
+                    <?php
+                    $adres = $_SESSION['email'];
+                    $rank = "SELECT * from bc18_achieved where bc18_user = '$adres' ";
+                    $result = mysqli_query($db,$rank);
+                    $numberofAchievements = mysqli_num_rows($result);
+                    $numberofAchievements = 5;
+                    $progress = $numberofAchievements*5;
+                    if($numberofAchievements<5){
+                        $rank = 'Tom Soetaers';
+                        $style = 'progress-bar-danger';
+                    }
+                    if($numberofAchievements>= 5 && $numberofAchievements<10){
+                        $rank = 'Frank Raes';
+                        $style = 'progress-bar-warning';
+                    }                    
+                    if($numberofAchievements>= 10 && $numberofAchievements<15){
+                        $rank = 'Marc Degryse';
+                        $style = 'progress-bar-warning';
+                    }
+                    if($numberofAchievements>=15){
+                        $rank = 'Peter Vandenbempt';
+                        $style = 'progress-bar-success';
+                    }
+                    $style = 'progress-bar-info';
+                    ?>
+                    <div class="row clearfix">
+                        <div class="progress" style="margin: 15px;">
+                          <div class="progress-bar <?php echo $style; ?>" role="progressbar" aria-valuenow="40"
+                          aria-valuemin="0" aria-valuemax="100" <?php echo 'style="width:'.$progress.'%"';?>>
+                            <?php echo $numberofAchievements; ?>/20 (<?php echo $rank; ?>)
+                          </div>
+                        </div>
+                        <div style="margin-left: 15px; margin-right: 15px;">
+                            <span style="float: left; width: 23%">0/20</span>
+                            <span style="float: right; width: 27%"><img class="img-responsive" alt="star" style="max-width: 40px;" src="../images/3star.png"></span>
+                            <span style="float: left; width: 25%"><img class="img-responsive" alt="star" style="max-width: 40px;" src="../images/1star.png"></span>
+                            <span style="float: left; width: 23%"><img class="img-responsive" alt="star" style="max-width: 40px;" src="../images/2star.png"></span>
+                        </div>
+                    </div>
+                    <br>
                     <div class="row clearfix">
                     <?php
                         $sql = "SELECT bc18_achievement FROM bc18_achieved WHERE bc18_user='$mail' ";
