@@ -157,7 +157,6 @@
                     $rank = "SELECT * from bc18_achieved where bc18_user = '$adres' ";
                     $result = mysqli_query($db,$rank);
                     $numberofAchievements = mysqli_num_rows($result);
-                    $numberofAchievements = 5;
                     $progress = $numberofAchievements*5;
                     if($numberofAchievements<5){
                         $rank = 'Tom Soetaers';
