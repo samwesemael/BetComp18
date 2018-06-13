@@ -262,7 +262,6 @@
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                
                     <li class="header">MAIN NAVIGATION</li>
                     <li id = 'nav-home'>
                         <a href="index.php">
@@ -273,7 +272,7 @@
                     <li <?php if($_SESSION['role']!='bc_18_admin')
                             {
                                 echo 'style="display:none;"';
-                            } ?> 
+                            } ?>
                             id = 'nav-adminpage'>
                         <a href="adminpage.php">
                             <i class="material-icons">account_circle</i>
@@ -291,7 +290,6 @@
                             <i class="material-icons">input</i>
                             <span>Betting</span>
                         </a>
-                        
                     </li>
                     <li id = 'nav-klassement'>
                         <a href="klassement.php">
@@ -305,21 +303,18 @@
                             <span>Bonusses</span>
                         </a>
                     </li>
-                    <li
-                    id = 'nav-matches'>
+                    <li id = 'nav-matches'>
                         <a href="matches.php">
                             <i class="material-icons">today</i>
                             <span>Fixtures</span>
                         </a>
                     </li>
-                                       
                     <li id = 'nav-rules'>
                         <a href="rules.php">
                             <i class="material-icons">book</i>
                             <span>Rules</span>
                         </a>
                     </li>
-                    
                     <li id="nav-extra">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">pages</i>
@@ -351,7 +346,6 @@
                             </li> 
                         </ul>
                     </li>
-                        
                 </ul>
             </div>
             <!-- #Menu -->
