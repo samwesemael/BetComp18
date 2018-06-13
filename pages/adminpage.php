@@ -144,7 +144,34 @@
 		$query = "UPDATE bc18_overig SET last_run = NOW() WHERE name='klassement'";
 		mysqli_query($db, $query);                                          			
 	}	
+	
+	// tospcorer
+	
+	if(isset($_POST['set_topscorer'])){		
+		$goals = $_POST['number_goals'];
+		$player_name = $_POST['player_name'];
+		echo $goals;
+		echo $player_name;
+		$sqltopscorer = "UPDATE `bc18_players` SET `goals`= '$goals' WHERE player_name IS ('$player_name')";
+		mysqli_query($db, $sqltopscorer);
+		// $dateNu = date_format(new DateTime(),'Y-m-d H:i:s');
+		//$query = "UPDATE bc18_overig SET last_run = NOW() WHERE name='verification'";
+		//mysqli_query($db, $query);
+	}		
 
+	// dirtiest team
+	
+	if(isset($_POST['set_dirtiestteam'])){		
+	
+		$yc = $_POST['yellow_cards'];
+		$rc = $_POST['red_cards'];
+		$t = $_POST['team_name'];
+		$sqldirtyteam = "UPDATE `bc18_teams` SET `yellow_cards`= '$yc', `red_cards` = '$rc' WHERE team_name IS ('$t')";
+		mysqli_query($db, $sqldirtyteam);
+		// $dateNu = date_format(new DateTime(),'Y-m-d H:i:s');
+		//$query = "UPDATE bc18_overig SET last_run = NOW() WHERE name='verification'";
+		//mysqli_query($db, $query);
+	}		
 
 	?>
      
@@ -162,21 +189,22 @@
 						
 					<h4 class="card-inside-title"><small>CHANGE ANNOUNCEMENTS</small></h4>
                         <div class="row clearfix">
-                            <div class="col-sm-12">
+                            <div class="col-sm-9">
 							<form id = "mede" method="post" action="adminpage.php">
                                 <div class="form-group">
                                     <div class="form-line">
                                         <label for="mededeling">Vul tekst in dat op homepage moet komen (GEEN MEDEDELING --> hide field)</label>
                                         <textarea  rows="1" class="form-control no-resize" name='mededeling' placeholder="Please type what you want..."></textarea>
                                     </div>
-                                </div>                                                                                                         				    
+                                </div>      
+								</div>
 						<button type="submit" class="btn bg-grey waves-effect" name="set_announcement">
                                 <i class="material-icons">save</i>
                                 <span>UPDATE</span>
 						</button>
 						</form>	
 					</div>	
-					</div>						
+									
 						
 					<div style="overflow-x:auto;">	
 					<table class="table">
@@ -194,6 +222,7 @@
 					<tr>							
 					<td><div class="row clearfix"> 
 						<form method="post" action="adminpage.php">
+						<div class="col-md-9"> 
 							<select class="form-control show-tick" id="users" name='users[]' multiple>
 								<?php
 									$verquery = "SELECT email FROM bc18_users WHERE verification = '0'"; 
@@ -207,6 +236,7 @@
 									}										
 								?>
                             </select>
+							</div>
 							<button type="submit" class="btn bg-green waves-effect" name="set_verification">
                             <span>VERIFICATION</span>
 							</button>
@@ -235,28 +265,154 @@
 									$data = mysqli_fetch_array($results);
 									echo $data['last_run'];
 									?> </td>
-						</tr>	
+									</tr>	
 						
 
-						<tr>
-						<td><div class="row clearfix"> 					
-						<form method="post" action="adminpage.php">				
-						<select class="form-control show-tick" id="games" name='games[]' multiple>	
-						<?php							
-						$verqueryy = "SELECT team_home,team_away,datum FROM bc18_games WHERE status != 'FINISHED' ORDER BY datum LIMIT 0,5"; 	
-						$results = mysqli_query($db, $verqueryy);																		
-						while($data = mysqli_fetch_array($results)){									
-						echo '<option>'.$data['datum'].'</option>';									}			
-						?>                            </select>				
-						<button type="submit" class="btn bg-green waves-effect" name="set_games">    
-						<span>RESULT</span>							</button>			
-						</form>  </div></td>						 </td>		
-						<td> Set manual score</td>						<td> <?php	
-						$verqueryy = "SELECT team_home,team_away,datum FROM bc18_games WHERE status != 'FINISHED' ORDER BY datum LIMIT 0,5"; 			
-						$results = mysqli_query($db, $verqueryy);								
-						$data = mysqli_fetch_array($results);		
-						echo $data['last_run'];									?> </td>						</tr>
 						
+						
+						</tbody>		
+						</table>
+						
+						<center><h4> BONUSSES </h4></center>
+						
+						<table class="table">
+					<thead>
+					<tr>
+
+					<th> ACTION </th>
+					<th> DETAILS </th>
+					<th> LAST EXECUTION </th>
+					</tr>
+					</thead>
+
+						<tbody>
+					
+						<tr>							
+					<td><div class="row clearfix"> 
+						<form method="post" action="adminpage.php">
+							<?php
+									 $query = "SELECT player_name FROM bc18_players";
+									 $results = mysqli_query($db, $query);
+                                     //$i = 1;
+                                     //$data = mysqli_fetch_array($results); ?>
+									 <div class="col-md-4"> 
+									<select class="form-control show-tick" name='player_name' data-live-search="true">
+									  <?php
+										while($data = mysqli_fetch_array($results)){
+											echo '<option>'.$data['player_name'].'</option>';
+										} ?>
+									</select>
+									</div>
+									<div class="col-md-4"> 
+									<select name = "number_goals" class="selectpicker">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>                                                                      
+                                    </select>
+									</div> 
+							<button type="submit" class="btn bg-green waves-effect" name="set_topscorer">
+                            <span>TOPSCORER</span>
+							</button>
+						</form>  </div></td>
+						 </td>
+						<td> 	Set topscorers </td>
+						<td> <?php
+									//$verquery = "SELECT last_run FROM bc18_overig WHERE name = 'verification'"; 
+									//$results = mysqli_query($db, $verquery);
+									//$data = mysqli_fetch_array($results);
+									//echo $data['last_run'];
+									?> </td>
+						</tr>		
+						
+						
+						<tr>							
+					<td><div class="row clearfix"> 
+						<form method="post" action="adminpage.php">
+							
+									 <div class="col-md-3"> 
+									 <?php
+									 $query = "SELECT team_name FROM bc18_teams";
+									 $results = mysqli_query($db, $query);
+                                     //$i = 1;
+                                     //$data = mysqli_fetch_array($results); ?>
+									<select class="form-control show-tick" name='team_name' data-live-search="true">
+									  <?php
+										while($data = mysqli_fetch_array($results)){
+											echo '<option>'.$data['team_name'].'</option>';
+										} ?>
+									</select>
+									
+									</div>
+									<div class="col-md-3"> 
+									<select name = "yellow_cards" class="selectpicker">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>  
+										<option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                        <option>13</option>
+                                        <option>14</option>						
+										<option>15</option>
+                                        <option>16</option>
+                                        <option>17</option>
+                                        <option>18</option>
+                                        <option>19</option>
+                                        <option>20</option>									
+                                    </select>
+									</div> 
+									<div class="col-md-3"> 
+									<select name = "red_cards" class="selectpicker">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option> 								
+                                    </select>
+									</div> 
+							<button type="submit" class="btn bg-green waves-effect" name="set_dirtiestteam">
+                            <span>DIRTY TEAM</span>
+							</button>
+						</form>  </div></td>
+						 </td>
+						<td> 	Set Team - Yellow - Red  </td>
+						<td> <?php
+									//$verquery = "SELECT last_run FROM bc18_overig WHERE name = 'verification'"; 
+									//$results = mysqli_query($db, $verquery);
+									//$data = mysqli_fetch_array($results);
+									//echo $data['last_run'];
+									?> </td>
+						</tr>		
+					
+					</tbody>		
+						</table>
+						
+						
+						
+						
+						<center><h4> API </h4></center>
+						
+						<table class="table">
+					<thead>
+					<tr>
+
+					<th> ACTION </th>
+					<th> DETAILS </th>
+					<th> LAST EXECUTION </th>
+					</tr>
+					</thead>
+
+						<tbody>
 					
 					
 					<td>							
