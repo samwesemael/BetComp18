@@ -4,14 +4,14 @@
   }
 
   if (!isset($_SESSION['email'])) {
-    $_SESSION['msg'] = "You must log in first";
+    $_SESSION['msg'] = 'You must log in first';
     header('location: sign-in.php');
   }
 
   if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['email']);
-    header("location: sign-in.php");
+    header('location: sign-in.php');
   }
 ?>
 <head>
@@ -80,7 +80,7 @@
             $stmt4->execute();
             $stmt4->close();
             $stmt3 = $db->prepare("INSERT INTO bc18_notifications(bc18_user, bc18_link, bc18_class, bc18_message, bc18_read, bc18_created) VALUES(?, ?, ?, ?, ?, NOW())");
-            $link = "profile.php";
+            $link = 'profile.php';
             $class = 'achieve';
             $message = 'New achievement unlocked!';
             $read = 0;
@@ -113,14 +113,14 @@
             $results = mysqli_query($db, $achieved);
             $aantal = mysqli_num_rows($results);
             if ($aantal > 0)
-                return True;
+                return true;
             else
-                return False;
+                return false;
         }
 
         if (!empty($_GET['notif'])) {
             $notification = $_GET['notif'];
-            if($notification == "called"){
+            if($notification == 'called'){
                 $mail = $_SESSION['email'];
                 $sqlnotif = "UPDATE bc18_notifications SET bc18_read=1 WHERE bc18_user = '$mail'";
                 $results = mysqli_query($db, $sqlnotif);
@@ -171,23 +171,23 @@
                                             // color are classes from style.css
                                             //options: 
                                             switch ($data['bc18_class']) {
-                                                case "chat":
+                                                case 'chat':
                                                     $icon = 'chat';
                                                     $color = 'bg-light-green';
                                                     break;
-                                                case "mededeling":
+                                                case 'mededeling':
                                                     $icon = 'add_shopping_cart';
                                                     $color = 'bg-blue-grey';
                                                     break;
-                                                case "klassement":
+                                                case 'klassement':
                                                     $icon = 'format_list_numbered';
                                                     $color = 'bg-orange';
                                                     break;
-                                                case "newUser":
+                                                case 'newUser':
                                                     $icon = 'person_add';
                                                     $color = 'bg-indigo';
                                                     break;
-                                                case "achieve":
+                                                case 'achieve':
                                                     $icon = 'whatshot';
                                                     $color = 'bg-cyan';
                                                     break;
@@ -197,21 +197,21 @@
                                             $date->setTimezone(new DateTimeZone('Europe/Brussels'));
                                             $dateNu = $date->format('Y-m-d H:i:s');
                                             echo '
-                                            <li>    
-                                                <a href="'.$data['bc18_link'].'?notif=called">
-                                                    <div class="icon-circle '.$color.'">
-                                                        <i class="material-icons">'.$icon.'</i>
-                                                    </div>
-                                                    <div class="menu-info">
-                                                        <h4>'.$data['bc18_message'].'</h4>
-                                                        <p>
-                                                            <i class="material-icons">access_time</i>'.$dateNu.'
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </li>';
+                                                <li>    
+                                                    <a href="'.$data['bc18_link'].'?notif=called">
+                                                        <div class="icon-circle '.$color.'">
+                                                            <i class="material-icons">'.$icon.'</i>
+                                                        </div>
+                                                        <div class="menu-info">
+                                                            <h4>'.$data['bc18_message'].'</h4>
+                                                            <p>
+                                                                <i class="material-icons">access_time</i>'.$dateNu.'
+                                                            </p>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            ';
                                         }
-
                                     ?>
                             <li class="footer">
                                 <a href="profile.php">View All Notifications</a>
