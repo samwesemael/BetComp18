@@ -490,7 +490,7 @@
                                                     $user = $users['user_name'];
                                             ?>
                                                 <tr>                                   
-                                                    <td><?php echo $user; ?></td>
+                                                    <td><?php echo htmlspecialchars($user); ?></td>
                                                     <?php
                                                     $sqlbets = "SELECT bc18_games.status AS status, bc18_bets.bc18_userid AS userID, bc18_users.user_name AS Username, bc18_users.email AS email, bc18_pred_goalshome AS goalshome, bc18_pred_goalsaway AS goalsaway, bc18_gameid AS gameid, bc18_games.goals_home AS correctHome, bc18_games.goals_away AS correctAway FROM bc18_bets INNER JOIN bc18_users on bc18_bets.bc18_userid = bc18_users.email INNER JOIN bc18_games on bc18_bets.bc18_gameid = bc18_games.game_id WHERE bc18_users.user_name = '$user' ORDER BY bc18_users.user_name, bc18_games.datum ";
                                                         $resultsbets = mysqli_query($db,$sqlbets);
