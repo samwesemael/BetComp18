@@ -5,7 +5,7 @@
 <html>
 <!-- navigator inladen en juist actief zetten -->
 <script type="text/javascript">
-    document.getElementById("nav-klassement").classList.toggle('active');
+    document.getElementById('nav-klassement').classList.toggle('active');
 </script>
     <section class="content">
         <!-- Basic Table -->
@@ -76,14 +76,14 @@
                                                 echo '<span style="margin-left:32px";>' . htmlspecialchars($data['user_name']) . '</span></td>';
                                             }
                                             echo'
-                                                <td>'.$data['winnaar_correct'].'</td>
-                                                <td>'.$data['uitslag_correct'].'</td>
-												<td>'.$data['bonus'].'</td>
-                                                <td><b>'.$data['totaal'].'</b></td>
+                                                <td>' . $data['winnaar_correct'] . '</td>
+                                                <td>' . $data['uitslag_correct'] . '</td>
+												<td>' . $data['bonus'] . '</td>
+                                                <td><b>' . $data['totaal'] . '</b></td>
                                             </tr>';
                                             $ranking++;
-                                            }
-                                        ?>
+                                        }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
