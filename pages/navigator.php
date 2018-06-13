@@ -1,21 +1,19 @@
 <?php 
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
-}
+  }
 
   if (!isset($_SESSION['email'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: sign-in.php');
   }
+
   if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['email']);
     header("location: sign-in.php");
   }
-
 ?>
-
-
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -46,17 +44,11 @@
     <!-- Bootstrap Select Css -->
     <link href="../plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
-
     <!-- Custom Css -->
     <link href="../css/style.css" rel="stylesheet">
 
-
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="../css/themes/all-themes.css" rel="stylesheet" />
-
-
-
-
 </head>
 
 <body class="theme-red">
@@ -79,62 +71,62 @@
     <!-- #END# Page Loader -->
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
-<?php
-    include 'server.php';
+    <?php
+        include 'server.php';
 
-    function addAchievement($db, $id, $userid) {
-        $stmt4 = $db->prepare("INSERT INTO bc18_achieved(bc18_user, bc18_achievement, bc18_created) VALUES (?,?,NOW())");
-        $stmt4->bind_param('si', $userid, $id);
-        $stmt4->execute();
-        $stmt4->close();
-        $stmt3 = $db->prepare("INSERT INTO bc18_notifications(bc18_user, bc18_link, bc18_class, bc18_message, bc18_read, bc18_created) VALUES(?, ?, ?, ?, ?, NOW())");
-        $link = "profile.php";
-        $class = 'achieve';
-        $message = 'New achievement unlocked!';
-        $read = 0;
-        $stmt3->bind_param('ssssi', $userid, $link, $class, $message, $read);
-        $stmt3->execute();
-        $stmt3->close();
-        echo "<script>
-                var span = document.getElementById('notiflabel');
-                var waarde = document.getElementById('notiflabel').innerHTML;
-                if (waarde == '' || waarde == null){
-                    while( span.firstChild ) {
-                        span.removeChild( span.firstChild );
+        function addAchievement($db, $id, $userid) {
+            $stmt4 = $db->prepare("INSERT INTO bc18_achieved(bc18_user, bc18_achievement, bc18_created) VALUES (?,?,NOW())");
+            $stmt4->bind_param('si', $userid, $id);
+            $stmt4->execute();
+            $stmt4->close();
+            $stmt3 = $db->prepare("INSERT INTO bc18_notifications(bc18_user, bc18_link, bc18_class, bc18_message, bc18_read, bc18_created) VALUES(?, ?, ?, ?, ?, NOW())");
+            $link = "profile.php";
+            $class = 'achieve';
+            $message = 'New achievement unlocked!';
+            $read = 0;
+            $stmt3->bind_param('ssssi', $userid, $link, $class, $message, $read);
+            $stmt3->execute();
+            $stmt3->close();
+            echo "<script>
+                    var span = document.getElementById('notiflabel');
+                    var waarde = document.getElementById('notiflabel').innerHTML;
+                    if (waarde == '' || waarde == null){
+                        while( span.firstChild ) {
+                            span.removeChild( span.firstChild );
+                        }
+                        span.appendChild( document.createTextNode('1'));
                     }
-                    span.appendChild( document.createTextNode('1'));
-                }
-                else {
-                    waarde = parseInt(waarde)+1;
-
-                    while( span.firstChild ) {
-                        span.removeChild( span.firstChild );
+                    else {
+                        waarde = parseInt(waarde)+1;
+    
+                        while( span.firstChild ) {
+                            span.removeChild( span.firstChild );
+                        }
+                        span.appendChild( document.createTextNode(waarde) );
                     }
-                    span.appendChild( document.createTextNode(waarde) );
-                }
-            </script>";
-        return;
-    }
+                </script>";
+            return;
+        }
 
-    function achievedAchievement($db, $id, $userid){
-        $achieved = "SELECT bc18_achievement FROM bc18_achieved WHERE bc18_user = '$userid' AND bc18_achievement = '$id'";
-        $results = mysqli_query($db, $achieved);
-        $aantal = mysqli_num_rows($results);
-        if ($aantal > 0)
-            return True;
-        else
-            return False;
-   }
+        function achievedAchievement($db, $id, $userid){
+            $achieved = "SELECT bc18_achievement FROM bc18_achieved WHERE bc18_user = '$userid' AND bc18_achievement = '$id'";
+            $results = mysqli_query($db, $achieved);
+            $aantal = mysqli_num_rows($results);
+            if ($aantal > 0)
+                return True;
+            else
+                return False;
+        }
 
-    if (!empty($_GET['notif'])) {
-        $notification = $_GET['notif'];
-        if($notification == "called"){
-        $mail = $_SESSION['email'];
-        $sqlnotif = "UPDATE bc18_notifications SET bc18_read=1 WHERE bc18_user = '$mail'";
-        $results = mysqli_query($db, $sqlnotif);
-    }
-}
-?>
+        if (!empty($_GET['notif'])) {
+            $notification = $_GET['notif'];
+            if($notification == "called"){
+                $mail = $_SESSION['email'];
+                $sqlnotif = "UPDATE bc18_notifications SET bc18_read=1 WHERE bc18_user = '$mail'";
+                $results = mysqli_query($db, $sqlnotif);
+            }
+        }
+    ?>
 
     <!-- Top Bar -->
     <nav class="navbar">
@@ -237,14 +229,11 @@
             <!-- User Info -->
             <div class="user-info">
                 <?php
-
-                        $rank = "SELECT * from bc18_achieved where bc18_user = '$mail'";
-                        // echo $sql;
-                        $result = mysqli_query($db,$rank);
-                        $numberofAchievements = mysqli_num_rows($result);
-
+                    $rank = "SELECT * from bc18_achieved where bc18_user = '$mail'";
+                    // echo $sql;
+                    $result = mysqli_query($db,$rank);
+                    $numberofAchievements = mysqli_num_rows($result);
                 ?>
-
                 <div class="image">
                     <img src="<?php echo $_SESSION['profilepicpath'] ?>" width="48" height="48" alt="User" class="img-responsive"/>
                     <?php 
