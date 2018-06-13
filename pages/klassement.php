@@ -1,5 +1,5 @@
 <?php include 'navigator.php';
-include('server.php');
+    include('server.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -7,11 +7,8 @@ include('server.php');
 <script type="text/javascript">
     document.getElementById("nav-klassement").classList.toggle('active');
 </script>
-
     <section class="content">
-	
-	
-	            <!-- Basic Table -->
+        <!-- Basic Table -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
@@ -19,11 +16,9 @@ include('server.php');
                             <h4>
                                 RANKING
 							</h4>
-                                <small>CW = Correct Winner</small> <br>
-								<small>CS = Correct Score</small> </br>
-								<small>BP = Bonus Points</small>
-                            
-                            
+                            <small>CW = Correct Winner</small> <br>
+                            <small>CS = Correct Score</small> </br>
+                            <small>BP = Bonus Points</small>
                         </div>
                         <div class="body table-responsive">
                             <table class="table">
@@ -38,9 +33,7 @@ include('server.php');
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     <?php
-
                                         $sqlklassement = "SELECT bc18_users.email, bc18_users.user_name, bc18_klassement.totaal, bc18_klassement.bonus, bc18_klassement.uitslag_correct, bc18_klassement.winnaar_correct, bc18_users.pic_path FROM bc18_klassement inner join bc18_users on bc18_klassement.email = bc18_users.email WHERE bc18_users.verification = 1 ORDER BY totaal DESC, uitslag_correct DESC, winnaar_correct DESC ";
                                         $results = mysqli_query($db, $sqlklassement);
                                         if (!$results) {
@@ -98,7 +91,6 @@ include('server.php');
                 </div>
             </div>
             <!-- #END# Basic Table -->
-	
     </section>
 
     <!-- Jquery Core Js -->
@@ -122,5 +114,4 @@ include('server.php');
     <!-- Demo Js -->
     <script src="../js/demo.js"></script>
 </body>
-
 </html>
