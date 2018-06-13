@@ -368,7 +368,7 @@
 							
                                 <div class="col-md-4"> 
     								<p><b>Dirtiest Team</b></p>								
-                                    <select name="vuilste" class="selectpicker">
+                                    <select name="vuilste" class="selectpicker" data-live-search="true">
                                         <option data-thumbnail="../images/flags/hi_res/flag_arg.png">Argentina</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_aus.png">Australia</option>
                                         <option data-thumbnail="../images/flags/hi_res/flag_bel.png">Belgium</option>
