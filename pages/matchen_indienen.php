@@ -144,7 +144,7 @@
 								<p> <b>Naam</b></p>
 									<div class="form-group form-float">
 										<div class="form-line">
-											<input type="text" class="form-control" name="username" value="<?php echo $_SESSION['username'];?>" disabled>
+											<input type="text" class="form-control" name="username" value="<?php echo htmlspecialchars($_SESSION['username']);?>" disabled>
 										</div>
 									</div>
 							</div>		
@@ -268,8 +268,8 @@
 								    <p> <b>Naam</b></p>
 									<div class="form-group form-float">
 										<div class="form-line">
-											<input type="text" class="form-control" name="username" value="<?php echo $_SESSION['username'];?>" disabled>
-											<!-- <label  class="form-label"><?php echo $_SESSION['firstname'];?></label> -->
+											<input type="text" class="form-control" name="username" value="<?php echo htmlspecialchars($_SESSION['username']);?>" disabled>
+											<!-- <label  class="form-label"><?php echo ($_SESSION['firstname']);?></label> -->
 										</div>
 									</div>
                                 </div>		
