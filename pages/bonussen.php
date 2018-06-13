@@ -71,9 +71,9 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Team</th>
-										<th>R<th>
-										<th>Y<th>
-										<th>Pts<th>
+										<th>R</th>
+										<th>Y</th>
+										<th>Pts</th>
 
                                     </tr>
                                 </thead>
@@ -94,8 +94,8 @@
 															<a href="javascript:void(0);"> <img class="media-object" src="'.$data_dirty['team_crest'].'" width="23" height="15"> </a> </div>
 															<div class="media-body">
 															'.$data_dirty['team_name'].'   </div>	</td>   
-													<td>'.$yc.'</td>
 													<td>'.$rc.'</td>
+													<td>'.$yc.'</td>
 													<td>'.$dirtypoints.'</td>
                                     </tr>';
 							    $ranking_dirty++;

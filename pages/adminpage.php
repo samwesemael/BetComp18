@@ -271,7 +271,7 @@
 						</tbody>		
 						</table>
 						
-						<center><h4> BONUSSES </h4></center>
+						<center><h4><u> BONUSSES </u></h4></center>
 						
 						<table class="table">
 					<thead>
@@ -398,7 +398,7 @@
 						
 						
 						
-						<center><h4> API </h4></center>
+						<center><h4><u> API </u></h4></center>
 						
 						<table class="table">
 					<thead>

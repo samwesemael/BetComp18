@@ -141,7 +141,7 @@
                         <div class="row clearfix">
                             <div class="col-xs-12 col-sm-12">                                        
                                     <?php  
-                                        $sqlklassement = "SELECT bc18_users.email, bc18_users.user_name, bc18_users.first_name, bc18_klassement.totaal, bc18_users.pic_path FROM bc18_klassement inner join bc18_users on bc18_klassement.email = bc18_users.email WHERE bc18_users.verification = 1 ORDER BY totaal DESC, uitslag_correct DESC, winnaar_correct DESC LIMIT 4";
+                                        $sqlklassement = "SELECT bc18_users.email, bc18_users.user_name, bc18_users.first_name, bc18_klassement.totaal, bc18_users.pic_path FROM bc18_klassement inner join bc18_users on bc18_klassement.email = bc18_users.email WHERE bc18_users.verification = 1 ORDER BY totaal DESC, uitslag_correct DESC, winnaar_correct DESC, first_name LIMIT 4";
                                         $results = mysqli_query($db, $sqlklassement);
                                         if (!$results) {
                                             printf("Error: %s\n", mysqli_error($db));
