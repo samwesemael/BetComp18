@@ -78,9 +78,9 @@ include('server.php');
                                                 $star = true;
                                             }
                                             if($star){
-                                                echo '<span style="margin-left:10px";>'.$data['user_name'].'</span></td>';
+                                                echo '<span style="margin-left:10px";>' . htmlspecialchars($data['user_name']) . '</span></td>';
                                             }else{
-                                                echo '<span style="margin-left:32px";>'.$data['user_name'].'</span></td>';
+                                                echo '<span style="margin-left:32px";>' . htmlspecialchars($data['user_name']) . '</span></td>';
                                             }
                                             echo'
                                                 <td>'.$data['winnaar_correct'].'</td>
