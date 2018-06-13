@@ -149,10 +149,8 @@
 	
 	if(isset($_POST['set_topscorer'])){		
 		$goals = $_POST['number_goals'];
-		$player_name = $_POST['player_name'];
-		echo $goals;
-		echo $player_name;
-		$sqltopscorer = "UPDATE `bc18_players` SET `goals`= '$goals' WHERE player_name IS ('$player_name')";
+		$player_name = $_POST['player_name'];		
+		$sqltopscorer = "UPDATE bc18_players SET goals = $goals WHERE player_name = '$player_name'";
 		mysqli_query($db, $sqltopscorer);
 		// $dateNu = date_format(new DateTime(),'Y-m-d H:i:s');
 		//$query = "UPDATE bc18_overig SET last_run = NOW() WHERE name='verification'";
@@ -166,7 +164,7 @@
 		$yc = $_POST['yellow_cards'];
 		$rc = $_POST['red_cards'];
 		$t = $_POST['team_name'];
-		$sqldirtyteam = "UPDATE `bc18_teams` SET `yellow_cards`= '$yc', `red_cards` = '$rc' WHERE team_name IS ('$t')";
+		$sqldirtyteam = "UPDATE bc18_teams SET yellow_cards = $yc, red_cards = $rc WHERE team_name = '$t'";
 		mysqli_query($db, $sqldirtyteam);
 		// $dateNu = date_format(new DateTime(),'Y-m-d H:i:s');
 		//$query = "UPDATE bc18_overig SET last_run = NOW() WHERE name='verification'";
