@@ -303,6 +303,7 @@
 									</div>
 									<div class="col-md-4"> 
 									<select name = "number_goals" class="selectpicker">
+										<option>0</option>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -347,7 +348,8 @@
 									</div>
 									<div class="col-md-3"> 
 									<select name = "yellow_cards" class="selectpicker">
-                                        <option>1</option>
+										<option>0</option>
+									    <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
@@ -371,6 +373,7 @@
 									</div> 
 									<div class="col-md-3"> 
 									<select name = "red_cards" class="selectpicker">
+									    <option>0</option>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
