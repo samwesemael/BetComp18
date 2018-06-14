@@ -8333,3 +8333,9 @@ html.ie11 .bs-searchbox .form-control {
 .achievement {
   opacity: 0.3;
 }
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}

@@ -158,6 +158,7 @@
                     $result = mysqli_query($db,$rank);
                     $numberofAchievements = mysqli_num_rows($result);
                     $progress = $numberofAchievements*5;
+
                     if($numberofAchievements<5){
                         $rank = 'Tom Soetaers';
                         $style = 'progress-bar-danger';
@@ -184,9 +185,18 @@
                           </div>
                         </div>
                         <div style="margin-left: 15px; margin-right: 15px;">
-                            <span style="float: right; width: 27%"><img class="img-responsive" alt="star" style="max-width: 40px;" src="../images/3star.png"></span>
-                            <span style="float: left; width: 25%"><img class="img-responsive" alt="star" style="max-width: 40px;" src="../images/1star.png"></span>
-                            <span style="float: left; width: 23%"><img class="img-responsive" alt="star" style="max-width: 40px;" src="../images/2star.png"></span>
+                            <div class="column">   
+                                <img class="img-responsive" alt="star" style="float:right; margin-right:18%; max-width: 40px;" src="../images/1star.png">   
+                            </div>
+                            <div class="column">
+                                <center><img class="img-responsive" alt="star" style="max-width: 40px;" src="../images/2star.png"></center>
+                            </div>                    
+                            <div class="column">
+                                <img class="img-responsive" alt="star" style="float:left; margin-left:18%; max-width: 40px; " src="../images/3star.png">
+                            </div>
+
+
+                            <!-- <span style="float: left; width: 23%"></span> -->
                         </div>
                     </div>
                     <br>
