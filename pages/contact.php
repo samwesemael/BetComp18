@@ -11,7 +11,7 @@
 
 <?php
     if(isset($_POST['sub-btn'])){
-        $uname = $_SESSION['username'];
+        $uname = $_SESSION['username'].' ('.$_SESSION['firstname'].')';
         $mail = $_SESSION['email'];
         $dtnow = new DateTime();
         // omzetten naar juiste timezone alleen als in database ook in juiste timezone zit        
