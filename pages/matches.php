@@ -276,9 +276,9 @@
                                                                 <div class="media">
                                                                     <div class="media-left media-middle media-right">
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                                            <center><a href="#">
+                                                                            <center>
                                                                                 <img class="media-object" src="'.$data['homeflag'].'" width="80%">
-                                                                            </a></center>
+                                                                            </center>
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <div class="media-body media-middle centered-content">
@@ -291,9 +291,7 @@
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <center>
-                                                                                <a href="#">
                                                                                     <img class="media-object" src="'.$data['awayflag'].'" width="80%">
-                                                                                </a>
                                                                             </center>
                                                                         </div>
                                                                     </div>
@@ -310,9 +308,9 @@
                                                                 <div class="media">
                                                                     <div class="media-left media-middle media-right">
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                                            <center><a href="#">
+                                                                            <center>
                                                                                 <img class="media-object" src="'.$data['homeflag'].'" width="80%">
-                                                                            </a></center>
+                                                                            </center>
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <div class="media-body media-middle centered-content">
@@ -325,9 +323,7 @@
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <center>
-                                                                                <a href="#">
-                                                                                    <img class="media-object" src="'.$data['awayflag'].'" width="80%">
-                                                                                </a>
+                                                                                <img class="media-object" src="'.$data['awayflag'].'" width="80%">
                                                                             </center>
                                                                         </div>
                                                                     </div>
@@ -428,9 +424,9 @@
                                                                 <div class="media">
                                                                     <div class="media-left media-middle media-right">
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                                            <center><a href="#">
+                                                                            <center>
                                                                                 <img class="media-object" src="'.$data['homeflag'].'" width="80%">
-                                                                            </a></center>
+                                                                            </center>
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <div class="media-body media-middle centered-content">
@@ -443,9 +439,7 @@
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <center>
-                                                                                <a href="#">
                                                                                     <img class="media-object" src="'.$data['awayflag'].'" width="80%">
-                                                                                </a>
                                                                             </center>
                                                                         </div>
                                                                     </div>
@@ -462,9 +456,9 @@
                                                                 <div class="media">
                                                                     <div class="media-left media-middle media-right">
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                                            <center><a href="#">
+                                                                            <center>
                                                                                 <img class="media-object" src="'.$data['homeflag'].'" width="80%">
-                                                                            </a></center>
+                                                                            </center>
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <div class="media-body media-middle centered-content">
@@ -477,9 +471,7 @@
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <center>
-                                                                                <a href="#">
-                                                                                    <img class="media-object" src="'.$data['awayflag'].'" width="80%">
-                                                                                </a>
+                                                                                <img class="media-object" src="'.$data['awayflag'].'" width="80%">
                                                                             </center>
                                                                         </div>
                                                                     </div>
@@ -565,9 +557,9 @@
                                                                 <div class="media">
                                                                     <div class="media-left media-middle media-right">
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                                            <center><a href="#">
+                                                                            <center>
                                                                                 <img class="media-object" src="'.$data['homeflag'].'" width="80%">
-                                                                            </a></center>
+                                                                            </center>
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <div class="media-body media-middle centered-content">
@@ -580,9 +572,7 @@
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <center>
-                                                                                <a href="#">
-                                                                                    <img class="media-object" src="'.$data['awayflag'].'" width="80%">
-                                                                                </a>
+                                                                                <img class="media-object" src="'.$data['awayflag'].'" width="80%">
                                                                             </center>
                                                                         </div>
                                                                     </div>
@@ -599,9 +589,9 @@
                                                                 <div class="media">
                                                                     <div class="media-left media-middle media-right">
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                                            <center><a href="#">
+                                                                            <center>
                                                                                 <img class="media-object" src="'.$data['homeflag'].'" width="80%">
-                                                                            </a></center>
+                                                                            </center>
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <div class="media-body media-middle centered-content">
@@ -614,9 +604,7 @@
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <center>
-                                                                                <a href="#">
-                                                                                    <img class="media-object" src="'.$data['awayflag'].'" width="80%">
-                                                                                </a>
+                                                                                <img class="media-object" src="'.$data['awayflag'].'" width="80%"></a>
                                                                             </center>
                                                                         </div>
                                                                     </div>
@@ -727,9 +715,9 @@
                                                                 <div class="media">
                                                                     <div class="media-left media-middle media-right">
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                                            <center><a href="#">
+                                                                            <center>
                                                                                 <img class="media-object" src="'.$data['homeflag'].'" width="80%">
-                                                                            </a></center>
+                                                                            </center>
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <div class="media-body media-middle centered-content">
@@ -742,9 +730,7 @@
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <center>
-                                                                                <a href="#">
                                                                                     <img class="media-object" src="'.$data['awayflag'].'" width="80%">
-                                                                                </a>
                                                                             </center>
                                                                         </div>
                                                                     </div>
@@ -761,9 +747,9 @@
                                                                 <div class="media">
                                                                     <div class="media-left media-middle media-right">
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                                            <center><a href="#">
+                                                                            <center>
                                                                                 <img class="media-object" src="'.$data['homeflag'].'" width="80%">
-                                                                            </a></center>
+                                                                            </center>
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <div class="media-body media-middle centered-content">
@@ -776,9 +762,7 @@
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <center>
-                                                                                <a href="#">
-                                                                                    <img class="media-object" src="'.$data['awayflag'].'" width="80%">
-                                                                                </a>
+                                                                                <img class="media-object" src="'.$data['awayflag'].'" width="80%">
                                                                             </center>
                                                                         </div>
                                                                     </div>
@@ -876,9 +860,9 @@
                                                                 <div class="media">
                                                                     <div class="media-left media-middle media-right">
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                                            <center><a href="#">
+                                                                            <center>
                                                                                 <img class="media-object" src="'.$data['homeflag'].'" width="80%">
-                                                                            </a></center>
+                                                                            </center>
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <div class="media-body media-middle centered-content">
@@ -891,9 +875,7 @@
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <center>
-                                                                                <a href="#">
-                                                                                    <img class="media-object" src="'.$data['awayflag'].'" width="80%">
-                                                                                </a>
+                                                                                <img class="media-object" src="'.$data['awayflag'].'" width="80%">
                                                                             </center>
                                                                         </div>
                                                                     </div>
@@ -910,9 +892,9 @@
                                                                 <div class="media">
                                                                     <div class="media-left media-middle media-right">
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                                            <center><a href="#">
+                                                                            <center>
                                                                                 <img class="media-object" src="'.$data['homeflag'].'" width="80%">
-                                                                            </a></center>
+                                                                            </center>
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <div class="media-body media-middle centered-content">
@@ -925,9 +907,7 @@
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                                             <center>
-                                                                                <a href="#">
-                                                                                    <img class="media-object" src="'.$data['awayflag'].'" width="80%">
-                                                                                </a>
+                                                                                <img class="media-object" src="'.$data['awayflag'].'" width="80%">
                                                                             </center>
                                                                         </div>
                                                                     </div>
