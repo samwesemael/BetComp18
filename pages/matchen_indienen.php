@@ -404,13 +404,12 @@
                                     </select>                   
                                 </div>  
                                 <div class="col-md-4"> 
-    								<p><b>Position Belgium</b></p>								
+									<p><b>Position Belgium</b></p>								
                                     <select name="posBelgie" class="selectpicker">
                                         <option>Groupstage</option>
-                                        <option>Round of 16</option>
-                                        <option>Round of 8</option>
-    									<option>Quarter Finals</option>
-                                        <option>Semi Finals</option>
+                                        <option>Round of 16</option>                                        
+										<option>Quarter Finals</option>
+										<option>Semi-Finals</option>
                                         <option>Final</option>                                      
                                     </select>					
                                 </div>  	
