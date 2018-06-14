@@ -184,7 +184,6 @@
                           </div>
                         </div>
                         <div style="margin-left: 15px; margin-right: 15px;">
-                            <span style="float: left; width: 23%">0/20</span>
                             <span style="float: right; width: 27%"><img class="img-responsive" alt="star" style="max-width: 40px;" src="../images/3star.png"></span>
                             <span style="float: left; width: 25%"><img class="img-responsive" alt="star" style="max-width: 40px;" src="../images/1star.png"></span>
                             <span style="float: left; width: 23%"><img class="img-responsive" alt="star" style="max-width: 40px;" src="../images/2star.png"></span>

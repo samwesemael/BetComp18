@@ -16,6 +16,12 @@
                             <h4>
                                 TOPSCORERS
 							</h4>
+							
+							<?php
+							$sqltopscorers = "SELECT player_name,goals from bc18_players ORDER BY goals, player_name LIMIT 0,5";
+							$topsco = mysqli_query($db, $sqltopscorers);							
+							$ranking_topsco = 1;							
+							?>
                                                           
                             
                         </div>
@@ -30,32 +36,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>T.B.D.</td>
-										<td>0</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>T.B.D.</td>
-										<td>0</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>T.B.D.</td>
-										<td>0</td>
-                                    </tr>
-									<tr>
-                                        <th scope="row">4</th>
-                                        <td>T.B.D.</td>
-										<td>0</td>
-                                    </tr>
-									<tr>
-                                        <th scope="row">5</th>
-                                        <td>T.B.D.</td>
-										<td>0</td>
-                                    </tr>
+								<?php 
+								while($data_topsco = mysqli_fetch_array($topsco)){
+								echo'                                               
+                                                <tr>
+                                                    <th scope="row">'.$ranking_topsco.'</th>
+													<td>'.$data_topsco['player_name'].'</td>
+													<td>'.$data_topsco['goals'].'</td>
+                                    </tr>';
+							    $ranking_topsco++;
+								}
+								?>
                                 </tbody>
                             </table>
                         </div>
@@ -69,6 +60,9 @@
                                 DIRTIEST TEAM
 							</h4>
                               
+						    <?php							
+							
+							?>
                             
                         </div>
                         <div class="body table-responsive">
@@ -77,74 +71,37 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Team</th>
-										<th>R<th>
-										<th>Y<th>
-										<th>Pts<th>
+										<th>R</th>
+										<th>Y</th>
+										<th>Pts</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td><div class="media-left media-middle">
-											<a href="javascript:void(0);">
-											<img class="media-object" src="../images/flags/low_res/flag_unk.png" width="23" height="15">
-											</a> </div>
-											<div class="media-body">
-                                          T.B.D.   </div>	</td>      
-										<td>0<td>
-										<td>0<td>
-										<td>0<td>
-
-                                    </tr>
-                                    <tr>
-                                       <th scope="row">2</th>
-                                        <td><div class="media-left media-middle">
-											<a href="javascript:void(0);">
-											<img class="media-object" src="../images/flags/low_res/flag_unk.png" width="23" height="15">
-											</a> </div>
-											<div class="media-body">
-                                          T.B.D.   </div>	</td>      
-										<td>0<td>
-										<td>0<td>
-										<td>0<td>
-                                    </tr>
-                                    <tr>
-                                       <th scope="row">3</th>
-                                        <td><div class="media-left media-middle">
-											<a href="javascript:void(0);">
-											<img class="media-object" src="../images/flags/low_res/flag_unk.png" width="23" height="15">
-											</a> </div>
-											<div class="media-body">
-                                          T.B.D.   </div>	</td>      
-										<td>0<td>
-										<td>0<td>
-										<td>0<td>
-                                    </tr>
-									<tr>
-                                       <th scope="row">4</th>
-                                        <td><div class="media-left media-middle">
-											<a href="javascript:void(0);">
-											<img class="media-object" src="../images/flags/low_res/flag_unk.png" width="23" height="15">
-											</a> </div>
-											<div class="media-body">
-                                          T.B.D.   </div>	</td>      
-										<td>0<td>
-										<td>0<td>
-										<td>0<td>
-                                    </tr>
-									<tr>
-                                       <th scope="row">5</th>
-                                        <td><div class="media-left media-middle">
-											<a href="javascript:void(0);">
-											<img class="media-object" src="../images/flags/low_res/flag_unk.png" width="23" height="15">
-											</a> </div>
-											<div class="media-body">
-                                          T.B.D.   </div>	</td>      
-										<td>0<td>
-										<td>0<td>
-										<td>0<td>
-                                    </tr>
+								<?php 
+								$sqldirtyteam = "SELECT team_crest, team_name,yellow_cards,red_cards from bc18_teams ORDER BY red_cards, yellow_cards, team_name LIMIT 0,5";
+							    $dirty = mysqli_query($db, $sqldirtyteam);
+								$ranking_dirty = 1;
+								while($data_dirty = mysqli_fetch_array($dirty)){
+									$yc = $data_dirty['yellow_cards'];
+									$rc = $data_dirty['red_cards'];
+									$dirtypoints = (3 * $rc) + $yc;
+									
+								echo'                                               
+                                                <tr>
+                                                    <th scope="row">'.$ranking_dirty.'</th>
+													<td><div class="media-left media-middle">
+															<a href="javascript:void(0);"> <img class="media-object" src="'.$data_dirty['team_crest'].'" width="23" height="15"> </a> </div>
+															<div class="media-body">
+															'.$data_dirty['team_name'].'   </div>	</td>   
+													<td>'.$rc.'</td>
+													<td>'.$yc.'</td>
+													<td>'.$dirtypoints.'</td>
+                                    </tr>';
+							    $ranking_dirty++;
+								}
+								?>                               
+                                   
                                 </tbody>
                             </table>
                         </div>
