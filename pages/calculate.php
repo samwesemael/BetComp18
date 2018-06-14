@@ -370,29 +370,29 @@ if ($nieuweUpdate){
 	}
 }
 
-$valquery = "SELECT status, datum FROM `bc18_games` WHERE team_home = 'Russia' AND team_away = 'Saudi Arabia'";
-$val = mysqli_query($db, $valquery);
-echo 'belgie kampioen?<br>';
-while ($valdata = mysqli_fetch_array($val)) {
-    $dtnow = new DateTime();
-    $dtnow->setTimezone(new DateTimeZone('UTC'));
-    $dtdatabase = new DateTime($valdata['datum']);
-    $dtdatabase->setTimezone(new DateTimeZone('UTC'));
-    $datastatus = $data['status'];
-    if($dtnow > $dtdatabase || $datastatus == 'FINISHED' || $datastatus == 'IN_PLAY'){
-    	echo 'calculate <br>';
-        //belgie finale?
-        $qry = "SELECT * FROM `bc18_predictedbonusses` WHERE `pos_belgium` = 'final'";
-        $bel = mysqli_query($db, $qry);
-        while ($data = mysqli_fetch_array($bel)) {
-        	$user = $data['user_id'];
-        	echo 'user: '.$user;
-        	if(!achievedAchievement($db, 17, $user)){
-        		addAchievement($db, 17, $user);
-        	}
-        }
-    }
-}
+// $valquery = "SELECT status, datum FROM `bc18_games` WHERE team_home = 'Russia' AND team_away = 'Saudi Arabia'";
+// $val = mysqli_query($db, $valquery);
+// echo 'belgie kampioen?<br>';
+// while ($valdata = mysqli_fetch_array($val)) {
+//     $dtnow = new DateTime();
+//     $dtnow->setTimezone(new DateTimeZone('UTC'));
+//     $dtdatabase = new DateTime($valdata['datum']);
+//     $dtdatabase->setTimezone(new DateTimeZone('UTC'));
+//     $datastatus = $data['status'];
+//     if($dtnow > $dtdatabase || $datastatus == 'FINISHED' || $datastatus == 'IN_PLAY'){
+//     	echo 'calculate <br>';
+//         //belgie finale?
+//         $qry = "SELECT * FROM `bc18_predictedbonusses` WHERE `pos_belgium` = 'final'";
+//         $bel = mysqli_query($db, $qry);
+//         while ($data = mysqli_fetch_array($bel)) {
+//         	$user = $data['user_id'];
+//         	echo 'user: '.$user;
+//         	if(!achievedAchievement($db, 17, $user)){
+//         		addAchievement($db, 17, $user);
+//         	}
+//         }
+//     }
+// }
 
 ?>
 <html>
