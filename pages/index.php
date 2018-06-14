@@ -160,8 +160,6 @@
                                             // echo $sql;
                                             $result = mysqli_query($db,$rank);
                                             $numberofAchievements = mysqli_num_rows($result);
-                                            if($adres==$_SESSION['email'])
-                                                $achievementsActiveUser = $numberofAchievements;
                                             echo '
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                                       <div>
@@ -341,7 +339,13 @@
                 <div class="card">
                     <div class="body bg">
                         <div class="font-bold m-b--35">ACHIEVEMENTS  <a class="btn btn-small btn-info pull-right" href="profile.php">Full List</a> </div>  <br> <br>
-                        
+                        <?php
+                            $adres = $_SESSION['email'];
+                            $rank = "SELECT * from bc18_achieved where bc18_user = '$adres' ";
+                            // echo $sql;
+                            $result = mysqli_query($db,$rank);
+                            $achievementsActiveUser = mysqli_num_rows($result);
+                            ?>
 							<div class="font-bold m-b--35"><center><h1><class="col-blue"><?php echo $achievementsActiveUser;?></font>/20</h1></center></div> 
 							<ul class="dashboard-stat-list">
                             <li>
