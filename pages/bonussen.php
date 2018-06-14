@@ -18,7 +18,7 @@
 							</h4>
 							
 							<?php
-							$sqltopscorers = "SELECT player_name,goals from bc18_players ORDER BY goals, player_name LIMIT 0,5";
+							$sqltopscorers = "SELECT goals, player_name from bc18_players ORDER BY goals DESC, player_name ASC LIMIT 0,5";
 							$topsco = mysqli_query($db, $sqltopscorers);							
 							$ranking_topsco = 1;							
 							?>
@@ -79,7 +79,7 @@
                                 </thead>
                                 <tbody>
 								<?php 
-								$sqldirtyteam = "SELECT team_crest, team_name,yellow_cards,red_cards from bc18_teams ORDER BY red_cards, yellow_cards, team_name LIMIT 0,5";
+								$sqldirtyteam = "SELECT team_crest, team_name,yellow_cards,red_cards from bc18_teams ORDER BY red_cards DESC, yellow_cards DESC, team_name LIMIT 0,5";
 							    $dirty = mysqli_query($db, $sqldirtyteam);
 								$ranking_dirty = 1;
 								while($data_dirty = mysqli_fetch_array($dirty)){
