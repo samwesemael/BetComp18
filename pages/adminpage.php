@@ -122,7 +122,8 @@
 		$response_cl_teams = file_get_contents($cl_teams, false, $stream_context);
 		$response_cl_teams = json_decode($response_cl_teams);	
 	
-		foreach ($response_cl_teams->teams as $team) {			
+		foreach ($response_cl_teams->teams as $team) {	
+			$teamname = $team->name;		
 			foreach($team->_links->players as $team_playerlink){ 
 			
 				$reqPrefs['http']['method'] = 'GET';
@@ -132,7 +133,10 @@
 				$response_cl_players = json_decode($response_cl_players);			
 			
 				foreach($response_cl_players->players as $player){
+					// echo $player->name.' '.$teamname.'<br>';
+					$playername = $player->name;
 					$sqlqry = "INSERT INTO bc18_players (player_name) VALUES ('$player->name')";
+					// $sqlqry = "UPDATE `bc18_players` SET `squad`= '$teamname' WHERE `player_name` = '$playername'";
 					mysqli_query($db, $sqlqry);
 					//echo $player->name; 
 		}   }   }
@@ -211,7 +215,7 @@
 
 					<th> ACTION </th>
 					<th> DETAILS </th>
-					<th> LAST EXECUTION </th>
+					
 					</tr>
 					</thead>
 					<tbody>
@@ -279,7 +283,7 @@
 
 					<th> ACTION </th>
 					<th> DETAILS </th>
-					
+					<th> LAST EXECUTION </th>
 					</tr>
 					</thead>
 
@@ -381,7 +385,6 @@
                                         <option>5</option> 								
                                     </select>
 									</div> 
-									<div class="col-md-3"> 
 							<button type="submit" class="btn bg-green waves-effect" name="set_dirtiestteam">
                             <span>DIRTY TEAM</span>
 							</button> </div>

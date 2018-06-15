@@ -18,7 +18,7 @@
 							</h4>
 							
 							<?php
-							$sqltopscorers = "SELECT goals, player_name from bc18_players ORDER BY goals DESC, player_name ASC LIMIT 0,5";
+							$sqltopscorers = "SELECT bc18_teams.team_crest AS team_crest, goals, player_name FROM bc18_players INNER JOIN bc18_teams ON squad = team_name ORDER BY goals DESC , player_name ASC  LIMIT 0 , 5";
 							$topsco = mysqli_query($db, $sqltopscorers);							
 							$ranking_topsco = 1;							
 							?>
@@ -41,7 +41,10 @@
 								echo'                                               
                                                 <tr>
                                                     <th scope="row">'.$ranking_topsco.'</th>
-													<td>'.$data_topsco['player_name'].'</td>
+                                                    <td><div class="media-left media-middle">
+                                                            <a href="javascript:void(0);"> <img class="media-object" src="'.$data_topsco['team_crest'].'" width="23" height="15"> </a> </div>
+                                                            <div class="media-body">
+                                                            '.$data_topsco['player_name'].'   </div>   </td> 
 													<td>'.$data_topsco['goals'].'</td>
                                     </tr>';
 							    $ranking_topsco++;
