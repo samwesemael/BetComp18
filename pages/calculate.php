@@ -40,6 +40,7 @@ function isKnockoutStage($matchday){
 
 echo 'start';
 
+
 $puntenMatchCorrect = 3;
 $puntenWinnaarCorrect = 1;
 $teamGaatDoor = 1;
@@ -55,6 +56,16 @@ $query = 'SELECT bc18_survivor AS survivor, bc18_betid as betID, bc18_userid AS 
 $stmtklassement = $db->prepare("UPDATE bc18_klassement INNER JOIN bc18_bets ON bc18_klassement.email = bc18_bets.bc18_userid SET bc18_klassement.uitslag_correct = ?, bc18_klassement.winnaar_correct = ?, bc18_klassement.totaal = ?, bc18_bets.bc18_meegerekend = ? WHERE bc18_klassement.email = ? AND bc18_bets.bc18_gameid = ?");
 
 $results = mysqli_query($db, $query);
+if(mysqli_num_rows($results)>0){
+	echo 'backup tabel<br>';
+	// copy klassement to backup klassement
+	$leegmaken = "TRUNCATE `bc18_klassement_back_up`";
+	mysqli_query($db, $leegmaken);
+	$copy = "INSERT INTO `bc18_klassement_back_up` SELECT * FROM `bc18_klassement` WHERE 1;";
+	mysqli_query($db, $copy);
+}
+
+
 while ($data = mysqli_fetch_array($results)){
 	if(!isKnockoutStage($data['matchday'])){
 		//groepsfase
