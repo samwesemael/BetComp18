@@ -279,7 +279,7 @@
 
 					<th> ACTION </th>
 					<th> DETAILS </th>
-					<th> LAST EXECUTION </th>
+					
 					</tr>
 					</thead>
 
@@ -381,9 +381,10 @@
                                         <option>5</option> 								
                                     </select>
 									</div> 
+									<div class="col-md-3"> 
 							<button type="submit" class="btn bg-green waves-effect" name="set_dirtiestteam">
                             <span>DIRTY TEAM</span>
-							</button>
+							</button> </div>
 						</form>  </div></td>
 						 </td>
 						<td> 	Set Team - Yellow - Red  </td>
