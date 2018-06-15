@@ -393,7 +393,17 @@
 									//$data = mysqli_fetch_array($results);
 									//echo $data['last_run'];
 									?> </td>
-						</tr>		
+						</tr>	
+
+						<tr>
+						<td>
+						<form method="post" action="bonusscraper.php">
+						<button type="submit" class="btn bg-green waves-effect" name="wikiscrape">
+                                <span>WIKI</span>
+						</button> 
+						</form> </td>
+						<td> 	Get topscorers from: https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_statistics  </td>
+						</tr>
 					
 					</tbody>		
 						</table>
