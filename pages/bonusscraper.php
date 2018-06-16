@@ -16,11 +16,13 @@ if(!empty($html)){ //if any html is actually returned
 	libxml_clear_errors(); //remove errors for yucky html
 	
 	$wiki_xpath = new DOMXPath($wiki_doc);
+	
+		// TOPSCHUTTER
 
 		$numbergoals = $wiki_xpath->query('//dt');
 		$topscorers = $wiki_xpath->query('//ul');
-		$rows = 2;
-		$starttopscorers = 2;		
+		$rows = 3;											//  Hoeveel verschillende aantal goals zijn er gescoord
+		$starttopscorers = 3;								// Eerste lijntjes zijn de TOC
 	
 		for($i=0;$i<$rows;$i++){
 				$aantalgoals = $numbergoals[$i]->nodeValue[0];
@@ -42,8 +44,16 @@ if(!empty($html)){ //if any html is actually returned
 					mysqli_query($db, $sqltopscorer);					
 				}
 								
-			
-		}		
+		}	
+		
+
+		// DISCIPLINE
+		
+		$dirtyteams = $wiki_xpath->query('//tr');
+		print_r($dirtyteams);
+		
+
+		
 }
     
 	
