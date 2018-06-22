@@ -82,7 +82,7 @@
                                 </thead>
                                 <tbody>
 								<?php 
-								$sqldirtyteam = "SELECT team_crest, team_name,yellow_cards,red_cards from bc18_teams ORDER BY red_cards DESC, yellow_cards DESC, team_name LIMIT 0,5";
+								$sqldirtyteam = "SELECT team_crest, team_name,yellow_cards,red_cards from bc18_teams ORDER BY  (3*red_cards +  yellow_cards) DESC, red_cards DESC, yellow_cards DESC, team_name LIMIT 0,5";
 							    $dirty = mysqli_query($db, $sqldirtyteam);
 								$ranking_dirty = 1;
 								while($data_dirty = mysqli_fetch_array($dirty)){

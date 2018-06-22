@@ -22,11 +22,11 @@ if(!empty($html)){ //if any html is actually returned
 		$numbergoals = $wiki_xpath->query('//dt');
 		$topscorers = $wiki_xpath->query('//ul');
 		$rows = 3;											//  Hoeveel verschillende aantal goals zijn er gescoord
-		$starttopscorers = 3;								// Eerste lijntjes zijn de TOC
+		$starttopscorers = 4;								// Eerste lijntjes zijn de TOC
 	
 		for($i=0;$i<$rows;$i++){
 				$aantalgoals = $numbergoals[$i]->nodeValue[0];
-				echo $aantalgoals . "<br/>";
+				//echo $aantalgoals . "<br/>";
 				
 				$topscorer = ($topscorers[$i+$starttopscorers])->nodeValue;
 			    $topscorer = trim($topscorer);
@@ -37,24 +37,45 @@ if(!empty($html)){ //if any html is actually returned
 					$top = $topschutters[$j] . " " . $topschutters[$j+1];
 					$top= trim($top);
 
- 					echo $top . "<br/>";
+ 					//echo $top . "<br/>";
 					//$sqltopscorer = "UPDATE bc18_playerswiki SET goals = $aantalgoals WHERE player_name = '$top'";
 					$sqltopscorer = "INSERT INTO bc18_players (player_name, goals) VALUES ('$top', $aantalgoals) ON DUPLICATE KEY UPDATE goals = $aantalgoals";
-					print_r($sqltopscorer);
+					print_r($sqltopscorer . "<br/>");
 					mysqli_query($db, $sqltopscorer);					
 				}
 								
 		}	
 		
+}
 
 		// DISCIPLINE
 		
-		$dirtyteams = $wiki_xpath->query('//tr');
-		print_r($dirtyteams);
+		$htmlContent = file_get_contents("https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_disciplinary_record");
 		
-
+		$DOM = new DOMDocument();
+		$DOM->loadHTML($htmlContent);
+	
+		$tr = $DOM->getElementsByTagName('tr');		
 		
-}
+		$start = 26;
+		$i =0;
+		
+		foreach($tr as $titel){
+			$i++;
+			$x = false;
+			$he = trim($titel->nodeValue);
+			//$he = explode("", $he);
+			
+			if($i > $start && $i<$start + 32){
+				echo $he . "<br/>";
+				
+				
+				
+			}
+		}
+			
+			
+			
     
 	
 	?>
