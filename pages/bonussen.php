@@ -157,7 +157,7 @@
 							    <div class="progress-bar progress-bar-success" role="progressbar" style="width:20%">
 								GROUP
 								</div>
-								 <div class="progress-bar progress-bar-warning" role="progressbar" style="width:20%">
+								 <div class="progress-bar progress-bar-success" role="progressbar" style="width:20%">
 								1/8
 								</div>							
                                 <div class="progress-bar progress-bar-warning" role="progressbar" style="width:20%;">
@@ -240,12 +240,22 @@
                                             <?php
                                                 $sql = "SELECT bc18_predictedbonusses.user_id, bc18_predictedbonusses.world_champion, bc18_users.email, bc18_users.user_name FROM bc18_predictedbonusses INNER JOIN bc18_users on bc18_predictedbonusses.user_id = bc18_users.email ORDER BY user_name";
                                                 $results = mysqli_query($db, $sql);
-                                                
+                           												
                                                 while ($data = mysqli_fetch_array($results)){
+												
+													$wc = $data['world_champion'];													
+													$sql2 = "SELECT `team_name`, `bonus_final` FROM `bc18_teams` WHERE team_name = '".$wc."'";
+													$results2 = mysqli_query($db, $sql2);
+													$res = mysqli_fetch_array($results2);
+													
                                             ?>
                                                 <tr>                                   
                                                     <td><?php echo $data['user_name']; ?></td>
-                                                    <td><span class="pull-right"><?php echo $data['world_champion']; ?></span></td>                 
+													<?php if($res['bonus_final'] == "IMPOSSIBLE"){ ?>
+                                                    <td><span class="pull-right"><del><?php echo $data['world_champion']; ?></del></span></td>
+													<?php } else{ ?>
+													<td><span class="pull-right"><?php echo $data['world_champion']; ?></span></td> 
+													<?php } ?>
                                                 </tr>
                                                 <?php
                                                 }
@@ -284,11 +294,21 @@
                                                 $results = mysqli_query($db, $sql);
                                                 
                                                 while ($data = mysqli_fetch_array($results)){
+                                           
+													$wc = $data['finalist'];													
+													$sql2 = "SELECT `team_name`, `bonus_final` FROM `bc18_teams` WHERE team_name = '".$wc."'";
+													$results2 = mysqli_query($db, $sql2);
+													$res = mysqli_fetch_array($results2);
+													
                                             ?>
                                                 <tr>                                   
                                                     <td><?php echo $data['user_name']; ?></td>
-                                                    <td><span class="pull-right"><?php echo $data['finalist']; ?></span></td>                 
-                                                </tr>
+													<?php if($res['bonus_final'] == "IMPOSSIBLE"){ ?>
+                                                    <td><span class="pull-right"><del><?php echo $data['finalist']; ?></del></span></td>
+													<?php } else{ ?>
+													<td><span class="pull-right"><?php echo $data['finalist']; ?></span></td> 
+													<?php } ?>
+                                                </tr>	
                                                 <?php
                                                 }
                                                 ?>
@@ -325,10 +345,20 @@
                                                 $results = mysqli_query($db, $sql);
                                                 
                                                 while ($data = mysqli_fetch_array($results)){
+													
+													
+													$wc = $data['topscorer'];													
+													$sql2 = "SELECT `player_name`, `bonus_topscorer` FROM `bc18_players` WHERE player_name = '".$wc."'";
+													$results2 = mysqli_query($db, $sql2);
+													$res = mysqli_fetch_array($results2);
                                             ?>
                                                 <tr>                                   
-                                                    <td><?php echo $data['user_name']; ?></td>
-                                                    <td><span class="pull-right"><?php echo $data['topscorer']; ?></span></td>                 
+                                                     <td><?php echo $data['user_name']; ?></td>
+													<?php if($res['bonus_topscorer'] == "IMPOSSIBLE"){ ?>
+                                                    <td><span class="pull-right"><del><?php echo $data['topscorer']; ?></del></span></td>
+													<?php } else{ ?>
+													<td><span class="pull-right"><?php echo $data['topscorer']; ?></span></td> 
+													<?php } ?>          
                                                 </tr>
                                                 <?php
                                                 }
@@ -366,10 +396,21 @@
                                             $sql = "SELECT bc18_predictedbonusses.user_id, bc18_predictedbonusses.dirty_team, bc18_users.email, bc18_users.user_name FROM bc18_predictedbonusses INNER JOIN bc18_users on bc18_predictedbonusses.user_id = bc18_users.email ORDER BY user_name";
                                             $results = mysqli_query($db, $sql);
                                             while ($data = mysqli_fetch_array($results)){
+												
+													$wc = $data['dirty_team'];													
+													$sql2 = "SELECT `team_name`, `bonus_dirty` FROM `bc18_teams` WHERE team_name = '".$wc."'";
+													$results2 = mysqli_query($db, $sql2);
+													$res = mysqli_fetch_array($results2);										
+												
+												
                                                 ?>
                                                 <tr>                                   
-                                                    <td><?php echo $data['user_name']; ?></td>
-                                                    <td><span class="pull-right"><?php echo $data['dirty_team']; ?></span></td>                 
+                                                   <td><?php echo $data['user_name']; ?></td>
+													<?php if($res['bonus_dirty'] == "IMPOSSIBLE"){ ?>
+                                                    <td><span class="pull-right"><del><?php echo $data['dirty_team']; ?></del></span></td>
+													<?php } else{ ?>
+													<td><span class="pull-right"><?php echo $data['dirty_team']; ?></span></td> 
+													<?php } ?>                   
                                                 </tr>
                                                 <?php
                                             } 
@@ -407,6 +448,9 @@
                                                 $results = mysqli_query($db, $sql);
                                                 
                                                 while ($data = mysqli_fetch_array($results)){
+													
+													
+													
                                             ?>
                                                 <tr>                                   
                                                     <td><?php echo $data['user_name']; ?></td>
