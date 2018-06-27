@@ -41,6 +41,20 @@
                                             exit();
                                           }
                                         $ranking = 1;
+										
+										/// GELD BEREKENN ///
+										$pot = 220;
+										$geldarray = [];
+										$totpointstop5 = 0;
+										for($j=0;$j<5;$j++){											
+											$d = mysqli_fetch_array($results);			
+											$totpointstop5 += $d['totaal'];
+										}	
+
+										$sqlklassement = "SELECT bc18_users.email, bc18_users.user_name, bc18_klassement.totaal, bc18_klassement.bonus, bc18_klassement.uitslag_correct, bc18_klassement.winnaar_correct, bc18_users.pic_path FROM bc18_klassement inner join bc18_users on bc18_klassement.email = bc18_users.email WHERE bc18_users.verification = 1 ORDER BY totaal DESC, uitslag_correct DESC, winnaar_correct DESC,user_name ";
+                                        $results = mysqli_query($db, $sqlklassement);
+																				
+										
                                         while($data = mysqli_fetch_array($results)){
                                             $adres = $data['email'];
                                             if($data['pic_path']===''){
@@ -54,10 +68,18 @@
                                             $result = mysqli_query($db,$rank);
                                             $numberofAchievements = mysqli_num_rows($result);
                                             $star = false;
+											if($ranking < 6){
                                             echo'
                                                 <tr>
                                                     <th scope="row">'.$ranking.'</th>
                                                     <td><img style="max-height:40px;" src="'.$afbeelding.'" alt="" class="img-circle">';
+											}
+											else{
+												 echo'
+                                                <tr>
+                                                    <th scope="row">'.$ranking.'</th>
+                                                    <td><img style="max-height:40px;" src="'.$afbeelding.'" alt="" class="img-circle">';
+											}
                                             if($numberofAchievements<10 && $numberofAchievements>=5){
                                                 echo '<img style="max-height:20px; position: relative; left:-20px; top:15px;" src="../images/1star.png" alt="">';
                                                 $star = true;
@@ -71,17 +93,31 @@
                                                 $star = true;
                                             }
                                             if($star){
-                                                echo '<span style="margin-left:10px";>' . htmlspecialchars($data['user_name']) . '</span></td>';
+                                                echo '<span style="margin-left:10px";>' . htmlspecialchars($data['user_name']) . '</span>';												
                                             }else{
-                                                echo '<span style="margin-left:32px";>' . htmlspecialchars($data['user_name']) . '</span></td>';
+                                                echo '<span style="margin-left:32px";>' . htmlspecialchars($data['user_name']) . '</span>';
                                             }
+											if($ranking < 6){
+												$ratio = $data['totaal'] / $totpointstop5;
+												$geld = $ratio * $pot;
+												echo '<div align="right" class="col-blue"><b>'  .  round($geld) . '€</b></div></td>';
+											}
+											else{
+												echo '</td>';
+											}
                                             echo'
                                                 <td>' . $data['winnaar_correct'] . '</td>
                                                 <td>' . $data['uitslag_correct'] . '</td>
 												<td>' . $data['bonus'] . '</td>
                                                 <td><b>' . $data['totaal'] . '</b></td>
                                             </tr>';
+											if($ranking == 5){ ?>
+												<tr style="border-bottom:1px solid black"><td colspan="100%"></td></tr> 
+												<hr class="line1">
+																									<?php
+											}
                                             $ranking++;
+											
                                         }
                                     ?>
                                 </tbody>
