@@ -28,7 +28,7 @@
                                     <li> Winnaar/gelijkspel juist: <b>&#9;1 punt</b> </li> 
                                 </ul>
                                
-								De uitzondering zit hem vanaf de knock-outfase. De score die je dan indient is de score na <b>90'</b>. Wanneer je een gelijkspel indient vul je in het vakje 'extra' 
+								De uitzondering zit hem vanaf de knock-outfase. De score die je dan indient is de score na <b>120'</b>. Wanneer je een gelijkspel indient vul je in het vakje 'extra' 
 								ook de winnaar na <b>120'</b> (verlengingen/penalties) in. Wanneer je dit correct hebt kan je een extra punt verdienen, degenen die geen gelijkspel invulden kunnen 
 								dit punt ook verdienen als zij de winnende ploeg in hun pronotiek juist inschatten.
 								<br>De puntenverdeling is dan als volgt: 

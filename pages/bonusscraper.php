@@ -21,8 +21,8 @@ if(!empty($html)){ //if any html is actually returned
 
 		$numbergoals = $wiki_xpath->query('//dt');
 		$topscorers = $wiki_xpath->query('//ul');
-		$rows = 3;											//  Hoeveel verschillende aantal goals zijn er gescoord
-		$starttopscorers = 4;								// Eerste lijntjes zijn de TOC
+		$rows = 5;											//  Hoeveel verschillende aantal goals zijn er gescoord
+		$starttopscorers = 5;								// Eerste lijntjes zijn de TOC
 	
 		for($i=0;$i<$rows;$i++){
 				$aantalgoals = $numbergoals[$i]->nodeValue[0];

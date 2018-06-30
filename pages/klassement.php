@@ -100,7 +100,7 @@
 											if($ranking < 6){
 												$ratio = $data['totaal'] / $totpointstop5;
 												$geld = $ratio * $pot;
-												echo '<div align="right" class="col-blue"><b>'  .  round($geld) . '€</b></div></td>';
+												//echo '<div align="right" class="col-blue"><b>'  .  round($geld) . '€</b></div></td>';
 											}
 											else{
 												echo '</td>';
