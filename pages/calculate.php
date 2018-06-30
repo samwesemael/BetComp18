@@ -199,8 +199,24 @@ while ($data = mysqli_fetch_array($results)){
 			}
 			else{
 				echo 'de user had dit fout voorspeld <br>';
-				$aantalFout++;
-				$alleenFoutMail = $email;
+				if($data['pred_goals_home']==$data['pred_goals_away']){
+					echo 'user had wel gelijkspel voorspeld <br>';
+					$survivor = $data['survivor'];
+					echo 'en dacht dat '.$survivor.' door gaat';
+					if($survivor == "Home"){
+						echo ' en dit is correct dus +1';
+						$correcteWinnaar = True;
+						$newTotaal = $oldTotaal+$teamGaatDoor;
+						$newWinnaar++;
+					}
+					else{
+						echo ' maar dit is fout';
+					}
+				}
+				else{
+					$aantalFout++;
+					$alleenFoutMail = $email;
+				}
 			}
 		}
 		// resulaat is winnaar away na 90 of 120 min
@@ -230,6 +246,20 @@ while ($data = mysqli_fetch_array($results)){
 			}
 			else{
 				echo 'de user had dit fout voorspeld <br>';
+				if($data['pred_goals_home']==$data['pred_goals_away']){
+					echo 'user had wel gelijkspel voorspeld <br>';
+					$survivor = $data['survivor'];
+					echo 'en dacht dat '.$survivor.' door gaat';
+					if($survivor == "Away"){
+						echo ' en dit is correct dus +1';
+						$correcteWinnaar = True;
+						$newTotaal = $oldTotaal+$teamGaatDoor;
+						$newWinnaar++;
+					}
+					else{
+						echo ' maar dit is fout';
+					}
+				}
 				$aantalFout++;
 				$alleenFoutMail = $email;
 			}
