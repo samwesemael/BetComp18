@@ -160,7 +160,7 @@
 								 <div class="progress-bar progress-bar-success" role="progressbar" style="width:20%">
 								1/8
 								</div>							
-                                <div class="progress-bar progress-bar-warning" role="progressbar" style="width:20%;">
+                                <div class="progress-bar progress-bar-success" role="progressbar" style="width:20%;">
 								1/4
                                 </div>
 								<div class="progress-bar progress-bar-warning" role="progressbar" style="width:20%">

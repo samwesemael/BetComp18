@@ -188,15 +188,15 @@ while ($data = mysqli_fetch_array($results)){
 					$aantalCorrect++;
 					$alleenCorrectMail = $email;
 				}
-			//foute score 
 				else{
 					echo 'de eindstand van de user was echter niet correct <br>';
 					$newTotaal = $oldTotaal+$puntenWinnaarCorrect+$teamGaatDoor;
 					$newWinnaar++;
-					echo 'Juiste Winnaar (home) dus totaalscore +1 <br>';
+					echo 'Juiste Winnaar (home) dus totaalscore +2 <br>';
 					$correcteWinnaar = True;
 				}
 			}
+			// foute score
 			else{
 				echo 'de user had dit fout voorspeld <br>';
 				if($data['pred_goals_home']==$data['pred_goals_away']){
@@ -210,7 +210,7 @@ while ($data = mysqli_fetch_array($results)){
 						$newWinnaar++;
 					}
 					else{
-						echo ' maar dit is fout';
+						echo ' maar dit is fout dus geen punten';
 					}
 				}
 				else{
@@ -240,7 +240,7 @@ while ($data = mysqli_fetch_array($results)){
 					echo 'de eindstand van de user was echter niet correct <br>';
 					$newTotaal = $oldTotaal+$puntenWinnaarCorrect+$teamGaatDoor;
 					$newWinnaar++;
-					echo 'Juiste Winnaar (away) dus totaalscore +1 <br>';
+					echo 'Juiste Winnaar (away) dus totaalscore +2 <br>';
 					$correcteWinnaar = True;
 				}
 			}
@@ -257,7 +257,7 @@ while ($data = mysqli_fetch_array($results)){
 						$newWinnaar++;
 					}
 					else{
-						echo ' maar dit is fout';
+						echo ' maar dit is fout dus geen punten';
 					}
 				}
 				$aantalFout++;
@@ -273,6 +273,7 @@ while ($data = mysqli_fetch_array($results)){
 			else{
 				$survivor = 'Away';
 			}
+			echo 'Na 120 min was het gelijk en na de penalties won '. $survivor.'<br>';
 			//user gokte op gelijkspel
 			if($data['pred_goals_home'] == $data['pred_goals_away']){
 				echo 'user gokte correct op gelijkspel <br>';
@@ -314,7 +315,7 @@ while ($data = mysqli_fetch_array($results)){
 				echo 'user fout gegokt want uitslag is draw<br>';
 				if($data['survivor'] == 'Home'){
 					$newTotaal = $oldTotaal + $teamGaatDoor;
-					echo 'wel de juiste survivor aangeduid dus nieuwe totaal = '.$newtotaal;
+					echo 'wel de juiste survivor aangeduid dus totaal +1 = '.$newTotaal;
 				}
 				else{
 					$aantalFout++;
@@ -325,7 +326,7 @@ while ($data = mysqli_fetch_array($results)){
 				echo 'user fout gegokt want uitslag is draw<br>';
 				if($data['survivor'] == 'Away'){
 					$newTotaal = $oldTotaal + $teamGaatDoor;
-					echo 'wel de juiste survivor aangeduid dus nieuwe totaal = '.$newtotaal;
+					echo 'wel de juiste survivor aangeduid dus totaal +1 = '.$newtotaal;
 				}
 				else{
 					$aantalFout++;
