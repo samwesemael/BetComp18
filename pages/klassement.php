@@ -18,6 +18,7 @@
 							</h4>
                             <small>CW = Correct Winner</small> <br>
                             <small>CS = Correct Score</small> </br>
+                            <small>CT = Correct Team that goes to the next round (knockout phase)</small> </br>
                             <small>BP = Bonus Points</small>
                         </div>
                         <div class="body table-responsive">
@@ -28,6 +29,7 @@
                                         <th>Name</th>
                                         <th>CW</th>
                                         <th>CS</th>
+                                        <th>CT</th>
 										<th>BP</th>
 										<th>TOT</th>
                                     </tr>
@@ -100,14 +102,16 @@
 											if($ranking < 6){
 												$ratio = $data['totaal'] / $totpointstop5;
 												$geld = $ratio * $pot;
-												//echo '<div align="right" class="col-blue"><b>'  .  round($geld) . '€</b></div></td>';
+												// echo '<div align="right" class="col-blue"><b>'  .  round($geld) . '€</b></div></td>';
 											}
 											else{
 												echo '</td>';
 											}
+                                            $teamcorrect = (int)$data['totaal']-3*(int)$data['uitslag_correct']-(int)$data['winnaar_correct'];
                                             echo'
                                                 <td>' . $data['winnaar_correct'] . '</td>
                                                 <td>' . $data['uitslag_correct'] . '</td>
+                                                <td>' . $teamcorrect.'</td>
 												<td>' . $data['bonus'] . '</td>
                                                 <td><b>' . $data['totaal'] . '</b></td>
                                             </tr>';

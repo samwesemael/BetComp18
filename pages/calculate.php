@@ -273,6 +273,7 @@ while ($data = mysqli_fetch_array($results)){
 			else{
 				$survivor = 'Away';
 			}
+			echo $survivor.' is de ploeg dat doorgaat <br>';
 			echo 'Na 120 min was het gelijk en na de penalties won '. $survivor.'<br>';
 			//user gokte op gelijkspel
 			if($data['pred_goals_home'] == $data['pred_goals_away']){
@@ -303,7 +304,7 @@ while ($data = mysqli_fetch_array($results)){
 					if($survivor == $data['survivor'])
 					{
 						$newTotaal = $newTotaal + $teamGaatDoor;
-						echo 'ook de juiste ploeg die doorgaat werd geraden dus newtotaal = '.$newtotaal;
+						echo 'ook de juiste ploeg die doorgaat werd geraden dus newtotaal = '.$newTotaal;
 					}
 					else{
 						$aantalFout++;
@@ -312,8 +313,8 @@ while ($data = mysqli_fetch_array($results)){
 				}
 			}
 			elseif($data['pred_goals_home'] > $data['pred_goals_away']){
-				echo 'user fout gegokt want uitslag is draw<br>';
-				if($data['survivor'] == 'Home'){
+				echo 'user fout gegokt want uitslag is draw en user zei dat Home won<br>';
+				if($survivor == 'Home'){
 					$newTotaal = $oldTotaal + $teamGaatDoor;
 					echo 'wel de juiste survivor aangeduid dus totaal +1 = '.$newTotaal;
 				}
@@ -323,10 +324,10 @@ while ($data = mysqli_fetch_array($results)){
 				}
 			}
 			elseif($data['pred_goals_home'] < $data['pred_goals_away']){
-				echo 'user fout gegokt want uitslag is draw<br>';
-				if($data['survivor'] == 'Away'){
+				echo 'user fout gegokt want uitslag is draw en user zei dat away won <br>';
+				if($survivor == 'Away'){
 					$newTotaal = $oldTotaal + $teamGaatDoor;
-					echo 'wel de juiste survivor aangeduid dus totaal +1 = '.$newtotaal;
+					echo 'wel de juiste survivor aangeduid dus totaal +1 = '.$newTotaal;
 				}
 				else{
 					$aantalFout++;
