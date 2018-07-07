@@ -163,7 +163,7 @@
                                 <div class="progress-bar progress-bar-success" role="progressbar" style="width:20%;">
 								1/4
                                 </div>
-								<div class="progress-bar progress-bar-warning" role="progressbar" style="width:20%">
+								<div class="progress-bar progress-bar-success" role="progressbar" style="width:20%">
 								1/2
 								</div>
 								<div class="progress-bar progress-bar-warning" role="progressbar" style="width:20%">
@@ -447,14 +447,16 @@
                                                 $sql = "SELECT bc18_predictedbonusses.user_id, bc18_predictedbonusses.pos_belgium, bc18_users.email, bc18_users.user_name FROM bc18_predictedbonusses INNER JOIN bc18_users on bc18_predictedbonusses.user_id = bc18_users.email ORDER BY user_name";
                                                 $results = mysqli_query($db, $sql);
                                                 
-                                                while ($data = mysqli_fetch_array($results)){
-													
-													
-													
+                                                while ($data = mysqli_fetch_array($results)){		
                                             ?>
+
                                                 <tr>                                   
                                                     <td><?php echo $data['user_name']; ?></td>
-                                                    <td><span class="pull-right"><?php echo $data['pos_belgium']; ?></span></td>                 
+                                                    <?php if($data['pos_belgium'] != "Semi-Finals" && $data['pos_belgium'] != "Final" ){ ?>
+                                                    <td><span class="pull-right"><del><?php echo $data['pos_belgium']; ?></del></span></td> 
+                                                    <?php } else{ ?>
+                                                    <td><span class="pull-right"><?php echo $data['pos_belgium']; ?></span></td> 
+                                                    <?php } ?>                   
                                                 </tr>
                                                 <?php
                                                 }
